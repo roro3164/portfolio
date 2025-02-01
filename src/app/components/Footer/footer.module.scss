@@ -28,11 +28,39 @@
   
   .socialNetwork > ul {
     @apply flex gap-x-5;  
+   & hover {
+    transform: scale(1.1);
+   }
+  }
+
+  .socialNetwork > ul > li:hover .iconHover {
+    visibility: visible; /* Visible au survol */
+    transition: visibility 0.3s ease; 
+    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.7));
+
+   
+  }
+
+  .icon {
+    @apply w-16;
+  }
+
+  .icon:hover {
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
   }
 
  
-  .icon {
-    @apply w-16;
+  .iconHover {
+    @apply w-10 ;
+    visibility: hidden; /* Invisible par défaut */
+
+  }
+
+  
+  
+  .iconHover:hover {
+    display: block; /* Apparaît au survol */
+    
   }
 
  .footerBottom>p {

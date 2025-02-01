@@ -1,0 +1,6 @@
+@mixin glass-base {
+    @apply rounded-lg;
+    background: linear-gradient(#fff3, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  }

@@ -1,0 +1,36 @@
+@import '/src/app/styles/mixins.scss';
+
+.glassCardProject {
+    @include glass-base;
+    @apply  rounded-2xl;
+    height: 500px;
+    width: 30%;
+    min-width: 316px; // On enlève cette contrainte pour mobile
+  
+    @media (max-width: 768px) {
+      width: 192px;
+      height: 288px;
+      min-width: unset; // Important : annule le min-width pour mobile
+    }
+  }
+  
+  .imageContainer {
+    @apply m-auto p-2;
+    height: 80%;
+  
+    @media (max-width: 768px) {
+      height: 75%;
+      padding: 1px; // Réduit le padding pour mobile
+    }
+  }
+  
+  .boxBottomCard {
+    @apply rounded-b-xl flex justify-center px-2;
+    height: 20%;
+    background: rgba(75, 75, 75, 0.7);
+  
+    @media (max-width: 768px) {
+      height: 25%;
+      padding: 0 1px; // Réduit le padding pour mobile
+    }
+  }

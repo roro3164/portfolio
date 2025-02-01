@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Project } from './types';
 
-import { ProjectCard } from './ProjectCard';
+import { ProjectCard } from '../carousel/components/ProjectCard';
 import styles from './styles/card.module.scss';
 import { getCardClasses } from './styles/utils';
-import { BaseCard } from './BaseCard';
+import BaseCard from './BaseCard';
+
 
 interface ProjectCarouselProps {
   projects: Project[];

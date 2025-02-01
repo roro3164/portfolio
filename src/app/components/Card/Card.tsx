@@ -3,7 +3,8 @@ import { getCardClasses } from './styles/utils';
 
 import styles from './styles/card.module.scss';
 import EaselAnimation from '../EaselAnimation';
-import { BaseCard } from './BaseCard';
+import BaseCard from './BaseCard';
+
 
 
 const Card = ({
@@ -44,7 +45,7 @@ const Card = ({
         className={`${classes.mobile.imagePosition} ${classes.mobile.visibility}`}
         style={classes.mobile.imageStyle}
       >
-        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain" />
+        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain " />
         {hasEaselAnimation && <EaselAnimation />}
       </div>
 
@@ -53,7 +54,7 @@ const Card = ({
         className={`${classes.desktop.imagePosition} ${classes.desktop.visibility}`}
         style={classes.desktop.imageStyle}
       >
-        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain" />
+        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain " />
         {hasEaselAnimation && <EaselAnimation />}
       </div>
     </BaseCard>

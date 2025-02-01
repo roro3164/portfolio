@@ -1,24 +1,88 @@
-.cardContainer {
-  @apply  w-[95%] relative;
+@use '/src/app/styles/mixins.scss' as mixins;
 
+.cardContainer {
+  padding: 3px;
+  width: 95%;
+  position: relative;
+
+  &:hover {
+    .animationContainer {
+      opacity: 1;
+    }
+    
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+  }
+}
+
+
+.hiddenContainer {
+  position: absolute; 
+  border-radius: 10px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+
+.animationContainer {
+  position: absolute;
+  border-radius: 10px;
+  inset: -50%; // Pour pouvoir dépasser même avec overflow:hidden
+  width: 200%; // Plus grand pour l'effet
+  height: 200%;
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 30deg,
+    #8b5cf6 60deg,
+    #8b5cf6 120deg,
+    transparent 150deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: rotate 4s linear infinite;
+  
+}
+
+
+
+
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  from { opacity: 0.4; }
+  to { opacity: 0.7; }
 }
 
 
 .background {
   @apply rounded-lg;
+ 
   background-color: #1A181E;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 1),
-              0px 4px 6px rgba(0, 0, 0, 0.2);
+
+  
+  
+  
 }
 
-  .background:hover {
-    transform: scale(1.01);
-    border: 0.2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 50px rgba(0, 198, 255, 0.6),
-                0px 0px 10px rgba(255, 255, 255, 0.4),
-                0 0 40px rgba(148, 0, 211, 1);
-  }
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  from { opacity: 0.4; }
+  to { opacity: 0.7; }
+}
+
+ 
   
   @mixin glass-base {
     @apply rounded-lg;
@@ -59,6 +123,7 @@
   .content {
     @apply text-white  text-xl; /* rajouter poppins */
   }
+
 
 /* Service card */
 
@@ -131,14 +196,7 @@
   @apply rounded-full w-full p-2;
 }
 
-.glassCardProject {
-  @include glass-base;
-  @apply flex flex-col rounded-2xl;
-  // Hauteur fixe en pourcentage de la largeur pour maintenir les proportions
-  aspect-ratio: 0.71;
-  width: 100%;
-  
-}
+
 
 .boxBottomCard {
   @apply rounded-b-3xl flex justify-center;
@@ -149,22 +207,38 @@
 
 .glassCardProject {
   @include glass-base;
-  @apply flex flex-col rounded-2xl h-[500px] w-[30%] min-w-[316px];
-  // Hauteur fixe en pourcentage de la largeur pour maintenir les proportions
-  
- 
+  @apply flex flex-col rounded-2xl;
+  height: 500px;
+  width: 30%;
+  min-width: 316px; // On enlève cette contrainte pour mobile
+
+  @media (max-width: 768px) {
+    width: 192px;
+    height: 288px;
+    min-width: unset; // Important : annule le min-width pour mobile
+  }
+}
+
+.imageContainer {
+  @apply m-auto p-2;
+  height: 80%;
+
+  @media (max-width: 768px) {
+    height: 75%;
+    padding: 1px; // Réduit le padding pour mobile
+  }
 }
 
 .boxBottomCard {
   @apply rounded-b-xl flex justify-center px-2;
   height: 20%;
-  background: rgba(75, 75, 75, 0.7); // Gris neutre avec transparence
-}
+  background: rgba(75, 75, 75, 0.7);
 
-.imageContainer {
-  @apply m-auto p-2;
+  @media (max-width: 768px) {
+    height: 25%;
+    padding: 0 1px; // Réduit le padding pour mobile
+  }
 }
-
 // Ajouter dans les styles globaux
 .global-controls button {
   backdrop-filter: blur(4px);
@@ -176,9 +250,5 @@
 
 .progress-dot:hover {
   transform: scale(1.2);
-}
-
-.perspective-2000 {
-  perspective: 2000px;
 }
 
