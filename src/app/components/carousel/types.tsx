@@ -4,21 +4,11 @@ export interface Project {
     description: string;
     imageProject: string;
     logoProject: string;
-}
-
-export interface StyleParams {
-    index: number;
-    isAnimatingRight: boolean;
-    animationPhase: number;
-    cardOpacity: number;
-    isDragging: boolean;
-    dragOffset: number;
-}
-
-export interface MobileCarouselProps {
+  }
+  
+  export interface DesktopCarouselProps {
     projects: Project[];
-}
-
-export interface DesktopCarouselProps {
-    projects: Project[];
-}
+    onTitleChange: (title: string) => void;
+  }
+  
+  

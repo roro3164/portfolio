@@ -27,7 +27,7 @@ interface ImageSize {
  
  // Props pour BaseCard
  export interface BaseCardProps {
-  title?: string;
+  title?: React.ReactNode;    
   titleAlignment?: string;
   children?: React.ReactNode;
   cardAlignment?: string;
@@ -60,12 +60,13 @@ export interface ProjectCardProps {
 }
 
 // L'interface Project reste inchangée
+
 export interface Project {
   id?: number;
-  imageProject?: string;
-  logoProject?: string;
   title?: string;
   description?: string;
+  imageProject?: string;
+  logoProject?: string;
 }
 
 export interface ProjectCarouselProps {

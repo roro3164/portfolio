@@ -11,7 +11,10 @@ import IntenseCursorLight from "./components/IntenseCursorLight";
 import NeonWord from "./components/NeonWord";
 import BaseCard from "./components/Card/BaseCard";
 import { projects } from './components/carousel/data/projectsData';
-import ProjectCarousel from "./components/carousel/components/ProjectCarousel";
+import { TestDesktopCarousel } from "./components/Card/TestDesktopCarousel";
+import { TestMobileCarousel } from "./components/Card/TestmobileCarousel";
+import { DesktopCarousel } from "./components/carousel/components/DesktopCarousel";
+
 
 
 export default function Home() {
@@ -121,6 +124,11 @@ export default function Home() {
 
         <NeonWord word="Typescript" position=" pl-[70%]" />
 
+        <TestDesktopCarousel projects={projects} />
+
+        <TestMobileCarousel projects={projects} />
+
+
         <BaseCard
           title="Services"
           titleAlignment="mx-auto"
@@ -171,11 +179,11 @@ export default function Home() {
         >
           <FormCard></FormCard>
         </BaseCard>
-
+        
+       <DesktopCarousel projects={projects} />
        
       </section>
 
-      <ProjectCarousel projects={projects} />
 
       <Footer></Footer>
     </div>

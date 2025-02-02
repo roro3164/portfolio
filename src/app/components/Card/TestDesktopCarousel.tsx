@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from 'react';
 import { Project } from './types';
-
 import { ProjectCard } from '../carousel/components/ProjectCard';
 import styles from './styles/card.module.scss';
 import { getCardClasses } from './styles/utils';
@@ -12,7 +11,7 @@ interface ProjectCarouselProps {
   projects: Project[];
 }
 
-export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
+ export const TestDesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   const classes = getCardClasses({ imageAlign: 'left' });
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -263,4 +262,3 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
   );
 };
 
-export default ProjectCarousel;
