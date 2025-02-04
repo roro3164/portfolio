@@ -212,9 +212,10 @@
   width: 30%;
   min-width: 316px; // On enlève cette contrainte pour mobile
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 192px;
     height: 288px;
+    border-radius: 10px;
     min-width: unset; // Important : annule le min-width pour mobile
   }
 }
