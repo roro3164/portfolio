@@ -73,46 +73,48 @@
       ]
     },
     "pro": {
-      "title": "Pro",
-      "description": "Site Web complet pour professionel",
-      "prefix": "Ce qui est inclus dans Essentiel + :",
+      "title": "Site Pro",
+      "description": "Site haute performance et moderne",
+      "prefix": "Inclus :",
       "items": [
-        "Adapté à tous les formats d'écrans",
-        "Jusqu'à 5 pages",
-        "Design premium & animations avancées",
-        "3 modifications/mois",
-        "hébergement inclus",
+        "Interface moderne adaptée mobiles",
+        "Affichage instantané",
+        "Design premium & animations",
+        "Support 4 langues (FR/EN/ES/IT)",
+        "Hébergement inclus",
         "Maintenance mensuelle"
       ]
     },
     "business": {
-      "title": "Business",
-      "description": "Site E-Commerce pour exploser vos ventes",
-      "prefix": "Ce qui est inclus dans Pro, plus :",
+      "title": "Site E-commerce",
+      "description": "Toute l'offre Site Pro + boutique e-commerce complète",
+      "prefix": "Inclus :",
       "items": [
-        "Jusqu'à 10 pages",
-        "5 mises à jour gratuites / mois",
-        "E-commerce complet intégré",
-        "Analytics avancés"
-
+        "Boutique e-commerce complète",
+        "Gestion stocks synchronisée",
+        "Relance paniers abandonnés",
+        "Tunnel d'achat optimisé",
+        "Paiements sécurisés (Apple Pay/CB)",
+        "Rapports performance hebdo"
       ]
     },
     "stratégie": {
-      "title": "Gestion fiche google",
-      "description": "Pour maximiser votre visibilité",
-      "prefix": "Ce qui est inclus dans Pro, plus :",
+      "title": "Gestion SEO",
+      "description": "Optimisation complète de votre présence locale",
+      "prefix": "Inclus :",
       "items": [
-        "Suivi mensuel du référencement",
-        "Gestion Google My Business",
-        "Réponse aux commentaires Google",
-        "Posts hebdomadaires"
-
+        "Maillage local géographique",
+        "Optimisation fiche Google",
+        "2 posts d'actualité/semaine",
+        "Réponses aux avis clients",
+        "Impact visuel dans Google",
+        "Suivi SEO continu"
       ]
     },
     "pack": {
       "banner": "🔥 OFFRE RECOMMANDÉ",
       "title": "Pack Visibilité",
-      "description": "La solution complète pour un site professionnel et une visibilité locale maximale pour attirer de nouveaux clients chaque mois.",
+      "description": "La solution complète pour un site professionnel et une visibilité maximale pour attirer de nouveaux clients chaque mois.",
       "prefix": "Ce qui est inclus dans Pro, plus :",
       "items": [
         "Jusqu'à 10 pages",
@@ -126,7 +128,7 @@
       },
       "pour": {
         "title": "Parfait pour :",
-        "content": "Artisans • Commerçants • Coiffeurs • Professions libérales • Restaurants • Services locaux"
+        "content": "Artisans • Commerçants • Coiffeurs • Professions libérales • Restaurants • Services locaux • Vente"
       }
     },
     "cta": {

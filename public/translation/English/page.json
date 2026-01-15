@@ -72,44 +72,48 @@
       ]
     },
     "pro": {
-      "title": "Pro",
-      "description": "Complete website for professionals",
-      "prefix": "Includes everything in Essential + :",
+      "title": "Pro Site",
+      "description": "High-performance and modern site",
+      "prefix": "Includes :",
       "items": [
-        "Adapted to all screen sizes",
-        "Up to 5 pages",
-        "Premium design & advanced animations",
-        "3 updates/month",
+        "Modern mobile-adapted interface",
+        "Instant display",
+        "Premium design & animations",
+        "4 languages support (FR/EN/ES/IT)",
         "Hosting included",
         "Monthly maintenance"
       ]
     },
     "business": {
-      "title": "Business",
-      "description": "E-Commerce website to boost your sales",
-      "prefix": "Includes everything in Pro, plus:",
+      "title": "E-commerce Site",
+      "description": "All Pro Site offer + complete e-commerce store",
+      "prefix": "Includes :",
       "items": [
-        "Up to 10 pages",
-        "5 free updates/month",
-        "Full e-commerce integration",
-        "Advanced analytics"
+        "Complete e-commerce store",
+        "Synchronized stock management",
+        "Abandoned cart recovery",
+        "Optimized checkout funnel",
+        "Secure payments (Apple Pay/Card)",
+        "Weekly performance reports"
       ]
     },
     "stratégie": {
-      "title": "Google listing management",
-      "description": "To maximize your visibility",
-      "prefix": "Includes everything in Pro, plus:",
+      "title": "SEO Management",
+      "description": "Complete optimization of your local presence",
+      "prefix": "Includes :",
       "items": [
-        "Monthly SEO monitoring",
-        "Google My Business management",
-        "Reply to Google reviews",
-        "Weekly posts"
+        "Geographic local linking",
+        "Google listing optimization",
+        "2 news posts/week",
+        "Customer review responses",
+        "Visual impact in Google",
+        "Continuous SEO monitoring"
       ]
     },
     "pack": {
       "banner": "🔥 RECOMMENDED OFFER",
       "title": "Visibility Pack",
-      "description": "The complete solution for a professional website and maximum local visibility to attract new clients every month.",
+      "description": "The complete solution for a professional website and maximum visibility to attract new clients every month.",
       "prefix": "Includes everything in Pro, plus:",
       "items": [
         "Up to 10 pages",
@@ -123,7 +127,7 @@
       },
       "pour": {
         "title": "Perfect for:",
-        "content": "Craftsmen • Retailers • Hairdressers • Liberal professions • Restaurants • Local services"
+        "content": "Craftsmen • Retailers • Hairdressers • Liberal professions • Restaurants • Local services • Sales"
       }
     },
     "cta": {

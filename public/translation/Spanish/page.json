@@ -72,44 +72,48 @@
       ]
     },
     "pro": {
-      "title": "Pro",
-      "description": "Sitio web completo para profesional",
-      "prefix": "Incluye lo de Esencial + :",
+      "title": "Sitio Pro",
+      "description": "Sitio alto rendimiento y moderno",
+      "prefix": "Incluye :",
       "items": [
-        "Adaptado a todos los formatos de pantalla",
-        "Hasta 5 páginas",
-        "Diseño premium y animaciones avanzadas",
-        "3 modificaciones/mes",
+        "Interfaz moderna adaptada móviles",
+        "Visualización instantánea",
+        "Diseño premium y animaciones",
+        "Soporte 4 idiomas (FR/EN/ES/IT)",
         "Hosting incluido",
         "Mantenimiento mensual"
       ]
     },
     "business": {
-      "title": "Business",
-      "description": "Sitio e-Commerce para disparar tus ventas",
-      "prefix": "Incluye lo de Pro, además :",
+      "title": "Sitio E-commerce",
+      "description": "Toda la oferta Sitio Pro + tienda e-commerce completa",
+      "prefix": "Incluye :",
       "items": [
-        "Hasta 10 páginas",
-        "5 actualizaciones gratis/mes",
-        "E-commerce completo integrado",
-        "Analytics avanzados"
+        "Tienda e-commerce completa",
+        "Gestión stocks sincronizada",
+        "Recuperación carritos abandonados",
+        "Túnel de compra optimizado",
+        "Pagos seguros (Apple Pay/Tarjeta)",
+        "Informes rendimiento semanal"
       ]
     },
     "stratégie": {
-      "title": "Gestión de ficha de Google",
-      "description": "Para maximizar tu visibilidad",
-      "prefix": "Incluye lo de Pro, además :",
+      "title": "Gestión SEO",
+      "description": "Optimización completa de tu presencia local",
+      "prefix": "Incluye :",
       "items": [
-        "Seguimiento mensual de SEO",
-        "Gestión de Google My Business",
-        "Respuesta a comentarios en Google",
-        "Publicaciones semanales"
+        "Enlazado local geográfico",
+        "Optimización ficha Google",
+        "2 publicaciones/semana",
+        "Respuestas a reseñas clientes",
+        "Impacto visual en Google",
+        "Seguimiento SEO continuo"
       ]
     },
     "pack": {
       "banner": "🔥 OFERTA RECOMENDADA",
       "title": "Pack Visibilidad",
-      "description": "La solución completa para un sitio profesional y visibilidad local máxima para atraer nuevos clientes cada mes.",
+      "description": "La solución completa para un sitio profesional y visibilidad máxima para atraer nuevos clientes cada mes.",
       "prefix": "Incluye lo de Pro, además :",
       "items": [
         "Hasta 10 páginas",
@@ -123,7 +127,7 @@
       },
       "pour": {
         "title": "Ideal para:",
-        "content": "Artesanos • Comerciantes • Peluqueros • Profesiones liberales • Restaurantes • Servicios locales"
+        "content": "Artesanos • Comerciantes • Peluqueros • Profesiones liberales • Restaurantes • Servicios locales • Venta"
       }
     },
     "cta": {

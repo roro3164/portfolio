@@ -2,46 +2,50 @@
   "projects": [
     {
       "id": 1,
-      "imageProject":"/image/projects/mockupBarber.png",
-      "logoProject": "/image/projects/logoBarber.svg",
-      "title": "Barber Shop Premium",
-      "description": "Site vitrine moderne pour salon de barbier, alliant design contemporain et navigation intuitive. Un site rapide et élégant qui reflète parfaitement l'image premium du salon.",
+      "imageProject": "/image/projects/mockupInstantCoiffure.png",
+      "logoProject": "/image/projects/logoInstantCoiffure.png",
+      "title": "Instant Coiffure",
+      "description": "Site web haute performance pour salon de coiffure avec stratégie de référencement local. Conçu pour maximiser la visibilité et booster les réservations grâce à une interface moderne et un positionnement Google optimisé.",
       "sections": [
         {
-          "title": "Design & Expérience",
+          "title": "Performance & Développement",
           "content": [
-            "Interface moderne avec animations élégantes",
-            "Galerie photos avec effet Polaroid authentique",
-            "Présentation services avec cartes interactives",
-            "Design adaptatif tous écrans (mobile, tablette, desktop)",
-            "Palette de couleurs raffinée et typographie premium"
+            "Moteur de performance garantissant un affichage instantané",
+            "Technologie optimisée améliorant le positionnement Google",
+            "Chargement ultra-rapide pour une expérience fluide",
+            "Architecture efficace et code performant",
+            "Compatibilité tous navigateurs et appareils"
           ]
         },
         {
-          "title": "Performance & Rapidité",
+          "title": "Design & Expérience Utilisateur",
           "content": [
-            "Site ultra-rapide (score Google : 96/100)",
-            "Chargement instantané des pages",
-            "Optimisé pour un référencement Google optimal",
-            "Navigation fluide sans latence",
-            "Compatible tous navigateurs"
+            "Interface moderne, fluide et entièrement adaptée aux mobiles",
+            "Design boostant les réservations en ligne",
+            "Navigation intuitive pour une expérience client optimale",
+            "Affichage des notes et tarifs directement visibles",
+            "Expérience utilisateur pensée pour convertir les visiteurs"
           ]
         },
         {
-          "title": "Fonctionnalités",
+          "title": "Référencement & Visibilité",
           "content": [
-            "Carrousel témoignages clients en continu",
-            "Grille services avec aperçu détaillé au survol",
-            "Informations contact et horaires intégrées",
-            "Galerie photos interactive",
-            "Design professionnel et moderne"
+            "Maillage local optimisé pour cibler la zone géographique",
+            "Visibilité sur les 10 recherches clés du secteur",
+            "Impact visuel direct dans les résultats de recherche Google",
+            "Positionnement amélioré grâce à l'optimisation technique",
+            "Stratégie SEO local pour maximiser la visibilité"
           ]
         }
       ],
       "technologies": [
         {
-          "name": "Framer",
-          "icon": "/image/technoIcons/framer.svg"
+          "name": "Next.js",
+          "icon": "/image/technoIcons/Next.js.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "/image/technoIcons/typescript.svg"
         },
         {
           "name": "React",
@@ -52,51 +56,55 @@
           "icon": "/image/technoIcons/figma.svg"
         }
       ],
-      "note": "Site vitrine premium optimisé pour la performance et l'expérience utilisateur.",
-      "moreInfoUrl": "https://familiar-memory-305534.framer.app/"
+      "note": "Pack visibilité complet : site haute performance + stratégie SEO local pour maximiser les réservations.",
+      "moreInfoUrl": "https://client-instant-coiffure-backup.vercel.app/"
     },
     {
       "id": 2,
-      "imageProject": "/image/projects/mockupArt.png",
-      "logoProject": "/image/projects/logoArtDuCheveux.svg",
-      "title": "Salon de Coiffure Élégance",
-      "description": "Site vitrine sophistiqué pour salon de coiffure haut de gamme, conjuguant élégance visuelle et navigation intuitive. Conçu pour refléter le standing et la qualité des prestations.",
+      "imageProject": "/image/projects/mockupFujiSushi.png",
+      "logoProject": "/image/projects/logoFujiSushi.png",
+      "title": "Fuji Sushis",
+      "description": "Site web moderne pour restaurant japonais avec support multilingue et optimisation pour la clientèle touristique. Conçu pour maximiser la visibilité locale et faciliter les réservations.",
       "sections": [
         {
-          "title": "Design Raffiné",
+          "title": "Performance & Développement",
           "content": [
-            "Interface élégante aux lignes épurées",
-            "Présentation services avec grille interactive",
-            "Galerie photos avec transitions douces",
-            "Palette violet et doré pour un look premium",
-            "Typographie soignée et espaces harmonieux"
+            "Site haute performance avec affichage instantané",
+            "Technologie optimisée améliorant le positionnement Google",
+            "Architecture efficace garantissant vitesse et réactivité",
+            "Support multilingue (FR/EN/ES/IT) pour clientèle touristique",
+            "Code performant et optimisé pour tous les appareils"
           ]
         },
         {
-          "title": "Performance Optimale",
+          "title": "Design & Expérience Client",
           "content": [
-            "Site très rapide (score Google : 95/100)",
-            "Chargement quasi-instantané",
-            "Référencement naturel optimisé",
-            "Navigation fluide et sans attente",
-            "Adapté à tous les appareils"
+            "Interface moderne et fluide adaptée à tous les appareils",
+            "Design optimisé pour booster les réservations",
+            "Navigation intuitive facilitant la prise de rendez-vous",
+            "Affichage clair des menus et tarifs",
+            "Expérience utilisateur pensée pour convertir"
           ]
         },
         {
-          "title": "Fonctionnalités Élégantes",
+          "title": "Référencement & Visibilité",
           "content": [
-            "Grille services avec aperçu détaillé",
-            "Carrousel témoignages avec contrôles intuitifs",
-            "Cartes informations contact et horaires",
-            "Navigation simple et accessible",
-            "Design haut de gamme professionnel"
+            "Maillage local pour cibler la zone géographique",
+            "Visibilité sur les recherches clés du secteur restauration",
+            "Impact visuel direct dans les résultats de recherche Google",
+            "Positionnement amélioré grâce à l'optimisation technique",
+            "Stratégie SEO local pour attirer la clientèle de proximité"
           ]
         }
       ],
       "technologies": [
         {
-          "name": "Framer",
-          "icon": "/image/technoIcons/framer.svg"
+          "name": "Next.js",
+          "icon": "/image/technoIcons/Next.js.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "/image/technoIcons/typescript.svg"
         },
         {
           "name": "React",
@@ -107,11 +115,70 @@
           "icon": "/image/technoIcons/figma.svg"
         }
       ],
-      "note": "Site vitrine haut de gamme alliant performance et design élégant.",
-      "moreInfoUrl": "https://brave-star-149335.framer.app/"
+      "note": "Site haute performance avec stratégie de visibilité locale et support multilingue pour maximiser les réservations.",
+      "moreInfoUrl": "https://client-fuji-sushis-backup-n7ekhf180-romains-projects-72d8cf83.vercel.app/"
     },
     {
       "id": 3,
+      "imageProject": "/image/projects/mockupSalonBeauté.png",
+      "logoProject": "/image/projects/logoSalonBeauté.png",
+      "title": "Salon Beauté",
+      "description": "Site web moderne pour salon de beauté avec stratégie de visibilité locale. Conçu pour maximiser les réservations et améliorer la présence en ligne grâce à une interface élégante et un référencement optimisé.",
+      "sections": [
+        {
+          "title": "Performance & Développement",
+          "content": [
+            "Site haute performance avec affichage instantané",
+            "Technologie optimisée améliorant le positionnement Google",
+            "Chargement ultra-rapide pour une expérience fluide",
+            "Architecture efficace garantissant vitesse et réactivité",
+            "Compatibilité tous navigateurs et appareils mobiles"
+          ]
+        },
+        {
+          "title": "Design & Expérience Utilisateur",
+          "content": [
+            "Interface élégante et moderne adaptée à tous les appareils",
+            "Design optimisé pour booster les réservations en ligne",
+            "Navigation intuitive facilitant la prise de rendez-vous",
+            "Affichage clair des prestations et tarifs",
+            "Expérience utilisateur pensée pour convertir les visiteurs"
+          ]
+        },
+        {
+          "title": "Référencement & Visibilité",
+          "content": [
+            "Maillage local optimisé pour cibler la zone géographique",
+            "Visibilité sur les recherches clés du secteur beauté",
+            "Impact visuel direct dans les résultats de recherche Google",
+            "Positionnement amélioré grâce à l'optimisation technique",
+            "Stratégie SEO local pour attirer la clientèle de proximité"
+          ]
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "icon": "/image/technoIcons/Next.js.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "/image/technoIcons/typescript.svg"
+        },
+        {
+          "name": "React",
+          "icon": "/image/technoIcons/react.svg"
+        },
+        {
+          "name": "Figma",
+          "icon": "/image/technoIcons/figma.svg"
+        }
+      ],
+      "note": "Site haute performance avec stratégie de visibilité locale pour maximiser les réservations et améliorer la présence en ligne.",
+      "moreInfoUrl": ""
+    },
+    {
+      "id": 4,
       "imageProject": "/image/projects/MockUpSportclubpng.webp",
       "logoProject": "/image/projects/logoSportclub .svg",
       "title": "Sport Club",
@@ -154,7 +221,7 @@
       "moreInfoUrl": "https://www.behance.net/gallery/166552523/Rediseno-SportClub"
     },
     {
-      "id": 4,
+      "id": 5,
       "imageProject": "/image/projects/mockUpLapin.webp",
       "logoProject": "/image/projects/LogoLapin.svg",
       "title": "Lapin Deco",
@@ -199,10 +266,10 @@
         }
       ],
       "note": "Projet personnel démontrant des compétences de conception et de développement end-to-end.",
-      "moreInfoUrl": "https://roro3164.github.io/Lapin-Deco/index.html"
+      "moreInfoUrl": ""
     },
     {
-      "id": 5,
+      "id": 6,
       "imageProject": "/image/projects/mockUpAqui.webp",
       "logoProject": "/image/projects/logoAqui.svg",
       "title": "Aqui Acampamos",
@@ -249,7 +316,7 @@
         }
       ],
       "note": "Projet en cours : de nouvelles fonctionnalités sont en cours de développement.",
-      "moreInfoUrl": "https://aquiacampamos-phi.vercel.app/"
+      "moreInfoUrl": ""
     }
   ]
 }

@@ -88,6 +88,12 @@ export const ServicesSection = () => {
             prefix: t("services.stratégie.prefix"),
             listItems: strategieItems
           }}
+          businessCard={{
+            title: t("services.business.title"),
+            description: t("services.business.description"),
+            prefix: t("services.business.prefix"),
+            listItems: businessItems
+          }}
         />
         
         <div className="">

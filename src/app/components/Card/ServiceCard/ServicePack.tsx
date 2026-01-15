@@ -11,6 +11,7 @@ interface ServicePackProps {
   prefix?: string;
   proCard: Omit<ServiceCardProps, 'color'>;
   strategieCard: Omit<ServiceCardProps, 'color'>;
+  businessCard?: Omit<ServiceCardProps, 'color'>;
   color?: string;
 }
 
@@ -19,6 +20,7 @@ export const ServicePack = ({
   description,
   proCard,
   strategieCard,
+  businessCard,
   color = "yellow",
 }: ServicePackProps) => {
   const { t } = useTranslation("page");
@@ -58,9 +60,9 @@ export const ServicePack = ({
             </div>
 
             {/* Section des cartes - Layout unique responsive */}
-            <div className="flex flex-col lg:flex-row  justify-center items-center gap-4 lg:gap-6">
-              {/* Première carte */}
-              <div className="w-full sm:flex-1 sm:min-w-[280px] max-w-[316px] lg:max-w-[500px] mx-auto sm:mx-0">
+            <div className="flex flex-col lg:flex-row  justify-center items-center gap-3 lg:gap-4">
+              {/* Première carte - Gestion SEO */}
+              <div className="w-full sm:flex-1 sm:min-w-[260px] max-w-[300px] lg:max-w-[340px] mx-auto sm:mx-0">
               <ServiceCard
                   title={strategieCard.title}
                   description={strategieCard.description}
@@ -68,17 +70,17 @@ export const ServicePack = ({
                   color="green"
                   disableHover={true}
                   width="100%"
+                  compact={true}
                 />
               </div>
 
               {/* Séparateur + */}
               <div className="flex justify-items-center ">
-                <span className="text-white text-5xl sm:text-6xl lg:7xl font-bold">+</span>
+                <span className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">+</span>
               </div>
               
-              {/* Deuxième carte */}
-              <div className=" sm:flex-1 sm:min-w-[280px] max-w-[316px] lg:max-w-[500px] mx-auto sm:mx-0">
-                
+              {/* Deuxième carte - Site Pro */}
+              <div className="w-full sm:flex-1 sm:min-w-[260px] max-w-[300px] lg:max-w-[340px] mx-auto sm:mx-0">
                 <ServiceCard
                   title={proCard.title}
                   description={proCard.description}
@@ -86,8 +88,29 @@ export const ServicePack = ({
                   color="blue"
                   disableHover={true}
                   width="100%"
+                  compact={true}
                 />
               </div>
+
+              {/* Séparateur ou */}
+              <div className="flex justify-items-center ">
+                <span className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">ou</span>
+              </div>
+              
+              {/* Troisième carte - E-commerce */}
+              {businessCard && (
+                <div className="w-full sm:flex-1 sm:min-w-[260px] max-w-[300px] lg:max-w-[340px] mx-auto sm:mx-0">
+                  <ServiceCard
+                    title={businessCard.title}
+                    description={businessCard.description}
+                    listItems={businessCard.listItems}
+                    color="violet"
+                    disableHover={true}
+                    width="100%"
+                    compact={true}
+                  />
+                </div>
+              )}
             </div>
 
             {/* Explication */}
