@@ -1,4 +1,4 @@
-@import '../BaseCard/BaseCard.module.scss';
+@use '../BaseCard/BaseCard.module.scss' as *;
 
 // Styles spécifiques pour l'intérieur de NormalCard
 .Box {

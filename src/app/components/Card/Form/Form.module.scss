@@ -1,4 +1,4 @@
-@import '/src/app/styles/mixins.scss';
+@use '/src/app/styles/mixins.scss' as *;
 
 .glassContact {
     @include glass-base;
