@@ -10,8 +10,8 @@
     "closeMenu": "Close menu"
   },
   "button": {
-    "demo": "Your free audit",
-    "contact": "Request your free audit"
+    "demo": "Your free demo",
+    "contact": "Request your free demo"
   },
   "hero": {
     "title": "Visibility Expert – Appear #1 on Google in Your Sector",
@@ -22,14 +22,14 @@
     },
     "description": "Don’t let your competitors get ahead and take your clients",
     "cta": {
-      "title": " Discover Your Position",
-      "button": "My free audit"
+      "title": "Request the demo of your future site for free",
+      "button": "My free demo"
     }
   },
   "transition": {
     "services": "I create a unique synergy: ultra-performant, modern, and aesthetic websites combined with the management of your local presence via your Google listing. This triple skill set ensures concrete results to attract new customers and grow your business.",
     "projects": "Projects that speak for themselves.",
-    "contact": " Let’s discuss your project and request your visibility audit!"
+    "contact": " Let’s discuss your project and request your free demo!"
   },
   "about": {
     "title": "About me",
@@ -131,7 +131,7 @@
       }
     },
     "cta": {
-      "title": "Boost your visibility today, request your audit!",
+      "title": "Boost your visibility today, request your demo!",
       "buttonText": "Request your free demo"
     }
   },

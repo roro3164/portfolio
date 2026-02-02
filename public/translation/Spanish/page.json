@@ -10,8 +10,8 @@
     "closeMenu": "Cerrar menú"
   },
   "button": {
-    "demo": "Tu diagnóstico gratuito",
-    "contact": "Solicita tu diagnóstico gratuito"
+    "demo": "Tu demo gratuita",
+    "contact": "Solicita tu demo gratuita"
   },
   "hero": {
     "title": "Experto en Visibilidad – Aparece N.º 1 en Google en tu sector",
@@ -22,14 +22,14 @@
     },
     "description": "No dejes que tus competidores te adelanten y te roben clientes",
     "cta": {
-      "title": " Descubre tu posición",
-      "button": "Mi diagnóstico gratuito"
+      "title": "Solicita la demo de tu futuro sitio gratis",
+      "button": "Mi demo gratuita"
     }
   },
   "transition": {
     "services": "Creo una sinergia única: sitios ultra-rendidores, modernos y estéticos, combinados con una gestión de tu presencia local vía tu ficha de Google. Esta triple competencia garantiza resultados concretos para atraer nuevos clientes y desarrollar tu negocio.",
     "projects": "Proyectos que hablan por sí mismos.",
-    "contact": " Hablemos de tu proyecto y solicita tu diagnóstico de visibilidad !"
+    "contact": "Hablemos de tu proyecto y solicita tu demo gratuita !"
   },
   "about": {
     "title": "Sobre mí",
@@ -131,7 +131,7 @@
       }
     },
     "cta": {
-      "title": "Impulsa tu visibilidad hoy mismo, solicita tu diagnóstico!",
+      "title": "Impulsa tu visibilidad hoy mismo, solicita tu demo!",
       "buttonText": "Solicita tu demo gratis"
     }
   },

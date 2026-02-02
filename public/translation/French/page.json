@@ -10,8 +10,8 @@
     "closeMenu": "Fermer le menu"
   },
   "button": {
-    "demo": "Votre bilan gratuit",
-    "contact": "Demandez votre bilan gratuit"
+    "demo": "Votre demo gratuite",
+    "contact": "Demandez votre demo gratuite"
   },
   "hero": {
     "title": "Expert Visibilité - Apparaissez N°1 sur Google dans votre Secteur",
@@ -22,15 +22,15 @@
     },
     "description": "Ne laissez plus vos concurrents passer devant vous et prendre vos clients",
     "cta": {
-      "title": " Découvrez Votre Position",
-      "button": "Mon bilan gratuit"
+      "title": "Demander la démo de votre futur site gratuit",
+      "button": "Ma démo gratuite"
     }
     
   },
   "transition": {
     "services": "Je crée ainsi une synergie unique : des sites ultra-performants, modernes et esthétiques, couplés à une gestion de votre présence locale via votre fiche Google. Cette triple compétence garantit des résultats concrets pour attirer de nouveaux clients et développer votre activité.",
     "projects": "Des réalisations qui parlent d'elles-mêmes.",
-    "contact": " Discutons de votre projet et demandez votre bilan visibilité !"
+    "contact": "Discutons de votre projet et demandez votre demo gratuite !"
   },
   "about": {
     "title": "À propos de moi",
@@ -132,7 +132,7 @@
       }
     },
     "cta": {
-      "title": "Boostez votre visibilité dès aujourd'hui, demandez votre bilan!",
+      "title": "Boostez votre visibilité dès aujourd'hui, demandez votre demo!",
       "buttonText": "Demandez votre démo gratuite"
     }
   },
