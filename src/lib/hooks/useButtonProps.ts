@@ -24,6 +24,10 @@ export function useButtonProps(
   return {
     ...defaults,
     ...props,
-  } as any;
+  } as Required<Pick<
+    CommonButtonProps,
+    "backgroundColor" | "textColor" | "borderRadius" | "fontFamily" | "fontSize" | "fontWeight" | "size"
+  >> &
+    CommonButtonProps;
 }
 

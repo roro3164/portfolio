@@ -6,10 +6,11 @@ import { useButtonProps } from "@/lib/hooks/useButtonProps";
 
 export interface ButtonNeuromorphicProps
   extends CommonButtonProps,
-    Omit<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
-      "style" | "children"
-    > {}
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  linkUrl?: string;
+  openInNewTab?: boolean;
+  loading?: boolean;
+}
 
 export function ButtonNeuromorphic({
   text,
@@ -25,37 +26,39 @@ export function ButtonNeuromorphic({
 }: ButtonNeuromorphicProps) {
   const finalProps = useButtonProps(props);
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
-    backgroundColor: _backgroundColor,
-    textColor: _textColor,
-    borderRadius: _borderRadius,
-    fontFamily: _fontFamily,
-    fontSize: _fontSize,
-    fontWeight: _fontWeight,
-    componentName: _componentName,
-    textConfig: _textConfig,
-    size: _size,
-    sizeLevel: _sizeLevel,
-    padding: _padding,
-    margin: _margin,
-    align: _align,
-    alignResponsive: _alignResponsive,
-    icon: _icon,
-    iconPosition: _iconPosition,
-    iconSize: _iconSize,
-    width: _width,
-    height: _height,
-    opacity: _opacity,
-    shadow: _shadow,
-    hover: _hover,
-    borderColor: _borderColor,
-    borderWidth: _borderWidth,
-    borderStyle: _borderStyle,
-    customFontFamily: _customFontFamily,
-    blurAmount: _blurAmount,
-    opacityLevel: _opacityLevel,
+    backgroundColor: _bg,
+    textColor: _tc,
+    borderRadius: _br,
+    fontFamily: _ff,
+    fontSize: _fs,
+    fontWeight: _fw,
+    componentName: _cn,
+    textConfig: _tcfg,
+    size: _s,
+    sizeLevel: _sl,
+    padding: _p,
+    margin: _m,
+    align: _a,
+    alignResponsive: _ar,
+    icon: _i,
+    iconPosition: _ip,
+    iconSize: _is,
+    width: _w,
+    height: _h,
+    opacity: _o,
+    shadow: _sh,
+    hover: _hv,
+    borderColor: _bc,
+    borderWidth: _bw,
+    borderStyle: _bs,
+    customFontFamily: _cff,
+    blurAmount: _ba,
+    opacityLevel: _ol,
     ...domProps
-  } = props as any;
+  } = props as ButtonNeuromorphicProps;
+  /* eslint-enable @typescript-eslint/no-unused-vars */
 
   const paddingMap = {
     sm: { v: 10, h: 20 },

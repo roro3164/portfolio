@@ -9,13 +9,6 @@ import { CircleListItem } from "../ServiceCard/CircleListItem";
 import VioletHover from "../hover/VioletHover";
 import ButtonNeuromorphic from "../../Header/ButtonNeuromorphic";
 
-const cardColors = {
-  green: "rgba(64, 211, 111, 0.3)",
-  blue: "rgba(64, 153, 211, 0.3)",
-  violet: "rgba(89, 64, 211, 0.3)",
-  gold: "rgba(212, 175, 55, 0.3)",
-};
-
 const accentColors: Record<"green" | "blue" | "violet" | "gold", string> = {
   green: "#22c55e",
   blue: "#3b82f6",
@@ -107,7 +100,7 @@ function PricePill({
 }
 
 function TarifsCard({
-  color,
+  color: _color,
   offreDuMoment,
   ou,
   children,
