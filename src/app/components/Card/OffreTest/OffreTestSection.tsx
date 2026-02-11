@@ -177,8 +177,8 @@ export function OffreTestSection() {
   };
 
   return (
-    <section id="offre-test" className="scroll-mt-4 text-white">
-      <div className="mx-auto flex flex-col gap-y-12 lg:gap-y-16">
+    <section id="offre-test" className="scroll-mt-4 text-white min-w-0 overflow-x-hidden">
+      <div className="mx-auto flex flex-col gap-y-12 lg:gap-y-16 min-w-0 w-full">
         <motion.div
           initial={{ x: 24, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -359,52 +359,62 @@ export function OffreTestSection() {
           </div>
         </motion.div>
 
-        <div className="w-full mx-auto flex flex-col items-stretch px-4 sm:px-0 py-6 sm:py-8">
-          <div className="w-full max-w-[640px] mx-auto mb-6">
-            <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-2xl lg:text-3xl leading-snug">
+        {/* Bloc abonnement flexible — largeur contrainte pour que le texte s’habille sur mobile */}
+        <div
+          className="box-border py-6 sm:py-8"
+          style={{ width: "100%", maxWidth: "100%", paddingLeft: "1rem", paddingRight: "1rem" }}
+        >
+          <div className="mx-auto" style={{ maxWidth: "min(1000px, 100%)" }}>
+            <h3
+              className="text-center text-white font-jakarta font-bold text-lg sm:text-2xl lg:text-3xl leading-snug mb-6"
+              style={{ overflowWrap: "break-word", wordBreak: "break-word" }}
+            >
               {t("offers.gestionMensuelle.flexibleIntro")}
             </h3>
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex flex-col gap-4 w-full min-w-0 mt-2"
-          >
-<p className="text-center text-white font-jakarta text-lg sm:text-xl font-semibold">
-            {t("offers.gestionMensuelle.flexibleCta")}
-          </p>
-            <div className="flex flex-col sm:flex-row items-stretch gap-4 w-full min-w-0 max-w-full">
-            <div
-              className="flex flex-col items-center justify-center rounded-xl px-4 py-4 flex-1"
-              style={{
-                background: `linear-gradient(135deg, ${accentColors.green}55 0%, ${accentColors.green}35 100%)`,
-                border: `1px solid ${accentColors.green}80`,
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="flex flex-col gap-4"
             >
-              <p className="text-white font-jakarta font-semibold text-sm sm:text-base mb-2">
-                {t("offers.gestionMensuelle.aboStarter")}
+              <p
+                className="text-center text-white font-jakarta text-lg sm:text-xl font-semibold"
+                style={{ overflowWrap: "break-word", wordBreak: "break-word" }}
+              >
+                {t("offers.gestionMensuelle.flexibleCta")}
               </p>
-              <PricePill price="149€" suffix="/mois" />
-              <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.tarifs.sansEngagement")}</p>
-            </div>
-            <div
-              className="flex flex-col items-center justify-center rounded-xl px-4 py-4 flex-1"
-              style={{
-                background: `linear-gradient(135deg, ${accentColors.blue}55 0%, ${accentColors.blue}35 100%)`,
-                border: `1px solid ${accentColors.blue}80`,
-              }}
-            >
-              <p className="text-white font-jakarta font-semibold text-sm sm:text-base mb-2">
-                {t("offers.gestionMensuelle.aboVisibilite")}
-              </p>
-              <PricePill price="199€" suffix="/mois" />
-              <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.tarifs.sansEngagement")}</p>
-            </div>
+              <div className="flex flex-col sm:flex-row items-stretch gap-4 w-full">
+                <div
+                  className="flex flex-col items-center justify-center rounded-xl px-4 py-4 flex-1 min-w-0"
+                  style={{
+                    background: `linear-gradient(135deg, ${accentColors.green}55 0%, ${accentColors.green}35 100%)`,
+                    border: `1px solid ${accentColors.green}80`,
+                  }}
+                >
+                  <p className="text-white font-jakarta font-semibold text-sm sm:text-base mb-2">
+                    {t("offers.gestionMensuelle.aboStarter")}
+                  </p>
+                  <PricePill price="149€" suffix="/mois" />
+                  <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.tarifs.sansEngagement")}</p>
+                </div>
+                <div
+                  className="flex flex-col items-center justify-center rounded-xl px-4 py-4 flex-1 min-w-0"
+                  style={{
+                    background: `linear-gradient(135deg, ${accentColors.blue}55 0%, ${accentColors.blue}35 100%)`,
+                    border: `1px solid ${accentColors.blue}80`,
+                  }}
+                >
+                  <p className="text-white font-jakarta font-semibold text-sm sm:text-base mb-2">
+                    {t("offers.gestionMensuelle.aboVisibilite")}
+                  </p>
+                  <PricePill price="199€" suffix="/mois" />
+                  <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.tarifs.sansEngagement")}</p>
+                </div>
+              </div>
+            </motion.div>
           </div>
-          </motion.div>
         </div>
 
         <motion.div
