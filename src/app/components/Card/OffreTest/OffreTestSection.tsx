@@ -359,8 +359,8 @@ export function OffreTestSection() {
           </div>
         </motion.div>
 
-        <div className="w-fit max-w-full mx-auto flex flex-col items-stretch px-4 sm:px-0 py-6 sm:py-8">
-          <div className="w-max mb-6">
+        <div className="w-full mx-auto flex flex-col items-stretch px-4 sm:px-0 py-6 sm:py-8">
+          <div className="w-full max-w-[640px] mx-auto mb-6">
             <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-2xl lg:text-3xl leading-snug">
               {t("offers.gestionMensuelle.flexibleIntro")}
             </h3>
