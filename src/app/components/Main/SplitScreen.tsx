@@ -107,56 +107,50 @@ const SplitScreen: React.FC = () => {
         }
       `}</style>
       <style jsx global>{`
-        .sticker-coin {
+        .sticker-toupie {
           transform-style: preserve-3d;
         }
-        .sticker-coin:hover {
-          animation: coinSpin 3.5s ease-in-out infinite;
+        .sticker-wrapper:hover .sticker-toupie {
+          animation: coinToupie 5.5s ease-in-out infinite;
         }
-        @keyframes coinSpin {
-          0%    { transform: rotateY(0deg); }
-          22%   { transform: rotateY(180deg); }
-          50%   { transform: rotateY(180deg); }
-          72%   { transform: rotateY(0deg); }
-          100%  { transform: rotateY(0deg); }
+        @keyframes coinToupie {
+          0%   { transform: rotateY(0deg); }
+          10%  { transform: rotateY(360deg); }
+          100% { transform: rotateY(360deg); }
         }
       `}</style>
-
-      {/* Pastille circulaire promo - au-dessus du hover gauche */}
+      {/* Pastille circulaire promo */}
       <motion.div
-        className="absolute right-[2%] top-[2%] -translate-y-1/2 z-10"
-        initial={{ opacity: 0, scale: 0.8 }}
+        role="button"
+        tabIndex={0}
+        onClick={scrollToOffers}
+        onKeyDown={(e) => e.key === "Enter" && scrollToOffers()}
+        className="sticker-wrapper absolute right-[2%] top-[2%] -translate-y-1/2 z-[50] w-36 h-36 sm:w-48 sm:h-48 rounded-full flex flex-col items-center justify-center text-white font-jakarta font-extrabold shadow-[0_0_30px_rgba(106,90,205,0.4)] cursor-pointer select-none"
+        style={{
+          background: "linear-gradient(135deg, #3b82f6 0%, #6a5acd 50%, #8b5cf6 100%)",
+          border: "4px solid rgba(255,255,255,0.5)",
+        }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{
           opacity: 1,
-          scale: [1, 1.06, 1],
+          scale: [1, 1.04, 1],
         }}
+        whileHover={{ scale: 1.12 }}
         transition={{
-          opacity: { duration: 0.5, ease: "easeOut" },
+          opacity: { duration: 0.5 },
           scale: {
-            duration: 2.5,
+            duration: 2.2,
             repeat: Infinity,
             ease: "easeInOut",
           },
         }}
       >
-        <motion.div
-          role="button"
-          tabIndex={0}
-          onClick={scrollToOffers}
-          onKeyDown={(e) => e.key === "Enter" && scrollToOffers()}
-          className="sticker-coin w-36 h-36 sm:w-48 sm:h-48 rounded-full flex flex-col items-center justify-center text-white font-jakarta font-extrabold shadow-[0_0_30px_rgba(106,90,205,0.4)] cursor-pointer"
-          style={{
-            background: "linear-gradient(135deg, #3b82f6 0%, #6a5acd 50%, #8b5cf6 100%)",
-            border: "4px solid rgba(255,255,255,0.5)",
-          }}
-        >
-        <div className="-rotate-6 flex flex-col items-center justify-center">
+        <div className="sticker-toupie -rotate-6 flex flex-col items-center justify-center pointer-events-none w-full h-full rounded-full">
           <span className="text-sm sm:text-base uppercase tracking-wide font-extrabold">{t("hero.sticker.des")}</span>
           <span className="text-3xl sm:text-4xl font-extrabold">599€</span>
           <span className="text-sm sm:text-base uppercase tracking-wide font-extrabold">{t("hero.sticker.offreLimitee")}</span>
           <span className="text-[10px] sm:text-xs uppercase tracking-wide font-semibold text-white/95">{t("hero.sticker.voirOffre")}</span>
         </div>
-        </motion.div>
       </motion.div>
 
       {/* Zones de hover gauche/droite */}

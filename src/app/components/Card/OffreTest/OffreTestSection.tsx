@@ -37,7 +37,7 @@ function PackCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.45 }}
-      className="w-full sm:max-w-xl xl:max-w-none xl:w-1/3 flex flex-col h-auto xl:h-[620px] transition-transform duration-300 hover:scale-[1.01]"
+      className="w-full sm:max-w-xl xl:max-w-none xl:w-1/3 flex flex-col h-auto xl:h-[720px] transition-transform duration-300 hover:scale-[1.01]"
     >
       <VioletHover color={color} className="h-full flex flex-col min-h-0">
         <div className={`bg-[#100E12] rounded-2xl h-full min-h-0 flex flex-col relative overflow-hidden flex-1 ${frameBlack ? "border-2 border-black" : ""}`}>
@@ -298,8 +298,8 @@ export function OffreTestSection() {
             intro={t("offers.packEcommerce.intro")}
             frameBlack
           >
-            <div className={`rounded-xl px-4 py-3 flex flex-col justify-center ${styles.internBox}`}>
-              <p className="text-center text-white font-jakarta font-semibold text-base sm:text-lg py-1">
+            <div className={`rounded-xl px-2 sm:px-4 py-3 flex flex-col justify-center min-h-[165px] ${styles.internBox}`}>
+              <p className="text-center text-white font-jakarta font-semibold text-base sm:text-lg">
                 {t("offers.packEcommerce.uniquementDevis")}
               </p>
             </div>
@@ -397,9 +397,9 @@ export function OffreTestSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-center pt-4"
+          className="text-center pt-1"
         >
-          <p className="text-xl font-semibold mb-4 font-jakarta">
+          <p className="text-xl font-semibold mb-8 font-jakarta">
             {t("offers.cta.title")}
           </p>
           <div onClick={() => scrollToSection("contact")} className="flex justify-center cursor-pointer">
