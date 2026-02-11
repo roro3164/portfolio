@@ -191,8 +191,11 @@ export function OffreTestSection() {
           <h2 className="transition-heading text-3xl font-bold font-jakarta">
             {t("offers.title")}
           </h2>
-          <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/90 font-semibold max-w-2xl mx-auto">
             {t("offers.subtitle")}
+          </p>
+          <p className="text-lg sm:text-xl text-white/95 font-semibold max-w-2xl mx-auto">
+            {t("offers.description")}
           </p>
           <p className="text-lg sm:text-xl text-white font-bold max-w-2xl mx-auto">
             {t("offers.promo")}
