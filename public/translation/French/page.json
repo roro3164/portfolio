@@ -23,7 +23,8 @@
     "services": {
       "developer": "Site web performant",
       "positionnement": "Positionnement Google",
-      "seo": "Gestion fiche Google"
+      "seo": "Gestion fiche Google",
+      "sansEngagement": "Offres sans engagement"
     },
     "description": "Ne laissez plus vos concurrents passer devant vous et prendre vos clients",
     "cta": {
@@ -61,14 +62,14 @@
     "clickToExplore": "Cliquez sur la carte pour explorer"
   },
   "offers": {
-    "title": "Des sites web tout inclus",
+    "title": "Des sites web tout inclus, sans engagement",
     "subtitle": "Personnalisés, modernes et bien positionnés sur Google.",
     "description": "Je m'occupe de tout : création, mise en ligne, optimisation Google et gestion de votre visibilité. Vous n'avez rien à gérer.",
     "promo": "🎁 En ce moment : une demo gratuite de votre site sans engagement !",
     "offreDuMoment": "Offre du moment",
     "ou": "ou",
     "tarifs": {
-      "paiementUnique": "Paiement unique",
+      "paiementUnique": "À partir de",
       "abonnement": "Abonnement",
       "proprieteImmediate": "Propriété immédiate",
       "sansEngagement": "Sans engagement",
@@ -163,6 +164,11 @@
     },
     "gestionMensuelle": {
       "title": "Gestion mensuelle",
+      "optionPrice": "en option à 69€/mois",
+      "flexibleIntro": "Vous préférez une formule plus flexible pour démarrer sereinement ?",
+      "flexibleCta": "Un abonnement tout inclus : contenu du pack + gestion mensuelle.",
+      "aboStarter": "Pack Starter",
+      "aboVisibilite": "Pack Visibilité",
       "description": "Votre site est accompagné tout au long de l'année avec les prestations suivantes.",
       "items": [
         "1 post Google / semaine",

@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import styles from './ServiceCard.module.scss';
 
 const accentColors: Record<string, string> = {
@@ -20,6 +21,8 @@ interface CircleListItemProps {
   dotOnly?: boolean;
   /** Affiche uniquement la coche ✓, sans fond coloré */
   checkOnly?: boolean;
+  /** Utilise l'icône Lucide Check au lieu du caractère ✓ */
+  useLucideCheck?: boolean;
 }
 
 export const CircleListItem = ({ 
@@ -29,7 +32,8 @@ export const CircleListItem = ({
   textClassName = "",
   spacing = "mr-2 sm:mr-4",
   dotOnly = false,
-  checkOnly = false
+  checkOnly = false,
+  useLucideCheck = false
 }: CircleListItemProps) => {
   const colorValue = getColorVariable(color);
   const sizeClass = className || (dotOnly ? "min-w-2 h-2" : "min-w-8 h-8");
@@ -67,7 +71,11 @@ export const CircleListItem = ({
           '--card-color': colorValue 
         } as React.CSSProperties}
       >
-        {!dotOnly && "✓"}
+        {!dotOnly && (useLucideCheck ? (
+          <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" strokeWidth={3} />
+        ) : (
+          "✓"
+        ))}
       </div>
       <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`}>
         {text}

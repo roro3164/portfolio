@@ -23,7 +23,8 @@
     "services": {
       "developer": "High-performance website",
       "positionnement": "Google ranking",
-      "seo": "Google listing management"
+      "seo": "Google listing management",
+      "sansEngagement": "Offers with no commitment"
     },
     "description": "Don’t let your competitors get ahead and take your clients",
     "cta": {
@@ -60,14 +61,14 @@
     "clickToExplore": "Click on the card to explore"
   },
   "offers": {
-    "title": "All-inclusive websites",
+    "title": "All-inclusive websites, no commitment",
     "subtitle": "Custom, modern and well-positioned on Google.",
     "description": "I handle everything: creation, launch, Google optimisation and your visibility management. You have nothing to manage.",
     "promo": "🎁 Right now: a free demo of your site with no commitment!",
     "offreDuMoment": "Offer of the moment",
     "ou": "or",
     "tarifs": {
-      "paiementUnique": "One-time payment",
+      "paiementUnique": "From",
       "abonnement": "Subscription",
       "proprieteImmediate": "Immediate ownership",
       "sansEngagement": "No commitment",
@@ -162,6 +163,11 @@
     },
     "gestionMensuelle": {
       "title": "Monthly management",
+      "optionPrice": "optional at 69€/month",
+      "flexibleIntro": "Prefer a more flexible formula to get started serenely?",
+      "flexibleCta": "An all-inclusive subscription: pack contents + monthly management.",
+      "aboStarter": "Pack Starter",
+      "aboVisibilite": "Pack Visibilité",
       "description": "Your site is accompanied throughout the year with the following services.",
       "items": [
         "1 Google post / week",

@@ -23,7 +23,8 @@
     "services": {
       "developer": "Sitio web de alto rendimiento",
       "positionnement": "Posicionamiento Google",
-      "seo": "Gestión de ficha de Google"
+      "seo": "Gestión de ficha de Google",
+      "sansEngagement": "Ofertas sin compromiso"
     },
     "description": "No dejes que tus competidores te adelanten y te roben clientes",
     "cta": {
@@ -60,14 +61,14 @@
     "clickToExplore": "Haz clic en la tarjeta para explorar"
   },
   "offers": {
-    "title": "Sitios web todo incluido",
+    "title": "Sitios web todo incluido, sin compromiso",
     "subtitle": "Personalizados, modernos y bien posicionados en Google.",
     "description": "Me encargo de todo: creación, puesta en línea, optimización en Google y gestión de tu visibilidad. No tienes que gestionar nada.",
     "promo": "🎁 Ahora mismo: ¡una demo gratuita de tu sitio sin compromiso!",
     "offreDuMoment": "Oferta del momento",
     "ou": "o",
     "tarifs": {
-      "paiementUnique": "Pago único",
+      "paiementUnique": "A partir de",
       "abonnement": "Suscripción",
       "proprieteImmediate": "Propiedad inmediata",
       "sansEngagement": "Sin compromiso",
@@ -162,6 +163,11 @@
     },
     "gestionMensuelle": {
       "title": "Gestión mensual",
+      "optionPrice": "opcional a 69€/mes",
+      "flexibleIntro": "¿Prefieres una fórmula más flexible para empezar con serenidad?",
+      "flexibleCta": "Una suscripción todo incluido: contenido del pack + gestión mensual.",
+      "aboStarter": "Pack Starter",
+      "aboVisibilite": "Pack Visibilidad",
       "description": "Tu sitio está acompañado todo el año con las siguientes prestaciones.",
       "items": [
         "1 publicación Google / semana",

@@ -37,7 +37,7 @@ function PackCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.45 }}
-      className="w-full sm:max-w-xl xl:max-w-none xl:w-1/3 flex flex-col h-auto xl:h-[720px] transition-transform duration-300 hover:scale-[1.01]"
+      className="w-full sm:max-w-xl xl:max-w-none xl:w-1/3 flex flex-col h-auto xl:h-[660px] transition-transform duration-300 hover:scale-[1.01]"
     >
       <VioletHover color={color} className="h-full flex flex-col min-h-0">
         <div className={`bg-[#100E12] rounded-2xl h-full min-h-0 flex flex-col relative overflow-hidden flex-1 ${frameBlack ? "border-2 border-black" : ""}`}>
@@ -102,14 +102,14 @@ function PricePill({
 function TarifsCard({
   color: _color,
   offreDuMoment,
-  ou,
   children,
 }: {
   color: "green" | "blue" | "violet" | "gold";
   offreDuMoment: string;
-  ou: string;
+  ou?: string;
   children: React.ReactNode;
 }) {
+  const arr = React.Children.toArray(children);
   return (
     <div
       className={`rounded-xl px-2 sm:px-4 py-3 flex flex-col gap-3 ${styles.internBox}`}
@@ -120,9 +120,7 @@ function TarifsCard({
         <span className="text-base sm:text-xl" aria-hidden>🔥</span>
       </div>
       <div className="flex flex-row flex-nowrap gap-2 sm:gap-6 items-stretch justify-center min-w-0 overflow-x-auto">
-        <div className="flex-1 min-w-0 flex-shrink flex justify-center">{React.Children.toArray(children)[0]}</div>
-        <span className="text-white/70 font-jakarta text-sm sm:text-xl font-semibold flex-shrink-0 self-center">{ou}</span>
-        <div className="flex-1 min-w-0 flex-shrink flex justify-center">{React.Children.toArray(children)[1]}</div>
+        <div className="flex-1 min-w-0 flex-shrink flex justify-center">{arr[0]}</div>
       </div>
     </div>
   );
@@ -194,9 +192,6 @@ export function OffreTestSection() {
           <p className="text-lg sm:text-xl text-white/90 font-semibold max-w-2xl mx-auto">
             {t("offers.subtitle")}
           </p>
-          <p className="text-lg sm:text-xl text-white/95 font-semibold max-w-2xl mx-auto">
-            {t("offers.description")}
-          </p>
           <p className="text-lg sm:text-xl text-white font-bold max-w-2xl mx-auto">
             {t("offers.promo")}
           </p>
@@ -208,7 +203,7 @@ export function OffreTestSection() {
             title={t("offers.packStarter.title")}
             intro={t("offers.packStarter.intro")}
           >
-            <TarifsCard color="green" offreDuMoment={t("offers.offreDuMoment")} ou={t("offers.ou")}>
+            <TarifsCard color="green" offreDuMoment={t("offers.offreDuMoment")}>
               <div className="flex flex-col items-center text-center">
                 <p className="text-[11px] font-semibold text-white/60 uppercase tracking-widest font-jakarta mb-1">
                   {t("offers.tarifs.paiementUnique")}
@@ -216,24 +211,6 @@ export function OffreTestSection() {
                 <PricePill price="599€" suffix="" />
                 <p className="text-xs text-white/70 font-jakarta mt-1">
                   {t("offers.tarifs.proprieteImmediate")}
-                </p>
-                <p className="text-[11px] text-white/70 font-jakarta mt-0.5">
-                  {t("offers.tarifs.gestionMensuelleOption")}
-                </p>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <p className="text-[11px] font-semibold text-white/60 uppercase tracking-widest font-jakarta mb-1">
-                  {t("offers.tarifs.abonnement")}
-                </p>
-                <PricePill price="149€" suffix="/mois" />
-                <p className="text-xs text-white/70 font-jakarta mt-1">
-                  {t("offers.tarifs.sansEngagement")}
-                </p>
-                <p className="text-[11px] text-white/70 font-jakarta">
-                  {t("offers.tarifs.proprieteApres6Mois")}
-                </p>
-                <p className="text-[11px] text-white/70 font-jakarta">
-                  {t("offers.tarifs.gestionMensuelleIncluse")}
                 </p>
               </div>
             </TarifsCard>
@@ -254,7 +231,7 @@ export function OffreTestSection() {
             title={t("offers.packVisibilite.title")}
             intro={t("offers.packVisibilite.intro")}
           >
-            <TarifsCard color="blue" offreDuMoment={t("offers.offreDuMoment")} ou={t("offers.ou")}>
+            <TarifsCard color="blue" offreDuMoment={t("offers.offreDuMoment")}>
               <div className="flex flex-col items-center text-center">
                 <p className="text-[11px] font-semibold text-white/60 uppercase tracking-widest font-jakarta mb-1">
                   {t("offers.tarifs.paiementUnique")}
@@ -262,24 +239,6 @@ export function OffreTestSection() {
                 <PricePill price="999€" suffix="" />
                 <p className="text-xs text-white/70 font-jakarta mt-1">
                   {t("offers.tarifs.proprieteImmediate")}
-                </p>
-                <p className="text-[11px] text-white/70 font-jakarta mt-0.5">
-                  {t("offers.tarifs.gestionMensuelleOption")}
-                </p>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <p className="text-[11px] font-semibold text-white/60 uppercase tracking-widest font-jakarta mb-1">
-                  {t("offers.tarifs.abonnement")}
-                </p>
-                <PricePill price="199€" suffix="/mois" />
-                <p className="text-xs text-white/70 font-jakarta mt-1">
-                  {t("offers.tarifs.sansEngagement")}
-                </p>
-                <p className="text-[11px] text-white/70 font-jakarta">
-                  {t("offers.tarifs.proprieteApres6Mois")}
-                </p>
-                <p className="text-[11px] text-white/70 font-jakarta">
-                  {t("offers.tarifs.gestionMensuelleIncluse")}
                 </p>
               </div>
             </TarifsCard>
@@ -301,7 +260,7 @@ export function OffreTestSection() {
             intro={t("offers.packEcommerce.intro")}
             frameBlack
           >
-            <div className={`rounded-xl px-2 sm:px-4 py-3 flex flex-col justify-center min-h-[165px] ${styles.internBox}`}>
+            <div className={`rounded-xl px-2 sm:px-4 py-3 flex flex-col justify-center items-center min-h-[140px] ${styles.internBox}`}>
               <p className="text-center text-white font-jakarta font-semibold text-base sm:text-lg">
                 {t("offers.packEcommerce.uniquementDevis")}
               </p>
@@ -318,6 +277,10 @@ export function OffreTestSection() {
             </PrestationsCard>
           </PackCard>
         </div>
+
+        <p className="text-xl sm:text-2xl text-white/95 font-normal italic text-center">
+          {t("offers.description")}
+        </p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -379,7 +342,8 @@ export function OffreTestSection() {
               aria-hidden
             />
             <h3 className="text-white font-jakarta font-bold text-sm sm:text-base uppercase tracking-wider text-white/90">
-              {t("offers.gestionMensuelle.title")}
+              {t("offers.gestionMensuelle.title")}{" "}
+              <span className="normal-case italic font-normal text-white/80">{t("offers.gestionMensuelle.optionPrice")}</span>
             </h3>
           </div>
           <p className="text-white/70 font-jakarta text-xs sm:text-sm leading-relaxed mb-4">
@@ -395,6 +359,54 @@ export function OffreTestSection() {
           </div>
         </motion.div>
 
+        <div className="w-fit max-w-full mx-auto flex flex-col items-stretch px-4 sm:px-0 py-6 sm:py-8">
+          <div className="w-max mb-6">
+            <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-2xl lg:text-3xl leading-snug">
+              {t("offers.gestionMensuelle.flexibleIntro")}
+            </h3>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="flex flex-col gap-4 w-full min-w-0 mt-2"
+          >
+<p className="text-center text-white font-jakarta text-lg sm:text-xl font-semibold">
+            {t("offers.gestionMensuelle.flexibleCta")}
+          </p>
+            <div className="flex flex-col sm:flex-row items-stretch gap-4 w-full min-w-0 max-w-full">
+            <div
+              className="flex flex-col items-center justify-center rounded-xl px-4 py-4 flex-1"
+              style={{
+                background: `linear-gradient(135deg, ${accentColors.green}55 0%, ${accentColors.green}35 100%)`,
+                border: `1px solid ${accentColors.green}80`,
+              }}
+            >
+              <p className="text-white font-jakarta font-semibold text-sm sm:text-base mb-2">
+                {t("offers.gestionMensuelle.aboStarter")}
+              </p>
+              <PricePill price="149€" suffix="/mois" />
+              <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.tarifs.sansEngagement")}</p>
+            </div>
+            <div
+              className="flex flex-col items-center justify-center rounded-xl px-4 py-4 flex-1"
+              style={{
+                background: `linear-gradient(135deg, ${accentColors.blue}55 0%, ${accentColors.blue}35 100%)`,
+                border: `1px solid ${accentColors.blue}80`,
+              }}
+            >
+              <p className="text-white font-jakarta font-semibold text-sm sm:text-base mb-2">
+                {t("offers.gestionMensuelle.aboVisibilite")}
+              </p>
+              <PricePill price="199€" suffix="/mois" />
+              <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.tarifs.sansEngagement")}</p>
+            </div>
+          </div>
+          </motion.div>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -402,7 +414,7 @@ export function OffreTestSection() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-center pt-1"
         >
-          <p className="text-xl font-semibold mb-8 font-jakarta">
+          <p className="text-lg sm:text-2xl lg:text-3xl font-bold leading-snug mb-8 font-jakarta">
             {t("offers.cta.title")}
           </p>
           <div onClick={() => scrollToSection("contact")} className="flex justify-center cursor-pointer">
