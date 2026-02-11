@@ -14,11 +14,16 @@
     "contact": "Request your free demo"
   },
   "hero": {
+    "sticker": {
+      "des": "From",
+      "offreLimitee": "Limited offer",
+      "voirOffre": "See offer"
+    },
     "title": "Visibility Expert – Appear #1 on Google in Your Sector",
     "services": {
-      "seo": "Google listing management",
       "developer": "High-performance website",
-      "designer": "Modern design"
+      "positionnement": "Google ranking",
+      "seo": "Google listing management"
     },
     "description": "Don’t let your competitors get ahead and take your clients",
     "cta": {
@@ -53,6 +58,123 @@
   "projects": {
     "technologiesUsed": "Technologies used:",
     "clickToExplore": "Click on the card to explore"
+  },
+  "offers": {
+    "title": "All-inclusive websites",
+    "subtitle": "Custom, modern, well-positioned.",
+    "promo": "🎁 Right now: a free demo of your site with no commitment!",
+    "offreDuMoment": "Offer of the moment",
+    "ou": "or",
+    "tarifs": {
+      "paiementUnique": "One-time payment",
+      "abonnement": "Subscription",
+      "proprieteImmediate": "Immediate ownership",
+      "sansEngagement": "No commitment",
+      "proprieteApres6Mois": "Ownership after 6 months",
+      "gestionMensuelleIncluse": "Monthly management included",
+      "gestionMensuelleOption": "Monthly management optional at 69€/month"
+    },
+    "packStarter": {
+      "title": "Starter Pack",
+      "intro": "Launch & immediate visibility — the ideal solution to be found quickly by your local customers.",
+      "sitePro": {
+        "title": "Professional website",
+        "subtitle": "1 complete page",
+        "items": [
+          "Professional development & deployment",
+          "Modern design & experience",
+          "Strategic structure & sections (1 page)",
+          "Proof & trust",
+          "Optimized contact system"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "Google & Google Maps visibility",
+        "items": [
+          "Strategic service + city targeting",
+          "Google page optimization",
+          "Optimized Google listing",
+          "Mini FAQ"
+        ]
+      }
+    },
+    "packVisibilite": {
+      "title": "Visibility Pack",
+      "intro": "A complete pack to appear on Google, build trust and convert more visitors into customers.",
+      "sitePro": {
+        "title": "Professional website",
+        "subtitle": "5 strategic pages",
+        "items": [
+          "Professional development & deployment",
+          "Modern design & experience",
+          "Strategic structure & pages (5 pages)",
+          "Proof & trust",
+          "Optimized contact system"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "Google & Google Maps visibility",
+        "items": [
+          "Strategic service + city targeting",
+          "6 optimized service pages",
+          "Rollout across 5 municipalities (30 local pages)",
+          "Optimized Google listing",
+          "Mini FAQ"
+        ]
+      }
+    },
+    "packEcommerce": {
+      "title": "E-commerce Pack",
+      "intro": "Online sales — automate your sales and collect payments 24/7.",
+      "uniquementDevis": "Quote only",
+      "boutique": {
+        "title": "Custom online store",
+        "items": [
+          "Personalized online store (Shopify or Next.js)",
+          "Secure payments (Card, Apple Pay, PayPal)",
+          "Stock & invoicing management",
+          "Automatic abandoned cart recovery",
+          "Complete training on the interface"
+        ]
+      },
+      "optionsMetier": {
+        "title": "Monthly business options included",
+        "items": [
+          "Click & Collect / takeaway sales",
+          "Delivery options management",
+          "Promo codes & promotions",
+          "Product reviews management"
+        ]
+      }
+    },
+    "options": {
+      "title": "Options",
+      "description": "To go further, you can add one or more options below. The cost is added to the Visibility Pack and is set <strong>on quote</strong>, to tailor the solution to your needs.",
+      "items": [
+        "Booking / appointments",
+        "Delivery / Click & Collect",
+        "Multilingual pack",
+        "Extra pages",
+        "Multi-municipality extension",
+        "Additional content"
+      ]
+    },
+    "gestionMensuelle": {
+      "title": "Monthly management",
+      "description": "Your site is accompanied throughout the year with the following services.",
+      "items": [
+        "1 Google post / week",
+        "Customer review responses",
+        "Position tracking",
+        "Maintenance & hosting",
+        "2 updates included / month",
+        "Priority WhatsApp support"
+      ]
+    },
+    "cta": {
+      "title": "Boost your visibility today, request your demo!",
+      "button": "My free demo"
+    }
   },
   "services": {
     "title": "My Services",

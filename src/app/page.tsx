@@ -6,11 +6,10 @@ import { Footer } from "./components/Footer/Footer";
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import CarouselCard from "./components/Card/Carousel/CarouselCard";
 import NormalCard from "./components/Card/NormalCard/NormalCard";
-import BaseCard from "./components/Card/BaseCard/BaseCard";
 import "../../i18n";
 import { useTranslation } from "react-i18next";
 import { Project } from "./components/Card/Carousel/types";
-import { ServicesSection } from "./components/Card/ServiceCard/ServicesSection";
+import { OffreTestSection } from "./components/Card/OffreTest/OffreTestSection";
 import { Hero } from "./components/Main/Hero";
 
 
@@ -104,25 +103,9 @@ export default function Page() {
             </section>
           </section>
 
-          <motion.div
-            initial={{ x: 30, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h4 className="transition-heading text-center italic">
-              {t("transition.services")}
-            </h4>
-          </motion.div>
-
-          {/* Section SERVICES */}
+          {/* Section OFFRE */}
           <section id="services" className="scroll-mt-4">
-            <BaseCard
-              title={t("services.title")}
-              titleAlignment="mx-auto"
-              cardAlignment="mx-auto"
-            >
-              <ServicesSection />
-            </BaseCard>
+            <OffreTestSection />
           </section>
 
           <motion.div

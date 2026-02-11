@@ -70,7 +70,7 @@ export const VioletHover: React.FC<VioletHoverProps> = ({
         </div>
       )}
 
-      <div className={styles.contentContainer}>{children}</div>
+      <div className={`${styles.contentContainer} h-full flex flex-col min-h-0`}>{children}</div>
     </div>
   );
 };
@@ -106,6 +106,12 @@ function getHoverColors(color: string): { primary: string; secondary: string; sh
         primary: 'rgba(239, 68, 68, 0.9)',
         secondary: 'rgba(220, 38, 38, 0.8)',
         shadow: '#ef444480'
+      };
+    case 'gold':
+      return {
+        primary: 'rgba(212, 175, 55, 0.9)',
+        secondary: 'rgba(184, 151, 46, 0.8)',
+        shadow: '#d4af3780'
       };
     case 'violet':
     default:

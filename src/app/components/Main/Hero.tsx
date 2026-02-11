@@ -2,26 +2,26 @@
 import SplitScreen from "./SplitScreen";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import ContactButton from "./ContactButton";
 import Header from "../Header/Header";
 import { CircleListItem } from "../Card/ServiceCard/CircleListItem";
 import BgGradient from "./BgGradient";
+import ButtonNeuromorphic from "../Header/ButtonNeuromorphic";
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
 
-  // Fonction de scroll (même que Header)
+  // Fonction de scroll (contact centré)
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 120;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
+      if (sectionId === "contact") {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        const headerHeight = 120;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: elementPosition, behavior: "smooth" });
+      }
     }
   };
 
@@ -65,19 +65,19 @@ export const Hero: React.FC = () => {
           <section className="flex flex-row items-start lg:flex-col gap-2 text-xs sm:text-xl">
             <CircleListItem
               className="min-w-6 h-6 sm:min-w-8 sm:h-8"
-              text={t("hero.services.seo")}
-              textClassName="text-xs sm:text-lg font-medium"
-              spacing="mr-1 sm:mr-3"
-            />
-            <CircleListItem
-              className="min-w-6 h-6 sm:min-w-8 sm:h-8"
               text={t("hero.services.developer")}
               textClassName="text-xs sm:text-lg font-medium"
               spacing="mr-1 sm:mr-3"
             />
             <CircleListItem
               className="min-w-6 h-6 sm:min-w-8 sm:h-8"
-              text={t("hero.services.designer")}
+              text={t("hero.services.positionnement")}
+              textClassName="text-xs sm:text-lg font-medium"
+              spacing="mr-1 sm:mr-3"
+            />
+            <CircleListItem
+              className="min-w-6 h-6 sm:min-w-8 sm:h-8"
+              text={t("hero.services.seo")}
               textClassName="text-xs sm:text-lg font-medium"
               spacing="mr-1 sm:mr-3"
             />
@@ -88,20 +88,24 @@ export const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col gap-2 sm:gap-4 lg:gap-6 w-full items-center lg:items-start">
-            <div className="text-[#9788fb] font-bold uppercase tracking-wide text-base sm:text-xl">
-              {t("hero.cta.title")}
+            <div className="text-[#9788fb] font-bold tracking-wide text-base sm:text-xl">
+              Demander la démo gratuite de votre futur site
             </div>
 
-            {/* ✅ CORRECTION : Remplacé button par div */}
-            <div
-              onClick={handleContactClick}
-              className="w-full max-w-[400px] lg:max-w-[500px] relative z-30 cursor-pointer"
-            >
-              <ContactButton
-                title="hero.cta.button"
-                icon="/image/icons/gift.svg"
-                className="w-full h-10 sm:h-auto text-base sm:text-xl lg:text-2xl"
-              />
+            <div className="w-full max-w-[400px] lg:max-w-[500px] relative z-30 flex flex-col sm:flex-row gap-3">
+              <div
+                onClick={handleContactClick}
+                className="flex-1 cursor-pointer"
+              >
+                <ButtonNeuromorphic
+                  text="Ma démo gratuite"
+                  size="md"
+                  fontSize={22}
+                  borderRadius={12}
+                  className="w-full justify-center"
+                />
+              </div>
+
             </div>
           </div>
         </motion.div>

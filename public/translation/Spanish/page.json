@@ -14,11 +14,16 @@
     "contact": "Solicita tu demo gratuita"
   },
   "hero": {
+    "sticker": {
+      "des": "Desde",
+      "offreLimitee": "Oferta limitada",
+      "voirOffre": "Ver oferta"
+    },
     "title": "Experto en Visibilidad – Aparece N.º 1 en Google en tu sector",
     "services": {
-      "seo": "Gestión de ficha de Google",
       "developer": "Sitio web de alto rendimiento",
-      "designer": "Diseño moderno"
+      "positionnement": "Posicionamiento Google",
+      "seo": "Gestión de ficha de Google"
     },
     "description": "No dejes que tus competidores te adelanten y te roben clientes",
     "cta": {
@@ -53,6 +58,123 @@
   "projects": {
     "technologiesUsed": "Tecnologías utilizadas :",
     "clickToExplore": "Haz clic en la tarjeta para explorar"
+  },
+  "offers": {
+    "title": "Sitios web todo incluido",
+    "subtitle": "Personalizados, modernos, bien posicionados.",
+    "promo": "🎁 Ahora mismo: ¡una demo gratuita de tu sitio sin compromiso!",
+    "offreDuMoment": "Oferta del momento",
+    "ou": "o",
+    "tarifs": {
+      "paiementUnique": "Pago único",
+      "abonnement": "Suscripción",
+      "proprieteImmediate": "Propiedad inmediata",
+      "sansEngagement": "Sin compromiso",
+      "proprieteApres6Mois": "Propiedad después de 6 meses",
+      "gestionMensuelleIncluse": "Gestión mensual incluida",
+      "gestionMensuelleOption": "Gestión mensual opcional a 69€/mes"
+    },
+    "packStarter": {
+      "title": "Pack Starter",
+      "intro": "Lanzamiento y visibilidad inmediata — la solución ideal para que tus clientes locales te encuentren rápido.",
+      "sitePro": {
+        "title": "Sitio web profesional",
+        "subtitle": "1 página completa",
+        "items": [
+          "Desarrollo y puesta en línea profesional",
+          "Diseño y experiencia moderna",
+          "Estructura y secciones estratégicas (1 página)",
+          "Pruebas y confianza",
+          "Sistema de contacto optimizado"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "Visibilidad Google y Google Maps",
+        "items": [
+          "Segmentación estratégica servicio + ciudad",
+          "Optimización de la página en Google",
+          "Ficha Google optimizada",
+          "Mini FAQ"
+        ]
+      }
+    },
+    "packVisibilite": {
+      "title": "Pack Visibilidad",
+      "intro": "Un pack completo para aparecer en Google, inspirar confianza y convertir más visitantes en clientes.",
+      "sitePro": {
+        "title": "Sitio web profesional",
+        "subtitle": "5 páginas estratégicas",
+        "items": [
+          "Desarrollo y puesta en línea profesional",
+          "Diseño y experiencia moderna",
+          "Estructura y páginas estratégicas (5 páginas)",
+          "Pruebas y confianza",
+          "Sistema de contacto optimizado"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "Visibilidad Google y Google Maps",
+        "items": [
+          "Segmentación estratégica servicio + ciudad",
+          "6 páginas de servicios optimizadas",
+          "Declinación en 5 municipios (30 páginas locales)",
+          "Ficha Google optimizada",
+          "Mini FAQ"
+        ]
+      }
+    },
+    "packEcommerce": {
+      "title": "Pack E-commerce",
+      "intro": "Venta en línea — automatiza tus ventas y cobra 24h/24.",
+      "uniquementDevis": "Solo con presupuesto",
+      "boutique": {
+        "title": "Tienda en línea a medida",
+        "items": [
+          "Tienda en línea personalizada (Shopify o Next.js)",
+          "Pagos seguros (Tarjeta, Apple Pay, PayPal)",
+          "Gestión de stocks y facturación",
+          "Recuperación automática de carritos abandonados",
+          "Formación completa del uso de la interfaz"
+        ]
+      },
+      "optionsMetier": {
+        "title": "Opciones de negocio incluidas mensualmente",
+        "items": [
+          "Click & Collect / venta para llevar",
+          "Gestión de modos de entrega",
+          "Códigos promocionales y promociones",
+          "Gestión de reseñas de productos"
+        ]
+      }
+    },
+    "options": {
+      "title": "Opciones",
+      "description": "Para ir más allá, puedes añadir una o varias opciones a continuación. El coste se añade al Pack Visibilidad y se define <strong>en presupuesto</strong>, para adaptar la solución a tus necesidades.",
+      "items": [
+        "Reserva / citas",
+        "Entrega / Click & Collect",
+        "Pack multilingüe",
+        "Páginas extra",
+        "Extensión multi-municipios",
+        "Contenidos adicionales"
+      ]
+    },
+    "gestionMensuelle": {
+      "title": "Gestión mensual",
+      "description": "Tu sitio está acompañado todo el año con las siguientes prestaciones.",
+      "items": [
+        "1 publicación Google / semana",
+        "Respuesta a reseñas de clientes",
+        "Seguimiento de posicionamiento",
+        "Mantenimiento y hosting",
+        "2 modificaciones incluidas / mes",
+        "Soporte WhatsApp prioritario"
+      ]
+    },
+    "cta": {
+      "title": "Impulsa tu visibilidad hoy mismo, ¡solicita tu demo!",
+      "button": "Mi demo gratuita"
+    }
   },
   "services": {
     "title": "Mis Servicios",

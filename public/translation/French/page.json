@@ -14,11 +14,16 @@
     "contact": "Demandez votre demo gratuite"
   },
   "hero": {
+    "sticker": {
+      "des": "Dès",
+      "offreLimitee": "Offre Limitée",
+      "voirOffre": "Voir l'offre"
+    },
     "title": "Expert Visibilité - Apparaissez N°1 sur Google dans votre Secteur",
     "services": {
-      "seo": "Gestion fiche Google",
       "developer": "Site web performant",
-      "designer": "Design moderne"
+      "positionnement": "Positionnement Google",
+      "seo": "Gestion fiche Google"
     },
     "description": "Ne laissez plus vos concurrents passer devant vous et prendre vos clients",
     "cta": {
@@ -28,7 +33,7 @@
     
   },
   "transition": {
-    "services": "Je crée ainsi une synergie unique : des sites ultra-performants, modernes et esthétiques, couplés à une gestion de votre présence locale via votre fiche Google. Cette triple compétence garantit des résultats concrets pour attirer de nouveaux clients et développer votre activité.",
+    "services": "Je crée ainsi une synergie unique : des sites ultra-performants, modernes et esthétiques, couplés à une gestion de votre présence locale. Cette triple compétence garantit des résultats concrets pour attirer de nouveaux clients et développer votre activité.",
     "projects": "Des réalisations qui parlent d'elles-mêmes.",
     "contact": "Discutons de votre projet et demandez votre demo gratuite !"
   },
@@ -37,8 +42,8 @@
     "content": "Bonjour, je suis un Designer UI/UX et Développeur Full-Stack passionné, originaire du sud de la France, basé à Montpellier. J'aime créer des designs intuitifs et visuellement attrayants avec des outils comme Figma et Photoshop, tout en développant des applications modernes et efficaces avec C#, React et ASP.NET. Mon objectif est de faire le lien entre le design et la technologie pour créer des solutions à la fois pratiques et esthétiques. En dehors du travail, j'adore voyager, découvrir de nouveaux endroits et trouver de l'inspiration dans différentes cultures. Que ce soit en explorant les dernières tendances technologiques ou en profitant de l'art de vivre méditerranéen, je suis toujours à la recherche de nouvelles idées à intégrer dans mes projets."
   },
   "seo": {
-  "title": "Expert Visibilité Google",
-  "content": "Chaque optimisation compte : un site bien référencé transforme une simple recherche en client conquis.\n\nJ'aide les PME et TPE à être trouvées sur Google grâce à des sites ultra-performants et une gestion experte de leur présence locale.\n\nSpécialisé en référencement technique et local, j'optimise chaque élément : vitesse de chargement, structure du site, contenu ciblé et fiche Google My Business.\n\nJe conçois des stratégies SEO sur mesure, avec suivi mensuel des performances et ajustements continus pour maximiser votre visibilité et attirer de nouveaux clients chaque mois."
+  "title": "Expert en visibilité Google à Montpellier",
+  "content": "Chaque optimisation compte.\n\nUn site bien positionné transforme une simple recherche en nouveau client.\n\nJ'accompagne les PME et TPE de Montpellier et alentours à être trouvées sur Google grâce à des sites performants et une stratégie locale efficace.\n\nSpécialisé en visibilité locale, j'optimise chaque élément : vitesse du site, structure stratégique, contenus ciblés et fiche Google.\n\nMon objectif : vous aider à apparaître devant vos concurrents et générer plus de demandes chaque mois."
 },
   "developer": {
     "title": "Développeur Full-stack",
@@ -54,6 +59,123 @@
   "projects": {
     "technologiesUsed": "Technologies utilisées :",
     "clickToExplore": "Cliquez sur la carte pour explorer"
+  },
+  "offers": {
+    "title": "Des sites web tout inclus",
+    "subtitle": "Personnalisés, modernes, bien positionnés.",
+    "promo": "🎁 En ce moment : une demo gratuite de votre site sans engagement !",
+    "offreDuMoment": "Offre du moment",
+    "ou": "ou",
+    "tarifs": {
+      "paiementUnique": "Paiement unique",
+      "abonnement": "Abonnement",
+      "proprieteImmediate": "Propriété immédiate",
+      "sansEngagement": "Sans engagement",
+      "proprieteApres6Mois": "Propriété après 6 mois",
+      "gestionMensuelleIncluse": "Gestion mensuelle incluse",
+      "gestionMensuelleOption": "Gestion mensuelle en option à 69€/mois"
+    },
+    "packStarter": {
+      "title": "Pack Starter",
+      "intro": "Lancement & visibilité immédiate — la solution idéale pour être trouvé rapidement par vos clients locaux.",
+      "sitePro": {
+        "title": "Site professionnel",
+        "subtitle": "1 page complète",
+        "items": [
+          "Développement & mise en ligne professionnelle",
+          "Design & expérience moderne",
+          "Structure & sections stratégiques (1 page)",
+          "Preuves & confiance",
+          "Système de prise de contact optimisé"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "Visibilité Google & Google Maps",
+        "items": [
+          "Ciblage stratégique service + ville",
+          "Optimisation Google de la page",
+          "Fiche Google optimisée",
+          "Mini FAQ"
+        ]
+      }
+    },
+    "packVisibilite": {
+      "title": "Pack Visibilité",
+      "intro": "Un pack complet pour apparaître sur Google, inspirer confiance et convertir plus de visiteurs en clients.",
+      "sitePro": {
+        "title": "Site professionnel",
+        "subtitle": "5 pages stratégiques",
+        "items": [
+          "Développement & mise en ligne professionnelle",
+          "Design & expérience moderne",
+          "Structure & pages stratégiques (5 pages)",
+          "Preuves & confiance",
+          "Système de prise de contact optimisé"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "Visibilité Google & Google Maps",
+        "items": [
+          "Ciblage stratégique service + ville",
+          "6 pages services optimisées",
+          "Déclinaison sur 5 communes (30 pages locales)",
+          "Fiche Google optimisée",
+          "Mini FAQ"
+        ]
+      }
+    },
+    "packEcommerce": {
+      "title": "Pack E‑commerce",
+      "intro": "Vente en ligne — automatisez vos ventes et encaissez 24h/24.",
+      "uniquementDevis": "Uniquement sur devis",
+      "boutique": {
+        "title": "Boutique en ligne sur-mesure",
+        "items": [
+          "Boutique en ligne personnalisée (Shopify ou Next.js)",
+          "Paiements sécurisés (CB, Apple Pay, PayPal)",
+          "Gestion des stocks & de la facturation",
+          "Relance automatique des paniers abandonnés",
+          "Formation complète à l'utilisation de l'interface"
+        ]
+      },
+      "optionsMetier": {
+        "title": "Options métier incluses mensuellement",
+        "items": [
+          "Click & Collect / vente à emporter",
+          "Gestion des modes de livraison",
+          "Codes promos & promotions",
+          "Gestion des avis produits"
+        ]
+      }
+    },
+    "options": {
+      "title": "Options",
+      "description": "Pour aller plus loin, vous pouvez ajouter une ou plusieurs options ci-dessous. Le coût s'ajoute au Pack Visibilité et est défini <strong>sur devis</strong>, afin d'adapter la solution à vos besoins.",
+      "items": [
+        "Réservation / RDV",
+        "Livraison / Click & Collect",
+        "Pack Multilingue",
+        "Pages extra",
+        "Extension multi-communes",
+        "Contenus supplémentaires"
+      ]
+    },
+    "gestionMensuelle": {
+      "title": "Gestion mensuelle",
+      "description": "Votre site est accompagné tout au long de l'année avec les prestations suivantes.",
+      "items": [
+        "1 post Google / semaine",
+        "Réponse aux avis clients",
+        "Suivi positionnement",
+        "Maintenance & hébergement",
+        "2 modifications incluses / mois",
+        "Support WhatsApp prioritaire"
+      ]
+    },
+    "cta": {
+      "title": "Boostez votre visibilité dès aujourd'hui, demandez votre demo !",
+      "button": "Ma démo gratuite"
+    }
   },
   "services": {
     "title": "Mes Offres",

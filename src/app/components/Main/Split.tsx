@@ -119,7 +119,13 @@ export const Split: React.FC = () => {
 
       {/* Bouton de contact */}
       <div className="absolute z-20 bottom-[2%] md:bottom-[14%] left-0">
-        <a href="#contact">
+        <a
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "center" });
+          }}
+        >
           <motion.div
             onMouseEnter={() => setDimOverlay(true)}
             onMouseLeave={() => setDimOverlay(false)}

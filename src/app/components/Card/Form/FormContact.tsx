@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import ContactButton from "../../Main/ContactButton";
+import ButtonNeuromorphic from "../../Header/ButtonNeuromorphic";
 import VioletHover from "../hover/VioletHover";
 import { ConfirmationPopup } from "./ConfirmationPopup";
 import styles from "./Form.module.scss";
@@ -233,14 +233,23 @@ export const FormCard = () => {
                   autoComplete="off"
                 ></textarea>
 
-                <div className="mx-auto">
+                <div className="mx-auto flex justify-center">
                   <div
                     onClick={handleButtonClick}
-                    className={`cursor-pointer ${
+                    className={`cursor-pointer w-full max-w-[280px] ${
                       status.submitting ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                   >
-                    <ContactButton className="w-full h-12 sm:h-auto text-base sm:text-xl lg:text-2xl" />
+                    <ButtonNeuromorphic
+                      type="button"
+                      text={t("hero.cta.button", { ns: "page" })}
+                      disabled={status.submitting}
+                      loading={status.submitting}
+                      className="w-full justify-center"
+                      size="lg"
+                      fontSize={20}
+                      borderRadius={12}
+                    />
                   </div>
                 </div>
 

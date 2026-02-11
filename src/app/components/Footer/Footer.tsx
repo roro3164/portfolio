@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   const scrollToContactForm = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
             <li><a href="#designer">{t("footer.navigation.designer")}</a></li>
             <li><a href="#services">{t("footer.navigation.services")}</a></li>
             <li><a href="#projects">{t("footer.navigation.projects")}</a></li>
-            <li><a href="#contact">{t("footer.navigation.contact")}</a></li>
+            <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContactForm(); }}>{t("footer.navigation.contact")}</a></li>
           </ul>
         </div>
 

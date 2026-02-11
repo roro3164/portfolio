@@ -1,43 +1,63 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import styles from "./header.module.scss";
+import Navbar, { NavLink } from "./Navbar";
+import ButtonNeuromorphic from "./ButtonNeuromorphic";
 
 const Header: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const [showSticky, setShowSticky] = useState(false);
 
-  // Fonction de scroll personnalisée
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop =
+        window.scrollY ??
+        document.documentElement.scrollTop ??
+        document.body.scrollTop ??
+        0;
+      // Petit seuil pour éviter les clignotements
+      setShowSticky(scrollTop > 40);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 120; // Ajuste selon ton header
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+    if (!element) return;
+
+    if (sectionId === "contact") {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
     }
+
+    const headerHeight = 120;
+    const elementPosition =
+      element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    window.scrollTo({ top: elementPosition, behavior: "smooth" });
   };
 
   const handleNavClick = (sectionId: string) => {
-    setMenuOpen(false); // Ferme le menu mobile
-    // Petit délai pour laisser les animations se terminer
+    setMenuOpen(false);
     setTimeout(() => {
       scrollToSection(sectionId);
     }, 100);
   };
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const handleContactClick = () => {
+    setTimeout(() => {
+      scrollToSection("contact");
+    }, 100);
   };
 
-  const toggleLangMenu = () => {
-    setLangMenuOpen(!langMenuOpen);
-  };
+  const toggleMenu = () => setMenuOpen((open) => !open);
+  const toggleLangMenu = () => setLangMenuOpen((open) => !open);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -57,22 +77,32 @@ const Header: React.FC = () => {
     }
   };
 
+  const links: NavLink[] = [
+    { label: t("header.seo"), href: "#seo" },
+    { label: t("header.developer"), href: "#developer" },
+    { label: t("header.designer"), href: "#designer" },
+    { label: t("header.services"), href: "#services" },
+    { label: t("header.projects"), href: "#projects" },
+    { label: t("header.contact"), href: "#contact" },
+  ];
+
   return (
     <>
-      {/* HEADER PRINCIPAL */}
+      {/* HEADER INITIAL COMME AVANT */}
       <header
-        className="
+        className={`
           relative 
           flex justify-between
           items-start
           h-10 lg:h-16
           mb-8 lg:mb-14
-          text-white 
-          
-        "
+          text-white
+          transition-opacity duration-300
+          ${showSticky ? "opacity-0 pointer-events-none" : "opacity-100"}
+        `}
       >
         {/* LOGO À GAUCHE */}
-        <div className="relative h-6 lg:h-10">
+        <div className="relative h-6 lg:h-8">
           <div className="absolute inset-0 filter blur-[6px] opacity-50">
             <Image
               src="/image/icons/logo.svg"
@@ -85,14 +115,14 @@ const Header: React.FC = () => {
           <Image
             src="/image/icons/logo2.svg"
             alt="ROMAIN DEV Logo"
-            width={150}
-            height={40}
-            className="w-auto h-14 lg:h-20 relative"
+            width={140}
+            height={36}
+            className="w-auto h-12 lg:h-16 relative"
           />
         </div>
 
         {/* CONTENEUR À DROITE : en colonne */}
-        <div className="flex flex-col items-end w-auto gap-4">
+        <div className="flex flex-col items-end w-auto gap-2">
           {/* Ligne du haut : Drapeau (et hamburger en mobile) */}
           <div className="flex items-center gap-4">
             {/* Bouton du drapeau */}
@@ -103,7 +133,7 @@ const Header: React.FC = () => {
                 flex items-center 
                 px-2 py-2
                 rounded
-               bg-white/10 hover:bg-white/20 
+                bg-white/10 hover:bg-white/20 
                 transition-colors
                 focus:outline-none
               "
@@ -151,22 +181,40 @@ const Header: React.FC = () => {
 
           {/* NAV DESKTOP (cachée en mobile) : en ligne */}
           <nav className="hidden xl:flex xl:gap-14 text-xl font-jakarta">
-            <button onClick={() => handleNavClick('seo')} className={styles.navLink}>
+            <button
+              onClick={() => handleNavClick("seo")}
+              className={styles.navLink}
+            >
               {t("header.seo")}
             </button>
-            <button onClick={() => handleNavClick('developer')} className={styles.navLink}>
+            <button
+              onClick={() => handleNavClick("developer")}
+              className={styles.navLink}
+            >
               {t("header.developer")}
             </button>
-            <button onClick={() => handleNavClick('designer')} className={styles.navLink}>
+            <button
+              onClick={() => handleNavClick("designer")}
+              className={styles.navLink}
+            >
               {t("header.designer")}
             </button>
-            <button onClick={() => handleNavClick('services')} className={styles.navLink}>
+            <button
+              onClick={() => handleNavClick("services")}
+              className={styles.navLink}
+            >
               {t("header.services")}
             </button>
-            <button onClick={() => handleNavClick('projects')} className={styles.navLink}>
+            <button
+              onClick={() => handleNavClick("projects")}
+              className={styles.navLink}
+            >
               {t("header.projects")}
             </button>
-            <button onClick={() => handleNavClick('contact')} className={styles.navLink}>
+            <button
+              onClick={() => handleNavClick("contact")}
+              className={styles.navLink}
+            >
               {t("header.contact")}
             </button>
           </nav>
@@ -183,37 +231,37 @@ const Header: React.FC = () => {
       >
         <nav className="flex flex-col items-center justify-center h-full space-y-8">
           <button
-            onClick={() => handleNavClick('seo')}
+            onClick={() => handleNavClick("seo")}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.seo")}
           </button>
           <button
-            onClick={() => handleNavClick('developer')}
+            onClick={() => handleNavClick("developer")}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.developer")}
           </button>
           <button
-            onClick={() => handleNavClick('designer')}
+            onClick={() => handleNavClick("designer")}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.designer")}
           </button>
           <button
-            onClick={() => handleNavClick('services')}
+            onClick={() => handleNavClick("services")}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.services")}
           </button>
           <button
-            onClick={() => handleNavClick('projects')}
+            onClick={() => handleNavClick("projects")}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.projects")}
           </button>
           <button
-            onClick={() => handleNavClick('contact')}
+            onClick={() => handleNavClick("contact")}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.contact")}
@@ -233,7 +281,6 @@ const Header: React.FC = () => {
           "
           onClick={() => setLangMenuOpen(false)}
         >
-          {/* Petit panneau de sélection de langue */}
           <div
             className="
               bg-gray-900/90 
@@ -286,6 +333,21 @@ const Header: React.FC = () => {
             </button>
           </div>
         </div>
+      )}
+
+      {/* HEADER STICKY (SCROLL) – apparition/disparition simple */}
+      {showSticky && (
+        <Navbar
+          logoHeaderTop="/image/icons/logo2.svg"
+          logoHeaderScroll="/image/icons/logo2.svg"
+          links={links}
+          navbarTheme="dark"
+          headerVariant="glass-sticky"
+        >
+          <div onClick={handleContactClick} className="cursor-pointer">
+            <ButtonNeuromorphic text="Ma démo gratuite" size="sm" />
+          </div>
+        </Navbar>
       )}
     </>
   );
