@@ -89,7 +89,7 @@ export const Hero: React.FC = () => {
 
           <div className="flex flex-col gap-2 sm:gap-4 lg:gap-6 w-full items-center lg:items-start">
             <div className="text-[#9788fb] font-bold tracking-wide text-base sm:text-xl">
-              Demander la démo gratuite de votre futur site
+              Demander sa démo gratuite
             </div>
 
             <div className="w-full max-w-[400px] lg:max-w-[500px] relative z-30 flex flex-col sm:flex-row gap-3">

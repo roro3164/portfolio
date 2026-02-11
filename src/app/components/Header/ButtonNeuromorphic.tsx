@@ -61,9 +61,9 @@ export function ButtonNeuromorphic({
   /* eslint-enable @typescript-eslint/no-unused-vars */
 
   const paddingMap = {
-    sm: { v: 10, h: 20 },
-    md: { v: 12, h: 24 },
-    lg: { v: 16, h: 36 },
+    sm: { v: 6, h: 14 },
+    md: { v: 8, h: 18 },
+    lg: { v: 10, h: 24 },
   } as const;
 
   const padding = paddingMap[finalProps.size] || paddingMap.md;
@@ -196,6 +196,15 @@ export function ButtonNeuromorphic({
           }
           100% {
             transform: translateX(120%) rotate(45deg);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .dyn-button .dyn-button-inner {
+            padding: 6px 14px;
+          }
+          .dyn-button span {
+            font-size: 14px !important;
           }
         }
 
