@@ -1,13 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 import LeftComponent from "./LeftComponent";
 import RightComponent from "./RightComponent";
 
 
-const SplitScreen: React.FC = () => {
+const SplitScreen: React.FC<{ showSticker?: boolean }> = ({ showSticker = true }) => {
+  const { t } = useTranslation("page");
   const [activeZone, setActiveZone] = useState<"left" | "right" | null>(null);
+
+  const scrollToOffers = () => {
+    const el = document.getElementById("services");
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="relative w-full md:h-[620px]"
@@ -95,6 +106,53 @@ const SplitScreen: React.FC = () => {
           }
         }
       `}</style>
+      <style jsx global>{`
+        .sticker-toupie {
+          transform-style: preserve-3d;
+        }
+        .sticker-wrapper:hover .sticker-toupie {
+          animation: coinToupie 5.5s ease-in-out infinite;
+        }
+        @keyframes coinToupie {
+          0%   { transform: rotateY(0deg); }
+          10%  { transform: rotateY(360deg); }
+          100% { transform: rotateY(360deg); }
+        }
+      `}</style>
+      {showSticker && (
+        <motion.div
+            role="button"
+            tabIndex={0}
+            onClick={scrollToOffers}
+            onKeyDown={(e) => e.key === "Enter" && scrollToOffers()}
+            className="sticker-wrapper absolute right-[2%] top-[2%] -translate-y-1/2 z-[50] w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full flex flex-col items-center justify-center text-white font-jakarta font-extrabold shadow-[0_0_30px_rgba(106,90,205,0.4)] cursor-pointer select-none"
+            style={{
+              background: "linear-gradient(135deg, #3b82f6 0%, #6a5acd 50%, #8b5cf6 100%)",
+              border: "4px solid rgba(255,255,255,0.5)",
+            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{
+              opacity: 1,
+              scale: [1, 1.04, 1],
+            }}
+            whileHover={{ scale: 1.12 }}
+            transition={{
+              opacity: { duration: 0.5 },
+              scale: {
+                duration: 2.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+          >
+            <div className="sticker-toupie -rotate-6 flex flex-col items-center justify-center pointer-events-none w-full h-full rounded-full">
+              <span className="text-[10px] sm:text-sm md:text-base uppercase tracking-wide font-extrabold">{t("hero.sticker.des")}</span>
+              <span className="text-xl sm:text-3xl md:text-4xl font-extrabold">599€</span>
+              <span className="text-[10px] sm:text-sm md:text-base uppercase tracking-wide font-extrabold">{t("hero.sticker.offreLimitee")}</span>
+              <span className="text-[8px] sm:text-[10px] md:text-xs uppercase tracking-wide font-semibold text-white/95">{t("hero.sticker.voirOffre")}</span>
+            </div>
+          </motion.div>
+      )}
 
       {/* Zones de hover gauche/droite */}
       <div

@@ -161,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* SplitScreen */}
         <div className="w-full lg:w-2/3 flex-1 order-1 lg:order-2">
-          <SplitScreen />
+          <SplitScreen showSticker={showHeader} />
         </div>
       </div>
     </div>
