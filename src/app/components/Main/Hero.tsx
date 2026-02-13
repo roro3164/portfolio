@@ -79,7 +79,7 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* Colonne texte : logo (si pas de header) + titre + liste + description + boutons (si page accueil) */}
         <motion.div
-          className={`w-full lg:w-1/3 flex flex-col items-start text-left gap-2 sm:gap-4 lg:gap-8 lg:p-0 lg:pb-16 lg:mt-0 ${compact ? "mb-0" : "mb-20 lg:mb-0"} ${textColumnOrder} ${textColumnAlign}`}
+          className={`w-full lg:w-1/3 flex flex-col gap-2 sm:gap-4 lg:gap-8 lg:p-0 lg:pb-16 lg:mt-0 ${compact ? "items-start text-left mb-0" : "items-center lg:items-start text-center lg:text-left mb-20 lg:mb-0"} ${textColumnOrder} ${textColumnAlign}`}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
