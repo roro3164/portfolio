@@ -37,15 +37,17 @@ function ContactOption({
   label,
   icon: Icon,
   styleGlass,
+  iconClassName = "text-white",
 }: {
   href: string;
   label: string;
   icon: React.ElementType;
   styleGlass: { bg: string; border: string };
+  iconClassName?: string;
 }) {
   const content = (
     <>
-      <Icon className="w-5 h-5 shrink-0 text-white" strokeWidth={2} aria-hidden />
+      <Icon className={`w-5 h-5 shrink-0 ${iconClassName}`} strokeWidth={2} aria-hidden />
       <span className="font-semibold font-jakarta text-white text-sm sm:text-base whitespace-nowrap">{label}</span>
     </>
   );
@@ -88,6 +90,7 @@ function HubSectionBlock({ title, message, icon: Icon }: { title: string; messag
           label="SMS"
           icon={MessageSquare}
           styleGlass={BUTTON_COLORS.sms}
+          iconClassName="text-blue-500"
         />
         <ContactOption
           href={whatsAppUrl(message)}
@@ -100,6 +103,7 @@ function HubSectionBlock({ title, message, icon: Icon }: { title: string; messag
           label="Email"
           icon={Mail}
           styleGlass={BUTTON_COLORS.email}
+          iconClassName="text-red-600"
         />
       </div>
     </motion.div>
