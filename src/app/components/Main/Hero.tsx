@@ -12,7 +12,7 @@ import ButtonNeuromorphic from "../Header/ButtonNeuromorphic";
 interface HeroProps {
   showHeader?: boolean;
   showButtons?: boolean;
-  /** Réduit la hauteur du hero (ex. page hub) */
+  /** Réduit la hauteur du hero (ex. page contact) */
   compact?: boolean;
 }
 

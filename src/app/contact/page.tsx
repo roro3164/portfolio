@@ -5,7 +5,7 @@ import { Hero } from "../components/Main/Hero";
 import { HubSections } from "./HubSections";
 import { HubContactCard } from "./HubContactCard";
 
-export default function HubPage() {
+export default function ContactPage() {
   return (
     <div className="home">
       <div className="pt-0">
