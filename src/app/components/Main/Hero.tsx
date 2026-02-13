@@ -56,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({
   const textColumnAlign = showHeader ? "justify-start lg:justify-center" : "pt-0 justify-start";
 
   return (
-    <div className={`flex flex-col ${compact ? "min-h-[420px] lg:h-[55vh]" : "min-h-[700px] lg:h-[84vh]"}`}>
+    <div className={`flex flex-col ${compact ? "min-h-[420px] lg:min-h-[55vh]" : "min-h-[700px] lg:h-[84vh]"}`}>
       {showHeader && (
         <motion.div
           initial={{ y: -50, opacity: 0 }}
@@ -79,7 +79,7 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* Colonne texte : logo (si pas de header) + titre + liste + description + boutons (si page accueil) */}
         <motion.div
-          className={`w-full lg:w-1/3 flex flex-col gap-2 sm:gap-4 lg:gap-8 lg:p-0 lg:pb-16 lg:mt-0 ${compact ? "items-start text-left mb-0" : "items-center lg:items-start text-center lg:text-left mb-20 lg:mb-0"} ${textColumnOrder} ${textColumnAlign}`}
+          className={`w-full lg:w-1/3 flex flex-col gap-2 sm:gap-4 lg:gap-8 lg:p-0 lg:mt-0 ${compact ? "items-center lg:items-start text-center lg:text-left mb-0 lg:pb-2" : "items-center lg:items-start text-center lg:text-left mb-20 lg:mb-0 lg:pb-16"} ${textColumnOrder} ${textColumnAlign}`}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -112,28 +112,32 @@ export const Hero: React.FC<HeroProps> = ({
 
           <section className="flex flex-row flex-wrap items-start lg:flex-col gap-2 text-xs sm:text-xl">
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-5 sm:h-5"
+              color="violet"
+              className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.developer")}
               textClassName="text-xs sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-5 sm:h-5"
+              color="violet"
+              className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.positionnement")}
               textClassName="text-xs sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-5 sm:h-5"
+              color="violet"
+              className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.seo")}
               textClassName="text-xs sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-5 sm:h-5"
+              color="violet"
+              className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.sansEngagement")}
               textClassName="text-xs sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
