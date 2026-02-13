@@ -74,15 +74,15 @@ function HubSectionBlock({ title, message, icon: Icon }: { title: string; messag
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4 }}
-      className="w-full flex flex-col items-center justify-center p-4 min-w-0"
+      className="w-full flex flex-col items-start justify-center p-4 min-w-0"
     >
-      <div className="flex items-center justify-center gap-2 mb-6">
-        <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 shrink-0 text-white" strokeWidth={2} aria-hidden />
-        <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-xl lg:text-2xl leading-snug">
+      <div className="flex items-start justify-start gap-2 mb-6 w-full">
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 shrink-0 text-white mt-0.5" strokeWidth={2} aria-hidden />
+        <h3 className="text-left text-white font-jakarta font-bold text-lg sm:text-xl lg:text-2xl leading-snug">
           {title}
         </h3>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 w-full max-w-sm lg:max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 w-full max-w-sm lg:max-w-5xl">
         <ContactOption
           href={smsHref}
           label="SMS"
@@ -108,8 +108,8 @@ function HubSectionBlock({ title, message, icon: Icon }: { title: string; messag
 
 export function HubSections() {
   return (
-    <section className="text-white min-w-0 overflow-x-hidden pt-14 lg:pt-20 pb-6 lg:pb-8">
-      <div className="mx-auto flex flex-col gap-y-4 lg:gap-y-6 min-w-0 w-full p-4">
+    <section className="text-white min-w-0 overflow-x-hidden pt-0">
+      <div className="mx-auto flex flex-col gap-y-2 lg:gap-y-3 min-w-0 w-full p-4">
         {SECTIONS.map(({ title, message, icon }) => (
           <HubSectionBlock key={title} title={title} message={message} icon={icon} />
         ))}

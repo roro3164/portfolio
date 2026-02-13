@@ -12,6 +12,10 @@ import ButtonNeuromorphic from "../Header/ButtonNeuromorphic";
 interface HeroProps {
   showHeader?: boolean;
   showButtons?: boolean;
+  /** Header réduit au logo seul (ex. page contact) */
+  headerMinimal?: boolean;
+  /** Afficher la pastille offre dans le SplitScreen (false sur page contact) */
+  showSticker?: boolean;
   /** Réduit la hauteur du hero (ex. page contact) */
   compact?: boolean;
 }
@@ -19,6 +23,8 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({
   showHeader = true,
   showButtons = true,
+  headerMinimal = false,
+  showSticker,
   compact = false,
 }) => {
   const { t } = useTranslation();
@@ -44,6 +50,11 @@ export const Hero: React.FC<HeroProps> = ({
     }, 100);
   };
 
+  // Page contact : logo en haut à gauche (order fixe). Page accueil : order responsive (image puis texte en mobile).
+  const textColumnOrder = showHeader ? "order-2 lg:order-1" : "order-1";
+  const splitScreenOrder = showHeader ? "order-1 lg:order-2" : "order-2";
+  const textColumnAlign = showHeader ? "justify-start lg:justify-center" : "pt-0 justify-start";
+
   return (
     <div className={`flex flex-col ${compact ? "min-h-[420px] lg:h-[55vh]" : "min-h-[700px] lg:h-[84vh]"}`}>
       {showHeader && (
@@ -52,23 +63,23 @@ export const Hero: React.FC<HeroProps> = ({
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <Header />
+          <Header minimal={headerMinimal} />
         </motion.div>
       )}
 
       <div className="relative flex-1 flex flex-col lg:flex-row">
         {/* BgGradient responsive avec props */}
         <div className="hidden lg:block">
-  <BgGradient 
-    className="absolute bottom-20 left-0 w-1/3 h-1/3"
-    color="purple"
-    blur="blur-[250px]"
-  />
-</div>
+          <BgGradient
+            className="absolute bottom-20 left-0 w-1/3 h-1/3"
+            color="purple"
+            blur="blur-[250px]"
+          />
+        </div>
 
-        {/* Contenu texte centré et responsive */}
+        {/* Colonne texte : logo (si pas de header) + titre + liste + description + boutons (si page accueil) */}
         <motion.div
-          className={`w-full lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left gap-2 sm:gap-4 lg:gap-8 lg:p-0 lg:pb-16 order-2 lg:order-1 mb-20 lg:mb-0 lg:mt-0 ${!showHeader ? "pt-0 justify-start" : "justify-start lg:justify-center"}`}
+          className={`w-full lg:w-1/3 flex flex-col items-start text-left gap-2 sm:gap-4 lg:gap-8 lg:p-0 lg:pb-16 lg:mt-0 ${compact ? "mb-0" : "mb-20 lg:mb-0"} ${textColumnOrder} ${textColumnAlign}`}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -159,9 +170,9 @@ export const Hero: React.FC<HeroProps> = ({
           )}
         </motion.div>
 
-        {/* SplitScreen */}
-        <div className="w-full lg:w-2/3 flex-1 order-1 lg:order-2">
-          <SplitScreen showSticker={showHeader} />
+        {/* SplitScreen : sticker offre uniquement sur la page accueil */}
+        <div className={`w-full lg:w-2/3 flex-1 ${splitScreenOrder}`}>
+          <SplitScreen showSticker={showSticker ?? showHeader} />
         </div>
       </div>
     </div>

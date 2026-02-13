@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <div className="home">
       <div className="pt-0">
-        <Hero showHeader={false} showButtons={false} compact />
+        <Hero showHeader showButtons={false} headerMinimal showSticker={false} compact />
         <HubSections />
         <div className="px-4 pt-4 pb-12">
           <HubContactCard />

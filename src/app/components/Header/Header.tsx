@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import styles from "./header.module.scss";
 import Navbar, { NavLink } from "./Navbar";
 import ButtonNeuromorphic from "./ButtonNeuromorphic";
 
-const Header: React.FC = () => {
+const Header: React.FC<{ minimal?: boolean }> = ({ minimal = false }) => {
   const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
@@ -86,6 +87,39 @@ const Header: React.FC = () => {
     { label: t("header.contact"), href: "#contact" },
   ];
 
+  const logoBlock = (
+    <div className="relative h-6 lg:h-8">
+      <div className="absolute inset-0 filter blur-[6px] opacity-50">
+        <Image
+          src="/image/icons/logo.svg"
+          alt="Romain DesignCode"
+          width={150}
+          height={40}
+          className="w-auto h-full"
+        />
+      </div>
+      <Image
+        src="/image/icons/logo2.svg"
+        alt="ROMAIN DEV Logo"
+        width={140}
+        height={36}
+        className="w-auto h-12 lg:h-16 relative"
+      />
+    </div>
+  );
+
+  if (minimal) {
+    return (
+      <header
+        className="relative flex justify-between items-start h-10 lg:h-16 mb-8 lg:mb-14 text-white"
+      >
+        <Link href="/" className="block">
+          {logoBlock}
+        </Link>
+      </header>
+    );
+  }
+
   return (
     <>
       {/* HEADER INITIAL COMME AVANT */}
@@ -102,24 +136,7 @@ const Header: React.FC = () => {
         `}
       >
         {/* LOGO À GAUCHE */}
-        <div className="relative h-6 lg:h-8">
-          <div className="absolute inset-0 filter blur-[6px] opacity-50">
-            <Image
-              src="/image/icons/logo.svg"
-              alt="Romain DesignCode"
-              width={150}
-              height={40}
-              className="w-auto h-full"
-            />
-          </div>
-          <Image
-            src="/image/icons/logo2.svg"
-            alt="ROMAIN DEV Logo"
-            width={140}
-            height={36}
-            className="w-auto h-12 lg:h-16 relative"
-          />
-        </div>
+        {logoBlock}
 
         {/* CONTENEUR À DROITE : en colonne */}
         <div className="flex flex-col items-end w-auto gap-2">
