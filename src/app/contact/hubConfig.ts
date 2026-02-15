@@ -12,7 +12,7 @@ export const HUB_SOCIAL = {
   github: "https://github.com/roro3164",
   linkedin: "https://www.linkedin.com/in/romain-mornet/",
   behance: "https://www.behance.net/romainmornet",
-  tiktok: "https://www.tiktok.com/@romain64440",
+  tiktok: "https://www.tiktok.com/@romain_designcode",
   instagram: "https://www.instagram.com/romaindesigncode",
 } as const;
 
