@@ -14,9 +14,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 const SECTIONS: { title: string; message: string; icon: React.ElementType }[] = [
+  { title: "Je veux ma démo de site gratuite", message: "Bonjour Romain, je veux voir la démo de site gratuite de mon futur site.", icon: PlayCircle },
   { title: "Je veux améliorer ma visibilité Google", message: "Bonjour Romain, j'ai fait le test. On peut analyser mes résultats ?", icon: TrendingUp },
   { title: "Je veux mon test visibilité gratuit", message: "Bonjour, je voudrais mon audit de visibilité gratuit pour mon commerce.", icon: ClipboardList },
-  { title: "Je veux ma démo de site gratuite", message: "Bonjour Romain, je veux voir la démo de site gratuite de mon futur site.", icon: PlayCircle },
 ];
 
 const whatsAppUrl = (message?: string) => {
