@@ -37,6 +37,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        {/* Tracking QR code diagnostic : establishment_name pour GA4 (dimension personnalisée) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(){
+  if (typeof window === 'undefined') return;
+  var params = new URLSearchParams(window.location.search);
+  var establishmentName = params.get('establishment_name');
+  if (establishmentName) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'qr_scan_landing',
+      establishment_name: establishmentName
+    });
+  }
+})();
+            `.trim(),
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
