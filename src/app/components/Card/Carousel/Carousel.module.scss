@@ -23,6 +23,30 @@
       border-radius: 10px;
       min-width: unset; // Important : annule le min-width pour mobile
     }
+
+    // Variant hub : cartes pour la page contact
+    &.hubCard {
+      height: 380px;
+      width: 260px;
+      min-width: 260px;
+
+      // Colonne : mêmes proportions, plus petit
+      @media (max-width: 1199px) {
+        width: 200px;
+        height: 292px;
+        min-width: unset;
+        border-radius: 0.75rem;
+
+        .imageContainer {
+          height: 80%;
+        }
+
+        .boxBottomCard {
+          height: 20%;
+          border-radius: 0 0 0.75rem 0.75rem;
+        }
+      }
+    }
   }
 
   
@@ -41,7 +65,7 @@
   
   
   .boxBottomCard {
-    @apply rounded-b-xl flex justify-center px-2;
+    @apply rounded-b-xl flex justify-center items-center px-2;
     height: 20%;
     background: rgba(75, 75, 75, 0.7);
   

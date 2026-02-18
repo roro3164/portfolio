@@ -7,6 +7,7 @@ export interface ProjectCardProps {
     id?: number;
     imageProject: string;
     logoProject: string;
+    className?: string;
     title?: string;
     description?: string;
     moreInfoUrl?: string;

@@ -86,7 +86,8 @@ export default {
   		},
   		screens: {
   			xs: '480px',
-  			screenCard: ''
+  			screenCard: '',
+  			xl1200: '1200px'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
