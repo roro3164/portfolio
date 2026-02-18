@@ -161,7 +161,7 @@ export function HubMesSites() {
       <div className="flex items-center justify-center gap-2 mb-10 xl1200:mb-12 mt-16 xl1200:mt-0">
         <Globe className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 text-white" strokeWidth={2} aria-hidden />
         <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-xl lg:text-2xl">
-          Mes sites
+          Mes dernières réalisations
         </h3>
       </div>
 
