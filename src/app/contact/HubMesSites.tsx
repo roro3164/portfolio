@@ -52,6 +52,7 @@ const ESTABLISHMENT_TO_CARD: Record<string, { categoryIndex: number; siteIndex: 
   Électricien: { categoryIndex: 2, siteIndex: 0 },
   Peintre: { categoryIndex: 2, siteIndex: 0 },
   Menuisier: { categoryIndex: 2, siteIndex: 0 },
+  Carreleur: { categoryIndex: 2, siteIndex: 0 },
   Artisanat: { categoryIndex: 2, siteIndex: 0 },
 };
 
@@ -112,7 +113,7 @@ const CATEGORIES: CategoryConfig[] = [
   },
   {
     title: "Bâtiment et artisanat",
-    metiers: ["Plombier", "Électricien", "Peintre", "Menuisier", "Nettoyage"],
+    metiers: ["Plombier", "Électricien", "Peintre", "Menuisier", "Carreleur", "Nettoyage"],
     sites: [
       {
         imageProject: "/image/projectsContact/bioProprete.png",
