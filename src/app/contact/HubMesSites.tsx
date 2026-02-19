@@ -41,6 +41,9 @@ const ESTABLISHMENT_TO_CARD: Record<string, { categoryIndex: number; siteIndex: 
   // Restauration
   Restaurant: { categoryIndex: 1, siteIndex: 0 },
   "Restaurant de sushis": { categoryIndex: 1, siteIndex: 0 },
+  Pizza: { categoryIndex: 1, siteIndex: 0 },
+  Snack: { categoryIndex: 1, siteIndex: 0 },
+  Crêperie: { categoryIndex: 1, siteIndex: 0 },
   Boulanger: { categoryIndex: 1, siteIndex: 0 },
   Traiteur: { categoryIndex: 1, siteIndex: 0 },
   Pâtissier: { categoryIndex: 1, siteIndex: 1 },
@@ -89,7 +92,7 @@ const CATEGORIES: CategoryConfig[] = [
   },
   {
     title: "Restauration et alimentation",
-    metiers: ["Restaurant", "Pâtissier", "Boulanger", "Traiteur"],
+    metiers: ["Restaurant", "Pizza", "Snack", "Crêperie", "Pâtissier", "Boulanger", "Traiteur"],
     sites: [
       {
         imageProject: "/image/projectsContact/fujiSushis.png",
@@ -115,7 +118,7 @@ const CATEGORIES: CategoryConfig[] = [
         imageProject: "/image/projectsContact/bioProprete.png",
         logoProject: "/image/projectsContact/bioProprete.png",
         title: "BioPropreté",
-        url: undefined,
+        url: "https://client-mdf-propret-backup.vercel.app/",
         metier: "Nettoyage",
       },
     ],
