@@ -33,7 +33,7 @@ export function HubContactCard() {
         boxShadow: "0 25px 25px rgba(0, 0, 0, 0.25)",
       }}
     >
-      <h3 className="text-center font-jakarta font-bold text-lg sm:text-xl mb-6">
+      <h3 className="text-center font-jakarta font-bold text-xl sm:text-2xl mb-6">
         Contactez-moi
       </h3>
       <div className="flex flex-col gap-4">

@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ProjectCard } from "../components/Card/Carousel/ProjectCard";
-import styles from "../components/Card/Carousel/Carousel.module.scss";
+import Image from "next/image";
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
@@ -32,24 +31,16 @@ interface HubProjectPileProps {
   columnMode?: boolean;
 }
 
-function PlaceholderCard({ title, metier, isActive }: { title: string; metier: string; isActive: boolean }) {
+function PlaceholderSlide({ metier, isActive }: { metier: string; isActive: boolean }) {
   return (
-    <div className={`${styles.glassCardProject} ${styles.hubCard}`}>
-      <div className={styles.imageContainer}>
-        <span className="text-white/60 font-jakarta text-sm">Bientôt</span>
-      </div>
-      <div className={`${styles.boxBottomCard} flex items-center justify-center`}>
-        <span 
-          className="text-white font-jakarta font-semibold text-lg sm:text-xl text-center"
-          style={{ 
-            opacity: isActive ? 1 : 0,
-            transition: 'opacity 0.7s ease-in-out',
-            textShadow: '0 1px 2px black, 0 0 4px black'
-          }}
-        >
-          {metier}
-        </span>
-      </div>
+    <div className="w-full h-full flex flex-col items-center justify-center rounded-xl bg-white/5 border border-white/20 min-h-[200px] sm:min-h-[260px]">
+      <span className="text-white/60 font-jakarta text-sm">Bientôt</span>
+      <span
+        className="text-white font-jakarta font-semibold text-lg mt-2"
+        style={{ opacity: isActive ? 1 : 0.5, transition: "opacity 0.3s" }}
+      >
+        {metier}
+      </span>
     </div>
   );
 }
@@ -64,26 +55,6 @@ export function HubProjectPile({
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const isDesktop = useMediaQuery("(min-width: 1200px)");
-
-  const getCardStyle = (index: number) => {
-    const diff = (index - activeIndex + sites.length) % sites.length;
-    const isActive = diff === 0;
-
-    const transform = isActive
-      ? "translate(-45%, -2%) rotate(-12deg) scale(0.95)"
-      : `translate(calc(-50% + ${diff * 12}px), -${diff}px)`;
-
-    return {
-      position: "absolute" as const,
-      left: "50%",
-      top: "-30%",
-      transform,
-      zIndex: sites.length - diff,
-      opacity: isActive ? 1 : 0.35,
-      transition: "all 0.5s ease-in-out",
-      cursor: isActive ? "pointer" : "default",
-    };
-  };
 
   const handleCardClick = (index: number) => {
     const site = sites[index];
@@ -106,50 +77,68 @@ export function HubProjectPile({
     if (index !== activeIndex) setActiveIndex(index);
   };
 
-  const handleCardSwipeEnd = () => {
+  const handleSwipeEnd = () => {
     if (touchStart === null || touchEnd === null) return;
     const distance = touchStart - touchEnd;
     if (Math.abs(distance) > 50 && sites.length > 1) {
-      if (distance > 0) {
-        setActiveIndex((prev) => (prev + 1) % sites.length);
-      } else {
-        setActiveIndex((prev) => (prev - 1 + sites.length) % sites.length);
-      }
+      if (distance > 0) nextSlide();
+      else previousSlide();
     }
     setTouchStart(null);
     setTouchEnd(null);
   };
 
-  const showControls = !columnMode && sites.length > 1;
+  const showControls = sites.length > 1;
+  const currentSite = sites[activeIndex];
 
-  const cardsBlock = (
-    <div className={`relative w-full flex justify-center overflow-visible pt-4 ${isDesktop ? "h-80" : "h-[240px]"}`}>
+  const metierLabel = !currentSite?.isPlaceholder && currentSite?.metier && (
+    <p
+      className="text-white font-jakarta font-semibold text-center mb-2"
+      style={{ fontSize: "28px", textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
+    >
+      {currentSite.metier}
+    </p>
+  );
+
+  const carouselBlock = (
+    <div
+      className="relative w-full overflow-hidden rounded-xl"
+      style={{ aspectRatio: "16/10", maxHeight: columnMode ? 280 : 320 }}
+      {...(columnMode && {
+        onTouchStart: (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX),
+        onTouchMove: (e: React.TouchEvent) => setTouchEnd(e.touches[0].clientX),
+        onTouchEnd: handleSwipeEnd,
+      })}
+    >
       <div
-        className={`absolute left-1/2 -translate-x-1/2 overflow-visible ${isDesktop ? "w-[320px] h-80" : "w-[220px] h-[240px]"}`}
-        {...(columnMode && {
-          onTouchStart: (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX),
-          onTouchMove: (e: React.TouchEvent) => setTouchEnd(e.touches[0].clientX),
-          onTouchEnd: handleCardSwipeEnd,
-        })}
+        className="flex h-full transition-transform duration-300 ease-out"
+        style={{
+          width: `${sites.length * 100}%`,
+          transform: `translateX(-${(activeIndex / sites.length) * 100}%)`,
+        }}
       >
         {sites.map((site, index) => (
           <div
             key={site.title}
-            style={getCardStyle(index)}
+            className="flex-shrink-0 w-full h-full flex items-center justify-center p-2 sm:p-4 cursor-pointer"
+            style={{ width: `${100 / sites.length}%` }}
             onClick={() => handleCardClick(index)}
-            className={index === activeIndex ? "hub-pile-active-card" : ""}
           >
             {site.isPlaceholder ? (
-              <PlaceholderCard title={site.title} metier={site.metier} isActive={index === activeIndex} />
+              <PlaceholderSlide metier={site.metier} isActive={index === activeIndex} />
             ) : (
-              <ProjectCard
-                imageProject={site.imageProject}
-                logoProject={site.logoProject}
-                imageOpacity={index === activeIndex ? 1 : 0.4}
-                className={styles.hubCard}
-                imageScale={site.imageScale}
-                metier={site.metier}
-              />
+              <div
+                className="relative w-full h-full flex items-center justify-center"
+                style={{ transform: site.imageScale ? `scale(${site.imageScale})` : undefined }}
+              >
+                <Image
+                  src={site.imageProject}
+                  alt={site.title}
+                  width={600}
+                  height={400}
+                  className="object-contain w-full h-full"
+                />
+              </div>
             )}
           </div>
         ))}
@@ -157,73 +146,48 @@ export function HubProjectPile({
     </div>
   );
 
-  const dotsBlock = columnMode && sites.length > 1 && (
-    <p className="text-white/70 font-jakarta font-bold text-sm py-1">
-      {activeIndex + 1}/{sites.length}
-    </p>
-  );
-
-  const swipeHintBlock = columnMode && sites.length > 1 && (
-    <p className="text-white/50 font-jakarta text-xs text-center flex items-center justify-center gap-1.5 w-full">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-70 shrink-0">
-        <path d="M4 12h16M8 8l-4 4 4 4M20 8l-4 4 4 4" />
-      </svg>
-      Swipez pour faire défiler
-    </p>
-  );
-
-  const titleBlock = (
-    <div className="w-full flex flex-col items-center justify-center px-4 min-w-0">
-      <h4 className="text-white font-jakarta font-bold text-xl sm:text-2xl text-center tracking-tight">
-        {sectorTitle}
-      </h4>
-      <p className="text-white/80 font-jakarta text-sm sm:text-base mt-1.5 text-center">
-        ({metiers.join(", ")})
-      </p>
+  const dotsBlock = showControls && (
+    <div className="flex justify-center gap-2 py-3">
+      {sites.map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDotClick(index);
+          }}
+          className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+            index === activeIndex ? "bg-purple-500 scale-125" : "bg-white/40 hover:bg-white/60"
+          }`}
+          aria-label={`Slide ${index + 1}`}
+        />
+      ))}
     </div>
   );
 
-  const controlsBlock = showControls && (
-    <div className="flex items-center justify-center gap-4 sm:gap-6 w-full py-3">
+  const arrowsBlock = showControls && !columnMode && (
+    <div className="flex items-center justify-center gap-4 w-full py-2">
       <button
         type="button"
         onClick={(e) => {
           e.stopPropagation();
           previousSlide();
         }}
-        className="hub-pile-nav-arrow flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all cursor-pointer"
-        aria-label="Carte précédente"
+        className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center"
+        aria-label="Précédent"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
-      {sites.length > 1 && (
-        <div className="flex gap-4">
-          {sites.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDotClick(index);
-              }}
-              className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
-                index === activeIndex ? "bg-purple-500/60 scale-125" : "bg-gray-500"
-              }`}
-              aria-label={`Site ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
       <button
         type="button"
         onClick={(e) => {
           e.stopPropagation();
           nextSlide();
         }}
-        className="hub-pile-nav-arrow flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all cursor-pointer"
-        aria-label="Carte suivante"
+        className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center"
+        aria-label="Suivant"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
           <path d="M9 18l6-6-6-6" />
@@ -232,79 +196,44 @@ export function HubProjectPile({
     </div>
   );
 
+  const titleBlock = !columnMode && (
+    <div className="w-full flex flex-col items-center justify-center px-4 min-w-0 pt-2">
+      <h4 className="text-white font-jakarta font-bold text-2xl sm:text-3xl text-center tracking-tight">
+        {sectorTitle}
+      </h4>
+      <p className="text-white/80 font-jakarta text-sm sm:text-base mt-1 text-center">
+        ({metiers.join(", ")})
+      </p>
+    </div>
+  );
+
+  const swipeHintBlock = columnMode && showControls && (
+    <p className="text-white/50 font-jakarta text-xs text-center flex items-center justify-center gap-1.5 w-full py-1">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-70 shrink-0">
+        <path d="M4 12h16M8 8l-4 4 4 4M20 8l-4 4 4 4" />
+      </svg>
+      Swipez pour faire défiler
+    </p>
+  );
+
   return (
-    <div className={`flex flex-col items-center w-full max-w-[340px] xl1200:max-w-none ${columnMode ? "relative mx-auto" : ""}`}>
+    <div className={`flex flex-col items-center w-full max-w-[400px] xl1200:max-w-none ${columnMode ? "mx-auto" : ""}`}>
       {columnMode ? (
-        <div className="relative flex flex-col justify-start gap-2 w-full items-center">
-          <div className="flex flex-col items-center justify-center w-full">{cardsBlock}</div>
-          <div className="flex flex-col items-center -mt-2">
-            {dotsBlock}
-            {swipeHintBlock}
-          </div>
+        <div className="flex flex-col items-center w-full">
+          {metierLabel}
+          {carouselBlock}
+          {dotsBlock}
+          {swipeHintBlock}
         </div>
       ) : (
         <>
-          {cardsBlock}
-          <div className="-mt-10 xl1200:mt-5 mb-3">{titleBlock}</div>
-          {controlsBlock}
+          {metierLabel}
+          {carouselBlock}
+          {arrowsBlock}
+          {titleBlock}
+          {dotsBlock}
         </>
       )}
-      <style jsx>{`
-        @media (min-width: 1200px) {
-          .hub-pile-active-card:hover {
-            animation: hubPileBounce 4s infinite ease-in-out;
-          }
-        }
-        @media (max-width: 1199px) {
-          .hub-pile-active-card:hover {
-            animation: hubPileBounceMobile 4s infinite ease-in-out;
-          }
-        }
-        .hub-pile-active-card > div {
-          position: relative;
-          overflow: hidden;
-        }
-        .hub-pile-active-card > div::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent
-          );
-          transform: skewX(-15deg);
-          animation: hubPileShine 2.5s infinite;
-          z-index: 2;
-          border-radius: inherit;
-        }
-        @keyframes hubPileBounce {
-          0%, 100% { transform: translate(-45%, -2%) rotate(-12deg) scale(0.95) translateZ(0); }
-          50% { transform: translate(-45%, -2%) rotate(-12deg) scale(1.1) translateZ(50px); }
-        }
-        @keyframes hubPileBounceMobile {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.02); }
-        }
-        @keyframes hubPileShine {
-          0% { left: -100%; }
-          100% { left: 100%; }
-        }
-        .hub-pile-nav-arrow:hover {
-          transform: scale(1.1);
-        }
-        .hub-pile-dot {
-          background: #333;
-        }
-        .hub-pile-dot-active {
-          background: rgba(139, 92, 246, 0.5);
-          transform: scale(1.3);
-        }
-      `}</style>
     </div>
   );
 }

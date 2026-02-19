@@ -34,7 +34,8 @@ interface CategoryConfig {
 const ESTABLISHMENT_TO_CARD: Record<string, { categoryIndex: number; siteIndex: number }> = {
   // Beauté & Bien-être
   Coiffeur: { categoryIndex: 0, siteIndex: 0 },
-  Barber: { categoryIndex: 0, siteIndex: 0 },
+  Barber: { categoryIndex: 0, siteIndex: 2 },
+  Barbershop: { categoryIndex: 0, siteIndex: 2 },
   Esthéticienne: { categoryIndex: 0, siteIndex: 0 },
   Institut: { categoryIndex: 0, siteIndex: 0 },
   // Restauration
@@ -64,19 +65,25 @@ const CATEGORIES: CategoryConfig[] = [
     metiers: ["Coiffeur", "Barber", "Esthéticienne", "Institut"],
     sites: [
       {
-        imageProject: "/image/projects/mockupSalonBeauté.png",
-        logoProject: "/image/projects/logoSalonBeauté.png",
+        imageProject: "/image/projectsContact/salonBeauté.png",
+        logoProject: "/image/projectsContact/logoSalonBeauté.png",
         title: "Salon Beauté",
         url: "https://client-salon-beaute-backup-8vldcj6zj-romains-projects-72d8cf83.vercel.app/",
-        imageScale: 0.75,
         metier: "Coiffeur",
       },
       {
-        imageProject: "/image/projects/mockupInstantCoiffure.png",
-        logoProject: "/image/projects/logoInstantCoiffure.png",
+        imageProject: "/image/projectsContact/InstantCoiffure.png",
+        logoProject: "/image/projectsContact/logoInstantCoiffure.png",
         title: "Instant Coiffure",
         url: "https://client-instant-coiffure-backup.vercel.app/",
         metier: "Coiffeur",
+      },
+      {
+        imageProject: "/image/projectsContact/barbershop.png",
+        logoProject: "/image/projectsContact/logoBarber.svg",
+        title: "Barbershop",
+        url: "https://client-barber-shop-backup.vercel.app/",
+        metier: "Barber",
       },
     ],
   },
@@ -85,33 +92,31 @@ const CATEGORIES: CategoryConfig[] = [
     metiers: ["Restaurant", "Pâtissier", "Boulanger", "Traiteur"],
     sites: [
       {
-        imageProject: "/image/projects/mockupFujiSushi.png",
-        logoProject: "/image/projects/logoFujiSushi.png",
+        imageProject: "/image/projectsContact/fujiSushis.png",
+        logoProject: "/image/projectsContact/logoFujiSushi.png",
         title: "Fuji Sushis",
         url: "https://client-fuji-sushis-backup-n7ekhf180-romains-projects-72d8cf83.vercel.app/",
         metier: "Restaurant de sushis",
       },
       {
-        imageProject: "",
-        logoProject: "",
-        title: "Pâtisserie",
-        url: undefined,
-        isPlaceholder: true,
+        imageProject: "/image/projectsContact/eclatGourmnd.png",
+        logoProject: "/image/projectsContact/eclatGourmnd.png",
+        title: "Éclat Gourmand",
+        url: "https://client-adolfina-aguero-patisserie-b.vercel.app/",
         metier: "Pâtissier",
       },
     ],
   },
   {
     title: "Bâtiment et artisanat",
-    metiers: ["Plombier", "Électricien", "Peintre", "Menuisier"],
+    metiers: ["Plombier", "Électricien", "Peintre", "Menuisier", "Nettoyage"],
     sites: [
       {
-        imageProject: "",
-        logoProject: "",
-        title: "Bâtiment",
+        imageProject: "/image/projectsContact/bioProprete.png",
+        logoProject: "/image/projectsContact/bioProprete.png",
+        title: "BioPropreté",
         url: undefined,
-        isPlaceholder: true,
-        metier: "Artisanat",
+        metier: "Nettoyage",
       },
     ],
   },
@@ -158,16 +163,16 @@ export function HubMesSites() {
       transition={{ duration: 0.4 }}
       className="w-full text-white p-4 pt-0 -mt-4 overflow-x-hidden"
     >
-      <div className="flex items-center justify-center gap-2 mb-10 xl1200:mb-12 mt-16 xl1200:mt-0">
+      <div className="flex items-center justify-center gap-2 mb-4 xl1200:mb-6 mt-16 xl1200:mt-0">
         <Globe className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 text-white" strokeWidth={2} aria-hidden />
-        <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-xl lg:text-2xl">
+        <h3 className="text-center text-white font-jakarta font-bold text-xl sm:text-2xl lg:text-3xl">
           Mes dernières réalisations
         </h3>
       </div>
 
       {isColumn ? (
         <>
-          <div className="flex justify-center gap-1 sm:gap-2 mb-6 overflow-x-auto pb-2">
+          <div className="flex justify-center gap-1 sm:gap-2 mb-2 overflow-x-auto pb-2">
             {CATEGORIES.map((category, index) => (
               <button
                 key={category.title}
@@ -185,7 +190,7 @@ export function HubMesSites() {
               </button>
             ))}
           </div>
-          <div className="pt-16 overflow-visible">
+          <div className="pt-2 overflow-visible">
           <div className="w-full overflow-visible touch-pan-y flex justify-center">
             <HubProjectPile
               key={currentCategory.title}
@@ -198,7 +203,7 @@ export function HubMesSites() {
         </div>
         </>
       ) : (
-        <div className="grid grid-cols-1 xl1200:grid-cols-3 gap-28 xl1200:gap-10 max-w-[1400px] mx-auto justify-items-center pt-16 xl1200:pt-24">
+        <div className="grid grid-cols-1 xl1200:grid-cols-3 gap-28 xl1200:gap-10 max-w-[1400px] mx-auto justify-items-center pt-6 xl1200:pt-8">
           {CATEGORIES.map((category, index) => (
             <HubProjectPile
               key={category.title}

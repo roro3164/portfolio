@@ -50,6 +50,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <img 
                 src={logoProject} 
                 alt="project logo"
+                className="max-h-[64px] sm:max-h-[90px] max-w-[150px] sm:max-w-[200px] w-auto h-auto object-contain"
                 style={{ 
                   opacity: imageOpacity,
                   transition: 'opacity 0.7s ease-in-out'

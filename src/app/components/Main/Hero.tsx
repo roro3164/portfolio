@@ -106,16 +106,19 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </Link>
           )}
-          <h1 className="text-[22px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
+          <h1
+            className="font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent"
+            style={{ fontSize: "clamp(1.5rem, 4vw, 2.75rem)" }}
+          >
             {t("hero.title")}
           </h1>
 
-          <section className="flex flex-row flex-wrap items-start lg:flex-col gap-2 text-xs sm:text-xl">
+          <section className="flex flex-row flex-wrap items-start lg:flex-col gap-2 text-sm sm:text-xl">
             <CircleListItem
               color="violet"
               className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.developer")}
-              textClassName="text-xs sm:text-base font-medium"
+              textClassName="text-sm sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
@@ -123,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({
               color="violet"
               className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.positionnement")}
-              textClassName="text-xs sm:text-base font-medium"
+              textClassName="text-sm sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
@@ -131,7 +134,7 @@ export const Hero: React.FC<HeroProps> = ({
               color="violet"
               className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.seo")}
-              textClassName="text-xs sm:text-base font-medium"
+              textClassName="text-sm sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
@@ -139,13 +142,13 @@ export const Hero: React.FC<HeroProps> = ({
               color="violet"
               className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-full"
               text={t("hero.services.sansEngagement")}
-              textClassName="text-xs sm:text-base font-medium"
+              textClassName="text-sm sm:text-base font-medium"
               spacing="mr-1 sm:mr-3"
               useLucideCheck
             />
           </section>
 
-          <p className="text-base sm:text-xl text-gray-300">
+          <p className="text-gray-300" style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)" }}>
             {t("hero.description")}
           </p>
 

@@ -80,7 +80,7 @@ function HubSectionBlock({ title, message, icon: Icon }: { title: string; messag
     >
       <div className="flex items-start justify-center gap-2 mb-6 w-full">
         <Icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 shrink-0 text-white mt-0.5" strokeWidth={2} aria-hidden />
-        <h3 className="text-center text-white font-jakarta font-bold text-lg sm:text-xl lg:text-2xl leading-snug">
+        <h3 className="text-center text-white font-jakarta font-bold text-xl sm:text-2xl lg:text-3xl leading-snug">
           {title}
         </h3>
       </div>
