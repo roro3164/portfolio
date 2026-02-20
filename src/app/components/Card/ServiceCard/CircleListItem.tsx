@@ -23,6 +23,8 @@ interface CircleListItemProps {
   checkOnly?: boolean;
   /** Utilise l'icône Lucide Check au lieu du caractère ✓ */
   useLucideCheck?: boolean;
+  /** Rend le texte comme HTML (ex: <strong>) */
+  allowHtml?: boolean;
 }
 
 export const CircleListItem = ({ 
@@ -33,7 +35,8 @@ export const CircleListItem = ({
   spacing = "mr-2 sm:mr-4",
   dotOnly = false,
   checkOnly = false,
-  useLucideCheck = false
+  useLucideCheck = false,
+  allowHtml = false
 }: CircleListItemProps) => {
   const colorValue = getColorVariable(color);
   const sizeClass = className || (dotOnly ? "min-w-2 h-2" : "min-w-8 h-8");
@@ -49,12 +52,20 @@ export const CircleListItem = ({
         >
           ✓
         </span>
-        <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`}>
-          {text}
-        </span>
+        {allowHtml ? (
+          <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`} dangerouslySetInnerHTML={{ __html: text }} />
+        ) : (
+          <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`}>{text}</span>
+        )}
       </div>
     );
   }
+
+  const textContent = allowHtml ? (
+    <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`} dangerouslySetInnerHTML={{ __html: text }} />
+  ) : (
+    <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`}>{text}</span>
+  );
 
   return (
     <div className="flex items-center">
@@ -77,9 +88,7 @@ export const CircleListItem = ({
           "✓"
         ))}
       </div>
-      <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`}>
-        {text}
-      </span>
+      {textContent}
     </div>
   );
 };

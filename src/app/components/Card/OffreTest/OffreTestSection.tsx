@@ -156,9 +156,10 @@ function PrestationsCard({
           </p>
         </div>
         {subtitle && (
-          <p className="text-white/80 font-jakarta text-[10px] sm:text-xs italic">
-            {subtitle}
-          </p>
+          <p
+            className="text-white font-jakarta text-sm sm:text-base font-bold"
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
         )}
       </div>
       <div className="space-y-1.5">{children}</div>
@@ -216,7 +217,7 @@ export function OffreTestSection() {
             </TarifsCard>
             <PrestationsCard title={t("offers.packStarter.sitePro.title")} subtitle={t("offers.packStarter.sitePro.subtitle")} color="green">
               {(t("offers.packStarter.sitePro.items", { returnObjects: true }) as string[]).map((text, i) => (
-                <CircleListItem key={i} color="green" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" />
+                <CircleListItem key={i} color="green" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" allowHtml />
               ))}
             </PrestationsCard>
             <PrestationsCard title={t("offers.packStarter.visibiliteGoogle.title")} color="green">
@@ -244,7 +245,7 @@ export function OffreTestSection() {
             </TarifsCard>
             <PrestationsCard title={t("offers.packVisibilite.sitePro.title")} subtitle={t("offers.packVisibilite.sitePro.subtitle")} color="blue">
               {(t("offers.packVisibilite.sitePro.items", { returnObjects: true }) as string[]).map((text, i) => (
-                <CircleListItem key={i} color="blue" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" />
+                <CircleListItem key={i} color="blue" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" allowHtml />
               ))}
             </PrestationsCard>
             <PrestationsCard title={t("offers.packVisibilite.visibiliteGoogle.title")} color="blue">

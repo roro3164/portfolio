@@ -70,14 +70,14 @@ const CATEGORIES: CategoryConfig[] = [
     sites: [
       {
         imageProject: "/image/projectsContact/salonBeauté.png",
-        logoProject: "/image/projectsContact/logoSalonBeauté.png",
+        logoProject: "/image/logos-clients/logo-salon-beaute.webp",
         title: "Salon Beauté",
         url: "https://client-salon-beaute-backup-8vldcj6zj-romains-projects-72d8cf83.vercel.app/",
         metier: "Coiffeur",
       },
       {
         imageProject: "/image/projectsContact/InstantCoiffure.png",
-        logoProject: "/image/projectsContact/logoInstantCoiffure.png",
+        logoProject: "/image/logos-clients/logo-instant-coiffure.webp",
         title: "Instant Coiffure",
         url: "https://client-instant-coiffure-backup.vercel.app/",
         metier: "Coiffeur",
@@ -97,14 +97,14 @@ const CATEGORIES: CategoryConfig[] = [
     sites: [
       {
         imageProject: "/image/projectsContact/fujiSushis.png",
-        logoProject: "/image/projectsContact/logoFujiSushi.png",
+        logoProject: "/image/logos-clients/logo-fuji-sushis.webp",
         title: "Fuji Sushis",
         url: "https://client-fuji-sushis-backup-n7ekhf180-romains-projects-72d8cf83.vercel.app/",
         metier: "Restaurant de sushis",
       },
       {
         imageProject: "/image/projectsContact/eclatGourmnd.png",
-        logoProject: "/image/projectsContact/eclatGourmnd.png",
+        logoProject: "/image/logos-clients/logo-eclat-gourmand.png",
         title: "Éclat Gourmand",
         url: "https://client-adolfina-aguero-patisserie-b.vercel.app/",
         metier: "Pâtissier",
@@ -117,7 +117,7 @@ const CATEGORIES: CategoryConfig[] = [
     sites: [
       {
         imageProject: "/image/projectsContact/bioProprete.png",
-        logoProject: "/image/projectsContact/bioProprete.png",
+        logoProject: "/image/logos-clients/logo-bio-proprete.png",
         title: "BioPropreté",
         url: "https://client-mdf-propret-backup.vercel.app/",
         metier: "Nettoyage",
