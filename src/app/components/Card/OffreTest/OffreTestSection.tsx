@@ -37,7 +37,7 @@ function PackCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.45 }}
-      className="w-full sm:max-w-xl xl:max-w-none xl:w-1/3 flex flex-col h-auto xl:h-[660px] transition-transform duration-300 hover:scale-[1.01]"
+      className="w-full sm:max-w-xl xl:max-w-none xl:w-1/3 flex flex-col h-auto xl:min-h-[720px] transition-transform duration-300 hover:scale-[1.01]"
     >
       <VioletHover color={color} className="h-full flex flex-col min-h-0">
         <div className={`bg-[#100E12] rounded-2xl h-full min-h-0 flex flex-col relative overflow-hidden flex-1 ${frameBlack ? "border-2 border-black" : ""}`}>
