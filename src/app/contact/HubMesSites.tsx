@@ -126,12 +126,13 @@ const CATEGORIES: CategoryConfig[] = [
   },
 ];
 
-function getEstablishmentMatch(establishmentName: string | null): { categoryIndex: number; siteIndex: number } | null {
-  if (!establishmentName || typeof establishmentName !== "string") return null;
-  const trimmed = establishmentName.trim();
+function getMetierOrEstablishmentMatch(value: string | null): { categoryIndex: number; siteIndex: number } | null {
+  if (!value || typeof value !== "string") return null;
+  const trimmed = value.trim();
   if (!trimmed) return null;
+  const lower = trimmed.toLowerCase();
   const key = Object.keys(ESTABLISHMENT_TO_CARD).find(
-    (k) => k.toLowerCase() === trimmed.toLowerCase()
+    (k) => k.toLowerCase() === lower || lower.includes(k.toLowerCase())
   );
   return key ? ESTABLISHMENT_TO_CARD[key] : null;
 }
@@ -144,8 +145,9 @@ export function HubMesSites() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
+    const metier = params.get("metier");
     const establishmentName = params.get("establishment_name");
-    const match = getEstablishmentMatch(establishmentName);
+    const match = getMetierOrEstablishmentMatch(metier) ?? getMetierOrEstablishmentMatch(establishmentName);
     if (match) {
       setUrlMatch(match);
       setActiveCategoryIndex(match.categoryIndex);
