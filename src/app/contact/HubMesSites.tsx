@@ -40,9 +40,10 @@ const ESTABLISHMENT_TO_CARD: Record<string, { categoryIndex: number; siteIndex: 
   Institut: { categoryIndex: 0, siteIndex: 0 },
   // Restauration
   Restaurant: { categoryIndex: 1, siteIndex: 0 },
+  Bistrot: { categoryIndex: 1, siteIndex: 3 },
   "Restaurant de sushis": { categoryIndex: 1, siteIndex: 0 },
   Pizza: { categoryIndex: 1, siteIndex: 0 },
-  Snack: { categoryIndex: 1, siteIndex: 0 },
+  Snack: { categoryIndex: 1, siteIndex: 2 },
   Crêperie: { categoryIndex: 1, siteIndex: 0 },
   Boulanger: { categoryIndex: 1, siteIndex: 0 },
   Traiteur: { categoryIndex: 1, siteIndex: 0 },
@@ -93,7 +94,7 @@ const CATEGORIES: CategoryConfig[] = [
   },
   {
     title: "Restauration et alimentation",
-    metiers: ["Restaurant", "Pizza", "Snack", "Crêperie", "Pâtissier", "Boulanger", "Traiteur"],
+    metiers: ["Restaurant", "Bistrot", "Pizza", "Snack", "Crêperie", "Pâtissier", "Boulanger", "Traiteur"],
     sites: [
       {
         imageProject: "/image/projectsContact/fujiSushis.png",
@@ -108,6 +109,20 @@ const CATEGORIES: CategoryConfig[] = [
         title: "Éclat Gourmand",
         url: "https://client-adolfina-aguero-patisserie-b.vercel.app/",
         metier: "Pâtissier",
+      },
+      {
+        imageProject: "/image/projectsContact/snackMenu.png",
+        logoProject: "/image/logos-clients/logo-snack-menu.png",
+        title: "Snack Menu",
+        url: "https://client-snack-menu-backup-oxfqzzfef-romains-projects-72d8cf83.vercel.app/",
+        metier: "Snack",
+      },
+      {
+        imageProject: "/image/projectsContact/bistrotFernand.png",
+        logoProject: "/image/logos-clients/logo-bistrot-fernand.svg",
+        title: "Bistrot Fernand",
+        url: "https://client-bistrot-fernand-pruned-e4xl95kg1.vercel.app/",
+        metier: "Restaurant",
       },
     ],
   },
