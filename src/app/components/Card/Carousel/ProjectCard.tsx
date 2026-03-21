@@ -37,11 +37,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className={styles.boxBottomCard}>
             {(metier || (metiers && metiers.length > 0)) ? (
               <span 
-                className="text-white font-jakarta font-semibold text-lg sm:text-xl text-center w-full block"
+                className="text-black font-jakarta font-semibold text-lg sm:text-xl text-center w-full block"
                 style={{ 
                   opacity: imageOpacity === 1 ? 1 : 0,
-                  transition: 'opacity 0.7s ease-in-out',
-                  textShadow: '0 1px 2px black, 0 0 4px black'
+                  transition: 'opacity 0.7s ease-in-out'
                 }}
               >
                 {metier ?? metiers?.join(" • ")}

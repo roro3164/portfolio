@@ -67,7 +67,8 @@
   .boxBottomCard {
     @apply rounded-b-xl flex justify-center items-center px-2;
     height: 20%;
-    background: rgba(75, 75, 75, 0.7);
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   
     @media (max-width: 768px) {
       height: 25%;

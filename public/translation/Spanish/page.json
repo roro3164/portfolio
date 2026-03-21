@@ -78,7 +78,7 @@
     },
     "packStarter": {
       "title": "Pack Starter",
-      "intro": "Lanzamiento y visibilidad inmediata — la solución ideal para que tus clientes locales te encuentren rápido.",
+      "intro": "Lanzamiento y visibilidad inmediata — la solución ideal para que tus clientes locales te encuentren rápido. Perfecto para peluquero, barbero, salon de estética.",
       "sitePro": {
         "title": "Sitio web profesional",
         "subtitle": "<strong>1 página completa</strong>",
@@ -94,7 +94,7 @@
         "title": "Visibilidad Google y Google Maps",
         "items": [
           "Segmentación estratégica servicio + ciudad",
-          "Optimización de la página en Google",
+          "Posicionamiento frente a tus competidores",
           "Ficha Google optimizada",
           "Mini FAQ"
         ]
@@ -102,7 +102,7 @@
     },
     "packVisibilite": {
       "title": "Pack Visibilidad",
-      "intro": "Un pack completo para aparecer en Google, inspirar confianza y convertir más visitantes en clientes.",
+      "intro": "Un pack completo para aparecer en Google, inspirar confianza y convertir más visitantes en clientes. Perfecto para artesanos y alojamiento.",
       "sitePro": {
         "title": "Sitio web profesional",
         "subtitle": "<strong>5 páginas estratégicas</strong>",
@@ -125,27 +125,55 @@
         ]
       }
     },
-    "packEcommerce": {
-      "title": "Pack E-commerce",
-      "intro": "Venta en línea — automatiza tus ventas y cobra 24h/24.",
-      "uniquementDevis": "Solo con presupuesto",
-      "boutique": {
-        "title": "Tienda en línea a medida",
+    "packResto": {
+      "title": "Pack Resto",
+      "intro": "Visibilidad local y pedidos directos — la solución completa para llenar tus mesas y recuperar los márgenes perdidos en las plataformas.",
+      "tarifs": {
+        "offreDuMoment": "Sin compromiso disponible",
+        "aPartirDe": "A PARTIR DE",
+        "prix1": "99€",
+        "prix1Suffix": "/mes",
+        "prix1Label": "Con compromiso 12 meses",
+        "ou": "O",
+        "prix2": "129€",
+        "prix2Suffix": "/mes",
+        "prix2Label": "Sin compromiso"
+      },
+      "zeroCommission": {
+        "title": "CERO COMISIÓN",
+        "subtitle": "Pedidos y reservas directos",
         "items": [
-          "Tienda en línea personalizada (Shopify o Next.js)",
-          "Pagos seguros (Tarjeta, Apple Pay, PayPal)",
-          "Gestión de stocks y facturación",
-          "Recuperación automática de carritos abandonados",
-          "Formación completa del uso de la interfaz"
+          "Sistema de reserva en línea",
+          "Click & Collect directo / Entrega",
+          "0% de comisión en cada pedido",
+          "Tus clientes piden directamente a ti"
         ]
       },
-      "optionsMetier": {
-        "title": "Opciones de negocio incluidas mensualmente",
+      "sitePro": {
+        "title": "SITIO PROFESIONAL",
+        "subtitle": "1 página completa",
         "items": [
-          "Click & Collect / venta para llevar",
-          "Gestión de modos de entrega",
-          "Códigos promocionales y promociones",
-          "Gestión de reseñas de productos"
+          "Desarrollo y publicación profesional",
+          "Diseño y experiencia moderna",
+          "Estructura y secciones estratégicas (1 página)",
+          "Optimizado para móvil"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "VISIBILIDAD GOOGLE Y GOOGLE MAPS",
+        "items": [
+          "Segmentación estratégica restaurante + ciudad",
+          "Ficha Google optimizada",
+          "Posicionamiento frente a tus competidores",
+          "Mini FAQ"
+        ]
+      },
+      "pilotage": {
+        "title": "PILOTAJE Y SEGUIMIENTO MENSUAL",
+        "items": [
+          "Informe de visitas y reservas",
+          "Evolución posicionamiento Google",
+          "Tasa de reserva"
         ]
       }
     },
@@ -163,7 +191,7 @@
     },
     "gestionMensuelle": {
       "title": "Gestión mensual",
-      "optionPrice": "opcional a 69€/mes",
+      "optionPrice": "opcional a 69€/mes (incluido en el pack resto)",
       "flexibleIntro": "¿Prefieres una fórmula más flexible para empezar con serenidad?",
       "flexibleCta": "Una suscripción todo incluido: contenido del pack + gestión mensual.",
       "aboStarter": "Pack Starter",

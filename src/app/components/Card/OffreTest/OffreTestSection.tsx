@@ -209,7 +209,7 @@ export function OffreTestSection() {
                 <p className="text-[11px] font-semibold text-white/60 uppercase tracking-widest font-jakarta mb-1">
                   {t("offers.tarifs.paiementUnique")}
                 </p>
-                <PricePill price="599€" suffix="" />
+                <PricePill price="399€" suffix="" />
                 <p className="text-xs text-white/70 font-jakarta mt-1">
                   {t("offers.tarifs.proprieteImmediate")}
                 </p>
@@ -257,22 +257,43 @@ export function OffreTestSection() {
 
           <PackCard
             color="gold"
-            title={t("offers.packEcommerce.title")}
-            intro={t("offers.packEcommerce.intro")}
+            title={t("offers.packResto.title")}
+            intro={t("offers.packResto.intro")}
             frameBlack
           >
-            <div className={`rounded-xl px-2 sm:px-4 py-3 flex flex-col justify-center items-center min-h-[140px] ${styles.internBox}`}>
-              <p className="text-center text-white font-jakarta font-semibold text-base sm:text-lg">
-                {t("offers.packEcommerce.uniquementDevis")}
-              </p>
-            </div>
-            <PrestationsCard title={t("offers.packEcommerce.boutique.title")} color="gold">
-              {(t("offers.packEcommerce.boutique.items", { returnObjects: true }) as string[]).map((text, i) => (
+            <TarifsCard color="gold" offreDuMoment={t("offers.packResto.tarifs.offreDuMoment")}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+                <div className="flex flex-col items-center text-center">
+                  <p className="text-[11px] font-semibold text-white/60 uppercase tracking-widest font-jakarta mb-1">
+                    {t("offers.packResto.tarifs.aPartirDe")}
+                  </p>
+                  <PricePill price={t("offers.packResto.tarifs.prix1")} suffix={t("offers.packResto.tarifs.prix1Suffix")} />
+                  <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.packResto.tarifs.prix1Label")}</p>
+                </div>
+                <p className="text-white/80 font-jakarta font-semibold text-sm">{t("offers.packResto.tarifs.ou")}</p>
+                <div className="flex flex-col items-center text-center">
+                  <PricePill price={t("offers.packResto.tarifs.prix2")} suffix={t("offers.packResto.tarifs.prix2Suffix")} />
+                  <p className="text-xs text-white/70 font-jakarta mt-1">{t("offers.packResto.tarifs.prix2Label")}</p>
+                </div>
+              </div>
+            </TarifsCard>
+            <PrestationsCard title={t("offers.packResto.zeroCommission.title")} subtitle={t("offers.packResto.zeroCommission.subtitle")} color="gold">
+              {(t("offers.packResto.zeroCommission.items", { returnObjects: true }) as string[]).map((text, i) => (
                 <CircleListItem key={i} color="gold" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" />
               ))}
             </PrestationsCard>
-            <PrestationsCard title={t("offers.packEcommerce.optionsMetier.title")} color="gold">
-              {(t("offers.packEcommerce.optionsMetier.items", { returnObjects: true }) as string[]).map((text, i) => (
+            <PrestationsCard title={t("offers.packResto.sitePro.title")} subtitle={t("offers.packResto.sitePro.subtitle")} color="gold">
+              {(t("offers.packResto.sitePro.items", { returnObjects: true }) as string[]).map((text, i) => (
+                <CircleListItem key={i} color="gold" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" />
+              ))}
+            </PrestationsCard>
+            <PrestationsCard title={t("offers.packResto.visibiliteGoogle.title")} color="gold">
+              {(t("offers.packResto.visibiliteGoogle.items", { returnObjects: true }) as string[]).map((text, i) => (
+                <CircleListItem key={i} color="gold" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" />
+              ))}
+            </PrestationsCard>
+            <PrestationsCard title={t("offers.packResto.pilotage.title")} color="gold">
+              {(t("offers.packResto.pilotage.items", { returnObjects: true }) as string[]).map((text, i) => (
                 <CircleListItem key={i} color="gold" text={text} dotOnly className="min-w-2 h-2" spacing="mr-2" textClassName="text-xs sm:text-sm" />
               ))}
             </PrestationsCard>
@@ -360,7 +381,7 @@ export function OffreTestSection() {
           </div>
         </motion.div>
 
-        {/* Bloc abonnement flexible — largeur contrainte pour que le texte s’habille sur mobile */}
+        {false && (
         <div
           className="box-border py-6 sm:py-8"
           style={{ width: "100%", maxWidth: "100%", paddingLeft: "1rem", paddingRight: "1rem" }}
@@ -417,6 +438,7 @@ export function OffreTestSection() {
             </motion.div>
           </div>
         </div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

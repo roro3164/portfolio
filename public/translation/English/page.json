@@ -78,7 +78,7 @@
     },
     "packStarter": {
       "title": "Starter Pack",
-      "intro": "Launch & immediate visibility — the ideal solution to be found quickly by your local customers.",
+      "intro": "Launch & immediate visibility — the ideal solution to be found quickly by your local customers. Perfect for hairdresser, barber, beauty salon.",
       "sitePro": {
         "title": "Professional website",
         "subtitle": "<strong>1 complete page</strong>",
@@ -94,7 +94,7 @@
         "title": "Google & Google Maps visibility",
         "items": [
           "Strategic service + city targeting",
-          "Google page optimization",
+          "Positioning vs your competitors",
           "Optimized Google listing",
           "Mini FAQ"
         ]
@@ -102,7 +102,7 @@
     },
     "packVisibilite": {
       "title": "Visibility Pack",
-      "intro": "A complete pack to appear on Google, build trust and convert more visitors into customers.",
+      "intro": "A complete pack to appear on Google, build trust and convert more visitors into customers. Perfect for craftspeople and accommodation.",
       "sitePro": {
         "title": "Professional website",
         "subtitle": "<strong>5 strategic pages</strong>",
@@ -125,27 +125,55 @@
         ]
       }
     },
-    "packEcommerce": {
-      "title": "E-commerce Pack",
-      "intro": "Online sales — automate your sales and collect payments 24/7.",
-      "uniquementDevis": "Quote only",
-      "boutique": {
-        "title": "Custom online store",
+    "packResto": {
+      "title": "Pack Resto",
+      "intro": "Local visibility & direct orders — the complete solution to fill your tables and recoup margins lost on third-party platforms.",
+      "tarifs": {
+        "offreDuMoment": "No commitment available",
+        "aPartirDe": "FROM",
+        "prix1": "99€",
+        "prix1Suffix": "/month",
+        "prix1Label": "With 12‑month commitment",
+        "ou": "OR",
+        "prix2": "129€",
+        "prix2Suffix": "/month",
+        "prix2Label": "No commitment"
+      },
+      "zeroCommission": {
+        "title": "ZERO COMMISSION",
+        "subtitle": "Direct orders & reservations",
         "items": [
-          "Personalized online store (Shopify or Next.js)",
-          "Secure payments (Card, Apple Pay, PayPal)",
-          "Stock & invoicing management",
-          "Automatic abandoned cart recovery",
-          "Complete training on the interface"
+          "Online reservation system",
+          "Direct Click & Collect / Delivery",
+          "0% commission on each order",
+          "Your customers order directly from you"
         ]
       },
-      "optionsMetier": {
-        "title": "Monthly business options included",
+      "sitePro": {
+        "title": "PROFESSIONAL SITE",
+        "subtitle": "1 full page",
         "items": [
-          "Click & Collect / takeaway sales",
-          "Delivery options management",
-          "Promo codes & promotions",
-          "Product reviews management"
+          "Professional development & launch",
+          "Modern design & experience",
+          "Strategic structure & sections (1 page)",
+          "Mobile optimized"
+        ]
+      },
+      "visibiliteGoogle": {
+        "title": "GOOGLE & GOOGLE MAPS VISIBILITY",
+        "items": [
+          "Strategic targeting restaurant + city",
+          "Optimized Google listing",
+          "Positioning vs your competitors",
+          "Mini FAQ"
+        ]
+      },
+      "pilotage": {
+        "title": "MONTHLY MONITORING & SUPPORT",
+        "items": [
+          "Visits & reservations report",
+          "Google positioning evolution",
+          "Reservation rate"
         ]
       }
     },
@@ -163,7 +191,7 @@
     },
     "gestionMensuelle": {
       "title": "Monthly management",
-      "optionPrice": "optional at 69€/month",
+      "optionPrice": "optional at 69€/month (included in pack resto)",
       "flexibleIntro": "Prefer a more flexible formula to get started serenely?",
       "flexibleCta": "An all-inclusive subscription: pack contents + monthly management.",
       "aboStarter": "Pack Starter",

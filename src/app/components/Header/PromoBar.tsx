@@ -5,7 +5,7 @@ export default function PromoBar() {
     <>
       <span>🔥</span>
       <span className="font-bold">
-        Offre Limitée : Site pro sur-mesure dès 599€
+        Offre Limitée : Site pro sur-mesure dès 399€
       </span>
       <span className="hidden sm:inline">
         {" "}

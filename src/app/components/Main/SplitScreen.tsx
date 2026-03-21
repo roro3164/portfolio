@@ -147,7 +147,7 @@ const SplitScreen: React.FC<{ showSticker?: boolean }> = ({ showSticker = true }
           >
             <div className="sticker-toupie -rotate-6 flex flex-col items-center justify-center pointer-events-none w-full h-full rounded-full">
               <span className="text-[10px] sm:text-sm md:text-base uppercase tracking-wide font-extrabold">{t("hero.sticker.des")}</span>
-              <span className="text-xl sm:text-3xl md:text-4xl font-extrabold">599€</span>
+              <span className="text-xl sm:text-3xl md:text-4xl font-extrabold">399€</span>
               <span className="text-[10px] sm:text-sm md:text-base uppercase tracking-wide font-extrabold">{t("hero.sticker.offreLimitee")}</span>
               <span className="text-[8px] sm:text-[10px] md:text-xs uppercase tracking-wide font-semibold text-white/95">{t("hero.sticker.voirOffre")}</span>
             </div>
