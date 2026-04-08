@@ -192,7 +192,6 @@
     },
     "gestionMensuelle": {
       "title": "Gestion mensuelle",
-      "optionPrice": "en option à 69€/mois (inclus dans le pack resto)",
       "flexibleIntro": "Vous préférez une formule plus flexible pour démarrer sereinement ?",
       "flexibleCta": "Un abonnement tout inclus : contenu du pack + gestion mensuelle.",
       "aboStarter": "Pack Starter",

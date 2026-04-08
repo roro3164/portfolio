@@ -364,8 +364,7 @@ export function OffreTestSection() {
               aria-hidden
             />
             <h3 className="text-white font-jakarta font-bold text-sm sm:text-base uppercase tracking-wider text-white/90">
-              {t("offers.gestionMensuelle.title")}{" "}
-              <span className="normal-case italic font-normal text-white/80">{t("offers.gestionMensuelle.optionPrice")}</span>
+              {t("offers.gestionMensuelle.title")}
             </h3>
           </div>
           <p className="text-white/70 font-jakarta text-xs sm:text-sm leading-relaxed mb-4">
