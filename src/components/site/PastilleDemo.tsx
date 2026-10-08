@@ -9,18 +9,18 @@ export function PastilleDemo({ className = "" }: { className?: string }) {
       <span className="pastille-anneau" aria-hidden="true" />
       <svg className="pastille-texte" viewBox="0 0 200 200" aria-hidden="true">
         <defs>
-          <path id="cercle-pastille" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
+          <path id="cercle-pastille" d="M100,100 m-87,0 a87,87 0 1,1 174,0 a87,87 0 1,1 -174,0" />
         </defs>
         <text>
-          <textPath href="#cercle-pastille" startOffset="0" textLength="496" lengthAdjust="spacing">
+          <textPath href="#cercle-pastille" startOffset="0" textLength="540" lengthAdjust="spacing">
             {texte}
           </textPath>
         </text>
       </svg>
       <span className="pastille-coeur">
-        <Gift className="h-6 w-6 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" strokeWidth={2} aria-hidden="true" />
-        <span className="mt-1 block text-[13px] font-bold uppercase tracking-[0.14em] text-white/85">Démo</span>
-        <span className="block text-[25px] font-extrabold leading-none tracking-tight">offerte</span>
+        <Gift className="h-7 w-7 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" strokeWidth={2} aria-hidden="true" />
+        <span className="mt-1.5 block text-[14px] font-bold uppercase tracking-[0.16em] text-white/90">Démo</span>
+        <span className="block text-[31px] font-extrabold leading-none tracking-tight">offerte</span>
       </span>
     </Link>
   );
