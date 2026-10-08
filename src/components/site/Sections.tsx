@@ -1,3 +1,4 @@
+import { Gift } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
@@ -165,28 +166,47 @@ export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" })
           />
         </div>
         )}
-        <div>
+        <div data-couleur="violet">
           <p className="eyebrow">Qui suis-je</p>
           <h2 id="apropos-titre" className="h2 mt-4">
             Romain Mornet, développeur et designer à Montpellier.
           </h2>
-          <div className="mt-6 space-y-4 text-[17px] leading-relaxed text-[var(--muted)]">
-            <p>
-              Je conçois et je développe moi-même chaque site : le design, le code, le catalogue et le référencement. Pas
-              de sous-traitance, pas d&apos;intermédiaire : vous parlez directement à la personne qui construit votre site.
-            </p>
-            <p>
-              Autodidacte, diplômé en développement web et certifié en design UI/UX, je travaille avec Shopify pour
-              l&apos;e-commerce et Next.js pour les sites sur-mesure. J&apos;ai aussi créé{" "}
-              <a href={SITE.primaps} className="link">
-                Primaps
-              </a>
-              , une plateforme qui aide les restaurants à être trouvés sur Google.
-            </p>
+          <p className="mt-6 text-[17px] leading-relaxed text-[var(--muted)]">
+            Je conçois et je développe moi-même chaque site : le design, le code, le catalogue et le référencement. Pas de
+            sous-traitance, pas d&apos;intermédiaire : vous parlez directement à la personne qui construit votre site.
+          </p>
+          <ul className="mt-8 grid gap-x-5 gap-y-5 sm:grid-cols-3">
+            <li className="chiffre pl-4">
+              <span className="block text-[1.05rem] font-bold leading-snug tracking-tight text-white">Design et code</span>
+              <span className="mt-1 block text-[13.5px] leading-snug text-[var(--muted)]">Pensés ensemble, par la même personne</span>
+            </li>
+            <li className="chiffre pl-4">
+              <span className="block text-[1.05rem] font-bold leading-snug tracking-tight text-white">Shopify et Next.js</span>
+              <span className="mt-1 block text-[13.5px] leading-snug text-[var(--muted)]">Le bon outil pour chaque projet</span>
+            </li>
+            <li className="chiffre pl-4">
+              <span className="block text-[1.05rem] font-bold leading-snug tracking-tight text-white">
+                Créateur de{" "}
+                <a href={SITE.primaps} className="link">
+                  Primaps
+                </a>
+              </span>
+              <span className="mt-1 block text-[13.5px] leading-snug text-[var(--muted)]">Les restaurants trouvés sur Google</span>
+            </li>
+          </ul>
+          <ul className="mt-7 flex flex-wrap gap-2" aria-label="Formation">
+            <li className="chip-teinte">Diplômé en développement web</li>
+            <li className="chip-teinte">Certifié design UI/UX</li>
+            <li className="chip-teinte">Autodidacte</li>
+          </ul>
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <Link href="/demo-gratuite" className="btn btn-primary">
+              <Gift className="h-[18px] w-[18px]" aria-hidden="true" /> Recevoir ma démo gratuite
+            </Link>
+            <Link href="/a-propos" className="btn btn-ghost">
+              Mon parcours <Fleche />
+            </Link>
           </div>
-          <Link href="/a-propos" className="btn btn-ghost mt-8">
-            Mon parcours <Fleche />
-          </Link>
         </div>
       </div>
     </section>

@@ -285,6 +285,23 @@ details.faq[open] .faq-plus { transform: rotate(45deg); }
 @media (prefers-reduced-motion: reduce) { .defile { animation: none; } }
 
 /* Portrait signature (PortraitSplit) */
+.cote-portrait {
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(var(--l1), 0.4);
+  background: rgba(var(--l1), 0.08);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.cote-portrait:hover, .cote-portrait[aria-pressed="true"] {
+  color: #fff;
+  border-color: rgba(var(--l1), 0.8);
+  background: linear-gradient(180deg, rgba(var(--l1), 0.55), rgba(var(--l1), 0.25));
+  box-shadow: 0 0 22px -4px rgba(var(--l1), 0.8);
+}
 .portrait-split .laser {
   background: #8b7cf6;
   box-shadow: 0 0 10px #4b0082, 0 0 22px #1e90ff, 0 0 34px #6a5acd, 0 0 60px #6a5acd;
