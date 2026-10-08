@@ -110,25 +110,43 @@ export function BandeauPrimaps() {
   return (
     <section className="section pt-0" aria-labelledby="primaps-titre">
       <div className="wrap">
-        <div data-couleur="or" className="reveal carte-laser grid items-center gap-8 p-8 [--radius:28px] md:grid-cols-[1.4fr_1fr] md:p-12">
+        <div data-couleur="google" className="reveal carte-laser lent grid items-center gap-10 overflow-hidden p-7 [--radius:28px] md:p-12 lg:grid-cols-[1fr_1.1fr]">
           <div>
-            <p className="eyebrow">Vous êtes un restaurant ?</p>
+            <p className="eyebrow flex items-center gap-2">
+              <span className="pastilles-google" aria-hidden="true">
+                <i /><i /><i /><i />
+              </span>
+              Vous êtes un restaurant ?
+            </p>
             <h2 id="primaps-titre" className="mt-4 text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-tight tracking-tight">
-              Pour les restaurants, il y a Primaps.
+              Pour les restaurants, il y a <span className="texte-google">Primaps</span>.
             </h2>
             <p className="mt-4 max-w-xl text-[16.5px] leading-relaxed text-[var(--muted)]">
               Primaps est mon abonnement tout compris pour les restaurants : site rapide, fiche Google optimisée, avis,
               réservations et click &amp; collect sans commission. On installe tout, vous n&apos;avez rien à gérer.
             </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a href={SITE.primaps} className="btn btn-google">
+                Découvrir Primaps <Fleche />
+              </a>
+              <Link href="/realisations/bistrot-des-musees" className="text-[14.5px] text-[var(--muted)] underline-offset-4 hover:text-white hover:underline">
+                Exemple : le Bistrot des Musées
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-col gap-3 md:items-end">
-            <a href={SITE.primaps} className="btn btn-violet w-full md:w-auto">
-              Découvrir Primaps <Fleche />
-            </a>
-            <Link href="/realisations/bistrot-des-musees" className="text-[14.5px] text-[var(--muted)] underline-offset-4 hover:text-white hover:underline">
-              Exemple : le Bistrot des Musées
-            </Link>
-          </div>
+          <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block pb-6 transition-transform duration-500 hover:-translate-y-1">
+            <Navigateur
+              src="/realisations/primaps-accueil.webp"
+              alt="Page d'accueil de Primaps, l'abonnement visibilité pour les restaurants"
+              url="primaps.fr"
+              sizes="(min-width: 1024px) 560px, 92vw"
+            />
+            <Telephone
+              src="/realisations/primaps-mobile.webp"
+              alt="Primaps sur mobile"
+              className="absolute -bottom-2 -right-2 w-[26%] max-w-[150px] rotate-[3deg] sm:-right-4"
+            />
+          </a>
         </div>
       </div>
     </section>

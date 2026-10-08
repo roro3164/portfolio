@@ -490,3 +490,45 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   background: rgba(var(--l1), 0.14);
   border: 1px solid rgba(var(--l1), 0.35);
 }
+
+/* Primaps : laser et accents aux 4 couleurs Google (bleu, vert, jaune, rouge) */
+[data-couleur="google"] { --l1: 66, 133, 244; --l2: 52, 168, 83; --l-clair: #ffffff; --accent: #8ab4f8; }
+.carte-laser[data-couleur="google"]::before {
+  background: conic-gradient(
+    from var(--laser-angle),
+    rgba(66, 133, 244, 0.25) 0deg,
+    #4285f4 40deg,
+    #34a853 80deg,
+    #fbbc04 120deg,
+    #ea4335 160deg,
+    rgba(234, 67, 53, 0.25) 200deg,
+    rgba(66, 133, 244, 0.25) 360deg
+  );
+}
+.carte-laser[data-couleur="google"] {
+  box-shadow: 0 0 30px -8px rgba(66, 133, 244, 0.45), 0 0 40px -12px rgba(251, 188, 4, 0.25);
+}
+.carte-laser[data-couleur="google"]::after {
+  background:
+    radial-gradient(420px 260px at 0% 0%, rgba(66, 133, 244, 0.14), transparent 70%),
+    radial-gradient(420px 260px at 100% 100%, rgba(234, 67, 53, 0.08), transparent 70%),
+    var(--surface);
+}
+.texte-google {
+  background: linear-gradient(90deg, #4285f4 0%, #34a853 33%, #fbbc04 66%, #ea4335 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pastilles-google { display: inline-flex; gap: 3px; }
+.pastilles-google i { width: 7px; height: 7px; border-radius: 50%; }
+.pastilles-google i:nth-child(1) { background: #4285f4; }
+.pastilles-google i:nth-child(2) { background: #34a853; }
+.pastilles-google i:nth-child(3) { background: #fbbc04; }
+.pastilles-google i:nth-child(4) { background: #ea4335; }
+.btn-google {
+  background: #4285f4;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(66, 133, 244, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.btn-google:hover { background: #5a95f5; box-shadow: 0 0 26px rgba(66, 133, 244, 0.6); }
