@@ -1278,6 +1278,136 @@ a.tuile:hover {
   .ts-el { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none; }
 }
 
+/* Hero : appareils vivants (HeroVisuel) */
+.hero-visuel { --hx: 0; --hy: 0; perspective: 1400px; }
+.hero-scene { position: relative; transform: rotateY(calc(var(--hx) * -4deg)) rotateX(calc(var(--hy) * 3deg)); transform-style: preserve-3d; }
+.hero-couche-1 { transform: translate3d(calc(var(--hx) * -6px), calc(var(--hy) * -4px), 0); }
+.hero-couche-2 { transform: translate3d(calc(var(--hx) * 14px), calc(var(--hy) * 10px), 40px); z-index: 2; }
+.hero-couche-3 { transform: translate3d(calc(var(--hx) * 20px), calc(var(--hy) * 14px), 60px); z-index: 3; }
+.hero-flotte-1 { animation: flotte 9s ease-in-out infinite; }
+.hero-flotte-2 { animation: flotte 7s ease-in-out -2s infinite; }
+.hero-flotte-3 { animation: flotte 6s ease-in-out -4s infinite; }
+@keyframes flotte { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+.hero-flotte-1 { rotate: 1.2deg; }
+.hero-ecran { position: relative; overflow: hidden; }
+.phone .hero-ecran { border-radius: 24px; }
+.hero-defile { display: block; width: 100%; height: auto; will-change: transform; }
+/* l'ordinateur parcourt la page (hauteur 2,5 fois l'écran) avec des pauses */
+.hero-defile-ordi { animation: defile-ordi 22s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+@keyframes defile-ordi {
+  0%, 12% { transform: translateY(0); }
+  30%, 42% { transform: translateY(-26%); }
+  60%, 72% { transform: translateY(-50%); }
+  86%, 92% { transform: translateY(-75%); }
+  100% { transform: translateY(0); }
+}
+.hero-defile-tel { animation: defile-tel 18s cubic-bezier(0.65, 0, 0.35, 1) -3s infinite; }
+@keyframes defile-tel {
+  0%, 14% { transform: translateY(0); }
+  34%, 46% { transform: translateY(-22%); }
+  66%, 78% { transform: translateY(-46%); }
+  100% { transform: translateY(0); }
+}
+.hero-zoom { animation: zoom-lent 16s ease-in-out infinite alternate; }
+@keyframes zoom-lent { from { transform: scale(1); } to { transform: scale(1.08) translateY(-2%); } }
+/* notifications */
+.hero-bulle {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px 9px 9px;
+  border-radius: 14px;
+  white-space: nowrap;
+  background: rgba(24, 22, 34, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.85), 0 0 24px -10px rgba(var(--l1), 0.9);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  transform: translate3d(calc(var(--hx) * 26px), calc(var(--hy) * 18px), 80px);
+  animation: hero-bulle 13.5s ease-in-out infinite;
+}
+.hero-bulle-icone { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; color: #fff; background: linear-gradient(145deg, rgb(var(--l1)), rgb(var(--l2))); }
+.hero-bulle-1 { left: -6%; top: 16%; }
+.hero-bulle-2 { left: 2%; bottom: 30%; animation-delay: 4.5s; }
+.hero-bulle-3 { right: 4%; bottom: 40%; animation-delay: 9s; }
+@keyframes hero-bulle {
+  0% { opacity: 0; translate: 0 12px; scale: 0.96; }
+  4%, 28% { opacity: 1; translate: 0 0; scale: 1; }
+  33%, 100% { opacity: 0; translate: 0 -8px; scale: 1; }
+}
+@media (max-width: 639px) { .hero-bulle-2 { display: none; } .hero-bulle-1 { left: 0; } }
+/* badge « Démo offerte » : verre, bordure laser, icône cadeau qui pulse */
+.badge-demo {
+  position: absolute;
+  z-index: 6;
+  right: -10px;
+  top: -86px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 10px;
+  border-radius: 20px;
+  isolation: isolate;
+  color: #fff;
+  background: rgba(22, 19, 36, 0.78);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.9), 0 0 40px -12px rgba(139, 92, 246, 0.9);
+  animation: flotte 6s ease-in-out infinite;
+  transition: box-shadow 0.3s, scale 0.3s;
+}
+.badge-demo::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  z-index: -1;
+  border-radius: 21.5px;
+  padding: 1.5px;
+  background: conic-gradient(from var(--laser-angle), rgba(139, 92, 246, 0.3), #ec4899, #c4b5fd, #3b82f6, rgba(139, 92, 246, 0.3) 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: laser-tour 4s linear infinite;
+}
+.badge-demo:hover { scale: 1.04; box-shadow: 0 28px 60px -20px rgba(0, 0, 0, 0.9), 0 0 50px -8px rgba(236, 72, 153, 0.8); }
+.badge-demo-icone {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(140deg, #ec4899, #8b5cf6 55%, #3b82f6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 8px 20px -6px rgba(139, 92, 246, 0.9);
+}
+.badge-demo-icone::after { content: ""; position: absolute; inset: -4px; border-radius: 17px; border: 1.5px solid rgba(236, 72, 153, 0.7); animation: noeud-onde 2.4s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; }
+.badge-demo-icone svg { animation: cadeau 3s ease-in-out infinite; }
+@keyframes cadeau { 0%, 70%, 100% { rotate: 0deg; } 76% { rotate: -14deg; } 82% { rotate: 12deg; } 88% { rotate: -6deg; } 94% { rotate: 3deg; } }
+.badge-demo-titre {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #fff, #f9a8d4, #c4b5fd, #fff);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: reflet 4s linear infinite;
+}
+@keyframes reflet { to { background-position: -250% 0; } }
+.badge-demo-fleche { display: grid; place-items: center; width: 30px; height: 30px; margin-left: 4px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); transition: transform 0.3s, background 0.3s; }
+.badge-demo:hover .badge-demo-fleche { transform: translateX(3px); background: rgba(236, 72, 153, 0.35); }
+@media (max-width: 639px) { .badge-demo { position: relative; right: auto; top: auto; width: fit-content; margin: 0 0 22px auto; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-defile, .hero-zoom, .hero-flotte-1, .hero-flotte-2, .hero-flotte-3, .badge-demo, .badge-demo::before, .badge-demo-titre, .badge-demo-icone svg, .badge-demo-icone::after { animation: none; }
+  .hero-bulle { animation: none; opacity: 1; }
+  .hero-bulle-2, .hero-bulle-3 { display: none; }
+}
+
 /* Pastille « Démo offerte » (hero) */
 .pastille-demo {
   position: absolute;

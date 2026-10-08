@@ -1,12 +1,11 @@
 import { Methode } from "./Methode";
 import { Gift } from "lucide-react";
 import Link from "next/link";
-import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { BandeLogos } from "@/components/site/BandeLogos";
 import { BentoServices } from "@/components/site/BentoServices";
 import { DemoOfferte } from "@/components/site/DemoOfferte";
 import { MotTournant } from "@/components/site/MotTournant";
-import { PastilleDemo } from "@/components/site/PastilleDemo";
+import { HeroVisuel } from "@/components/site/HeroVisuel";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -95,29 +94,7 @@ export function Accueil() {
             </nav>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[640px] pb-10 lg:pb-0">
-            <Navigateur
-              src="/realisations/lumi-nice-accueil.webp"
-              alt="Boutique en ligne LumiNice réalisée par Romain DesignCode"
-              url="lumi-nice.fr"
-              priority
-              sizes="(min-width: 1024px) 600px, 92vw"
-              className="rotate-[1.2deg]"
-            />
-            <Navigateur
-              src="/realisations/nina-bonita-menu.webp"
-              alt="Menu du restaurant Niña Bonita, site réalisé par Romain DesignCode"
-              url="nina-bonita · menu"
-              sizes="(min-width: 1024px) 340px, 50vw"
-              className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
-            />
-            <PastilleDemo className="-right-1 -top-32 z-10 hidden sm:grid 2xl:-right-8" />
-            <Telephone
-              src="/realisations/bistrot-des-musees-mobile.webp"
-              alt="Site du Bistrot des Musées sur mobile"
-              className="absolute -bottom-10 -right-3 w-[26%] rotate-[3deg] lg:-right-8"
-            />
-          </div>
+          <HeroVisuel />
         </div>
 
       </section>
