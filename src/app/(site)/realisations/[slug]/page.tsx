@@ -77,7 +77,7 @@ export default async function EtudeDeCasPage({ params }: Props) {
           <div className="wrap relative mt-14 pb-10">
             <div className="mx-auto max-w-[980px]">
               <DuoAppareils
-                ordinateur={{ ...e.ordinateur, alt: `Site ${e.nom} sur ordinateur` }}
+                ordinateur={{ ...e.ordinateur, alt: `Site ${e.nom} sur ${e.ordinateur.forme === "ipad-paysage" ? "tablette" : "ordinateur"}` }}
                 telephone={{ ...e.telephone, alt: `Site ${e.nom} sur mobile` }}
                 priority
                 sizes="(min-width: 1024px) 900px, 92vw"

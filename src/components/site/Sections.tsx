@@ -49,7 +49,7 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
       <div className={`relative lg:col-span-7 ${inverse ? "lg:order-2" : ""}`}>
         <Link href={`/realisations/${etude.slug}`} aria-label={`Voir l'étude de cas ${etude.nom}`} className="block transition-transform duration-500 hover:-translate-y-1">
           <DuoAppareils
-            ordinateur={{ ...etude.ordinateur, alt: `Site ${etude.nom} sur ordinateur` }}
+            ordinateur={{ ...etude.ordinateur, alt: `Site ${etude.nom} sur ${etude.ordinateur.forme === "ipad-paysage" ? "tablette" : "ordinateur"}` }}
             telephone={{ ...etude.telephone, alt: `Site ${etude.nom} sur mobile` }}
             telephoneAGauche={inverse}
           />

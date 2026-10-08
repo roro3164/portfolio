@@ -15,7 +15,7 @@ export type EtudeDeCas = {
   resume: string;
   couverture: string;
   mobile: string;
-  ordinateur: { src: string; forme: "macbook-34" | "macbook-face" };
+  ordinateur: { src: string; forme: "macbook-34" | "macbook-face" | "ipad-paysage" };
   telephone: { src: string; forme: "iphone-face" };
   galerie: { src: string; alt: string }[];
   chiffres: Chiffre[];
@@ -114,7 +114,7 @@ export const ETUDES: EtudeDeCas[] = [
       "Bistrot au cœur de l'Écusson, à Montpellier. Le restaurant n'avait pas de site : il a désormais un site rapide, la réservation en ligne et une fiche Google suivie chaque semaine avec Primaps.",
     couverture: "/realisations/bistrot-des-musees-accueil.webp",
     mobile: "/realisations/bistrot-des-musees-mobile.webp",
-    ordinateur: { src: "/mockups/bistrot-des-musees-macbook.webp", forme: "macbook-face" },
+    ordinateur: { src: "/mockups/bistrot-des-musees-ipad.webp", forme: "ipad-paysage" },
     telephone: { src: "/mockups/bistrot-des-musees-iphone-face.webp", forme: "iphone-face" },
     galerie: [],
     chiffres: [

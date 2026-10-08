@@ -1,12 +1,13 @@
 import Image from "next/image";
 
-// Mockups photo (MacBook + iPhone) avec les vraies captures incrustées.
+// Mockups photo (MacBook ou iPad + iPhone) avec les vraies captures incrustées.
 // Les images sont générées hors ligne dans /public/mockups (perspective exacte de l'écran).
 
 const TAILLES: Record<string, [number, number]> = {
   "macbook-34": [1864, 1228], // MacBook de 3/4
   "macbook-face": [1446, 1228], // MacBook de face
   "iphone-face": [888, 1760], // iPhone de face
+  "ipad-paysage": [2200, 1596], // iPad en paysage, de face
 };
 
 export type Appareil = { src: string; forme: keyof typeof TAILLES; alt: string };
