@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
 import { SITE } from "@/lib/site";
 import { Navigateur, Telephone } from "./Cadres";
+import { LogoPrimaps } from "./LogoPrimaps";
 import { PortraitSplit } from "./PortraitSplit";
 
 /* Blocs partagés entre l'accueil et les pages services. */
@@ -119,7 +120,7 @@ export function BandeauPrimaps() {
               Vous êtes un restaurant ?
             </p>
             <h2 id="primaps-titre" className="mt-4 text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-tight tracking-tight">
-              Pour les restaurants, il y a <span className="texte-google">Primaps</span>.
+              Pour les restaurants, il y a <LogoPrimaps className="ml-[0.1em]" />
             </h2>
             <p className="mt-4 max-w-xl text-[16.5px] leading-relaxed text-[var(--muted)]">
               Primaps est mon abonnement tout compris pour les restaurants : site rapide, fiche Google optimisée, avis,
