@@ -50,8 +50,7 @@ export function DemoOfferte() {
   return (
     <section className="section" aria-labelledby="demo-titre">
       <div className="wrap">
-        <div ref={ref} className="reveal carte-laser lent relative overflow-hidden p-7 [--radius:30px] md:p-12">
-          <div className="halo -left-40 -top-40 h-[420px] w-[420px]" aria-hidden="true" />
+        <div ref={ref} className="reveal relative">
           <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_1.15fr]">
             <div>
               <p className="eyebrow">
