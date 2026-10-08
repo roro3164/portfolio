@@ -37,19 +37,41 @@ html {
   html { scroll-behavior: auto; }
 }
 
-/* Fond fixe de tout le site (image générée : lueurs violettes, roses et bleues
-   dans les coins, centre sombre). Un calque fixe plutôt que background-attachment,
-   qui ne fonctionne pas sur iPhone. Posé par le layout (site) : la page QR /contact n'est pas touchée. */
+/* Fond fixe de tout le site, en CSS seul : quatre nappes de couleur très douces
+   (violet, rose, bleu) qui dérivent lentement, plus un léger grain. Seule la
+   transformation est animée (fluide, sans recalcul). Posé par le layout (site) :
+   la page QR /contact n'est pas touchée. */
 .fond-site {
   position: fixed;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(15, 14, 22, 0.25), rgba(15, 14, 22, 0.1) 40%, rgba(15, 14, 22, 0.35)),
-    url("/img/fond-site.webp") center / cover no-repeat,
-    var(--bg);
+  background: var(--bg);
 }
+.fond-site::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+.fond-nappe {
+  position: absolute;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  will-change: transform;
+}
+.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.34), rgba(139, 92, 246, 0.1) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
+.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0.07) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
+.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(236, 72, 153, 0.18), rgba(236, 72, 153, 0.05) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
+.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(106, 90, 205, 0.28), rgba(139, 92, 246, 0.08) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
+@keyframes nappe-1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
+@keyframes nappe-2 { to { transform: translate(-12vmax, 14vmax) scale(0.9); } }
+@keyframes nappe-3 { to { transform: translate(16vmax, -10vmax) scale(1.2); } }
+@keyframes nappe-4 { to { transform: translate(-14vmax, -12vmax) scale(1.1); } }
+@media (prefers-reduced-motion: reduce) { .fond-nappe { animation: none; } }
 
 body {
   background-color: var(--bg);
