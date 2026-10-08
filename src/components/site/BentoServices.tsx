@@ -1,21 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, CreditCard, FileText, Globe, LayoutTemplate, MapPin, PenLine, ShoppingBag, Star } from "lucide-react";
+import { LayoutTemplate, MapPin, ShoppingBag, Star } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { BlocOptions } from "./Options";
 import { Fleche } from "./Sections";
 
 // Services en grille « bento » : une grande tuile e-commerce, deux tuiles
 // vitrine / référencement, et une bande options + suivi mensuel. Code couleur des services.
 
-const OPTIONS = [
-  { icone: Calendar, libelle: "Réservation / RDV" },
-  { icone: ShoppingBag, libelle: "Click & collect" },
-  { icone: CreditCard, libelle: "Paiement en ligne" },
-  { icone: Globe, libelle: "Multilingue" },
-  { icone: MapPin, libelle: "Pages par ville" },
-  { icone: FileText, libelle: "Pages en plus" },
-  { icone: PenLine, libelle: "Rédaction" },
-];
 
 function Pied({ libelle = "Découvrir" }: { libelle?: string }) {
   return (
@@ -135,25 +127,8 @@ export function BentoServices() {
           </div>
 
           {/* Options + suivi mensuel */}
-          <div className="reveal tuile tuile-neutre grid gap-8 p-8 lg:col-span-12 lg:grid-cols-[1.5fr_1fr] lg:items-center">
-            <div>
-              <p className="text-[15px] font-semibold text-white">À la carte, selon votre activité</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {OPTIONS.map(({ icone: Icone, libelle }) => (
-                  <li key={libelle} className="option-violette !py-2 !text-[13px]">
-                    <Icone className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden="true" />
-                    {libelle}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-              <p className="text-[15px] font-semibold text-white">Suivi mensuel, sans engagement</p>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-white/65">
-                Maintenance, hébergement, publications Google, réponses aux avis et petites modifications : je m&apos;occupe de
-                votre site toute l&apos;année.
-              </p>
-            </div>
+          <div className="reveal tuile tuile-neutre p-7 md:p-9 lg:col-span-12">
+            <BlocOptions />
           </div>
         </div>
       </div>
