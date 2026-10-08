@@ -53,7 +53,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.06;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 .fond-nappe {
@@ -63,10 +63,10 @@ html {
   border-radius: 50%;
   will-change: transform;
 }
-.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.34), rgba(139, 92, 246, 0.1) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
-.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0.07) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
-.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(236, 72, 153, 0.18), rgba(236, 72, 153, 0.05) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
-.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(106, 90, 205, 0.28), rgba(139, 92, 246, 0.08) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
+.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.16), rgba(139, 92, 246, 0.05) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
+.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(59, 130, 246, 0.11), rgba(59, 130, 246, 0.035) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
+.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(236, 72, 153, 0.08), rgba(236, 72, 153, 0.025) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
+.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(106, 90, 205, 0.13), rgba(139, 92, 246, 0.04) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
 @keyframes nappe-1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
 @keyframes nappe-2 { to { transform: translate(-12vmax, 14vmax) scale(0.9); } }
 @keyframes nappe-3 { to { transform: translate(16vmax, -10vmax) scale(1.2); } }
