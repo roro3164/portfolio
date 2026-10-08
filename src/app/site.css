@@ -743,3 +743,25 @@ a.tuile:hover {
 @media (prefers-reduced-motion: reduce) {
   .pastille-anneau, .pastille-texte { animation: none; }
 }
+
+/* Chiffres clés des projets : sans cases, trait et dégradé à la couleur du projet */
+.chiffre {
+  position: relative;
+}
+.chiffre::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgb(var(--l1)), rgba(var(--l1), 0.1));
+  box-shadow: 0 0 10px rgba(var(--l1), 0.55);
+}
+.chiffre-valeur {
+  background: linear-gradient(120deg, #fff 30%, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

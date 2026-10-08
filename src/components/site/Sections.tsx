@@ -27,14 +27,11 @@ export function Coche() {
 
 export function Chiffres({ etude, compact = false }: { etude: EtudeDeCas; compact?: boolean }) {
   return (
-    <dl className={`grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] ${compact ? "" : "md:grid-cols-4"}`}>
+    <dl className={`grid grid-cols-2 gap-x-6 gap-y-7 ${compact ? "" : "md:grid-cols-4"}`}>
       {etude.chiffres.map((c) => (
-        <div key={c.libelle} className="bg-[var(--surface)] p-5">
-          <dt className="sr-only">{c.libelle}</dt>
-          <dd>
-            <span className="block text-[1.9rem] font-bold leading-none tracking-tight">{c.valeur}</span>
-            <span className="mt-2 block text-[13.5px] leading-snug text-[var(--muted)]">{c.libelle}</span>
-          </dd>
+        <div key={c.libelle} className="chiffre flex flex-col-reverse pl-4">
+          <dt className="mt-1.5 text-[13.5px] leading-snug text-[var(--muted)]">{c.libelle}</dt>
+          <dd className="chiffre-valeur text-[clamp(1.9rem,2.6vw,2.4rem)] font-bold leading-none tracking-tight">{c.valeur}</dd>
         </div>
       ))}
     </dl>
