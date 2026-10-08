@@ -80,16 +80,3 @@ export function SchemaReferencement() {
     </div>
   );
 }
-
-/** Variante C : grande icône lumineuse avec anneaux en orbite. */
-export function GrandeIcone({ icone: Icone }: { icone: React.ComponentType<{ className?: string; strokeWidth?: number }> }) {
-  return (
-    <div className="grande-icone" aria-hidden="true">
-      <span className="grande-icone-anneau" />
-      <span className="grande-icone-anneau grande-icone-anneau-2" />
-      <span className="grande-icone-coeur">
-        <Icone className="h-10 w-10" strokeWidth={1.6} />
-      </span>
-    </div>
-  );
-}

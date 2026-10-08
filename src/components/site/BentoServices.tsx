@@ -1,14 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { LayoutTemplate, MapPin, ShoppingBag, Star, type LucideIcon } from "lucide-react";
+import { LayoutTemplate, MapPin, ShoppingBag, type LucideIcon } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { BlocOptions } from "./Options";
-import { GrandeIcone, SchemaEcommerce, SchemaReferencement, SchemaVitrine } from "./SchemasServices";
+import { SchemaEcommerce, SchemaReferencement, SchemaVitrine } from "./SchemasServices";
 import { Fleche } from "./Sections";
 
-// Services en 3 colonnes égales : visuel en haut, contenu en bas, lueur qui suit
-// la souris et code couleur des services. Bande options + suivi mensuel dessous.
+// Services en 3 colonnes égales : schéma animé en haut, contenu en bas, lueur qui
+// suit la souris et code couleur des services. Bande options + suivi mensuel dessous.
 
 type Tuile = {
   href: string;
@@ -17,17 +16,8 @@ type Tuile = {
   titre: string;
   texte: string;
   points: string[];
-  visuel: ReactNode;
   schema: ReactNode;
 };
-
-export type StyleServices = "mockups" | "schemas" | "icones";
-
-const CLASSEMENT = [
-  ["1", "Votre entreprise", "4,9", true],
-  ["2", "Concurrent", "4,3", false],
-  ["3", "Concurrent", "4,1", false],
-] as const;
 
 const TUILES: Tuile[] = [
   {
@@ -38,16 +28,6 @@ const TUILES: Tuile[] = [
     texte: "Une boutique Shopify sur-mesure, du petit catalogue à plus de 10 000 produits synchronisés.",
     points: ["Shopify sur-mesure", "Catalogue synchronisé", "SEO produit"],
     schema: <SchemaEcommerce />,
-    visuel: (
-      <Image
-        src="/mockups/lumi-nice-macbook.webp"
-        alt="Boutique LumiNice sur MacBook"
-        width={1864}
-        height={1228}
-        sizes="(min-width: 1024px) 360px, 80vw"
-        className="w-[92%] max-w-[360px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-y-2 group-hover:scale-[1.03]"
-      />
-    ),
   },
   {
     href: "/creation-site-vitrine",
@@ -57,16 +37,6 @@ const TUILES: Tuile[] = [
     texte: "Un site rapide et à votre image, pensé pour obtenir des appels et des demandes de devis.",
     points: ["Design sur-mesure", "Réservation, rendez-vous", "Rapide sur mobile"],
     schema: <SchemaVitrine />,
-    visuel: (
-      <Image
-        src="/mockups/bistrot-fernand-iphone-face.webp"
-        alt="Site du Bistrot Fernand sur iPhone"
-        width={888}
-        height={1760}
-        sizes="160px"
-        className="w-[30%] max-w-[104px] rotate-[6deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[3deg]"
-      />
-    ),
   },
   {
     href: "/referencement-local",
@@ -76,29 +46,10 @@ const TUILES: Tuile[] = [
     texte: "Fiche Google, avis et pages locales pour passer devant vos concurrents dans votre ville.",
     points: ["Fiche Google optimisée", "Avis et pages par ville", "Suivi des positions"],
     schema: <SchemaReferencement />,
-    visuel: (
-      <div className="w-[86%] max-w-[300px] space-y-2.5 transition-transform duration-700 group-hover:-translate-y-1.5" aria-hidden="true">
-        {CLASSEMENT.map(([n, nom, note, moi]) => (
-          <div
-            key={n}
-            className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-[13.5px] ${
-              moi ? "bg-[rgba(59,130,246,0.9)] text-white shadow-[0_10px_28px_-8px_rgba(59,130,246,0.9)]" : "bg-white/[0.06] text-white/55"
-            }`}
-          >
-            <span className="font-bold">{n}</span>
-            <span className="flex-1 truncate font-medium">{nom}</span>
-            <span className="flex items-center gap-1">
-              <Star className="h-3.5 w-3.5 fill-[#fbbc04] text-[#fbbc04]" />
-              {note}
-            </span>
-          </div>
-        ))}
-      </div>
-    ),
   },
 ];
 
-export function BentoServices({ style = "mockups" }: { style?: StyleServices }) {
+export function BentoServices() {
   return (
     <section className="section" aria-labelledby="services-titre">
       <div className="wrap">
@@ -116,13 +67,11 @@ export function BentoServices({ style = "mockups" }: { style?: StyleServices }) 
               <div key={t.href} data-couleur={t.couleur} className="reveal relative rounded-[26px]">
                 <Link href={t.href} className="group tuile relative flex h-full flex-col overflow-hidden p-7">
                   <div className="relative flex h-[210px] items-center justify-center">
-                    {style === "mockups" ? t.visuel : style === "schemas" ? t.schema : <GrandeIcone icone={Icone} />}
+                    {t.schema}
                   </div>
-                  {style !== "icones" && (
-                    <span className="icone-service relative z-10 mt-4" aria-hidden="true">
-                      <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
-                    </span>
-                  )}
+                  <span className="icone-service relative z-10 mt-4" aria-hidden="true">
+                    <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
+                  </span>
                   <div className="relative z-10 flex flex-1 flex-col">
                     <h3 className="mt-5 text-[1.6rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
                     <p className="mt-2.5 text-[15.5px] leading-relaxed text-white/75">{t.texte}</p>
