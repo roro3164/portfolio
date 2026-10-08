@@ -689,23 +689,58 @@ a.tuile:hover {
 @keyframes toast-flotte { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @media (prefers-reduced-motion: reduce) { .demo-toast { animation: none; } }
 
-/* Pastille ronde « démo offerte » (rappel du sticker de l'ancien site) */
-.pastille-offre {
+/* Pastille « Démo offerte » (hero) */
+.pastille-demo {
+  position: absolute;
   display: grid;
   place-items: center;
-  width: 128px;
-  height: 128px;
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  isolation: isolate;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.pastille-demo:hover { transform: scale(1.06) rotate(-4deg); }
+.pastille-anneau {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: -1;
+  background: conic-gradient(from var(--laser-angle), #8b5cf6, #3b82f6, #d8d4ff, #8b5cf6 55%, #6a5acd, #8b5cf6);
+  box-shadow: 0 0 36px rgba(139, 92, 246, 0.65), 0 18px 40px -12px rgba(0, 0, 0, 0.7);
+  animation: laser-tour 5s linear infinite;
+}
+.pastille-anneau::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #2a2445, #141221 70%);
+}
+.pastille-texte {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: #d8d4ff;
+  font-size: 16px;
+  font-weight: 700;
+  animation: pastille-rotation 22s linear infinite;
+}
+@keyframes pastille-rotation { to { transform: rotate(360deg); } }
+.pastille-coeur {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   text-align: center;
   color: #fff;
-  background: linear-gradient(135deg, #3b82f6 0%, #6a5acd 50%, #8b5cf6 100%);
-  border: 3px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 30px rgba(106, 90, 205, 0.55);
-  transform: rotate(-8deg);
-  animation: pastille-pulse 2.4s ease-in-out infinite;
+  background: linear-gradient(140deg, #9b6dff 0%, #6a5acd 45%, #3b82f6 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.35), inset 0 -6px 14px rgba(20, 10, 60, 0.35), 0 0 24px rgba(139, 92, 246, 0.6);
+  align-content: center;
 }
-@keyframes pastille-pulse {
-  0%, 100% { transform: rotate(-8deg) scale(1); }
-  50% { transform: rotate(-8deg) scale(1.05); }
+@media (prefers-reduced-motion: reduce) {
+  .pastille-anneau, .pastille-texte { animation: none; }
 }
-@media (prefers-reduced-motion: reduce) { .pastille-offre { animation: none; } }

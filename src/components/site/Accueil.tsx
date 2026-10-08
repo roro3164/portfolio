@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { BentoServices } from "@/components/site/BentoServices";
 import { DemoOfferte } from "@/components/site/DemoOfferte";
+import { PastilleDemo } from "@/components/site/PastilleDemo";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -120,17 +121,7 @@ export function Accueil() {
               sizes="(min-width: 1024px) 340px, 50vw"
               className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
             />
-            <Link
-              href="/demo-gratuite"
-              aria-label="Recevoir ma démo gratuite"
-              className="pastille-offre absolute -right-2 -top-10 z-10 hidden sm:grid lg:-right-10"
-            >
-              <span className="leading-tight">
-                <span className="block text-[11px] font-bold uppercase tracking-wider">Démo</span>
-                <span className="block text-[22px] font-extrabold">offerte</span>
-                <span className="block text-[10px] font-semibold uppercase tracking-wide text-white/90">sans engagement</span>
-              </span>
-            </Link>
+            <PastilleDemo className="-right-3 -top-16 z-10 hidden sm:grid lg:-right-14" />
             <Telephone
               src="/realisations/bistrot-des-musees-mobile.webp"
               alt="Site du Bistrot des Musées sur mobile"
