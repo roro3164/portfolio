@@ -3,7 +3,7 @@ import { Gift } from "lucide-react";
 import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { BentoServices } from "@/components/site/BentoServices";
-import { MaquetteOfferte } from "@/components/site/MaquetteOfferte";
+import { DemoOfferte } from "@/components/site/DemoOfferte";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -15,8 +15,8 @@ import { SITE } from "@/lib/site";
 
 const QUESTIONS: QR[] = [
   {
-    q: "La maquette est-elle vraiment gratuite ?",
-    r: "Oui. Vous me présentez votre activité, je dessine la page d'accueil de votre futur site, à votre nom et avec vos couleurs. Si elle vous plaît, je vous envoie un devis détaillé pour le site complet. Sinon, vous ne payez rien et vous n'êtes engagé à rien.",
+    q: "La démo est-elle vraiment gratuite ?",
+    r: "Oui. Vous me présentez votre activité et je crée une vraie démo de votre futur site, en ligne, à votre nom, avec vos textes, vos photos et vos couleurs. Vous la testez sur votre téléphone et votre ordinateur. Si elle vous plaît, je vous envoie un devis détaillé pour la finaliser. Sinon, vous ne payez rien et vous n'êtes engagé à rien.",
   },
   {
     q: "Combien coûte la création d'un site ?",
@@ -64,9 +64,9 @@ export function Accueil() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-              <Link href="/maquette-gratuite" className="btn btn-primary !min-h-[56px] !px-7 !text-[16.5px]">
+              <Link href="/demo-gratuite" className="btn btn-primary !min-h-[56px] !px-7 !text-[16.5px]">
                 <Gift className="h-[18px] w-[18px]" aria-hidden="true" />
-                Recevoir ma maquette gratuite
+                Recevoir ma démo gratuite
               </Link>
               <span className="text-[14px] text-[var(--muted)]">Gratuite · sans engagement · à votre nom</span>
             </div>
@@ -121,12 +121,12 @@ export function Accueil() {
               className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
             />
             <Link
-              href="/maquette-gratuite"
-              aria-label="Recevoir ma maquette gratuite"
+              href="/demo-gratuite"
+              aria-label="Recevoir ma démo gratuite"
               className="pastille-offre absolute -right-2 -top-10 z-10 hidden sm:grid lg:-right-10"
             >
               <span className="leading-tight">
-                <span className="block text-[11px] font-bold uppercase tracking-wider">Maquette</span>
+                <span className="block text-[11px] font-bold uppercase tracking-wider">Démo</span>
                 <span className="block text-[22px] font-extrabold">offerte</span>
                 <span className="block text-[10px] font-semibold uppercase tracking-wide text-white/90">sans engagement</span>
               </span>
@@ -157,7 +157,7 @@ export function Accueil() {
         </div>
       </section>
 
-      <MaquetteOfferte />
+      <DemoOfferte />
 
       <BentoServices />
 

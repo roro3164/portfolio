@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 const ETAPES: { t: string; d: string; livrable: string; icone: LucideIcon; c: "violet" | "bleu" | "vert" }[] = [
   { t: "On en parle", d: "Votre activité, vos clients, ce que le site doit rapporter.", livrable: "Brief de votre projet", icone: MessagesSquare, c: "violet" },
-  { t: "Votre maquette gratuite", d: "Vous voyez votre site avant de payer, et vous décidez.", livrable: "Maquette offerte", icone: PenTool, c: "violet" },
+  { t: "Votre démo gratuite", d: "Un vrai site en ligne, à tester avant de payer quoi que ce soit.", livrable: "Démo en ligne", icone: PenTool, c: "violet" },
   { t: "Je construis", d: "Devis validé : développement, contenus, catalogue et référencement.", livrable: "Site prêt à tester", icone: Code2, c: "bleu" },
   { t: "En ligne et suivi", d: "Mise en ligne, prise en main, puis évolutions et résultats.", livrable: "Suivi des résultats", icone: Rocket, c: "vert" },
 ];

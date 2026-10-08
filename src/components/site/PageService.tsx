@@ -66,9 +66,9 @@ export function PageService({ c }: { c: ContenuService }) {
             <h1 className="h1 mt-5 !text-[clamp(2.3rem,4.8vw,4rem)]">{c.h1}</h1>
             <p className="lead mt-6 max-w-xl">{c.lead}</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/maquette-gratuite" className="btn btn-primary">
+              <Link href="/demo-gratuite" className="btn btn-primary">
                 <Gift className="h-4 w-4" aria-hidden="true" />
-                Recevoir ma maquette gratuite
+                Recevoir ma démo gratuite
               </Link>
               <Link href="#realisations" className="btn btn-ghost">
                 Voir des exemples

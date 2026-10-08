@@ -52,9 +52,9 @@ export async function POST(request: Request) {
       from: process.env.CONTACT_EMAIL,
       to: process.env.CONTACT_EMAIL,
       replyTo: email,
-      subject: `Maquette gratuite · ${projet} · ${nom}${entreprise ? ` (${entreprise})` : ""}`,
+      subject: `Démo gratuite · ${projet} · ${nom}${entreprise ? ` (${entreprise})` : ""}`,
       text: `${lignes.filter(([, v]) => v).map(([k, v]) => `${k} : ${v}`).join("\n")}\n\n${message}`,
-      html: `<h2>Nouvelle demande de maquette gratuite</h2>${lignes
+      html: `<h2>Nouvelle demande de démo gratuite</h2>${lignes
         .filter(([, v]) => v)
         .map(([k, v]) => `<p><strong>${k} :</strong> ${echapper(v)}</p>`)
         .join("")}<p><strong>Message :</strong></p><p style="white-space:pre-wrap;background:#f5f5f5;padding:15px;border-radius:6px">${echapper(message)}</p>`,

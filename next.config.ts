@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false,
   },
   async redirects() {
-    return [{ source: "/devis", destination: "/maquette-gratuite", permanent: true }];
+    return [
+      { source: "/devis", destination: "/demo-gratuite", permanent: true },
+      { source: "/maquette-gratuite", destination: "/demo-gratuite", permanent: true },
+    ];
   },
 };
 

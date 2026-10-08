@@ -25,7 +25,7 @@ const COLONNES = [
   {
     titre: "Contact",
     liens: [
-      { href: "/maquette-gratuite", label: "Maquette gratuite" },
+      { href: "/demo-gratuite", label: "Démo gratuite" },
       { href: `mailto:${SITE.email}`, label: SITE.email },
       { href: SITE.reseaux.linkedin, label: "LinkedIn" },
       { href: SITE.reseaux.instagram, label: "Instagram" },

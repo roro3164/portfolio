@@ -26,7 +26,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
       const json = await rep.json().catch(() => ({}));
       if (!rep.ok) throw new Error(json.erreur || "L'envoi a échoué.");
       setEtat("ok");
-      (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: "demande_maquette", projet: donnees.projet });
+      (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: "demande_demo", projet: donnees.projet });
     } catch (e) {
       setErreur(e instanceof Error ? e.message : "L'envoi a échoué.");
       setEtat("erreur");
@@ -36,9 +36,9 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
   if (etat === "ok") {
     return (
       <div className="carte-laser p-8 text-center md:p-12" role="status">
-        <p className="text-[1.6rem] font-bold tracking-tight">Merci, je m&apos;occupe de votre maquette.</p>
+        <p className="text-[1.6rem] font-bold tracking-tight">Merci, je m&apos;occupe de votre démo.</p>
         <p className="mx-auto mt-3 max-w-md text-[var(--muted)]">
-          Je lis votre message et je reviens vers vous sous 24 h pour lancer votre maquette gratuite. Pensez à vérifier vos spams.
+          Je lis votre message et je reviens vers vous sous 24 h pour lancer votre démo gratuite. Pensez à vérifier vos spams.
         </p>
       </div>
     );
@@ -118,7 +118,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
           </a>
         </p>
         <button type="submit" disabled={etat === "envoi"} className="btn btn-primary disabled:opacity-60">
-          {etat === "envoi" ? "Envoi…" : "Recevoir ma maquette gratuite"}
+          {etat === "envoi" ? "Envoi…" : "Recevoir ma démo gratuite"}
         </button>
       </div>
     </form>

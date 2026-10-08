@@ -6,26 +6,26 @@ import { fil, graphe, ID_ENTREPRISE } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Maquette de site gratuite, sans engagement",
+  title: "Démo gratuite de votre futur site, en ligne",
   description:
-    "Recevez gratuitement la maquette de la page d'accueil de votre futur site, à votre nom. Site vitrine ou e-commerce, sans engagement. Romain DesignCode, Montpellier.",
-  alternates: { canonical: "/maquette-gratuite" },
+    "Recevez gratuitement une vraie démo de votre futur site, en ligne et à votre nom, à tester avant de décider. Site vitrine ou e-commerce, sans engagement.",
+  alternates: { canonical: "/demo-gratuite" },
 };
 
 const ariane = [
   { nom: "Accueil", url: "/" },
-  { nom: "Maquette gratuite", url: "/maquette-gratuite" },
+  { nom: "Démo gratuite", url: "/demo-gratuite" },
 ];
 
 const ETAPES = [
   ["Vous me présentez votre activité", "en quelques lignes : ce que vous faites, pour qui, votre site actuel si vous en avez un."],
-  ["Je dessine votre page d'accueil", "à votre nom, avec vos couleurs, vos photos et vos vrais textes."],
-  ["Vous décidez, sans engagement", "si elle vous plaît, je vous envoie un devis détaillé. Sinon, vous ne payez rien."],
+  ["Je crée votre démo en ligne", "un vrai site, à votre nom, avec vos textes, vos photos et vos couleurs."],
+  ["Vous la testez, puis vous décidez", "elle vous plaît : je vous envoie un devis détaillé pour la finaliser. Sinon, vous ne payez rien."],
 ];
 
 const PROJETS_VALIDES = ["Site e-commerce", "Site vitrine", "Refonte d'un site", "Référencement local", "Restaurant (Primaps)", "Autre"];
 
-export default async function MaquetteGratuite({ searchParams }: { searchParams: Promise<{ projet?: string }> }) {
+export default async function DemoGratuite({ searchParams }: { searchParams: Promise<{ projet?: string }> }) {
   const { projet } = await searchParams;
   return (
     <>
@@ -33,12 +33,12 @@ export default async function MaquetteGratuite({ searchParams }: { searchParams:
         data={graphe(
           {
             "@type": "ContactPage",
-            name: "Maquette de site gratuite",
-            url: `${SITE.url}/maquette-gratuite`,
+            name: "Démo gratuite de votre futur site",
+            url: `${SITE.url}/demo-gratuite`,
             about: { "@id": ID_ENTREPRISE },
             mainEntity: {
               "@type": "Offer",
-              name: "Maquette gratuite de la page d'accueil de votre site",
+              name: "Démo gratuite de votre futur site, en ligne",
               price: "0",
               priceCurrency: "EUR",
               seller: { "@id": ID_ENTREPRISE },
@@ -54,9 +54,11 @@ export default async function MaquetteGratuite({ searchParams }: { searchParams:
             <Fil items={ariane} />
             <p className="eyebrow mt-10">Gratuit et sans engagement</p>
             <h1 className="h1 mt-5 !text-[clamp(2.3rem,4.4vw,3.6rem)]">
-              Recevez la <span className="grad">maquette gratuite</span> de votre futur site.
+              Recevez une <span className="grad">démo gratuite</span> de votre futur site.
             </h1>
-            <p className="lead mt-6">Vous voyez votre site avant de payer quoi que ce soit. Quelques lignes suffisent pour démarrer.</p>
+            <p className="lead mt-6">
+              Pas un dessin : un vrai site en ligne, que vous testez sur votre téléphone avant de payer quoi que ce soit.
+            </p>
             <ol className="mt-10 space-y-6">
               {ETAPES.map(([t, d], i) => (
                 <li key={t} className="flex gap-4">

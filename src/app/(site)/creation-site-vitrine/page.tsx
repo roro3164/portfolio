@@ -42,7 +42,7 @@ const contenu: ContenuService = {
   inclus: [
     {
       titre: "Design unique",
-      texte: "Une maquette dessinée pour votre activité, validée avec vous avant le développement.",
+      texte: "Un design pensé pour votre activité, que vous testez en ligne avant de valider.",
     },
     {
       titre: "Textes qui convainquent",

@@ -59,9 +59,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/maquette-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
+          <Link href="/demo-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
             <Gift className="h-4 w-4" aria-hidden="true" />
-            Ma maquette gratuite
+            Ma démo gratuite
           </Link>
           <button
             type="button"
@@ -95,9 +95,9 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <Link href="/maquette-gratuite" className="btn btn-primary mt-8 w-full">
+          <Link href="/demo-gratuite" className="btn btn-primary mt-8 w-full">
             <Gift className="h-4 w-4" aria-hidden="true" />
-            Ma maquette gratuite
+            Ma démo gratuite
           </Link>
           <a href="https://www.primaps.fr" className="btn btn-ghost mt-3 w-full">
             Vous êtes un restaurant ? Primaps
