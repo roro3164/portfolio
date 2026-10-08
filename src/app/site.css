@@ -731,8 +731,8 @@ a.tuile:hover {
 .pastille-coeur {
   display: grid;
   place-items: center;
-  width: 140px;
-  height: 140px;
+  width: 154px;
+  height: 154px;
   border-radius: 50%;
   text-align: center;
   color: #fff;
