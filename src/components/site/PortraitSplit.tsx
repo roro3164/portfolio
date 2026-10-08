@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { PluieCode } from "./PluieCode";
 
 // Le portrait signature de Romain DesignCode : à gauche le designer (illustration
 // + éclaboussure), à droite le développeur (photo N&B + code qui défile).
@@ -9,12 +10,6 @@ import { useEffect, useRef, useState } from "react";
 // et respire toute seule au repos. Un léger parallaxe donne de la profondeur.
 // Tout passe par des variables CSS (--p, --mx, --my) : aucun rendu React par image.
 
-const COLONNES = [
-  ["<html>", "React", "Next.js", "<div>", "API", "</div>"],
-  ["Shopify", "<script>", "SQL", "Liquid", "Git", "<footer>"],
-  ["TypeScript", "<h1>", "Node.js", "SEO", "<header>", "HTML5"],
-  ["CSS", "Vercel", "<section>", "JSON", "Figma", "<main>"],
-];
 
 type Force = "designer" | "developpeur" | null;
 
@@ -133,17 +128,7 @@ export function PortraitSplit({ priority = false, className = "" }: { priority?:
       >
         {/* Côté développeur (dessous) : code qui défile + photo N&B */}
         <div className="portrait-calque portrait-dev" aria-hidden="true">
-          <div className="portrait-code">
-            {COLONNES.map((col, i) => (
-              <div key={i} className="portrait-code-col" style={{ animationDuration: `${22 + i * 5}s`, animationDirection: i % 2 ? "reverse" : "normal" }}>
-                {[...col, ...col].map((m, j) => (
-                  <span key={j} className={j % 4 === 1 ? "is-vif" : undefined}>
-                    {m}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
+          <PluieCode className="portrait-code" />
           <div className="portrait-photo">
             <Image src="/img/romain-nb.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-bottom" priority={priority} />
           </div>
