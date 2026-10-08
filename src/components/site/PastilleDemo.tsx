@@ -2,17 +2,17 @@ import { Gift } from "lucide-react";
 import Link from "next/link";
 
 // Pastille « Démo offerte » : texte circulaire qui tourne, anneau laser, disque central.
-export function PastilleDemo({ className = "" }: { className?: string }) {
+export function PastilleDemo({ className = "", id = "cercle-pastille" }: { className?: string; id?: string }) {
   const texte = "DÉMO GRATUITE · SANS ENGAGEMENT · ";
   return (
     <Link href="/demo-gratuite" aria-label="Recevoir ma démo gratuite" className={`pastille-demo group ${className}`}>
       <span className="pastille-anneau" aria-hidden="true" />
       <svg className="pastille-texte" viewBox="0 0 200 200" aria-hidden="true">
         <defs>
-          <path id="cercle-pastille" d="M100,100 m-87,0 a87,87 0 1,1 174,0 a87,87 0 1,1 -174,0" />
+          <path id={id} d="M100,100 m-87,0 a87,87 0 1,1 174,0 a87,87 0 1,1 -174,0" />
         </defs>
         <text>
-          <textPath href="#cercle-pastille" startOffset="0" textLength="540" lengthAdjust="spacing">
+          <textPath href={`#${id}`} startOffset="0" textLength="540" lengthAdjust="spacing">
             {texte}
           </textPath>
         </text>
