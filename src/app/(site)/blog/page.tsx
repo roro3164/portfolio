@@ -63,7 +63,7 @@ export default function Blog() {
           {autres.map((a) => (
             <li key={a.slug} className="reveal">
               <Link href={`/blog/${a.slug}`} data-couleur={COULEUR[a.categorie]} className="group card flex h-full flex-col p-7 transition-colors hover:bg-[var(--surface-2)]">
-                <span className="eyebrow !text-[11.5px]">{a.categorie}</span>
+                <span className="eyebrow !text-[13px]">{a.categorie}</span>
                 <h2 className="mt-4 text-[1.25rem] font-semibold leading-snug tracking-tight">{a.titre}</h2>
                 <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">{a.resume}</p>
                 <p className="mt-auto pt-6 text-[13.5px] text-[var(--faint)]">{tempsLecture(a)} min de lecture</p>

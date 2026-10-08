@@ -46,7 +46,7 @@ export default async function Devis({ searchParams }: { searchParams: Promise<{ 
             <ol className="mt-10 space-y-6">
               {ETAPES.map(([t, d], i) => (
                 <li key={t} className="flex gap-4">
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--line-2)] font-mono text-[13px] text-[var(--violet-2)]">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--line-2)] text-[13px] font-bold text-[var(--violet-2)]">
                     {i + 1}
                   </span>
                   <p className="text-[16px] leading-relaxed text-[var(--muted)]">

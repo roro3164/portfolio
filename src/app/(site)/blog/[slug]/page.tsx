@@ -109,7 +109,7 @@ export default async function ArticlePage({ params }: Props) {
           {autres.map((x) => (
             <li key={x.slug}>
               <Link href={`/blog/${x.slug}`} className="card block h-full p-7 transition-colors hover:bg-[var(--surface-2)]">
-                <span className="eyebrow !text-[11.5px]">{x.categorie}</span>
+                <span className="eyebrow !text-[13px]">{x.categorie}</span>
                 <span className="mt-3 block text-[1.15rem] font-semibold leading-snug">{x.titre}</span>
               </Link>
             </li>

@@ -183,7 +183,7 @@ export function Methode() {
         <ol className="mt-14 grid gap-px overflow-hidden rounded-[22px] border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.2)] md:grid-cols-2 lg:grid-cols-4">
           {etapes.map((e, i) => (
             <li key={e.t} className="bg-[rgba(21,19,31,0.92)] p-7">
-              <span className="font-mono text-[13px] text-[var(--violet-2)]">0{i + 1}</span>
+              <span className="text-[15px] font-bold text-[var(--accent)]">0{i + 1}</span>
               <h3 className="h3 mt-5">{e.t}</h3>
               <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">{e.d}</p>
             </li>
