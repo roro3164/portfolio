@@ -11,7 +11,6 @@ const LOGOS: { src: string; nom: string; w: number; h: number }[] = [
   { src: "/logos/barber-shop.webp", nom: "Barber Shop", w: 206, h: 160 },
   { src: "/logos/fuji-sushis.webp", nom: "Fuji Sushis", w: 153, h: 160 },
   { src: "/logos/eclat-gourmand.webp", nom: "Éclat Gourmand", w: 207, h: 160 },
-  { src: "/logos/bio-proprete.webp", nom: "BioPropreté", w: 233, h: 160 },
 ];
 
 function Rangee({ cachee = false }: { cachee?: boolean }) {
