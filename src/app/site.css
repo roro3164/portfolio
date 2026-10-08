@@ -1464,6 +1464,16 @@ a.tuile:hover {
 @keyframes toast-entree { from { opacity: 0; transform: translateY(12px) scale(0.96); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .demo-parcours-etape .demo-parcours-barre span { animation: none; width: 100%; } .demo-toast-etape { animation: none; } }
 
+/* Section démo offerte : halo qui s'allume à l'arrivée sur la section */
+.demo-glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; opacity: 0; scale: 0.7; transition: opacity 1.4s ease, scale 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.demo-glow-visuel { right: 0; top: 50%; width: 64%; aspect-ratio: 1.15; translate: 0 -50%; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.55), rgba(139, 92, 246, 0.42) 50%, rgba(236, 72, 153, 0.22) 68%, transparent 86%); filter: blur(28px); }
+.demo-glow-texte { left: 0; top: -12%; width: 48%; aspect-ratio: 1.1; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.38), rgba(236, 72, 153, 0.12) 50%, transparent 76%); filter: blur(24px); transition-delay: 0.25s; }
+[data-vue] > .demo-glow { opacity: 1; scale: 1; animation: glow-respire 6s ease-in-out 1.6s infinite; }
+[data-vue] > .demo-glow-texte { animation-delay: 2.4s; }
+[data-vue] .browser { box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(139, 92, 246, 0.45), 0 0 70px -6px rgba(139, 92, 246, 0.55); transition: box-shadow 1.4s ease 0.3s; }
+@keyframes glow-respire { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@media (prefers-reduced-motion: reduce) { .demo-glow { transition: none; } [data-vue] > .demo-glow { animation: none; } }
+
 /* Pastille « Démo offerte » (hero) */
 .pastille-demo {
   position: absolute;
