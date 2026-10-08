@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
 import { SITE } from "@/lib/site";
 import { Navigateur, Telephone } from "./Cadres";
+import { PortraitSplit } from "./PortraitSplit";
 
 /* Blocs partagés entre l'accueil et les pages services. */
 
@@ -172,10 +173,15 @@ export function Methode() {
   );
 }
 
-export function APropos() {
+export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" }) {
   return (
     <section className="section" aria-labelledby="apropos-titre">
-      <div className="wrap grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+      <div className="wrap grid items-center gap-12 md:grid-cols-[1fr_1fr] lg:gap-16">
+        {visuel === "portrait" ? (
+          <div className="relative mx-auto w-full max-w-[560px]">
+            <PortraitSplit />
+          </div>
+        ) : (
         <div className="reveal relative mx-auto w-full max-w-[420px]">
           <div className="halo -inset-10" aria-hidden="true" />
           <Image
@@ -187,6 +193,7 @@ export function APropos() {
             className="relative h-auto w-full rotate-[-2deg] rounded-[22px]"
           />
         </div>
+        )}
         <div>
           <p className="eyebrow">Qui suis-je</p>
           <h2 id="apropos-titre" className="h2 mt-4">

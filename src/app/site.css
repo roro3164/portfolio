@@ -260,3 +260,39 @@ details.faq[open] .faq-plus { transform: rotate(45deg); }
 @keyframes defile { to { transform: translateX(-50%); } }
 .defile { animation: defile 40s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .defile { animation: none; } }
+
+/* Portrait signature (PortraitSplit) */
+.portrait-split .laser {
+  background: #8b7cf6;
+  box-shadow: 0 0 10px #4b0082, 0 0 22px #1e90ff, 0 0 34px #6a5acd, 0 0 60px #6a5acd;
+}
+.portrait-split .laser-eclat {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(180deg, transparent, #8b7cf6, #fff, #8b7cf6, transparent);
+  box-shadow: 0 0 18px #bc13fe;
+  animation: laser-va-vient 4s ease-in-out infinite;
+}
+@keyframes laser-va-vient {
+  0%, 100% { top: 0; }
+  50% { top: 75%; }
+}
+.portrait-split .mot-neon {
+  color: #b4b0ff;
+  text-shadow: 0 0 6px rgba(143, 137, 236, 0.9), 0 0 16px rgba(93, 88, 163, 0.8);
+  opacity: 0.7;
+  animation: neon-scintille 3.7s steps(1) infinite;
+}
+@keyframes neon-scintille {
+  0%, 100% { opacity: 0.7; }
+  12% { opacity: 0.25; }
+  14% { opacity: 0.75; }
+  57% { opacity: 0.3; }
+  60% { opacity: 0.7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait-split .laser-eclat, .portrait-split .mot-neon { animation: none; }
+  .portrait-split * { transition: none !important; }
+}
