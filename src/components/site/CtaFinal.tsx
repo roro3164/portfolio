@@ -1,12 +1,11 @@
 import { Gift, Mail } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { DemoTablette } from "./DemoTablette";
 import { PastilleDemo } from "./PastilleDemo";
 
-// Appel final : texte + bouton à gauche, à droite une démo qui se construit
-// avec de vrais éléments (LumiNice) : adresse tapée, page qui apparaît morceau
-// par morceau, notification « en ligne », en boucle.
+// Appel final : texte + bouton à gauche, à droite une tablette où une démo de
+// site se construit élément par élément, en boucle.
 export function CtaFinal({
   titre = "Recevez votre démo gratuite.",
   texte = "Présentez-moi votre activité : je crée une vraie démo de votre futur site, en ligne et à votre nom. Vous la testez avant de décider, sans engagement.",
@@ -34,64 +33,8 @@ export function CtaFinal({
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[460px]" aria-hidden="true">
-            <div className="cta-demo">
-              <div className="cta-demo-barre">
-                <span className="flex gap-1.5">
-                  <i /><i /><i />
-                </span>
-                <span className="cta-demo-url">
-                  <span className="cta-demo-url-texte">lumi-nice.fr</span>
-                </span>
-              </div>
-              <div className="cta-site">
-                <div className="cta-site-entete cta-apparait">
-                  <span className="flex items-center gap-1.5">
-                    <Image src="/demo-cta/logo.webp" alt="" width={20} height={20} className="h-5 w-5" />
-                    <span className="cta-site-serif text-[13px]">LumiNice</span>
-                  </span>
-                  <span className="hidden gap-3 text-[9.5px] text-[#5b5348] sm:flex">
-                    <span>Produits</span>
-                    <span>Marques</span>
-                    <span>Showroom</span>
-                  </span>
-                  <span className="cta-site-or rounded-full px-2.5 py-1 text-[9px] font-semibold text-white">Contact</span>
-                </div>
-                <div className="cta-site-hero">
-                  <Image src="/demo-cta/hero.webp" alt="" fill sizes="460px" className="object-cover" />
-                  <div className="cta-site-hero-texte">
-                    <span className="cta-site-serif cta-apparait text-[22px] leading-none text-white [animation-delay:0.25s]">
-                      L&apos;art de la <em className="text-[#e9cf8f]">lumière</em>, sublimé.
-                    </span>
-                    <span className="cta-site-or cta-apparait mt-3 rounded-full px-3 py-1.5 text-[9.5px] font-semibold text-white [animation-delay:0.4s]">
-                      Découvrir nos produits →
-                    </span>
-                  </div>
-                </div>
-                <div className="grid grid-cols-3 gap-2 px-3 pb-3 pt-3">
-                  {[
-                    ["clizia-mama", "Clizia Mama"],
-                    ["la-lollo", "La Lollo"],
-                    ["veli-foliage", "Veli Foliage"],
-                  ].map(([f, nom], k) => (
-                    <span key={f} className="cta-apparait block" style={{ animationDelay: `${0.55 + k * 0.12}s` }}>
-                      <span className="relative block aspect-square overflow-hidden rounded-md">
-                        <Image src={`/demo-cta/${f}.webp`} alt="" fill sizes="140px" className="object-cover" />
-                      </span>
-                      <span className="mt-1.5 block truncate text-[10px] font-semibold text-[#2a241c]">{nom}</span>
-                      <span className="block text-[8.5px] uppercase tracking-[0.08em] text-[#9a8d78]">Slamp</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="demo-toast cta-demo-toast">
-              <span className="demo-toast-point" />
-              <span className="text-[14px] leading-tight">
-                <b className="block text-white">Votre démo est en ligne</b>
-                <span className="text-[13px] text-[var(--muted)]">Prête à tester sur mobile et ordinateur</span>
-              </span>
-            </div>
+          <div className="relative mx-auto w-full max-w-[500px]" aria-hidden="true">
+            <DemoTablette />
             <PastilleDemo id="cercle-pastille-cta" className="-right-6 -top-16 hidden scale-[0.78] sm:grid xl:-right-10" />
           </div>
         </div>

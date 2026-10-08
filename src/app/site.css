@@ -1088,46 +1088,51 @@ a.tuile:hover {
 @keyframes toast-flotte { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @media (prefers-reduced-motion: reduce) { .demo-toast { animation: none; } }
 
-/* Appel final : démo qui se construit (boucle 8 s) */
-.cta-demo {
+/* Appel final : tablette en paysage où la démo se construit (DemoTablette) */
+.tablette {
   position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(180deg, #1d1a2b, #15131f);
-  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.9), 0 0 60px -30px rgba(139, 92, 246, 0.8);
-  transform: perspective(1200px) rotateY(-8deg) rotateX(3deg);
+  padding: 14px;
+  border-radius: 30px;
+  background: #08080b;
+  border: 3px solid #8d8d95;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 40px 80px -36px rgba(0, 0, 0, 0.9), 0 0 70px -30px rgba(139, 92, 246, 0.8);
+  transform: perspective(1400px) rotateY(-9deg) rotateX(3deg);
 }
-.cta-demo-barre { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-.cta-demo-barre i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.18); }
-.cta-demo-url { flex: 1; height: 28px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.06); }
-.cta-demo-url-texte {
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.8);
-  border-right: 1.5px solid #b4b0ff;
-  width: 0;
-  animation: cta-frappe 8s steps(12) infinite;
+.tablette::before { content: ""; position: absolute; inset: -3px; border-radius: 30px; pointer-events: none; background: linear-gradient(160deg, rgba(255, 255, 255, 0.35), transparent 30%, transparent 70%, rgba(255, 255, 255, 0.2)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 3px; }
+.tablette-camera { position: absolute; top: 5px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: #1c2233; box-shadow: inset 0 0 1px #5a6a9a; }
+.tablette-ecran { position: relative; overflow: hidden; border-radius: 14px; aspect-ratio: 1.36; background: #f6f1e9; }
+.tablette-zoom { position: absolute; top: 0; left: 0; width: 470px; transform: scale(var(--k, 1)); transform-origin: top left; }
+.tablette-url { display: flex; justify-content: center; padding: 5px 0 4px; background: #efe8dc; border-bottom: 1px solid #e3d9c8; }
+.tablette-url-champ { display: inline-flex; align-items: center; min-width: 46%; justify-content: center; height: 16px; padding: 0 10px; border-radius: 6px; font-size: 8px; color: #3b3128; background: #fff; }
+.tablette-curseur { width: 1px; height: 9px; margin-left: 1px; background: #b35a33; animation: curseur-clignote 1s steps(1) infinite; }
+@keyframes curseur-clignote { 50% { opacity: 0; } }
+.ts-site { color: #2b2118; }
+.ts-serif { font-family: Georgia, "Times New Roman", serif; }
+.ts-el { opacity: 0; transform: translateY(8px); transition: opacity 0.5s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.ts-el[data-on] { opacity: 1; transform: none; }
+.ts-el[data-sort] { opacity: 0; transform: none; transition-duration: 0.45s; }
+.ts-el-image { transform: none; clip-path: inset(0 0 100% 0); transition: clip-path 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s; }
+.ts-el-image[data-on] { clip-path: inset(0 0 0 0); }
+.ts-entete { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 12px; }
+.ts-recherche { display: none; padding: 2px 8px; border-radius: 999px; font-size: 7px; color: #9b8a74; background: #fff; border: 1px solid #e6dccb; }
+@media (min-width: 640px) { .ts-recherche { display: inline-block; } }
+.ts-panier { padding: 3px 8px; border-radius: 999px; font-size: 7.5px; font-weight: 700; color: #fff; background: #2b2118; }
+.ts-hero { position: relative; aspect-ratio: 4.1; overflow: hidden; }
+.ts-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(246, 241, 233, 0.92) 0%, rgba(246, 241, 233, 0.7) 45%, rgba(246, 241, 233, 0) 75%); }
+.ts-hero-texte { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 14px; max-width: 64%; }
+.ts-btn { padding: 4px 9px; border-radius: 999px; font-size: 7.5px; font-weight: 700; color: #fff; background: #b35a33; box-shadow: 0 4px 10px -4px rgba(179, 90, 51, 0.7); }
+.ts-btn-2 { color: #2b2118; background: rgba(255, 255, 255, 0.85); border: 1px solid #d9cbb4; box-shadow: none; }
+.ts-bande { display: flex; justify-content: space-around; padding: 5px 8px; font-size: 7px; font-weight: 600; color: #7a6650; background: #efe6d8; }
+.ts-univers { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px 2px 2px; border-radius: 999px; font-size: 7.5px; font-weight: 600; background: #fff; border: 1px solid #ebe1d1; }
+.ts-produit { display: block; padding: 4px 4px 5px; border-radius: 8px; background: #fff; border: 1px solid #ebe1d1; box-shadow: 0 4px 10px -6px rgba(60, 40, 10, 0.25); }
+.ts-ajout { display: block; margin-top: 3px; padding: 2px 0; border-radius: 999px; text-align: center; font-size: 6.5px; font-weight: 700; color: #b35a33; border: 1px solid #e8c7b4; }
+.tablette-toast { position: absolute; left: -30px; top: -30px; z-index: 3; }
+@media (max-width: 639px) {
+  .tablette { transform: none; padding: 10px; border-radius: 24px; }
+  .tablette-toast { left: 8px; right: 8px; }
 }
-@keyframes cta-frappe { 0%, 4% { width: 0; } 20%, 92% { width: 12ch; } 100% { width: 12ch; } }
-.cta-site { background: #f7f3ec; }
-.cta-site-serif { font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
-.cta-site-or { background: linear-gradient(180deg, #d8b46a, #b8913f); }
-.cta-site-entete { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; color: #2a241c; }
-.cta-site-hero { position: relative; height: 150px; overflow: hidden; transform-origin: top; animation: cta-hero 8s 0.1s infinite both; }
-.cta-site-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 16, 10, 0.15), rgba(20, 16, 10, 0.55)); }
-.cta-site-hero-texte { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 12px; }
-.cta-apparait { animation: cta-apparait 8s infinite both; }
-@keyframes cta-apparait { 0%, 24% { opacity: 0; transform: translateY(8px); } 32%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
-@keyframes cta-hero { 0%, 22% { clip-path: inset(0 0 100% 0); opacity: 0; } 30%, 92% { clip-path: inset(0 0 0 0); opacity: 1; } 100% { opacity: 0; } }
-.cta-demo-toast { position: absolute; left: -18px; bottom: -22px; animation: cta-toast 8s infinite; }
-@keyframes cta-toast { 0%, 48% { opacity: 0; transform: translateY(12px) scale(0.96); } 54%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
-@media (max-width: 639px) { .cta-demo { transform: none; } .cta-demo-toast { left: 8px; right: 8px; } }
 @media (prefers-reduced-motion: reduce) {
-  .cta-demo-url-texte { animation: none; width: auto; border: 0; }
-  .cta-apparait, .cta-site-hero, .cta-demo-toast { animation: none; }
+  .ts-el { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none; }
 }
 
 /* Pastille « Démo offerte » (hero) */
