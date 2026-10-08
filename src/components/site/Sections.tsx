@@ -18,8 +18,8 @@ export function Fleche({ className = "" }: { className?: string }) {
 export function Coche() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-[3px] shrink-0">
-      <circle cx="9" cy="9" r="8.25" stroke="var(--brand)" strokeWidth="1.5" />
-      <path d="m5.5 9.2 2.2 2.2 4.8-4.8" stroke="var(--violet-2)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="9" cy="9" r="8.25" stroke="rgba(var(--l1),0.65)" strokeWidth="1.5" />
+      <path d="m5.5 9.2 2.2 2.2 4.8-4.8" stroke="var(--accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -40,11 +40,13 @@ export function Chiffres({ etude, compact = false }: { etude: EtudeDeCas; compac
   );
 }
 
+export const couleurType = (type: EtudeDeCas["type"]) => (type === "E-commerce" ? "violet" : "vert");
+
 /** Une étude de cas en grand : capture desktop + mobile, chiffres, lien. */
 export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { etude: EtudeDeCas; inverse?: boolean; titreNiveau?: "h2" | "h3" }) {
   const Titre = titreNiveau;
   return (
-    <article className="reveal grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+    <article data-couleur={couleurType(etude.type)} className="reveal grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
       <div className={`relative lg:col-span-7 ${inverse ? "lg:order-2" : ""}`}>
         <Link href={`/realisations/${etude.slug}`} aria-label={`Voir l'étude de cas ${etude.nom}`} className="block transition-transform duration-500 hover:-translate-y-1">
           <Navigateur src={etude.couverture} alt={`Page d'accueil du site ${etude.nom}`} url={etude.url} />
@@ -57,7 +59,7 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
       </div>
       <div className={`lg:col-span-5 ${inverse ? "lg:order-1" : ""}`}>
         <div className="flex flex-wrap gap-2">
-          <span className="chip">{etude.type}</span>
+          <span className="chip !border-[rgba(var(--l1),0.5)] !text-[var(--accent)]">{etude.type}</span>
           <span className="chip">
             {etude.secteur} · {etude.ville}
           </span>
@@ -68,7 +70,7 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
         <div className="mt-7">
           <Chiffres etude={etude} compact />
         </div>
-        <Link href={`/realisations/${etude.slug}`} className="group mt-7 inline-flex items-center gap-2 font-semibold text-[var(--violet-2)]">
+        <Link href={`/realisations/${etude.slug}`} className="group mt-7 inline-flex items-center gap-2 font-semibold text-[var(--accent)]">
           Lire l&apos;étude de cas
           <Fleche className="transition-transform group-hover:translate-x-1" />
         </Link>
@@ -108,7 +110,7 @@ export function BandeauPrimaps() {
   return (
     <section className="section pt-0" aria-labelledby="primaps-titre">
       <div className="wrap">
-        <div className="reveal carte-laser grid items-center gap-8 p-8 [--radius:28px] md:grid-cols-[1.4fr_1fr] md:p-12">
+        <div data-couleur="or" className="reveal carte-laser grid items-center gap-8 p-8 [--radius:28px] md:grid-cols-[1.4fr_1fr] md:p-12">
           <div>
             <p className="eyebrow">Vous êtes un restaurant ?</p>
             <h2 id="primaps-titre" className="mt-4 text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-tight tracking-tight">
@@ -153,15 +155,15 @@ export function Methode() {
     },
   ];
   return (
-    <section className="section border-y border-[var(--line)] bg-[var(--bg-2)]" aria-labelledby="methode-titre">
+    <section className="section bande border-y" aria-labelledby="methode-titre">
       <div className="wrap">
         <p className="eyebrow">Méthode</p>
         <h2 id="methode-titre" className="h2 mt-4 max-w-2xl">
           Un seul interlocuteur, du premier appel à la mise en ligne.
         </h2>
-        <ol className="mt-14 grid gap-px overflow-hidden rounded-[22px] border border-[var(--line)] bg-[var(--line)] md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-14 grid gap-px overflow-hidden rounded-[22px] border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.2)] md:grid-cols-2 lg:grid-cols-4">
           {etapes.map((e, i) => (
-            <li key={e.t} className="bg-[var(--bg-2)] p-7">
+            <li key={e.t} className="bg-[rgba(21,19,31,0.92)] p-7">
               <span className="font-mono text-[13px] text-[var(--violet-2)]">0{i + 1}</span>
               <h3 className="h3 mt-5">{e.t}</h3>
               <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">{e.d}</p>

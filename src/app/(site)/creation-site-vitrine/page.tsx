@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const contenu: ContenuService = {
+  couleur: "vert",
   url: "/creation-site-vitrine",
   nomCourt: "Création de site vitrine",
   nomService: "Création de site vitrine",

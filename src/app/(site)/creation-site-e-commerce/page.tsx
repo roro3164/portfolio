@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const contenu: ContenuService = {
+  couleur: "violet",
   url: "/creation-site-e-commerce",
   nomCourt: "Création de site e-commerce",
   nomService: "Création de site e-commerce Shopify",

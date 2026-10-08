@@ -21,9 +21,9 @@ const ariane = [
 ];
 
 const COMPETENCES = [
-  { titre: "Design", items: ["Design UI/UX, maquettes Figma", "Identité visuelle et direction artistique", "Parcours pensés pour convertir"] },
-  { titre: "Développement", items: ["Shopify : thèmes Liquid sur-mesure", "Next.js, React, TypeScript", "Imports, API et automatisations"] },
-  { titre: "Visibilité", items: ["Référencement naturel et local", "Fiche Google et avis", "Mesure : Search Console, Analytics"] },
+  { titre: "Design", couleur: "vert", items: ["Design UI/UX, maquettes Figma", "Identité visuelle et direction artistique", "Parcours pensés pour convertir"] },
+  { titre: "Développement", couleur: "violet", items: ["Shopify : thèmes Liquid sur-mesure", "Next.js, React, TypeScript", "Imports, API et automatisations"] },
+  { titre: "Visibilité", couleur: "bleu", items: ["Référencement naturel et local", "Fiche Google et avis", "Mesure : Search Console, Analytics"] },
 ];
 
 export default function APropos() {
@@ -79,7 +79,7 @@ export default function APropos() {
         </div>
       </section>
 
-      <section className="section border-y border-[var(--line)] bg-[var(--bg-2)]" aria-labelledby="competences-titre">
+      <section className="section bande border-y" aria-labelledby="competences-titre">
         <div className="wrap">
           <p className="eyebrow">Compétences</p>
           <h2 id="competences-titre" className="h2 mt-4">
@@ -87,7 +87,7 @@ export default function APropos() {
           </h2>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {COMPETENCES.map((c) => (
-              <div key={c.titre} className="card p-7">
+              <div key={c.titre} data-couleur={c.couleur} className="carte-laser lent p-7">
                 <h3 className="h3">{c.titre}</h3>
                 <ul className="mt-5 space-y-3">
                   {c.items.map((it) => (

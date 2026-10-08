@@ -12,6 +12,7 @@ import { SITE } from "@/lib/site";
 const SERVICES = [
   {
     href: "/creation-site-e-commerce",
+    couleur: "violet",
     eyebrow: "Vendre en ligne",
     titre: "Site e-commerce",
     texte: "Une boutique Shopify sur-mesure, du petit catalogue à plus de 10 000 produits, avec paiement, livraison et stock à jour.",
@@ -19,6 +20,7 @@ const SERVICES = [
   },
   {
     href: "/creation-site-vitrine",
+    couleur: "vert",
     eyebrow: "Être trouvé et contacté",
     titre: "Site vitrine",
     texte: "Un site rapide, à votre image, qui présente votre activité et transforme les visiteurs en appels et en demandes de devis.",
@@ -26,6 +28,7 @@ const SERVICES = [
   },
   {
     href: "/referencement-local",
+    couleur: "bleu",
     eyebrow: "Monter sur Google",
     titre: "Référencement local",
     texte: "Fiche Google, avis, pages locales et SEO technique pour apparaître devant vos concurrents dans votre ville.",
@@ -82,23 +85,25 @@ export function Accueil() {
             <div className="mt-9 grid gap-3 sm:grid-cols-2">
               <Link
                 href="/creation-site-e-commerce"
+                data-couleur="violet"
                 className="group card flex items-center justify-between gap-4 p-5 transition-colors hover:border-[var(--line-2)] hover:bg-[var(--surface-2)]"
               >
                 <span>
                   <span className="block text-[13px] text-[var(--muted)]">Je veux vendre en ligne</span>
                   <span className="mt-1 block text-[17px] font-semibold">Site e-commerce</span>
                 </span>
-                <Fleche className="text-[var(--violet-2)] transition-transform group-hover:translate-x-1" />
+                <Fleche className="text-[var(--accent)] transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/creation-site-vitrine"
+                data-couleur="vert"
                 className="group card flex items-center justify-between gap-4 p-5 transition-colors hover:border-[var(--line-2)] hover:bg-[var(--surface-2)]"
               >
                 <span>
                   <span className="block text-[13px] text-[var(--muted)]">Je veux plus de contacts</span>
                   <span className="mt-1 block text-[17px] font-semibold">Site vitrine</span>
                 </span>
-                <Fleche className="text-[var(--violet-2)] transition-transform group-hover:translate-x-1" />
+                <Fleche className="text-[var(--accent)] transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
             <p className="mt-5 text-[14.5px] text-[var(--muted)]">
@@ -135,7 +140,7 @@ export function Accueil() {
         </div>
 
         {/* Preuves */}
-        <div className="border-y border-[var(--line)] bg-[var(--bg-2)]">
+        <div className="bande border-y">
           <ul className="wrap grid grid-cols-2 gap-y-6 py-8 md:grid-cols-4">
             {[
               ["13 500+", "produits mis en ligne pour LumiNice"],
@@ -164,6 +169,7 @@ export function Accueil() {
               <Link
                 key={s.href}
                 href={s.href}
+                data-couleur={s.couleur}
                 className="reveal group carte-laser flex flex-col p-7"
               >
                 <span className="eyebrow !text-[11.5px]">{s.eyebrow}</span>
@@ -177,7 +183,7 @@ export function Accueil() {
                     </li>
                   ))}
                 </ul>
-                <span className="mt-auto inline-flex items-center gap-2 pt-8 font-semibold text-[var(--violet-2)]">
+                <span className="mt-auto inline-flex items-center gap-2 pt-8 font-semibold text-[var(--accent)]">
                   En savoir plus <Fleche className="transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>

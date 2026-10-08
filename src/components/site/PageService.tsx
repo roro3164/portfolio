@@ -27,6 +27,7 @@ export type ContenuService = {
   cta: { titre: string; texte: string };
   primaps?: boolean;
   options?: CleOption[];
+  couleur: "violet" | "vert" | "bleu";
 };
 
 const estCapture = (v: ContenuService["visuel"]): v is { src: string; alt: string; url: string } =>
@@ -52,6 +53,7 @@ export function PageService({ c }: { c: ContenuService }) {
   return (
     <>
       <JsonLd data={graphe(service, fil(ariane), faq(c.faq))} />
+      <div data-couleur={c.couleur}>
 
       <section className="relative overflow-hidden">
         <div className="halo -right-48 -top-48 h-[520px] w-[520px]" aria-hidden="true" />
@@ -78,7 +80,7 @@ export function PageService({ c }: { c: ContenuService }) {
         </div>
       </section>
 
-      <section className="section border-y border-[var(--line)] bg-[var(--bg-2)]" aria-labelledby="pourqui-titre">
+      <section className="section bande border-y" aria-labelledby="pourqui-titre">
         <div className="wrap">
           <p className="eyebrow">Pour qui</p>
           <h2 id="pourqui-titre" className="h2 mt-4 max-w-2xl">
@@ -149,6 +151,7 @@ export function PageService({ c }: { c: ContenuService }) {
       <Methode />
       {c.primaps && <div className="pt-24"><BandeauPrimaps /></div>}
       <Faq items={c.faq} />
+      </div>
       <CtaFinal titre={c.cta.titre} texte={c.cta.texte} />
     </>
   );

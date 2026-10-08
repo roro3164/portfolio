@@ -48,12 +48,12 @@ export function Options({
               Votre site est construit sur-mesure : on ajoute uniquement les fonctions utiles à votre activité, chiffrées
               dans le devis.
             </p>
-            <ul className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            <ul className="mt-7 grid grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
               {options.map((cle) => {
                 const { icone: Icone, libelle } = TOUTES[cle];
                 return (
                   <li key={cle} className="option-violette">
-                    <Icone className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden="true" />
+                    <Icone className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden="true" />
                     {libelle}
                   </li>
                 );

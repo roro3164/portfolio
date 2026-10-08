@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 const contenu: ContenuService = {
+  couleur: "bleu",
   url: "/referencement-local",
   nomCourt: "Référencement local",
   nomService: "Référencement local et optimisation de fiche Google",
