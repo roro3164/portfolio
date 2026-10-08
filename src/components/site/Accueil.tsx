@@ -72,8 +72,7 @@ export function Accueil() {
               <span className="text-[14px] text-[var(--muted)]">Gratuite · sans engagement · à votre nom</span>
             </div>
 
-            <nav aria-label="Services" className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[15px]">
-              <span className="text-[var(--faint)]">Ou découvrez :</span>
+            <nav aria-label="Services" className="mt-7 flex flex-wrap items-center gap-2.5 text-[14.5px]">
               {[
                 { href: "/creation-site-e-commerce", label: "Site e-commerce", couleur: "violet" },
                 { href: "/creation-site-vitrine", label: "Site vitrine", couleur: "vert" },

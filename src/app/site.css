@@ -770,11 +770,21 @@ a.tuile:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: 40px;
+  padding: 0 14px 0 12px;
+  border-radius: 999px;
   font-weight: 600;
-  color: #e9e7f5;
-  transition: color 0.2s;
+  color: #ecebf6;
+  background: rgba(var(--l1), 0.1);
+  border: 1px solid rgba(var(--l1), 0.35);
+  transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-.lien-service:hover { color: #fff; }
+.lien-service:hover {
+  color: #fff;
+  background: rgba(var(--l1), 0.2);
+  border-color: rgba(var(--l1), 0.65);
+  box-shadow: 0 0 18px -4px rgba(var(--l1), 0.6);
+}
 .lien-service-point {
   width: 8px;
   height: 8px;
