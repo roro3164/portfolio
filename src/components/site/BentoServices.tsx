@@ -39,8 +39,8 @@ const TUILES: Tuile[] = [
         alt="Boutique LumiNice sur MacBook"
         width={1864}
         height={1228}
-        sizes="(min-width: 1024px) 380px, 90vw"
-        className="w-[92%] max-w-[400px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-y-2 group-hover:scale-[1.03]"
+        sizes="(min-width: 1024px) 300px, 60vw"
+        className="absolute -right-12 top-0 w-[74%] max-w-[330px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-x-2 group-hover:-translate-y-1"
       />
     ),
   },
@@ -58,7 +58,7 @@ const TUILES: Tuile[] = [
         width={888}
         height={1760}
         sizes="160px"
-        className="w-[27%] max-w-[108px] rotate-[6deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[3deg]"
+        className="absolute -top-3 right-8 w-[30%] max-w-[118px] rotate-[8deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[4deg]"
       />
     ),
   },
@@ -70,7 +70,7 @@ const TUILES: Tuile[] = [
     texte: "Fiche Google, avis et pages locales pour passer devant vos concurrents dans votre ville.",
     points: ["Fiche Google optimisée", "Avis et pages par ville", "Suivi des positions"],
     visuel: (
-      <div className="mb-8 w-[82%] max-w-[300px] space-y-2.5 transition-transform duration-700 group-hover:-translate-y-1.5" aria-hidden="true">
+      <div className="absolute -right-6 top-1 w-[70%] max-w-[270px] space-y-2 transition-transform duration-700 group-hover:-translate-x-2" aria-hidden="true">
         {CLASSEMENT.map(([n, nom, note, moi]) => (
           <div
             key={n}
@@ -107,15 +107,15 @@ export function BentoServices() {
             const Icone = t.icone;
             return (
               <div key={t.href} data-couleur={t.couleur} className="reveal relative rounded-[26px]">
-                <Link href={t.href} className="group tuile relative flex h-full flex-col overflow-hidden">
-                  <div className="relative flex h-[240px] items-end justify-center px-6 pt-7">
-                    <div className="relative flex w-full justify-center">{t.visuel}</div>
-                  </div>
-                  <div className="flex flex-1 flex-col p-7 pt-6">
-                    <span className="icone-service" aria-hidden="true">
+                <Link href={t.href} className="group tuile relative flex h-full flex-col overflow-hidden p-7">
+                  <div className="relative min-h-[190px]">
+                    <span className="icone-service relative z-10" aria-hidden="true">
                       <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
                     </span>
-                    <h3 className="mt-5 text-[1.6rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
+                    {t.visuel}
+                  </div>
+                  <div className="relative z-10 flex flex-1 flex-col">
+                    <h3 className="text-[1.6rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
                     <p className="mt-2.5 text-[15.5px] leading-relaxed text-white/75">{t.texte}</p>
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {t.points.map((p) => (
