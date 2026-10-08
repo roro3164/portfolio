@@ -21,9 +21,10 @@ export function Header() {
   const actif = (href: string) => chemin === href || chemin.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(14,13,19,0.78)] backdrop-blur-xl">
-      <div className="wrap flex h-[68px] items-center justify-between gap-6">
-        <Logo />
+    <header className="sticky top-0 z-50 pt-3">
+      <div className="wrap">
+      <div className="entete-verre flex h-[62px] items-center justify-between gap-6 rounded-full pl-6 pr-2">
+        <Logo hauteur={28} />
 
         <nav aria-label="Navigation principale" className="hidden lg:block">
           <ul className="flex items-center gap-1">
@@ -44,12 +45,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/devis" className="btn btn-primary hidden !min-h-[42px] !px-5 !text-[14.5px] sm:inline-flex">
+          <Link href="/devis" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
             Demander un devis
           </Link>
           <button
             type="button"
-            className="grid h-11 w-11 place-items-center rounded-full border border-[var(--line-2)] lg:hidden"
+            className="mr-1 grid h-11 w-11 place-items-center rounded-full border border-[var(--line-2)] lg:hidden"
             aria-expanded={ouvert}
             aria-controls="menu-mobile"
             aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
@@ -62,11 +63,12 @@ export function Header() {
           </button>
         </div>
       </div>
+      </div>
 
       <div
         id="menu-mobile"
         hidden={!ouvert}
-        className="fixed inset-x-0 bottom-0 top-[68px] z-40 overflow-y-auto bg-[var(--bg)] lg:hidden"
+        className="fixed inset-x-0 bottom-0 top-[80px] z-40 overflow-y-auto bg-[var(--bg)] lg:hidden"
       >
         <nav aria-label="Navigation mobile" className="wrap flex flex-col py-6">
           {NAV.map((l) => (

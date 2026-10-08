@@ -35,7 +35,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
 
   if (etat === "ok") {
     return (
-      <div className="card p-8 text-center md:p-12" role="status">
+      <div className="carte-laser p-8 text-center md:p-12" role="status">
         <p className="text-[1.6rem] font-bold tracking-tight">Merci, c&apos;est bien reçu.</p>
         <p className="mx-auto mt-3 max-w-md text-[var(--muted)]">
           Je lis votre message et je vous réponds sous 24 h, en général bien plus vite. Pensez à vérifier vos spams.
@@ -45,7 +45,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
   }
 
   return (
-    <form onSubmit={envoyer} className="card space-y-6 p-6 md:p-9" noValidate={false}>
+    <form onSubmit={envoyer} className="carte-laser lent space-y-6 p-6 md:p-9">
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
           <span className={etiquette}>Votre nom *</span>

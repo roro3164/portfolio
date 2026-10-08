@@ -81,6 +81,7 @@ const contenu: ContenuService = {
       "Une plateforme qui supporte des dizaines de milliers de produits",
     ],
   },
+  options: ["paiement", "synchro", "clickCollect", "multilingue", "redaction", "blog"],
   projets: ["lumi-nice", "maison-ribier"],
   titreProjets: "Deux boutiques en ligne, deux défis différents.",
   faq: [

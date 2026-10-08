@@ -39,7 +39,7 @@ export function Footer() {
     <footer className="border-t border-[var(--line)] bg-[var(--bg-2)]">
       <div className="wrap grid gap-12 py-16 md:grid-cols-[1.3fr_repeat(3,1fr)]">
         <div className="max-w-xs">
-          <Logo />
+          <Logo hauteur={34} />
           <p className="mt-5 text-[15px] leading-relaxed text-[var(--muted)]">
             Sites e-commerce et sites vitrine sur-mesure, conçus et référencés depuis {SITE.ville}. Éditeur de{" "}
             <a href={SITE.primaps} className="link">

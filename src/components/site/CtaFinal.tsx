@@ -11,7 +11,7 @@ export function CtaFinal({
   return (
     <section className="section pt-0">
       <div className="wrap">
-        <div className="relative overflow-hidden rounded-[28px] border border-[var(--line-2)] bg-[var(--surface)] px-6 py-16 text-center sm:px-12 md:py-20">
+        <div className="carte-laser lent relative overflow-hidden !rounded-[28px] px-6 py-16 text-center [--radius:28px] sm:px-12 md:py-20">
           <div className="halo -top-40 left-1/2 h-[420px] w-[620px] -translate-x-1/2" aria-hidden="true" />
           <div className="relative">
             <h2 className="h2 mx-auto max-w-2xl">{titre}</h2>

@@ -3,6 +3,7 @@ import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
+import { Options } from "@/components/site/Options";
 import { APropos, BandeauPrimaps, Coche, Fleche, Methode, ProjetsPhares } from "@/components/site/Sections";
 import { faq, graphe } from "@/lib/schema";
 import { SITE } from "@/lib/site";
@@ -163,7 +164,7 @@ export function Accueil() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="reveal group card flex flex-col p-7 transition-colors hover:border-[var(--line-2)] hover:bg-[var(--surface-2)]"
+                className="reveal group carte-laser flex flex-col p-7"
               >
                 <span className="eyebrow !text-[11.5px]">{s.eyebrow}</span>
                 <h3 className="mt-4 text-[1.6rem] font-bold tracking-tight">{s.titre}</h3>
@@ -184,6 +185,8 @@ export function Accueil() {
           </div>
         </div>
       </section>
+
+      <Options />
 
       <ProjetsPhares
         slugs={["lumi-nice", "maison-ribier", "bistrot-des-musees"]}

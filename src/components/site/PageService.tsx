@@ -4,6 +4,7 @@ import { CtaFinal } from "./CtaFinal";
 import { Faq, type QR } from "./Faq";
 import { Fil } from "./Fil";
 import { JsonLd } from "./JsonLd";
+import { Options, type CleOption } from "./Options";
 import { Navigateur } from "./Cadres";
 import { BandeauPrimaps, Coche, Methode, ProjetsPhares } from "./Sections";
 import { faq, fil, graphe, ID_ENTREPRISE } from "@/lib/schema";
@@ -25,6 +26,7 @@ export type ContenuService = {
   faq: QR[];
   cta: { titre: string; texte: string };
   primaps?: boolean;
+  options?: CleOption[];
 };
 
 const estCapture = (v: ContenuService["visuel"]): v is { src: string; alt: string; url: string } =>
@@ -84,7 +86,7 @@ export function PageService({ c }: { c: ContenuService }) {
           </h2>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {c.pourQui.map((p) => (
-              <div key={p.titre} className="reveal card p-7">
+              <div key={p.titre} className="reveal carte-laser lent p-7">
                 <h3 className="h3">{p.titre}</h3>
                 <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">{p.texte}</p>
               </div>
@@ -137,6 +139,8 @@ export function PageService({ c }: { c: ContenuService }) {
           </div>
         </div>
       </section>
+
+      {c.options && <Options options={c.options} />}
 
       <div id="realisations" className="scroll-mt-20">
         <ProjetsPhares slugs={c.projets} titre={c.titreProjets} />

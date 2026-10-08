@@ -65,6 +65,7 @@ const contenu: ContenuService = {
     ],
     points: ["Pas de modèle générique", "Le nom de domaine et le site sont à vous", "Un seul interlocuteur, du design au code"],
   },
+  options: ["reservation", "clickCollect", "multilingue", "pages", "villes", "redaction"],
   projets: ["bistrot-des-musees"],
   titreProjets: "Un site vitrine qui a doublé la visibilité d'un restaurant.",
   faq: [

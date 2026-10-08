@@ -108,7 +108,7 @@ export function BandeauPrimaps() {
   return (
     <section className="section pt-0" aria-labelledby="primaps-titre">
       <div className="wrap">
-        <div className="reveal grid items-center gap-8 overflow-hidden rounded-[28px] border border-[var(--line-2)] bg-[linear-gradient(120deg,#1d1b2c,#16151d_60%)] p-8 md:grid-cols-[1.4fr_1fr] md:p-12">
+        <div className="reveal carte-laser grid items-center gap-8 p-8 [--radius:28px] md:grid-cols-[1.4fr_1fr] md:p-12">
           <div>
             <p className="eyebrow">Vous êtes un restaurant ?</p>
             <h2 id="primaps-titre" className="mt-4 text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-tight tracking-tight">
