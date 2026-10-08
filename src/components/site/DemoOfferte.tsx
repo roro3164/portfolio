@@ -1,5 +1,6 @@
 import { Gift } from "lucide-react";
 import Link from "next/link";
+import { Telephone } from "./Cadres";
 import { VideoAuto } from "./VideoAuto";
 
 const ETAPES = [
@@ -61,16 +62,11 @@ export function DemoOfferte() {
                 className="aspect-[16/10] object-cover"
               />
             </div>
-            <div className="phone absolute -bottom-3 -right-2 w-[24%] rotate-[3deg] sm:-right-5">
-              <div>
-                <VideoAuto
-                  src="/videos/lumi-nice-mobile.mp4"
-                  poster="/videos/lumi-nice-mobile.webp"
-                  label="Vidéo : la boutique LumiNice sur téléphone"
-                  className="aspect-[390/844] object-cover"
-                />
-              </div>
-            </div>
+            <Telephone
+              src="/realisations/lumi-nice-mobile.webp"
+              alt="La boutique LumiNice sur téléphone"
+              className="absolute -bottom-3 -right-2 w-[24%] rotate-[3deg] sm:-right-5"
+            />
             <div className="demo-toast absolute -left-2 bottom-[18%] sm:-left-6" aria-hidden="true">
               <span className="demo-toast-point" />
               <span>
