@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Romain DesignCode — nuit + violet de la marque (#5d58a3), Plus Jakarta Sans.
+/* Romain DesignCode — nuit chaude (prune) + violet de la marque (#5d58a3), Plus Jakarta Sans.
    Le site est sombre par choix de marque ; les contrastes visent AA. */
 :root {
-  --bg: #0f0e16;
-  --bg-2: #15131f;
-  --surface: #1a1826;
-  --surface-2: #221f31;
+  --bg: #15111a;
+  --bg-2: #1b1620;
+  --surface: #211b27;
+  --surface-2: #2a2230;
   --line: rgba(255, 255, 255, 0.08);
   --line-2: rgba(255, 255, 255, 0.14);
   --text: #f3f2f8;
-  --muted: #a9a7b8;
-  --faint: #77758a;
+  --muted: #b0a8b4;
+  --faint: #807784;
   --violet: #8f89ec;
   --violet-2: #b4b0ff;
   --brand: #5d58a3;
@@ -38,7 +38,7 @@ html {
 }
 
 /* Fond fixe de tout le site, en CSS seul : quatre nappes de couleur très douces
-   (violet, rose, bleu) qui dérivent lentement, plus un léger grain. Seule la
+   et chaleureuses (prune, pêche, ambre, rose) qui dérivent lentement, plus un léger grain. Seule la
    transformation est animée (fluide, sans recalcul). Posé par le layout (site) :
    la page QR /contact n'est pas touchée. */
 .fond-site {
@@ -47,7 +47,7 @@ html {
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  background: var(--bg);
+  background: linear-gradient(180deg, #17121b, #140f18 60%, #161019);
 }
 .fond-site::after {
   content: "";
@@ -63,10 +63,10 @@ html {
   border-radius: 50%;
   will-change: transform;
 }
-.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.16), rgba(139, 92, 246, 0.05) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
-.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(59, 130, 246, 0.11), rgba(59, 130, 246, 0.035) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
-.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(236, 72, 153, 0.08), rgba(236, 72, 153, 0.025) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
-.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(106, 90, 205, 0.13), rgba(139, 92, 246, 0.04) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
+.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(168, 85, 247, 0.14), rgba(168, 85, 247, 0.045) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
+.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(251, 146, 120, 0.11), rgba(251, 146, 120, 0.035) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
+.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(245, 170, 90, 0.08), rgba(245, 170, 90, 0.025) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
+.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(236, 110, 160, 0.11), rgba(236, 110, 160, 0.035) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
 @keyframes nappe-1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
 @keyframes nappe-2 { to { transform: translate(-12vmax, 14vmax) scale(0.9); } }
 @keyframes nappe-3 { to { transform: translate(16vmax, -10vmax) scale(1.2); } }
@@ -844,11 +844,11 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   background:
     radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1.3px) 0 0 / 18px 18px,
     radial-gradient(70% 90% at 50% 100%, rgba(var(--l1), 0.4), transparent 70%),
-    linear-gradient(160deg, #1c1a2b, #13111d);
+    linear-gradient(160deg, #221b28, #17121b);
 }
 .couverture-photo { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
 a:hover .couverture-photo { transform: scale(1.04); }
-.couverture::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(15, 14, 22, 0.15), rgba(15, 14, 22, 0.55)); }
+.couverture::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(21, 17, 26, 0.15), rgba(21, 17, 26, 0.55)); }
 .couverture-zoom { z-index: 1; }
 .couverture-zoom { position: absolute; top: 0; left: 0; width: 360px; height: 202.5px; transform: scale(var(--k, 1)); transform-origin: top left; }
 .couverture-zoom > * { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -974,7 +974,7 @@ a:hover .couverture-zoom > * { transform: translateY(-3px); }
   background:
     radial-gradient(120% 90% at 100% 100%, rgba(var(--l1), 0.42), transparent 60%),
     radial-gradient(80% 70% at 0% 0%, rgba(var(--l1), 0.14), transparent 70%),
-    linear-gradient(160deg, #1d1a2c, #15131f);
+    linear-gradient(160deg, #231c29, #1b1620);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 30px 60px -30px rgba(var(--l1), 0.45);
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
@@ -985,7 +985,7 @@ a.tuile:hover {
 .tuile-neutre {
   background:
     radial-gradient(60% 120% at 0% 50%, rgba(139, 92, 246, 0.16), transparent 70%),
-    linear-gradient(160deg, #1b1928, #15131f);
+    linear-gradient(160deg, #211a27, #1b1620);
 }
 
 /* Méthode : frise qui suit le défilement (--p de 0 à 1) */
@@ -1463,16 +1463,6 @@ a.tuile:hover {
 .demo-toast-etape { animation: toast-entree 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), toast-flotte 5s ease-in-out 0.5s infinite; }
 @keyframes toast-entree { from { opacity: 0; transform: translateY(12px) scale(0.96); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .demo-parcours-etape .demo-parcours-barre span { animation: none; width: 100%; } .demo-toast-etape { animation: none; } }
-
-/* Section démo offerte : halo qui s'allume à l'arrivée sur la section */
-.demo-glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; opacity: 0; scale: 0.7; transition: opacity 1.4s ease, scale 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.demo-glow-visuel { right: 0; top: 50%; width: 64%; aspect-ratio: 1.15; translate: 0 -50%; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.55), rgba(139, 92, 246, 0.42) 50%, rgba(236, 72, 153, 0.22) 68%, transparent 86%); filter: blur(28px); }
-.demo-glow-texte { left: 0; top: -12%; width: 48%; aspect-ratio: 1.1; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.38), rgba(236, 72, 153, 0.12) 50%, transparent 76%); filter: blur(24px); transition-delay: 0.25s; }
-[data-vue] > .demo-glow { opacity: 1; scale: 1; animation: glow-respire 6s ease-in-out 1.6s infinite; }
-[data-vue] > .demo-glow-texte { animation-delay: 2.4s; }
-[data-vue] .browser { box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(139, 92, 246, 0.45), 0 0 70px -6px rgba(139, 92, 246, 0.55); transition: box-shadow 1.4s ease 0.3s; }
-@keyframes glow-respire { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-@media (prefers-reduced-motion: reduce) { .demo-glow { transition: none; } [data-vue] > .demo-glow { animation: none; } }
 
 /* Pastille « Démo offerte » (hero) */
 .pastille-demo {

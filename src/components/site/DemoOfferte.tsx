@@ -24,7 +24,6 @@ const TOASTS = [
 export function DemoOfferte() {
   const ref = useRef<HTMLDivElement>(null);
   const [etape, setEtape] = useState(1);
-  const [vue, setVue] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -33,7 +32,6 @@ export function DemoOfferte() {
     let t: ReturnType<typeof setInterval>;
     const obs = new IntersectionObserver(([e]) => {
       clearInterval(t);
-      if (e.isIntersecting) setVue(true);
       if (e.isIntersecting) {
         setEtape(0);
         t = setInterval(() => setEtape((n) => (n + 1) % 3), 3200);
@@ -52,10 +50,7 @@ export function DemoOfferte() {
   return (
     <section className="section" aria-labelledby="demo-titre">
       <div className="wrap">
-        <div ref={ref} className="reveal relative" data-vue={vue || undefined}>
-          {/* halo qui s'allume quand on arrive sur la section */}
-          <span className="demo-glow demo-glow-visuel" aria-hidden="true" />
-          <span className="demo-glow demo-glow-texte" aria-hidden="true" />
+        <div ref={ref} className="reveal relative">
           <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_1.15fr]">
             <div>
               <p className="eyebrow">
