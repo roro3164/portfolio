@@ -82,7 +82,7 @@ export function BlocOptions({
         </div>
       </div>
 
-      <div className="suivi-carte">
+      <div className="lg:border-l lg:border-white/10 lg:pl-10">
         <div className="flex items-center justify-between gap-4">
           <p className="text-[15.5px] font-semibold text-white">Suivi mensuel, sans engagement</p>
           <span className="suivi-direct shrink-0 whitespace-nowrap" aria-hidden="true">

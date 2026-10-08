@@ -885,12 +885,7 @@ a.tuile:hover {
 @media (prefers-reduced-motion: reduce) { .defile-inverse { animation: none; } }
 
 /* Suivi mensuel qui se coche tout seul */
-.suivi-carte {
-  border-radius: 20px;
-  padding: 22px 22px 24px;
-  background: linear-gradient(160deg, rgba(139, 92, 246, 0.12), rgba(59, 130, 246, 0.04) 70%), rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-}
+
 .suivi-direct {
   display: inline-flex;
   align-items: center;
@@ -952,14 +947,4 @@ a.tuile:hover {
   .suivi-direct-point { animation: none; }
 }
 
-/* Zone visuelle en haut des tuiles de services */
-.tuile-visuel {
-  background: radial-gradient(80% 90% at 50% 100%, rgba(var(--l1), 0.38), transparent 70%);
-  border-bottom: 1px solid rgba(var(--l1), 0.18);
-}
-.grille-points {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 16px 16px;
-  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 95%);
-  mask-image: linear-gradient(180deg, #000 30%, transparent 95%);
-}
+

@@ -58,7 +58,7 @@ const TUILES: Tuile[] = [
         width={888}
         height={1760}
         sizes="160px"
-        className="w-[34%] max-w-[132px] translate-y-12 rotate-[6deg] transition-transform duration-700 group-hover:translate-y-9 group-hover:rotate-[3deg]"
+        className="w-[27%] max-w-[108px] rotate-[6deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[3deg]"
       />
     ),
   },
@@ -108,8 +108,7 @@ export function BentoServices() {
             return (
               <div key={t.href} data-couleur={t.couleur} className="reveal relative rounded-[26px]">
                 <Link href={t.href} className="group tuile relative flex h-full flex-col overflow-hidden">
-                  <div className="tuile-visuel relative flex h-[230px] items-end justify-center overflow-hidden px-6 pt-6">
-                    <div className="absolute inset-0 grille-points" aria-hidden="true" />
+                  <div className="relative flex h-[240px] items-end justify-center px-6 pt-7">
                     <div className="relative flex w-full justify-center">{t.visuel}</div>
                   </div>
                   <div className="flex flex-1 flex-col p-7 pt-6">
