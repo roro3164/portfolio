@@ -7,14 +7,11 @@ const LOGOS: { src: string; nom: string; w: number; h: number }[] = [
   { src: "/logos/bistrot-des-musees.webp", nom: "Bistrot des Musées", w: 206, h: 160 },
   { src: "/logos/bistrot-fernand.svg", nom: "Bistrot Fernand", w: 1683, h: 1178 },
   { src: "/logos/nina-bonita.webp", nom: "Niña Bonita", w: 132, h: 160 },
-  { src: "/logos/cdsd.webp", nom: "Concept & Design de Solutions Déco", w: 326, h: 160 },
-  { src: "/logos/studio-provence.webp", nom: "Studio Provence", w: 347, h: 160 },
   { src: "/logos/instant-coiffure.webp", nom: "L'Instant Coiffure", w: 264, h: 160 },
   { src: "/logos/barber-shop.webp", nom: "Barber Shop", w: 206, h: 160 },
   { src: "/logos/fuji-sushis.webp", nom: "Fuji Sushis", w: 153, h: 160 },
   { src: "/logos/eclat-gourmand.webp", nom: "Éclat Gourmand", w: 207, h: 160 },
   { src: "/logos/bio-proprete.webp", nom: "BioPropreté", w: 233, h: 160 },
-  { src: "/logos/snack-menu.webp", nom: "Snack Tacos", w: 160, h: 160 },
 ];
 
 function Rangee({ cachee = false }: { cachee?: boolean }) {
