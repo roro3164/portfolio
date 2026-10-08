@@ -411,6 +411,7 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
 [data-couleur="vert"] { --l1: 34, 197, 94; --l2: 22, 163, 74; --l-clair: #c9f5d9; --accent: #86efac; }
 [data-couleur="bleu"] { --l1: 59, 130, 246; --l2: 37, 99, 235; --l-clair: #d3e3ff; --accent: #93c5fd; }
 [data-couleur="or"] { --l1: 212, 175, 55; --l2: 184, 151, 46; --l-clair: #f7e9b5; --accent: #f1d27a; }
+[data-couleur="rose"] { --l1: 236, 72, 153; --l2: 219, 39, 119; --l-clair: #ffd1e8; --accent: #f9a8d4; }
 [data-couleur="violet"] { --l1: 139, 92, 246; --l2: 124, 58, 237; --l-clair: #ddd8ff; --accent: #b4b0ff; }
 
 /* Bandes de section teintées (au lieu d'un noir plat) */
@@ -552,7 +553,7 @@ a.tuile:hover {
 .frise { --rail-g: 12.5%; --rail-l: 75%; }
 .frise-rail {
   position: absolute;
-  top: 27px;
+  top: 23px;
   left: var(--rail-g);
   width: var(--rail-l);
   height: 2px;
@@ -564,7 +565,7 @@ a.tuile:hover {
   inset: 0 auto 0 0;
   width: calc(var(--p) * 100%);
   border-radius: inherit;
-  background: linear-gradient(90deg, #8b5cf6, #6a5acd 40%, #3b82f6 70%, #22c55e);
+  background: linear-gradient(90deg, #ec4899, #8b5cf6 35%, #3b82f6 68%, #22c55e);
   background-size: calc(100% / max(var(--p), 0.001)) 100%;
   box-shadow: 0 0 12px rgba(139, 92, 246, 0.7);
 }
@@ -582,9 +583,9 @@ a.tuile:hover {
 }
 .frise-rail-v {
   position: absolute;
-  left: 27px;
-  top: 28px;
-  bottom: 28px;
+  left: 23px;
+  top: 24px;
+  bottom: 24px;
   width: 2px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.08);
@@ -594,7 +595,7 @@ a.tuile:hover {
   inset: 0 0 auto 0;
   height: calc(var(--p) * 100%);
   border-radius: inherit;
-  background: linear-gradient(180deg, #8b5cf6, #3b82f6 70%, #22c55e);
+  background: linear-gradient(180deg, #ec4899, #8b5cf6 35%, #3b82f6 68%, #22c55e);
   box-shadow: 0 0 12px rgba(139, 92, 246, 0.7);
 }
 .frise-comete-v {
@@ -609,26 +610,49 @@ a.tuile:hover {
   box-shadow: 0 0 0 4px rgba(180, 176, 255, 0.35), 0 0 22px 6px rgba(139, 92, 246, 0.9);
   opacity: clamp(0, calc(var(--p) * 20), 1);
 }
+@property --anneau { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
 .frise-noeud {
   position: relative;
   z-index: 1;
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--bg);
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --anneau: 0deg;
+  background:
+    radial-gradient(closest-side, var(--bg) calc(100% - 2px), transparent calc(100% - 1.5px)),
+    conic-gradient(from 0deg, rgb(var(--l1)) var(--anneau), rgba(255, 255, 255, 0.12) var(--anneau));
+  box-shadow: 0 0 0 6px var(--bg);
+  transition: --anneau 0.9s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s;
 }
-.frise-num { font-weight: 800; font-size: 18px; color: rgba(255, 255, 255, 0.4); transition: color 0.5s; }
+.frise-noeud::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(var(--l1), 0.55), rgba(var(--l2), 0.18) 70%);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.6s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.frise-num { position: relative; font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.4); transition: color 0.5s; }
 .frise-etape[data-actif="true"] .frise-noeud {
-  border-color: transparent;
-  background: radial-gradient(circle at 30% 25%, rgba(var(--l1), 1), rgba(var(--l2), 0.75));
-  box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px rgba(var(--l1), 0.5), 0 0 34px rgba(var(--l1), 0.75);
-  transform: scale(1.06);
+  --anneau: 360deg;
+  box-shadow: 0 0 0 6px var(--bg), 0 0 26px -4px rgba(var(--l1), 0.8);
 }
+.frise-etape[data-actif="true"] .frise-noeud::before { opacity: 1; transform: none; }
 .frise-etape[data-actif="true"] .frise-num { color: #fff; }
+.frise-etape[data-courant="true"] .frise-noeud::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(var(--l1), 0.8);
+  animation: noeud-onde 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+@keyframes noeud-onde { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1.7); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .frise-etape[data-courant="true"] .frise-noeud::after { animation: none; opacity: 0; } }
 .frise-carte {
   border-radius: 20px;
   padding: 20px 20px 22px;

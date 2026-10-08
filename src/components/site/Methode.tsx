@@ -64,8 +64,8 @@ function VignetteSuivi() {
   );
 }
 
-const ETAPES: { t: string; d: string; livrable: string; vignette: ReactNode; c: "violet" | "bleu" | "vert"; offert?: boolean }[] = [
-  { t: "On en parle", d: "Votre activité, vos clients, ce que le site doit rapporter.", livrable: "Brief de votre projet", vignette: <VignetteEchange />, c: "violet" },
+const ETAPES: { t: string; d: string; livrable: string; vignette: ReactNode; c: "rose" | "violet" | "bleu" | "vert"; offert?: boolean }[] = [
+  { t: "On en parle", d: "Votre activité, vos clients, ce que le site doit rapporter.", livrable: "Brief de votre projet", vignette: <VignetteEchange />, c: "rose" },
   { t: "Votre démo gratuite", d: "Un vrai site en ligne, à tester avant de payer quoi que ce soit.", livrable: "Démo en ligne", vignette: <VignetteDemo />, c: "violet", offert: true },
   { t: "Je construis", d: "Devis validé : développement, contenus, catalogue et référencement.", livrable: "Site prêt à tester", vignette: <VignetteConstruction />, c: "bleu" },
   { t: "En ligne et suivi", d: "Mise en ligne, prise en main, puis évolutions et résultats.", livrable: "Suivi des résultats", vignette: <VignetteSuivi />, c: "vert" },
@@ -102,6 +102,7 @@ export function Methode() {
 
   const n = ETAPES.length;
   const actif = (i: number) => p >= i / (n - 1) - 0.04;
+  const courant = ETAPES.reduce((c, _, i) => (actif(i) ? i : c), -1);
 
   return (
     <section className="section" aria-labelledby="methode-titre">
@@ -137,9 +138,9 @@ export function Methode() {
           {ETAPES.map((e, i) => {
             const on = actif(i);
             return (
-              <li key={e.t} data-couleur={e.c} data-actif={on} className="frise-etape relative flex gap-5 pl-0 md:flex-col md:items-center">
+              <li key={e.t} data-couleur={e.c} data-actif={on} data-courant={i === courant} className="frise-etape relative flex gap-5 pl-0 md:flex-col md:items-center">
                 <span className="frise-noeud shrink-0">
-                  <span className="frise-num">{i + 1}</span>
+                  <span className="frise-num">{String(i + 1).padStart(2, "0")}</span>
                 </span>
                 <div className={`frise-carte flex flex-1 flex-col md:mt-7 md:w-full ${e.offert ? "carte-laser lent frise-carte-offerte" : ""}`}>
                   <div aria-hidden="true">{e.vignette}</div>
