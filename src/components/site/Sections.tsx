@@ -149,36 +149,30 @@ export function BandeauPrimaps() {
 
 export function Methode() {
   const etapes = [
-    {
-      t: "On en parle",
-      d: "Un appel ou un rendez-vous pour comprendre votre activité, vos clients et ce que le site doit rapporter. Vous recevez un devis clair, poste par poste.",
-    },
-    {
-      t: "Vous voyez avant que je code",
-      d: "Je dessine les pages clés de votre site. Vous validez le design, les textes et le parcours avant le moindre développement.",
-    },
-    {
-      t: "Je construis et je référence",
-      d: "Développement, contenus, photos, catalogue produits, réglages SEO : le site est pensé pour Google dès la première ligne.",
-    },
-    {
-      t: "En ligne, et suivi",
-      d: "Mise en ligne, prise en main, puis suivi : mises à jour, nouvelles pages, mesure des résultats. Vous n'êtes jamais seul avec votre site.",
-    },
-  ];
+    { t: "On en parle", d: "Votre activité, vos clients, vos objectifs. Puis un devis clair et détaillé.", c: "violet" },
+    { t: "Vous validez la maquette", d: "Design, textes et parcours, avant la moindre ligne de code.", c: "violet" },
+    { t: "Je construis", d: "Développement, contenus, catalogue et référencement.", c: "bleu" },
+    { t: "En ligne et suivi", d: "Mise en ligne, prise en main, puis évolutions et résultats.", c: "vert" },
+  ] as const;
   return (
-    <section className="section bande border-y" aria-labelledby="methode-titre">
+    <section className="section" aria-labelledby="methode-titre">
       <div className="wrap">
-        <p className="eyebrow">Méthode</p>
-        <h2 id="methode-titre" className="h2 mt-4 max-w-2xl">
-          Un seul interlocuteur, du premier appel à la mise en ligne.
-        </h2>
-        <ol className="mt-14 grid gap-px overflow-hidden rounded-[22px] border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.2)] md:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow">Méthode</p>
+          <h2 id="methode-titre" className="h2 mt-4">
+            Un seul interlocuteur, du premier appel à la mise en ligne.
+          </h2>
+        </div>
+        <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-6">
+          <span className="frise-ligne left-[12.5%] right-[12.5%] top-[27px] hidden md:block" aria-hidden="true" />
+          <span className="frise-ligne bottom-6 left-[27px] top-6 !h-auto !w-[2px] md:hidden" aria-hidden="true" style={{ background: "linear-gradient(180deg,#8b5cf6,#3b82f6,#22c55e)" }} />
           {etapes.map((e, i) => (
-            <li key={e.t} className="bg-[rgba(21,19,31,0.92)] p-7">
-              <span className="text-[15px] font-bold text-[var(--accent)]">0{i + 1}</span>
-              <h3 className="h3 mt-5">{e.t}</h3>
-              <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">{e.d}</p>
+            <li key={e.t} data-couleur={e.c} className="reveal relative flex gap-5 md:flex-col md:items-center md:text-center">
+              <span className="frise-noeud shrink-0">{i + 1}</span>
+              <div className="md:mt-6">
+                <h3 className="text-[1.15rem] font-bold tracking-tight">{e.t}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-[var(--muted)] md:mx-auto md:max-w-[230px]">{e.d}</p>
+              </div>
             </li>
           ))}
         </ol>

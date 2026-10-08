@@ -1,48 +1,14 @@
 import Link from "next/link";
-import { Mockup } from "@/components/site/Appareils";
-import { LayoutTemplate, MapPin, ShoppingBag } from "lucide-react";
-import { CarteService, type Service } from "@/components/site/CarteService";
+import { Navigateur, Telephone } from "@/components/site/Cadres";
+import { BentoServices } from "@/components/site/BentoServices";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
-import { Options } from "@/components/site/Options";
 import { APropos, BandeauPrimaps, Fleche, Methode, ProjetsPhares } from "@/components/site/Sections";
 import { faq, graphe } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
 
-const SERVICES: Service[] = [
-  {
-    href: "/creation-site-e-commerce",
-    couleur: "violet",
-    icone: ShoppingBag,
-    surtitre: "Vendre en ligne",
-    titre: "Site e-commerce",
-    texte: "Une boutique Shopify sur-mesure, du petit catalogue à plus de 10\u00a0000 produits.",
-    points: ["Design unique à votre marque", "Catalogue importé et synchronisé", "Paiement, livraison, SEO produit"],
-    visuel: { src: "/mockups/lumi-nice-macbook.webp", alt: "Boutique LumiNice sur un MacBook", w: 1864, h: 1228 },
-  },
-  {
-    href: "/creation-site-vitrine",
-    couleur: "vert",
-    icone: LayoutTemplate,
-    surtitre: "Être trouvé et contacté",
-    titre: "Site vitrine",
-    texte: "Un site rapide et à votre image, qui transforme les visiteurs en appels et en devis.",
-    points: ["Design sur-mesure", "Formulaire, réservation, rendez-vous", "Rapide sur mobile"],
-    visuel: { src: "/mockups/bistrot-des-musees-macbook.webp", alt: "Site du Bistrot des Musées sur un MacBook", w: 1446, h: 1228 },
-  },
-  {
-    href: "/referencement-local",
-    couleur: "bleu",
-    icone: MapPin,
-    surtitre: "Monter sur Google",
-    titre: "Référencement local",
-    texte: "Fiche Google, avis et pages locales pour passer devant vos concurrents dans votre ville.",
-    points: ["Fiche Google optimisée", "Pages par ville et par service", "Suivi des positions chaque mois"],
-    visuel: { src: "/mockups/imac-statistiques.webp", alt: "Tableau de statistiques de visibilité sur un iMac", w: 737, h: 720 },
-  },
-];
 
 const QUESTIONS: QR[] = [
   {
@@ -123,21 +89,27 @@ export function Accueil() {
             </p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[660px] pb-6 lg:-mr-4">
-            <div className="absolute inset-x-[8%] bottom-[8%] top-[18%] -z-10 rounded-full bg-[rgba(139,92,246,0.4)] blur-[80px]" aria-hidden="true" />
-            <div className="mr-[16%]">
-              <Mockup
-                a={{ src: "/mockups/lumi-nice-macbook.webp", forme: "macbook-34", alt: "Boutique en ligne LumiNice réalisée par Romain DesignCode" }}
-                sizes="(min-width: 1024px) 560px, 84vw"
-                priority
-              />
-            </div>
-            <div className="absolute -bottom-2 right-[15%] w-[18%]">
-              <Mockup a={{ src: "/mockups/maison-ribier-iphone-face.webp", forme: "iphone-face", alt: "Site Maison Ribier sur iPhone" }} sizes="180px" priority />
-            </div>
-            <div className="absolute -bottom-5 right-0 w-[20%]">
-              <Mockup a={{ src: "/mockups/bistrot-des-musees-iphone-face.webp", forme: "iphone-face", alt: "Site du Bistrot des Musées sur iPhone" }} sizes="200px" priority />
-            </div>
+          <div className="relative mx-auto w-full max-w-[640px] pb-10 lg:pb-0">
+            <Navigateur
+              src="/realisations/lumi-nice-accueil.webp"
+              alt="Boutique en ligne LumiNice réalisée par Romain DesignCode"
+              url="lumi-nice.fr"
+              priority
+              sizes="(min-width: 1024px) 600px, 92vw"
+              className="rotate-[1.2deg]"
+            />
+            <Navigateur
+              src="/realisations/maison-ribier-collection.webp"
+              alt="Catalogue de lunettes Maison Ribier réalisé par Romain DesignCode"
+              url="maisonribier.com"
+              sizes="(min-width: 1024px) 340px, 50vw"
+              className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
+            />
+            <Telephone
+              src="/realisations/bistrot-des-musees-mobile.webp"
+              alt="Site du Bistrot des Musées sur mobile"
+              className="absolute -bottom-10 -right-3 w-[26%] rotate-[3deg] lg:-right-8"
+            />
           </div>
         </div>
 
@@ -159,22 +131,7 @@ export function Accueil() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="section" aria-labelledby="services-titre">
-        <div className="wrap">
-          <p className="eyebrow">Services</p>
-          <h2 id="services-titre" className="h2 mt-4 max-w-3xl">
-            Un site pensé pour rapporter des clients, pas seulement pour être joli.
-          </h2>
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {SERVICES.map((sv) => (
-              <CarteService key={sv.href} s={sv} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Options />
+      <BentoServices />
 
       <ProjetsPhares
         slugs={["lumi-nice", "maison-ribier", "bistrot-des-musees"]}

@@ -35,45 +35,31 @@ export function Options({
   return (
     <section className="section pt-0" aria-labelledby="options-titre">
       <div className="wrap">
-        <div className="grid gap-14 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
+        <div className="reveal tuile tuile-neutre grid gap-8 p-8 md:p-10 lg:grid-cols-[1.5fr_1fr] lg:items-center">
           <div>
-            <p className="eyebrow flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#8b5cf6]" aria-hidden="true" />
-              Options
-            </p>
-            <h2 id="options-titre" className="mt-4 text-[clamp(1.6rem,2.6vw,2.1rem)] font-bold leading-tight tracking-tight">
+            <h2 id="options-titre" className="text-[clamp(1.4rem,2.2vw,1.8rem)] font-bold leading-tight tracking-tight">
               {titre}
             </h2>
-            <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-[var(--muted)]">
-              Votre site est construit sur-mesure : on ajoute uniquement les fonctions utiles à votre activité, chiffrées
-              dans le devis.
-            </p>
-            <ul className="mt-7 grid grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
+            <p className="mt-2 text-[15px] text-white/65">Uniquement les fonctions utiles à votre activité, chiffrées dans le devis.</p>
+            <ul className="mt-5 flex flex-wrap gap-2">
               {options.map((cle) => {
                 const { icone: Icone, libelle } = TOUTES[cle];
                 return (
-                  <li key={cle} className="option-violette">
-                    <Icone className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden="true" />
+                  <li key={cle} className="option-violette !py-2 !text-[13px]">
+                    <Icone className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden="true" />
                     {libelle}
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div className="carte-laser lent p-7 md:p-8">
-            <p className="eyebrow flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#8b5cf6]" aria-hidden="true" />
-              Suivi mensuel
-            </p>
-            <h3 className="mt-4 text-[1.4rem] font-bold tracking-tight">Votre site entretenu toute l&apos;année.</h3>
-            <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">
-              En option, je m&apos;occupe de votre site et de votre visibilité chaque mois, sans engagement.
-            </p>
-            <ul className="mt-6 space-y-3">
-              {SUIVI.map((s) => (
-                <li key={s} className="flex gap-3 text-[15.5px]">
+          <div className="border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <p className="text-[15px] font-semibold text-white">Suivi mensuel, sans engagement</p>
+            <ul className="mt-3 space-y-2">
+              {SUIVI.map((x) => (
+                <li key={x} className="flex gap-3 text-[14.5px] text-white/75">
                   <Coche />
-                  {s}
+                  {x}
                 </li>
               ))}
             </ul>
