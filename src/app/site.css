@@ -37,16 +37,22 @@ html {
   html { scroll-behavior: auto; }
 }
 
+/* Fond fixe de tout le site (image générée : lueurs violettes, roses et bleues
+   dans les coins, centre sombre). Un calque fixe plutôt que background-attachment,
+   qui ne fonctionne pas sur iPhone. Posé par le layout (site) : la page QR /contact n'est pas touchée. */
+.fond-site {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(15, 14, 22, 0.25), rgba(15, 14, 22, 0.1) 40%, rgba(15, 14, 22, 0.35)),
+    url("/img/fond-site.webp") center / cover no-repeat,
+    var(--bg);
+}
+
 body {
   background-color: var(--bg);
-  /* Lumières d'ambiance réparties sur toute la page pour casser le noir */
-  background-image:
-    radial-gradient(900px 620px at 92% 0%, rgba(93, 88, 163, 0.32), transparent 70%),
-    radial-gradient(760px 560px at 0% 18%, rgba(59, 130, 246, 0.10), transparent 70%),
-    radial-gradient(900px 700px at 100% 42%, rgba(139, 92, 246, 0.13), transparent 70%),
-    radial-gradient(800px 600px at 0% 66%, rgba(93, 88, 163, 0.16), transparent 70%),
-    radial-gradient(900px 700px at 90% 90%, rgba(59, 130, 246, 0.09), transparent 70%);
-  background-repeat: no-repeat;
   color: var(--text);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 17px;
@@ -540,9 +546,7 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
 
 /* Bandes de section teintées (au lieu d'un noir plat) */
 .bande {
-  background:
-    linear-gradient(180deg, rgba(93, 88, 163, 0.12), rgba(59, 130, 246, 0.04) 60%, rgba(93, 88, 163, 0.1)),
-    var(--bg-2);
+  background: linear-gradient(180deg, rgba(93, 88, 163, 0.14), rgba(19, 17, 29, 0.55) 60%, rgba(93, 88, 163, 0.12));
   border-color: rgba(139, 92, 246, 0.16) !important;
 }
 
