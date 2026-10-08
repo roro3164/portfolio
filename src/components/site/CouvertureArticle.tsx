@@ -4,8 +4,9 @@ import Image from "next/image";
 import { ArrowRight, Check, MapPin, Mail, RefreshCw, ShoppingBag, Sparkles, Star } from "lucide-react";
 import { useEffect, useRef, type ReactNode } from "react";
 
-// Couverture d'article faite de vrais éléments d'interface (devis, fiche Google,
-// redirections, réponse d'IA…), dessinée à 360 px de large puis mise à l'échelle.
+// Couverture d'article : photo générée (public/blog/<slug>.webp) avec, par-dessus,
+// un vrai élément d'interface (devis, fiche Google, redirections, réponse d'IA…)
+// dessiné à 360 px de large puis mis à l'échelle.
 
 const LARGEUR = 360;
 
@@ -95,9 +96,6 @@ const SCENES: Record<string, () => ReactNode> = {
   ),
   "gros-catalogue-e-commerce": () => (
     <>
-      <div className="absolute inset-[14px] overflow-hidden rounded-xl border border-white/10">
-        <Image src="/realisations/lumi-nice-catalogue.webp" alt="" fill sizes="420px" className="object-cover object-[50%_70%]" />
-      </div>
       <span className="cv-puce absolute left-[26px] top-[26px] !bg-[#8b5cf6]">13 500+ produits en ligne</span>
       <span className="cv-puce absolute bottom-[26px] right-[26px] flex items-center gap-1.5">
         <RefreshCw className="h-3 w-3" /> Stock synchronisé il y a 1 h
@@ -151,6 +149,7 @@ export function CouvertureArticle({ slug, couleur, className = "" }: { slug: str
   const Scene = SCENES[slug];
   return (
     <div ref={ref} data-couleur={couleur} className={`couverture ${className}`} aria-hidden="true">
+      <Image src={`/blog/${slug}.webp`} alt="" fill sizes="(min-width: 1024px) 560px, 92vw" className="couverture-photo object-cover" />
       <div className="couverture-zoom">{Scene ? <Scene /> : null}</div>
     </div>
   );
