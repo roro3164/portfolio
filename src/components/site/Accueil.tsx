@@ -69,7 +69,6 @@ export function Accueil() {
                 <Gift className="h-[18px] w-[18px]" aria-hidden="true" />
                 Recevoir ma démo gratuite
               </Link>
-              <span className="text-[14px] text-[var(--muted)]">Gratuite · sans engagement · à votre nom</span>
             </div>
 
             <nav aria-label="Services" className="mt-7 flex flex-wrap items-center gap-2.5 text-[14.5px]">
