@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DemoTablette } from "@/components/site/DemoTablette";
 import { Fil } from "@/components/site/Fil";
 import { FormulaireDevis } from "@/components/site/FormulaireDevis";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -59,19 +60,20 @@ export default async function DemoGratuite({ searchParams }: { searchParams: Pro
             <p className="lead mt-6">
               Un vrai site en ligne, que vous testez sur votre téléphone avant de payer quoi que ce soit.
             </p>
-            <ol className="mt-10 space-y-6">
+            <ol className="demo-etapes mt-10 space-y-6">
               {ETAPES.map(([t, d], i) => (
                 <li key={t} className="flex gap-4">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#8b5cf6,#6a5acd)] text-[14px] font-bold text-white shadow-[0_0_16px_rgba(139,92,246,0.5)]">
-                    {i + 1}
-                  </span>
+                  <span className="demo-etape-num">{String(i + 1).padStart(2, "0")}</span>
                   <p className="text-[16px] leading-relaxed text-[var(--muted)]">
                     <strong className="font-semibold text-white">{t}</strong> {d}
                   </p>
                 </li>
               ))}
             </ol>
-            <p className="mt-10 text-[15px] text-[var(--muted)]">
+            <div className="mt-14 hidden max-w-[460px] pl-6 lg:block">
+              <DemoTablette />
+            </div>
+            <p className="mt-14 text-[15px] text-[var(--muted)]">
               Vous préférez l&apos;e-mail ?{" "}
               <a href={`mailto:${SITE.email}`} className="link">
                 {SITE.email}
