@@ -25,7 +25,7 @@ export function DemoOfferte() {
               Testez votre futur site <span className="grad">avant de payer</span>.
             </h2>
             <p className="lead mt-5">
-              Pas un dessin, pas une promesse : je crée une vraie démo de votre site, en ligne. Vous l&apos;ouvrez sur votre
+              Je crée une vraie démo de votre site, en ligne. Vous l&apos;ouvrez sur votre
               téléphone, vous la montrez autour de vous, puis vous décidez.
             </p>
             <ol className="mt-8 space-y-4">

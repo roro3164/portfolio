@@ -57,7 +57,7 @@ export default async function DemoGratuite({ searchParams }: { searchParams: Pro
               Recevez une <span className="grad">démo gratuite</span> de votre futur site.
             </h1>
             <p className="lead mt-6">
-              Pas un dessin : un vrai site en ligne, que vous testez sur votre téléphone avant de payer quoi que ce soit.
+              Un vrai site en ligne, que vous testez sur votre téléphone avant de payer quoi que ce soit.
             </p>
             <ol className="mt-10 space-y-6">
               {ETAPES.map(([t, d], i) => (
