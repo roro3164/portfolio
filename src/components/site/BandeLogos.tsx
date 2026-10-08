@@ -7,6 +7,7 @@ const LOGOS: { src: string; nom: string; w: number; h: number }[] = [
   { src: "/logos/bistrot-des-musees.webp", nom: "Bistrot des Musées", w: 206, h: 160 },
   { src: "/logos/bistrot-fernand.svg", nom: "Bistrot Fernand", w: 1683, h: 1178 },
   { src: "/logos/nina-bonita.webp", nom: "Niña Bonita", w: 132, h: 160 },
+  { src: "/logos/banana-growth.webp", nom: "Banana Growth Agency", w: 481, h: 160 },
   { src: "/logos/instant-coiffure.webp", nom: "L'Instant Coiffure", w: 264, h: 160 },
   { src: "/logos/barber-shop.webp", nom: "Barber Shop", w: 206, h: 160 },
   { src: "/logos/fuji-sushis.webp", nom: "Fuji Sushis", w: 153, h: 160 },
