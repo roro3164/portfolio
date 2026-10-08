@@ -1,4 +1,6 @@
-import { Calendar, Check, CreditCard, FileText, Globe, MapPin, Newspaper, PenLine, RefreshCw, ShoppingBag, type LucideIcon } from "lucide-react";
+import { Calendar, CreditCard, FileText, Globe, MapPin, Newspaper, PenLine, RefreshCw, ShoppingBag, type LucideIcon } from "lucide-react";
+
+import { SuiviAnime } from "./SuiviAnime";
 
 // Options à la carte (sans prix : tout est chiffré au devis) et suivi mensuel.
 // Les options défilent sur deux rangées en sens opposé, le suivi se coche tout seul.
@@ -20,7 +22,7 @@ const TOUTES: Record<string, { icone: LucideIcon; libelle: string; couleur: Coul
 export type CleOption = keyof typeof TOUTES;
 
 const SUIVI = [
-  "1 publication Google par semaine",
+  "2 publications Google par semaine",
   "Réponse à vos avis clients",
   "Suivi de votre positionnement",
   "Maintenance et hébergement",
@@ -88,19 +90,7 @@ export function BlocOptions({
             En cours
           </span>
         </div>
-        <div className="suivi-barre mt-4" aria-hidden="true">
-          <span />
-        </div>
-        <ul className="mt-5 space-y-2.5">
-          {SUIVI.map((s, k) => (
-            <li key={s} className="suivi-ligne flex items-center gap-3 text-[14.5px]" style={{ ["--k" as string]: k }}>
-              <span className="suivi-coche" aria-hidden="true">
-                <Check className="h-3 w-3" strokeWidth={3} />
-              </span>
-              {s}
-            </li>
-          ))}
-        </ul>
+        <SuiviAnime lignes={SUIVI} />
       </div>
     </div>
   );
