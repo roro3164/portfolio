@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Clock, MapPin, Phone, type LucideIcon } from "lucide-react";
 import { BlocOptions } from "./Options";
 import { SchemaEcommerce, SchemaReferencement, SchemaVitrine } from "./SchemasServices";
 import { Fleche } from "./Sections";
@@ -19,6 +20,7 @@ type Service = {
   resume: string;
   points: { titre: string; texte: string }[];
   schema: ReactNode;
+  badge: { icone: LucideIcon; texte: string };
 };
 
 const SERVICES: Service[] = [
@@ -38,6 +40,7 @@ const SERVICES: Service[] = [
       { titre: "SEO produit", texte: "Chaque fiche trouvable sur Google" },
     ],
     schema: <SchemaEcommerce />,
+    badge: { icone: Clock, texte: "Boutique ouverte 24 h/24" },
   },
   {
     href: "/creation-site-vitrine",
@@ -55,6 +58,7 @@ const SERVICES: Service[] = [
       { titre: "Rapide sur mobile", texte: "Là où vos clients vous cherchent" },
     ],
     schema: <SchemaVitrine />,
+    badge: { icone: Phone, texte: "Appel en 1 clic depuis le mobile" },
   },
   {
     href: "/referencement-local",
@@ -72,16 +76,28 @@ const SERVICES: Service[] = [
       { titre: "Suivi des positions", texte: "Vous voyez la progression" },
     ],
     schema: <SchemaReferencement />,
+    badge: { icone: MapPin, texte: "Objectif : le top 3 sur Google Maps" },
   },
 ];
 
-function LigneService({ s, inverse }: { s: Service; inverse: boolean }) {
+function LigneService({ s, i, inverse }: { s: Service; i: number; inverse: boolean }) {
+  const Badge = s.badge.icone;
   return (
     <article data-couleur={s.couleur} className="reveal grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-      <div className={`lg:col-span-7 ${inverse ? "lg:order-2" : ""}`}>
-        <Link href={s.href} aria-label={s.lien} className="scene-service">
+      <div className={`relative lg:col-span-7 ${inverse ? "lg:order-2" : ""}`}>
+        <Link href={s.href} aria-label={s.lien} className="scene-service carte-laser lent">
+          <span className="scene-fond" aria-hidden="true" />
+          <span className="scene-index" aria-hidden="true">
+            {String(i + 1).padStart(2, "0")} <span className="text-white/35">/ {String(SERVICES.length).padStart(2, "0")}</span>
+          </span>
           <div className="scene-schema">{s.schema}</div>
         </Link>
+        <span className={`scene-badge ${inverse ? "scene-badge-gauche" : ""}`} aria-hidden="true">
+          <span className="icone-service !h-8 !w-8 !rounded-full">
+            <Badge className="h-3.5 w-3.5" strokeWidth={2.2} />
+          </span>
+          {s.badge.texte}
+        </span>
       </div>
       <div className={`lg:col-span-5 ${inverse ? "lg:order-1" : ""}`}>
         <div className="flex flex-wrap gap-2">
@@ -94,7 +110,7 @@ function LigneService({ s, inverse }: { s: Service; inverse: boolean }) {
         <ul className="mt-7 grid gap-x-5 gap-y-5 sm:grid-cols-3">
           {s.points.map((p) => (
             <li key={p.titre} className="chiffre pl-4">
-              <span className="chiffre-valeur block text-[1.05rem] font-bold leading-snug tracking-tight">{p.titre}</span>
+              <span className="block text-[1.05rem] font-bold leading-snug tracking-tight text-white">{p.titre}</span>
               <span className="mt-1 block text-[13.5px] leading-snug text-[var(--muted)]">{p.texte}</span>
             </li>
           ))}
@@ -121,7 +137,7 @@ export function BentoServices() {
 
         <div className="mt-16 space-y-24 lg:mt-20 lg:space-y-32">
           {SERVICES.map((s, i) => (
-            <LigneService key={s.href} s={s} inverse={i % 2 === 1} />
+            <LigneService key={s.href} s={s} i={i} inverse={i % 2 === 1} />
           ))}
         </div>
 
