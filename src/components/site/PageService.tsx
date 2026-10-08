@@ -1,3 +1,4 @@
+import { Methode } from "./Methode";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CtaFinal } from "./CtaFinal";
@@ -6,7 +7,7 @@ import { Fil } from "./Fil";
 import { JsonLd } from "./JsonLd";
 import { Options, type CleOption } from "./Options";
 import { Navigateur } from "./Cadres";
-import { BandeauPrimaps, Coche, Methode, ProjetsPhares } from "./Sections";
+import { BandeauPrimaps, Coche, ProjetsPhares } from "./Sections";
 import { faq, fil, graphe, ID_ENTREPRISE } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 

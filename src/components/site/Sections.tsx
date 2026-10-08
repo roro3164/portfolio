@@ -147,40 +147,6 @@ export function BandeauPrimaps() {
   );
 }
 
-export function Methode() {
-  const etapes = [
-    { t: "On en parle", d: "Votre activité, vos clients, vos objectifs. Puis un devis clair et détaillé.", c: "violet" },
-    { t: "Vous validez la maquette", d: "Design, textes et parcours, avant la moindre ligne de code.", c: "violet" },
-    { t: "Je construis", d: "Développement, contenus, catalogue et référencement.", c: "bleu" },
-    { t: "En ligne et suivi", d: "Mise en ligne, prise en main, puis évolutions et résultats.", c: "vert" },
-  ] as const;
-  return (
-    <section className="section" aria-labelledby="methode-titre">
-      <div className="wrap">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Méthode</p>
-          <h2 id="methode-titre" className="h2 mt-4">
-            Un seul interlocuteur, du premier appel à la mise en ligne.
-          </h2>
-        </div>
-        <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-6">
-          <span className="frise-ligne left-[12.5%] right-[12.5%] top-[27px] hidden md:block" aria-hidden="true" />
-          <span className="frise-ligne bottom-6 left-[27px] top-6 !h-auto !w-[2px] md:hidden" aria-hidden="true" style={{ background: "linear-gradient(180deg,#8b5cf6,#3b82f6,#22c55e)" }} />
-          {etapes.map((e, i) => (
-            <li key={e.t} data-couleur={e.c} className="reveal relative flex gap-5 md:flex-col md:items-center md:text-center">
-              <span className="frise-noeud shrink-0">{i + 1}</span>
-              <div className="md:mt-6">
-                <h3 className="text-[1.15rem] font-bold tracking-tight">{e.t}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-[var(--muted)] md:mx-auto md:max-w-[230px]">{e.d}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
 export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" }) {
   return (
     <section className="section" aria-labelledby="apropos-titre">

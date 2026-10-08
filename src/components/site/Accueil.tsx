@@ -1,10 +1,11 @@
+import { Methode } from "./Methode";
 import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { BentoServices } from "@/components/site/BentoServices";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
-import { APropos, BandeauPrimaps, Fleche, Methode, ProjetsPhares } from "@/components/site/Sections";
+import { APropos, BandeauPrimaps, Fleche, ProjetsPhares } from "@/components/site/Sections";
 import { faq, graphe } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 

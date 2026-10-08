@@ -548,28 +548,118 @@ a.tuile:hover {
     linear-gradient(160deg, #1b1928, #15131f);
 }
 
-/* Méthode : frise avec trait laser */
-.frise-ligne {
+/* Méthode : frise qui suit le défilement (--p de 0 à 1) */
+.frise { --rail-g: 12.5%; --rail-l: 75%; }
+.frise-rail {
   position: absolute;
+  top: 27px;
+  left: var(--rail-g);
+  width: var(--rail-l);
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, rgba(139, 92, 246, 0.15), #8b5cf6, #3b82f6, #22c55e, rgba(34, 197, 94, 0.15));
-  background-size: 200% 100%;
-  box-shadow: 0 0 14px rgba(139, 92, 246, 0.6);
-  animation: frise 6s linear infinite;
+  background: rgba(255, 255, 255, 0.08);
 }
-@keyframes frise { to { background-position: -200% 0; } }
+.frise-rempli {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--p) * 100%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8b5cf6, #6a5acd 40%, #3b82f6 70%, #22c55e);
+  background-size: calc(100% / max(var(--p), 0.001)) 100%;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.7);
+}
+.frise-comete {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--p) * 100%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(180, 176, 255, 0.35), 0 0 22px 6px rgba(139, 92, 246, 0.9), -26px 0 30px 2px rgba(139, 92, 246, 0.45);
+  opacity: clamp(0, calc(var(--p) * 20), 1);
+}
+.frise-rail-v {
+  position: absolute;
+  left: 27px;
+  top: 28px;
+  bottom: 28px;
+  width: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.frise-rempli-v {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: calc(var(--p) * 100%);
+  border-radius: inherit;
+  background: linear-gradient(180deg, #8b5cf6, #3b82f6 70%, #22c55e);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.7);
+}
+.frise-comete-v {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--p) * 100%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(180, 176, 255, 0.35), 0 0 22px 6px rgba(139, 92, 246, 0.9);
+  opacity: clamp(0, calc(var(--p) * 20), 1);
+}
 .frise-noeud {
   position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  font-weight: 800;
-  font-size: 18px;
-  color: #fff;
+  background: var(--bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.frise-num { font-weight: 800; font-size: 18px; color: rgba(255, 255, 255, 0.4); transition: color 0.5s; }
+.frise-etape[data-actif="true"] .frise-noeud {
+  border-color: transparent;
   background: radial-gradient(circle at 30% 25%, rgba(var(--l1), 1), rgba(var(--l2), 0.75));
   box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px rgba(var(--l1), 0.5), 0 0 34px rgba(var(--l1), 0.75);
+  transform: scale(1.06);
 }
-@media (prefers-reduced-motion: reduce) { .frise-ligne { animation: none; } }
+.frise-etape[data-actif="true"] .frise-num { color: #fff; }
+.frise-carte {
+  border-radius: 20px;
+  padding: 20px 20px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+  opacity: 0.45;
+  transform: translateY(10px);
+  transition: opacity 0.6s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.6s, box-shadow 0.6s, background 0.6s;
+}
+.frise-etape[data-actif="true"] .frise-carte {
+  opacity: 1;
+  transform: none;
+  border-color: rgba(var(--l1), 0.35);
+  background: linear-gradient(160deg, rgba(var(--l1), 0.14), rgba(var(--l1), 0.02) 70%), var(--surface);
+  box-shadow: 0 24px 50px -28px rgba(var(--l1), 0.7);
+}
+.frise-etape:not([data-actif="true"]) .icone-service { filter: grayscale(1) brightness(0.7); }
+.icone-service { transition: filter 0.5s; }
+.frise-livrable {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(var(--l1), 0.12);
+  border: 1px solid rgba(var(--l1), 0.3);
+}
+.frise-livrable::before { content: "✓"; font-size: 11px; }
+@media (prefers-reduced-motion: reduce) {
+  .frise-carte, .frise-noeud { transition: none; }
+}
