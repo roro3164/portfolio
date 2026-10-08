@@ -148,9 +148,9 @@ export function BandeauPrimaps() {
 export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" }) {
   return (
     <section className="section" aria-labelledby="apropos-titre">
-      <div className="wrap grid items-center gap-12 md:grid-cols-[1fr_1fr] lg:gap-16">
+      <div className={`wrap grid items-center gap-12 ${visuel === "portrait" ? "md:grid-cols-[1.25fr_1fr] md:gap-8 lg:gap-10" : "md:grid-cols-[1fr_1fr] lg:gap-16"}`}>
         {visuel === "portrait" ? (
-          <div className="relative mx-auto w-full max-w-[560px]">
+          <div className="relative -mx-2 w-auto sm:mx-0 md:-ml-4 lg:-ml-8">
             <PortraitSplit />
           </div>
         ) : (
@@ -197,7 +197,6 @@ export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" })
           <ul className="mt-7 flex flex-wrap gap-2" aria-label="Formation">
             <li className="chip-teinte">Diplômé en développement web</li>
             <li className="chip-teinte">Certifié design UI/UX</li>
-            <li className="chip-teinte">Autodidacte</li>
           </ul>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link href="/demo-gratuite" className="btn btn-primary">
