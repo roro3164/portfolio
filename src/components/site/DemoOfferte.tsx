@@ -1,6 +1,6 @@
 import { Gift } from "lucide-react";
 import Link from "next/link";
-import { Navigateur, Telephone } from "./Cadres";
+import { VideoAuto } from "./VideoAuto";
 
 const ETAPES = [
   ["Vous présentez votre activité", "Quelques lignes suffisent."],
@@ -47,18 +47,31 @@ export function DemoOfferte() {
           </div>
 
           <div className="relative pb-8">
-            <Navigateur
-              src="/realisations/bistrot-des-musees-accueil.webp"
-              alt="Exemple de démo en ligne : le site du Bistrot des Musées"
-              url="votre-entreprise.fr · démo"
-              sizes="(min-width: 1024px) 600px, 92vw"
-            />
-            <Telephone
-              src="/realisations/bistrot-des-musees-mobile.webp"
-              alt="La même démo sur téléphone"
-              className="absolute -bottom-2 -right-2 w-[24%] rotate-[3deg] sm:-right-5"
-            />
-            <div className="demo-toast absolute -left-2 top-[18%] sm:-left-6" aria-hidden="true">
+            <div className="browser">
+              <div className="browser-bar" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <span className="browser-url">lumi-nice.fr</span>
+              </div>
+              <VideoAuto
+                src="/videos/lumi-nice-ordinateur.mp4"
+                poster="/videos/lumi-nice-ordinateur.webp"
+                label="Vidéo : navigation sur la boutique LumiNice, de l'accueil à une fiche produit"
+                className="aspect-[16/10] object-cover"
+              />
+            </div>
+            <div className="phone absolute -bottom-3 -right-2 w-[24%] rotate-[3deg] sm:-right-5">
+              <div>
+                <VideoAuto
+                  src="/videos/lumi-nice-mobile.mp4"
+                  poster="/videos/lumi-nice-mobile.webp"
+                  label="Vidéo : la boutique LumiNice sur téléphone"
+                  className="aspect-[390/844] object-cover"
+                />
+              </div>
+            </div>
+            <div className="demo-toast absolute -left-2 bottom-[18%] sm:-left-6" aria-hidden="true">
               <span className="demo-toast-point" />
               <span>
                 <span className="block text-[13px] font-semibold text-white">Votre démo est en ligne</span>
