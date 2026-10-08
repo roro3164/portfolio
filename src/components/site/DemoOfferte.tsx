@@ -21,12 +21,6 @@ const TOASTS = [
   { icone: PartyPopper, titre: "Démo validée", texte: "On passe à la finalisation" },
 ] as const;
 
-const GARANTIES = [
-  ["0 €", "pour recevoir votre démo"],
-  ["0", "engagement, même si elle vous plaît"],
-  ["100 %", "à votre nom, vos photos, vos couleurs"],
-] as const;
-
 export function DemoOfferte() {
   const ref = useRef<HTMLDivElement>(null);
   const [etape, setEtape] = useState(1);
@@ -145,15 +139,6 @@ export function DemoOfferte() {
             </div>
           </div>
 
-          {/* garanties, au style des chiffres des réalisations */}
-          <dl className="relative mt-12 grid gap-6 border-t border-white/10 pt-9 sm:grid-cols-3">
-            {GARANTIES.map(([v, l]) => (
-              <div key={l} className="chiffre flex flex-col-reverse pl-4" data-couleur="violet">
-                <dt className="mt-1.5 text-[14px] leading-snug text-[var(--muted)]">{l}</dt>
-                <dd className="chiffre-valeur text-[clamp(1.9rem,2.6vw,2.4rem)] font-bold leading-none tracking-tight">{v}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>
