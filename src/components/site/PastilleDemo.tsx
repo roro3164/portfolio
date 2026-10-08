@@ -19,8 +19,8 @@ export function PastilleDemo({ className = "" }: { className?: string }) {
       </svg>
       <span className="pastille-coeur">
         <Gift className="h-7 w-7 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" strokeWidth={2} aria-hidden="true" />
-        <span className="mt-1.5 block text-[14px] font-bold uppercase tracking-[0.16em] text-white/90">Démo</span>
-        <span className="block text-[31px] font-extrabold leading-none tracking-tight">offerte</span>
+        <span className="mt-1.5 block text-[21px] font-extrabold uppercase leading-[1.05] tracking-[0.04em]">Démo</span>
+        <span className="block text-[21px] font-extrabold uppercase leading-[1.05] tracking-[0.04em]">offerte</span>
       </span>
     </Link>
   );
