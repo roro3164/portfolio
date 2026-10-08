@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Romain DesignCode — nuit chaude (prune) + violet de la marque (#5d58a3), Plus Jakarta Sans.
+/* Romain DesignCode — noir profond (pas pur) + violet de la marque (#5d58a3), Plus Jakarta Sans.
    Le site est sombre par choix de marque ; les contrastes visent AA. */
 :root {
-  --bg: #15111a;
-  --bg-2: #1b1620;
-  --surface: #211b27;
-  --surface-2: #2a2230;
+  --bg: #0e0d10;
+  --bg-2: #141317;
+  --surface: #19181d;
+  --surface-2: #222026;
   --line: rgba(255, 255, 255, 0.08);
   --line-2: rgba(255, 255, 255, 0.14);
   --text: #f3f2f8;
-  --muted: #b0a8b4;
-  --faint: #807784;
+  --muted: #aaa8b0;
+  --faint: #7a7880;
   --violet: #8f89ec;
   --violet-2: #b4b0ff;
   --brand: #5d58a3;
@@ -38,7 +38,7 @@ html {
 }
 
 /* Fond fixe de tout le site, en CSS seul : quatre nappes de couleur très douces
-   et chaleureuses (prune, pêche, ambre, rose) qui dérivent lentement, plus un léger grain. Seule la
+   et à peine colorées (violet, indigo, rose) sur un noir profond qui dérivent lentement, plus un léger grain. Seule la
    transformation est animée (fluide, sans recalcul). Posé par le layout (site) :
    la page QR /contact n'est pas touchée. */
 .fond-site {
@@ -47,7 +47,7 @@ html {
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  background: linear-gradient(180deg, #17121b, #140f18 60%, #161019);
+  background: linear-gradient(180deg, #100f12, #0d0c0f 60%, #0f0e11);
 }
 .fond-site::after {
   content: "";
@@ -63,10 +63,10 @@ html {
   border-radius: 50%;
   will-change: transform;
 }
-.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(168, 85, 247, 0.14), rgba(168, 85, 247, 0.045) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
-.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(251, 146, 120, 0.11), rgba(251, 146, 120, 0.035) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
-.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(245, 170, 90, 0.08), rgba(245, 170, 90, 0.025) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
-.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(236, 110, 160, 0.11), rgba(236, 110, 160, 0.035) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
+.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.075), rgba(139, 92, 246, 0.025) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
+.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(99, 102, 241, 0.05), rgba(99, 102, 241, 0.015) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
+.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, rgba(236, 72, 153, 0.035), rgba(236, 72, 153, 0.01) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
+.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, rgba(139, 92, 246, 0.055), rgba(139, 92, 246, 0.018) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
 @keyframes nappe-1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
 @keyframes nappe-2 { to { transform: translate(-12vmax, 14vmax) scale(0.9); } }
 @keyframes nappe-3 { to { transform: translate(16vmax, -10vmax) scale(1.2); } }
@@ -283,7 +283,7 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
   border-radius: 50%;
   filter: blur(90px);
-  background: radial-gradient(circle, rgba(var(--l1), 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(var(--l1), 0.2), transparent 70%);
 }
 
 /* Apparition au défilement, CSS seul (le contenu reste visible sans support) */
@@ -844,11 +844,11 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   background:
     radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1.3px) 0 0 / 18px 18px,
     radial-gradient(70% 90% at 50% 100%, rgba(var(--l1), 0.4), transparent 70%),
-    linear-gradient(160deg, #221b28, #17121b);
+    linear-gradient(160deg, #1a191e, #111013);
 }
 .couverture-photo { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
 a:hover .couverture-photo { transform: scale(1.04); }
-.couverture::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(21, 17, 26, 0.15), rgba(21, 17, 26, 0.55)); }
+.couverture::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(14, 13, 16, 0.15), rgba(14, 13, 16, 0.55)); }
 .couverture-zoom { z-index: 1; }
 .couverture-zoom { position: absolute; top: 0; left: 0; width: 360px; height: 202.5px; transform: scale(var(--k, 1)); transform-origin: top left; }
 .couverture-zoom > * { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -974,7 +974,7 @@ a:hover .couverture-zoom > * { transform: translateY(-3px); }
   background:
     radial-gradient(120% 90% at 100% 100%, rgba(var(--l1), 0.42), transparent 60%),
     radial-gradient(80% 70% at 0% 0%, rgba(var(--l1), 0.14), transparent 70%),
-    linear-gradient(160deg, #231c29, #1b1620);
+    linear-gradient(160deg, #1b1a1f, #141317);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 30px 60px -30px rgba(var(--l1), 0.45);
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
@@ -985,7 +985,7 @@ a.tuile:hover {
 .tuile-neutre {
   background:
     radial-gradient(60% 120% at 0% 50%, rgba(139, 92, 246, 0.16), transparent 70%),
-    linear-gradient(160deg, #211a27, #1b1620);
+    linear-gradient(160deg, #19181d, #141317);
 }
 
 /* Méthode : frise qui suit le défilement (--p de 0 à 1) */
