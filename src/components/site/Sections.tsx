@@ -137,7 +137,7 @@ export function BandeauPrimaps() {
           <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block transition-transform duration-500 hover:-translate-y-1">
             <DuoAppareils
               ordinateur={{ src: "/mockups/primaps-macbook.webp", forme: "macbook-34", alt: "Page d'accueil de Primaps sur un MacBook" }}
-              telephone={{ src: "/mockups/primaps-iphone.webp", forme: "iphone-34", alt: "Primaps sur iPhone" }}
+              telephone={{ src: "/mockups/primaps-iphone-face.webp", forme: "iphone-face", alt: "Primaps sur iPhone" }}
               sizes="(min-width: 1024px) 560px, 92vw"
             />
           </a>

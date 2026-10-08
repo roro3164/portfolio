@@ -132,11 +132,11 @@ export function Accueil() {
                 priority
               />
             </div>
-            <div className="absolute -bottom-1 right-[13%] w-[23%] opacity-95">
-              <Mockup a={{ src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-34", alt: "Site Maison Ribier sur iPhone" }} sizes="180px" priority />
+            <div className="absolute -bottom-2 right-[15%] w-[18%]">
+              <Mockup a={{ src: "/mockups/maison-ribier-iphone-face.webp", forme: "iphone-face", alt: "Site Maison Ribier sur iPhone" }} sizes="180px" priority />
             </div>
-            <div className="absolute -bottom-3 right-0 w-[26%]">
-              <Mockup a={{ src: "/mockups/bistrot-des-musees-iphone.webp", forme: "iphone-34", alt: "Site du Bistrot des Musées sur iPhone" }} sizes="200px" priority />
+            <div className="absolute -bottom-5 right-0 w-[20%]">
+              <Mockup a={{ src: "/mockups/bistrot-des-musees-iphone-face.webp", forme: "iphone-face", alt: "Site du Bistrot des Musées sur iPhone" }} sizes="200px" priority />
             </div>
           </div>
         </div>

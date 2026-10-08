@@ -21,7 +21,7 @@ const contenu: ContenuService = {
   visuel: (
     <DuoAppareils
       ordinateur={{ src: "/mockups/lumi-nice-catalogue-macbook.webp", forme: "macbook-face", alt: "Catalogue LumiNice sur MacBook et boutique Maison Ribier sur iPhone" }}
-      telephone={{ src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-34", alt: "" }}
+      telephone={{ src: "/mockups/maison-ribier-iphone-face.webp", forme: "iphone-face", alt: "" }}
       priority
     />
   ),

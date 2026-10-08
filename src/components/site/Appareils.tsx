@@ -6,7 +6,7 @@ import Image from "next/image";
 const TAILLES: Record<string, [number, number]> = {
   "macbook-34": [1864, 1228], // MacBook de 3/4
   "macbook-face": [1446, 1228], // MacBook de face
-  "iphone-34": [928, 1230], // iPhone incliné
+  "iphone-face": [888, 1760], // iPhone de face
 };
 
 export type Appareil = { src: string; forme: keyof typeof TAILLES; alt: string };
@@ -47,7 +47,7 @@ export function DuoAppareils({
         <Mockup a={ordinateur} sizes={sizes} priority={priority} />
       </div>
       {telephone && (
-        <div className={`absolute bottom-[-4%] ${telephoneAGauche ? "left-0" : "right-0"} w-[27%]`}>
+        <div className={`absolute bottom-[-6%] ${telephoneAGauche ? "left-0" : "right-0"} w-[21%]`}>
           <Mockup a={telephone} sizes="(min-width: 1024px) 200px, 30vw" priority={priority} />
         </div>
       )}
