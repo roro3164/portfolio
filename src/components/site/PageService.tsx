@@ -9,7 +9,7 @@ import {
   RefreshCw,
   Rocket,
   ShoppingBag,
-  Star,
+  Sparkles,
   Store,
   TrendingDown,
   TrendingUp,
@@ -24,7 +24,7 @@ import { Fil } from "./Fil";
 import { JsonLd } from "./JsonLd";
 import { Options, type CleOption } from "./Options";
 import { Navigateur } from "./Cadres";
-import { BandeauPrimaps, Coche, Fleche, ProjetsPhares } from "./Sections";
+import { BandeauPrimaps, Fleche, ProjetsPhares } from "./Sections";
 import { SchemaEcommerce, SchemaReferencement, SchemaVitrine } from "./SchemasServices";
 import { faq, fil, graphe, ID_ENTREPRISE } from "@/lib/schema";
 import { SITE } from "@/lib/site";
@@ -47,6 +47,8 @@ export type ContenuService = {
   primaps?: boolean;
   options?: CleOption[];
   couleur: "violet" | "vert" | "bleu";
+  /** section propre au service, affichée juste après le haut de page */
+  sectionPlus?: ReactNode;
 };
 
 // Habillage propre à chaque service (code couleur) : icônes des profils,
@@ -75,7 +77,7 @@ const HABILLAGE: Record<
     icones: [TrendingUp, MapPin, TriangleAlert],
     notifs: [
       { icone: MapPin, titre: "1er sur Google Maps", texte: "« votre métier + ville »" },
-      { icone: Star, titre: "Nouvel avis 5 ★", texte: "Sur votre fiche Google" },
+      { icone: Sparkles, titre: "Recommandé par ChatGPT", texte: "« Quel artisan à Montpellier ? »" },
     ],
     schema: <SchemaReferencement />,
   },
@@ -149,6 +151,8 @@ export function PageService({ c }: { c: ContenuService }) {
           </div>
         </div>
       </section>
+
+      {c.sectionPlus}
 
       <section className="section bande border-y" aria-labelledby="pourqui-titre">
         <div className="wrap">

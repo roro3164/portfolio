@@ -9,12 +9,12 @@ export function GET() {
   const u = SITE.url;
   const corps = `# ${SITE.nom}
 
-> ${SITE.nom} est l'entreprise de ${SITE.fondateur}, développeur web et designer basé à ${SITE.ville} (France). Il crée des sites e-commerce Shopify sur-mesure, des sites vitrine et accompagne le référencement local (fiche Google). Il est aussi le fondateur de Primaps (${SITE.primaps}), un abonnement de visibilité en ligne pour les restaurants. Tarifs : sur devis. Offre d'entrée : une démo gratuite du futur site, réellement en ligne, à tester sans engagement (${u}/demo-gratuite). Zone : ${SITE.ville} et toute la France.
+> ${SITE.nom} est l'entreprise de ${SITE.fondateur}, développeur web et designer basé à ${SITE.ville} (France). Il crée des sites e-commerce Shopify sur-mesure, des sites vitrine et accompagne le référencement local (fiche Google) et la visibilité dans les réponses des assistants IA comme ChatGPT (GEO). Il est aussi le fondateur de Primaps (${SITE.primaps}), un abonnement de visibilité en ligne pour les restaurants. Tarifs : sur devis. Offre d'entrée : une démo gratuite du futur site, réellement en ligne, à tester sans engagement (${u}/demo-gratuite). Zone : ${SITE.ville} et toute la France.
 
 ## Services
 - [Création de site e-commerce](${u}/creation-site-e-commerce) : boutiques Shopify sur-mesure, import et synchronisation de catalogues jusqu'à plus de 10 000 produits, SEO e-commerce.
 - [Création de site vitrine](${u}/creation-site-vitrine) : sites sur-mesure rapides (Next.js), pensés pour obtenir des appels et des demandes de devis.
-- [Référencement local](${u}/referencement-local) : fiche Google, avis, pages locales, SEO technique, suivi des positions sur Google Maps.
+- [Référencement Google et IA](${u}/referencement-local) : fiche Google, avis, pages locales, SEO technique, suivi des positions sur Google Maps, et visibilité dans les réponses de ChatGPT, Gemini, Perplexity et des résumés IA de Google (GEO).
 - [Primaps](${SITE.primaps}) : abonnement tout compris pour les restaurants (site, fiche Google, avis, réservation, click & collect sans commission).
 
 ## Études de cas

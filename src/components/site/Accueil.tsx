@@ -42,6 +42,10 @@ const QUESTIONS: QR[] = [
     r: "Oui, le référencement est pris en compte dès la conception : vitesse, structure des pages, balises, données structurées, pages par ville ou par catégorie et fiche Google. Pour une refonte, les anciennes adresses sont redirigées pour ne pas perdre vos positions.",
   },
   {
+    q: "Mon entreprise peut-elle être recommandée par ChatGPT ?",
+    r: "Oui. De plus en plus de clients demandent directement à ChatGPT, Gemini ou à l'IA de Google « quel professionnel me conseilles-tu ? ». Ces assistants répondent à partir de ce qu'ils trouvent sur le web : votre site, votre fiche Google, vos avis. Je les rends clairs, complets et cohérents pour que l'IA vous connaisse et puisse vous citer. C'est ce qu'on appelle le GEO, le référencement pour les IA.",
+  },
+  {
     q: "Travaillez-vous uniquement à Montpellier ?",
     r: `Je suis basé à Montpellier et je travaille avec des entreprises de toute la France, à distance ou sur place selon les projets. LumiNice et Maison Ribier, par exemple, sont à Nice.`,
   },
@@ -66,7 +70,7 @@ export function Accueil() {
             </h1>
             <p className="lead mt-6 max-w-xl">
               Je crée des boutiques en ligne Shopify et des sites vitrine pour les entreprises qui veulent plus de clients,
-              du design jusqu&apos;au référencement Google.
+              du design jusqu&apos;au référencement sur Google et ChatGPT.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">

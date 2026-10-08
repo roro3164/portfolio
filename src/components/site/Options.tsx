@@ -1,4 +1,4 @@
-import { Calendar, CreditCard, FileText, Globe, MapPin, Newspaper, PenLine, RefreshCw, ShoppingBag, type LucideIcon } from "lucide-react";
+import { Calendar, CreditCard, FileText, Globe, MapPin, Newspaper, PenLine, RefreshCw, ShoppingBag, Sparkles, type LucideIcon } from "lucide-react";
 
 import { SuiviAnime } from "./SuiviAnime";
 
@@ -17,6 +17,7 @@ const TOUTES: Record<string, { icone: LucideIcon; libelle: string; couleur: Coul
   villes: { icone: MapPin, libelle: "Pages par ville", couleur: "bleu" },
   redaction: { icone: PenLine, libelle: "Rédaction des contenus", couleur: "vert" },
   blog: { icone: Newspaper, libelle: "Blog et articles SEO", couleur: "violet" },
+  ia: { icone: Sparkles, libelle: "Visibilité sur ChatGPT et les IA", couleur: "bleu" },
 };
 
 export type CleOption = keyof typeof TOUTES;
@@ -58,7 +59,7 @@ function Rangee({ cles, inverse = false }: { cles: CleOption[]; inverse?: boolea
 
 /** Contenu du bloc (réutilisé dans la grille Services et sur les pages services). */
 export function BlocOptions({
-  options = ["reservation", "clickCollect", "paiement", "multilingue", "villes", "pages", "redaction", "blog"],
+  options = ["reservation", "clickCollect", "paiement", "ia", "multilingue", "villes", "pages", "redaction", "blog"],
   titre = "À la carte, selon votre activité",
   niveauTitre = "p",
 }: {

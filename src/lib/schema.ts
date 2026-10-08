@@ -16,7 +16,7 @@ export const entreprise = {
   image: `${SITE.url}/img/romain-photo.webp`,
   logo: `${SITE.url}/icon.png`,
   description:
-    "Création de sites e-commerce (Shopify) et de sites vitrine sur-mesure, design et référencement Google. Éditeur de Primaps, l'abonnement visibilité pour les restaurants.",
+    "Création de sites e-commerce (Shopify) et de sites vitrine sur-mesure, design, référencement Google et visibilité dans les réponses des IA (ChatGPT, Gemini). Éditeur de Primaps, l'abonnement visibilité pour les restaurants.",
   founder: { "@id": ID_PERSONNE },
   address: {
     "@type": "PostalAddress",
@@ -37,6 +37,7 @@ export const entreprise = {
     "Référencement naturel (SEO)",
     "Référencement local",
     "Fiche Google Business Profile",
+    "Référencement sur ChatGPT et les moteurs IA (GEO)",
     "Design UI/UX",
   ],
   hasOfferCatalog: {
@@ -46,7 +47,7 @@ export const entreprise = {
       { "@type": "Offer", price: "0", priceCurrency: "EUR", itemOffered: { "@type": "Service", name: "Démo gratuite de votre futur site, en ligne", url: `${SITE.url}/demo-gratuite` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site e-commerce", url: `${SITE.url}/creation-site-e-commerce` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site vitrine", url: `${SITE.url}/creation-site-vitrine` } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Référencement local et fiche Google", url: `${SITE.url}/referencement-local` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Référencement local, fiche Google et visibilité sur ChatGPT (GEO)", url: `${SITE.url}/referencement-local` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Primaps — abonnement visibilité pour restaurants", url: SITE.primaps } },
     ],
   },

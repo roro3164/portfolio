@@ -8,7 +8,7 @@ const COLONNES = [
     liens: [
       { href: "/creation-site-e-commerce", label: "Création de site e-commerce" },
       { href: "/creation-site-vitrine", label: "Création de site vitrine" },
-      { href: "/referencement-local", label: "Référencement local et fiche Google" },
+      { href: "/referencement-local", label: "Référencement Google et ChatGPT" },
       { href: SITE.primaps, label: "Primaps, pour les restaurants" },
     ],
   },

@@ -1,24 +1,26 @@
 import type { Metadata } from "next";
 import { CarteLocale } from "@/components/site/CarteLocale";
 import { PageService, type ContenuService } from "@/components/site/PageService";
+import { TroisReferencements } from "@/components/site/TroisReferencements";
 
 export const metadata: Metadata = {
-  title: "Référencement local et fiche Google à Montpellier",
+  title: "Référencement local, Google et IA (ChatGPT) à Montpellier",
   description:
-    "Référencement local à Montpellier : fiche Google optimisée, avis, pages par ville, SEO technique et suivi de vos positions sur Google Maps.",
+    "Être trouvé sur Google Maps et recommandé par ChatGPT : fiche Google, avis, pages locales et visibilité dans les réponses des IA, à Montpellier.",
   alternates: { canonical: "/referencement-local" },
 };
 
 const contenu: ContenuService = {
   couleur: "bleu",
   url: "/referencement-local",
-  nomCourt: "Référencement local",
-  nomService: "Référencement local et optimisation de fiche Google",
-  eyebrow: "Référencement local · Google Maps",
-  h1: "Référencement local et fiche Google à Montpellier",
+  nomCourt: "Référencement Google et IA",
+  nomService: "Référencement local, fiche Google et visibilité sur les IA (GEO)",
+  eyebrow: "Google Maps · ChatGPT · IA",
+  h1: "Référencement local, Google et IA à Montpellier",
   lead:
-    "Quand un client cherche votre métier près de chez lui, Google affiche trois entreprises sur la carte. Je travaille votre fiche Google, vos avis et votre site pour que vous en fassiez partie.",
+    "Quand un client cherche votre métier près de chez lui, Google affiche trois entreprises sur la carte. Et de plus en plus, il demande directement à ChatGPT « qui me conseilles-tu ? ». Je travaille les trois : la carte, les résultats Google et les réponses des IA.",
   visuel: <CarteLocale />,
+  sectionPlus: <TroisReferencements />,
   pourQui: [
     {
       titre: "Vos concurrents passent devant",
@@ -58,6 +60,18 @@ const contenu: ContenuService = {
       titre: "Suivi des positions",
       texte: "Votre classement mesuré point par point sur la carte de votre ville, et un point clair chaque mois.",
     },
+    {
+      titre: "Recommandé par ChatGPT",
+      texte: "Vos clients posent leurs questions à ChatGPT, Gemini ou Perplexity. On fait en sorte que ces assistants connaissent votre entreprise et puissent la citer.",
+    },
+    {
+      titre: "Présent dans les réponses IA de Google",
+      texte: "En haut de Google, un résumé écrit par l'IA répond souvent avant les liens. Des pages claires et des réponses précises vous donnent une chance d'y figurer.",
+    },
+    {
+      titre: "Une fiche d'identité pour les IA",
+      texte: "Données structurées, fichier llms.txt, informations identiques partout : les IA comprennent sans hésiter qui vous êtes, ce que vous faites et où.",
+    },
   ],
   argument: {
     titre: "Ce que regarde Google pour classer les entreprises locales.",
@@ -85,6 +99,14 @@ const contenu: ContenuService = {
     {
       q: "Faut-il forcément un site pour être bien référencé localement ?",
       r: "Une fiche Google seule peut suffire pour démarrer, mais un site rapide et bien structuré renforce nettement votre position, surtout sur les recherches qui ne contiennent pas votre nom.",
+    },
+    {
+      q: "Mon entreprise peut-elle apparaître dans les réponses de ChatGPT ?",
+      r: "Oui, c'est possible. ChatGPT, Gemini ou les réponses IA de Google s'appuient sur ce qu'ils trouvent sur le web : votre site, votre fiche Google, vos avis, les annuaires. Si ces informations sont claires, complètes et identiques partout, l'IA peut vous recommander quand quelqu'un demande « quel est le meilleur [votre métier] à [votre ville] ? ». Personne ne contrôle ces réponses, mais on peut nettement augmenter vos chances.",
+    },
+    {
+      q: "Qu'est-ce que le GEO ?",
+      r: "Le GEO (Generative Engine Optimization), c'est le référencement pour les intelligences artificielles : faire en sorte que ChatGPT, Gemini, Perplexity ou les résumés IA de Google connaissent votre entreprise et la citent. C'est le prolongement du référencement Google classique, pas une technique à part : un site rapide, des réponses claires, des avis et une fiche Google solide.",
     },
     {
       q: "Je suis restaurateur, est-ce adapté ?",
