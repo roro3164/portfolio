@@ -1,4 +1,4 @@
-import { CalendarCheck, Gift, Globe, MapPin, ShoppingBag, Star, Store } from "lucide-react";
+import { CalendarCheck, Gift, Globe, MapPin, ShoppingBag, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
@@ -142,9 +142,6 @@ export function BandeauPrimaps() {
               ))}
             </ul>
             <a href={SITE.primaps} className="btn btn-primaps mt-9">
-              <span className="primaps-btn-logo" aria-hidden="true">
-                <Store className="h-[18px] w-[18px]" strokeWidth={2} />
-              </span>
               Découvrir Primaps
               <span className="fleche-ronde !h-8 !w-8">
                 <Fleche className="h-3.5 w-3.5" />
