@@ -8,6 +8,15 @@ import { Logo } from "./Logo";
 
 export function Header() {
   const [ouvert, setOuvert] = useState(false);
+  const [resserre, setResserre] = useState(false);
+
+  // Comme sur l'ancien site : transparent en haut de page, pilule de verre au défilement.
+  useEffect(() => {
+    const surDefilement = () => setResserre(window.scrollY > 40);
+    surDefilement();
+    window.addEventListener("scroll", surDefilement, { passive: true });
+    return () => window.removeEventListener("scroll", surDefilement);
+  }, []);
   const chemin = usePathname();
 
   useEffect(() => setOuvert(false), [chemin]);
@@ -23,18 +32,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 pt-3">
       <div className="wrap">
-      <div className="entete-verre flex h-[62px] items-center justify-between gap-6 rounded-full pl-6 pr-2">
+      <div
+        className={`entete flex h-[62px] items-center justify-between gap-6 rounded-full pl-6 pr-2 ${
+          resserre || ouvert ? "entete-verre mx-auto xl:w-[88%]" : "mx-auto w-full"
+        }`}
+      >
         <Logo hauteur={28} />
 
         <nav aria-label="Navigation principale" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5">
             {NAV.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
                   aria-current={actif(l.href) ? "page" : undefined}
-                  className={`rounded-full px-3.5 py-2 text-[14.5px] transition-colors ${
-                    actif(l.href) ? "text-white" : "text-[var(--muted)] hover:text-white"
+                  className={`lien-neon whitespace-nowrap rounded-full px-2.5 py-2 text-[14.5px] xl:px-3.5 ${
+                    actif(l.href) ? "text-white" : "text-[#cfcde0]"
                   }`}
                 >
                   {l.label}
@@ -68,7 +81,7 @@ export function Header() {
       <div
         id="menu-mobile"
         hidden={!ouvert}
-        className="fixed inset-x-0 bottom-0 top-[80px] z-40 overflow-y-auto bg-[var(--bg)] lg:hidden"
+        className="menu-verre fixed inset-x-0 bottom-0 top-[80px] z-40 overflow-y-auto lg:hidden"
       >
         <nav aria-label="Navigation mobile" className="wrap flex flex-col py-6">
           {NAV.map((l) => (
