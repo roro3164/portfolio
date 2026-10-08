@@ -79,8 +79,8 @@ export function BentoServices() {
               <Pied />
             </div>
             <Image
-              src="/mockups/bistrot-des-musees-iphone-face.webp"
-              alt="Site du Bistrot des Musées sur iPhone"
+              src="/mockups/bistrot-fernand-iphone-face.webp"
+              alt="Site du Bistrot Fernand sur iPhone"
               width={888}
               height={1760}
               sizes="180px"

@@ -53,18 +53,18 @@ export function DemoOfferte() {
                 <i />
                 <i />
                 <i />
-                <span className="browser-url">lumi-nice.fr</span>
+                <span className="browser-url">bistrot-fernand · démo Primaps</span>
               </div>
               <VideoAuto
-                src="/videos/lumi-nice-ordinateur.mp4"
-                poster="/videos/lumi-nice-ordinateur.webp"
-                label="Vidéo : navigation sur la boutique LumiNice, de l'accueil à une fiche produit"
+                src="/videos/bistrot-fernand-ordinateur.mp4"
+                poster="/videos/bistrot-fernand-ordinateur.webp"
+                label="Vidéo : navigation sur la démo du site du Bistrot Fernand, de l'accueil au menu"
                 className="aspect-[16/10] object-cover"
               />
             </div>
             <Telephone
-              src="/realisations/lumi-nice-mobile.webp"
-              alt="La boutique LumiNice sur téléphone"
+              src="/realisations/bistrot-fernand-mobile.webp"
+              alt="La démo du Bistrot Fernand sur téléphone"
               className="absolute -bottom-3 -right-2 w-[24%] rotate-[3deg] sm:-right-5"
             />
             <div className="demo-toast absolute -left-2 bottom-[18%] sm:-left-6" aria-hidden="true">

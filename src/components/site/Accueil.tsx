@@ -114,9 +114,9 @@ export function Accueil() {
               className="rotate-[1.2deg]"
             />
             <Navigateur
-              src="/realisations/maison-ribier-collection.webp"
-              alt="Catalogue de lunettes Maison Ribier réalisé par Romain DesignCode"
-              url="maisonribier.com"
+              src="/realisations/nina-bonita-menu.webp"
+              alt="Menu du restaurant Niña Bonita, site réalisé par Romain DesignCode"
+              url="nina-bonita · menu"
               sizes="(min-width: 1024px) 340px, 50vw"
               className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
             />
