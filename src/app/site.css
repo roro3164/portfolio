@@ -1109,38 +1109,25 @@ a.tuile:hover {
   color: rgba(255, 255, 255, 0.8);
   border-right: 1.5px solid #b4b0ff;
   width: 0;
-  animation: cta-frappe 8s steps(19) infinite;
+  animation: cta-frappe 8s steps(12) infinite;
 }
-@keyframes cta-frappe { 0%, 4% { width: 0; } 22%, 92% { width: 19ch; } 100% { width: 19ch; } }
-.cta-demo-page { display: grid; gap: 9px; padding: 16px; }
-.cta-demo-page i { display: block; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.22); transform-origin: left; animation: cta-trace 8s infinite; }
-.cta-demo-hero {
-  height: 120px;
-  border-radius: 12px;
-  background:
-    radial-gradient(60% 80% at 80% 20%, rgba(139, 92, 246, 0.55), transparent 70%),
-    radial-gradient(50% 70% at 10% 90%, rgba(236, 72, 153, 0.35), transparent 70%),
-    #241f38;
-  transform-origin: top;
-  animation: cta-hero 8s infinite;
-}
-.cta-demo-page > i:nth-of-type(1) { background: rgba(255, 255, 255, 0.7); animation-delay: 0.2s; }
-.cta-demo-page > i:nth-of-type(2) { animation-delay: 0.35s; }
-.cta-demo-page .cta-demo-bouton { width: 92px; height: 24px; border-radius: 999px; background: linear-gradient(180deg, #8b5cf6, #6d3fe0); animation-delay: 0.5s; }
-.cta-demo-page .cta-demo-bouton-2 { width: 76px; background: rgba(255, 255, 255, 0.12); animation-delay: 0.6s; }
-.cta-demo-cartes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
-.cta-demo-cartes i { height: 54px !important; border-radius: 10px !important; background: rgba(255, 255, 255, 0.07) !important; border: 1px solid rgba(255, 255, 255, 0.08); }
-.cta-demo-cartes i:nth-child(1) { animation-delay: 0.7s; }
-.cta-demo-cartes i:nth-child(2) { animation-delay: 0.8s; }
-.cta-demo-cartes i:nth-child(3) { animation-delay: 0.9s; }
-@keyframes cta-trace { 0%, 24% { transform: scaleX(0); opacity: 0; } 34%, 92% { transform: scaleX(1); opacity: 1; } 100% { opacity: 0; } }
-@keyframes cta-hero { 0%, 22% { transform: scaleY(0); opacity: 0; } 32%, 92% { transform: scaleY(1); opacity: 1; } 100% { opacity: 0; } }
+@keyframes cta-frappe { 0%, 4% { width: 0; } 20%, 92% { width: 12ch; } 100% { width: 12ch; } }
+.cta-site { background: #f7f3ec; }
+.cta-site-serif { font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+.cta-site-or { background: linear-gradient(180deg, #d8b46a, #b8913f); }
+.cta-site-entete { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; color: #2a241c; }
+.cta-site-hero { position: relative; height: 150px; overflow: hidden; transform-origin: top; animation: cta-hero 8s 0.1s infinite both; }
+.cta-site-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 16, 10, 0.15), rgba(20, 16, 10, 0.55)); }
+.cta-site-hero-texte { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 12px; }
+.cta-apparait { animation: cta-apparait 8s infinite both; }
+@keyframes cta-apparait { 0%, 24% { opacity: 0; transform: translateY(8px); } 32%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes cta-hero { 0%, 22% { clip-path: inset(0 0 100% 0); opacity: 0; } 30%, 92% { clip-path: inset(0 0 0 0); opacity: 1; } 100% { opacity: 0; } }
 .cta-demo-toast { position: absolute; left: -18px; bottom: -22px; animation: cta-toast 8s infinite; }
 @keyframes cta-toast { 0%, 48% { opacity: 0; transform: translateY(12px) scale(0.96); } 54%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
 @media (max-width: 639px) { .cta-demo { transform: none; } .cta-demo-toast { left: 8px; right: 8px; } }
 @media (prefers-reduced-motion: reduce) {
   .cta-demo-url-texte { animation: none; width: auto; border: 0; }
-  .cta-demo-page i, .cta-demo-hero, .cta-demo-toast { animation: none; }
+  .cta-apparait, .cta-site-hero, .cta-demo-toast { animation: none; }
 }
 
 /* Pastille « Démo offerte » (hero) */
