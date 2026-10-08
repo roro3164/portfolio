@@ -16,7 +16,7 @@ export type EtudeDeCas = {
   couverture: string;
   mobile: string;
   ordinateur: { src: string; forme: "macbook-34" | "macbook-face" };
-  telephone: { src: string; forme: "iphone-34" | "iphone-cote" };
+  telephone: { src: string; forme: "iphone-34" };
   galerie: { src: string; alt: string }[];
   chiffres: Chiffre[];
   defi: string;
@@ -78,7 +78,7 @@ export const ETUDES: EtudeDeCas[] = [
     couverture: "/realisations/maison-ribier-accueil.webp",
     mobile: "/realisations/maison-ribier-mobile.webp",
     ordinateur: { src: "/mockups/maison-ribier-macbook.webp", forme: "macbook-face" },
-    telephone: { src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-cote" },
+    telephone: { src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-34" },
     galerie: [
       { src: "/realisations/maison-ribier-collection.webp", alt: "Collection Dior lunettes de soleil sur le site Maison Ribier" },
       { src: "/realisations/maison-ribier-fiche-produit.webp", alt: "Fiche produit Cartier avec choix du coloris sur Maison Ribier" },

@@ -125,17 +125,17 @@ export function Accueil() {
 
           <div className="relative mx-auto w-full max-w-[660px] pb-6 lg:-mr-4">
             <div className="absolute inset-x-[8%] bottom-[8%] top-[18%] -z-10 rounded-full bg-[rgba(139,92,246,0.4)] blur-[80px]" aria-hidden="true" />
-            <div className="ml-[10%] mr-[6%]">
+            <div className="mr-[16%]">
               <Mockup
                 a={{ src: "/mockups/lumi-nice-macbook.webp", forme: "macbook-34", alt: "Boutique en ligne LumiNice réalisée par Romain DesignCode" }}
                 sizes="(min-width: 1024px) 560px, 84vw"
                 priority
               />
             </div>
-            <div className="absolute bottom-0 left-0 w-[14%]">
-              <Mockup a={{ src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-cote", alt: "Site Maison Ribier sur iPhone" }} sizes="120px" priority />
+            <div className="absolute -bottom-1 right-[13%] w-[23%] opacity-95">
+              <Mockup a={{ src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-34", alt: "Site Maison Ribier sur iPhone" }} sizes="180px" priority />
             </div>
-            <div className="absolute -bottom-2 right-0 w-[27%]">
+            <div className="absolute -bottom-3 right-0 w-[26%]">
               <Mockup a={{ src: "/mockups/bistrot-des-musees-iphone.webp", forme: "iphone-34", alt: "Site du Bistrot des Musées sur iPhone" }} sizes="200px" priority />
             </div>
           </div>
