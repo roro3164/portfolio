@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ancre, CorpsArticle } from "@/components/site/Article";
+import { CouvertureArticle } from "@/components/site/CouvertureArticle";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Fil } from "@/components/site/Fil";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -78,6 +79,11 @@ export default async function ArticlePage({ params }: Props) {
               </p>
             </div>
           </div>
+          <CouvertureArticle
+            slug={a.slug}
+            couleur={a.categorie === "E-commerce" ? "violet" : a.categorie === "Site vitrine" ? "vert" : "bleu"}
+            className="mt-10"
+          />
         </header>
 
         <div className="wrap grid max-w-[1120px] gap-12 pb-24 lg:grid-cols-[1fr_220px]">

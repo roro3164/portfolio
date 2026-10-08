@@ -808,6 +808,47 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
 }
 @keyframes coche-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 
+/* Blog : couvertures en vrais éléments d'interface (CouvertureArticle) */
+.couverture {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  border: 1px solid rgba(var(--l1), 0.25);
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1.3px) 0 0 / 18px 18px,
+    radial-gradient(70% 90% at 50% 100%, rgba(var(--l1), 0.4), transparent 70%),
+    linear-gradient(160deg, #1c1a2b, #13111d);
+}
+.couverture-zoom { position: absolute; top: 0; left: 0; width: 360px; height: 202.5px; transform: scale(var(--k, 1)); transform-origin: top left; }
+.couverture-zoom > * { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+a:hover .couverture-zoom > * { transform: translateY(-3px); }
+.cv-carte { position: absolute; padding: 10px 12px; border-radius: 12px; background: #fbf8f3; box-shadow: 0 18px 34px -14px rgba(0, 0, 0, 0.85); }
+.cv-btn { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 9.5px; font-weight: 700; color: #fff; }
+.cv-vs { position: absolute; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; font-size: 11px; font-weight: 800; color: #fff; background: rgb(var(--l1)); box-shadow: 0 0 18px rgba(var(--l1), 0.8); }
+.cv-plan {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(120deg, transparent 46%, rgba(255, 255, 255, 0.12) 46.5%, rgba(255, 255, 255, 0.12) 49%, transparent 49.5%),
+    linear-gradient(30deg, transparent 58%, rgba(255, 255, 255, 0.1) 58.5%, rgba(255, 255, 255, 0.1) 61%, transparent 61.5%),
+    linear-gradient(170deg, transparent 70%, rgba(66, 133, 244, 0.25) 70.5%, rgba(66, 133, 244, 0.25) 76%, transparent 76.5%);
+}
+.cv-pin { position: absolute; width: 11px; height: 11px; border-radius: 50%; background: #9aa3b5; box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.35); }
+.cv-pin-moi { display: grid; place-items: center; width: 26px; height: 26px; color: #fff; background: #4285f4; box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.3), 0 0 22px rgba(66, 133, 244, 0.9); }
+.cv-url { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 6px 9px; border-radius: 8px; font-family: var(--font-mono); font-size: 9.5px; color: #fff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); }
+.cv-301 { display: inline-flex; align-items: center; gap: 3px; padding: 3px 7px; border-radius: 999px; font-size: 9.5px; font-weight: 800; color: #fff; background: rgb(var(--l1)); box-shadow: 0 0 14px rgba(var(--l1), 0.8); }
+.cv-puce { padding: 4px 10px; border-radius: 999px; font-size: 10px; font-weight: 700; color: #fff; background: rgba(20, 18, 30, 0.88); border: 1px solid rgba(255, 255, 255, 0.16); box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.8); }
+.cv-toast { position: absolute; display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 11px; font-size: 10px; font-weight: 600; color: #fff; background: rgba(20, 18, 30, 0.94); border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.8), 0 0 18px -6px rgba(var(--l1), 0.8); }
+.article-carte {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.article-carte .couverture { border: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.article-carte:hover { border-color: rgba(var(--l1), 0.45); transform: translateY(-3px); box-shadow: 0 24px 50px -30px rgba(var(--l1), 0.8); }
+
 /* Icône et flèche des services */
 .icone-service {
   display: grid;
