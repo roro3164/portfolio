@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
-import { PortraitSplit } from "@/components/site/PortraitSplit";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -60,7 +59,7 @@ const QUESTIONS: QR[] = [
   },
 ];
 
-export function Accueil({ variante = "hero" }: { variante?: "hero" | "apropos" }) {
+export function Accueil() {
   return (
     <>
       <JsonLd data={graphe(faq(QUESTIONS))} />
@@ -110,34 +109,28 @@ export function Accueil({ variante = "hero" }: { variante?: "hero" | "apropos" }
             </p>
           </div>
 
-          {variante === "hero" ? (
-            <div className="relative mx-auto w-full max-w-[620px] lg:-mr-6">
-              <PortraitSplit priority />
-            </div>
-          ) : (
-          <div className="relative mx-auto w-full max-w-[640px] pb-10 lg:pb-0">
-              <Navigateur
-                src="/realisations/lumi-nice-accueil.webp"
-                alt="Boutique en ligne LumiNice réalisée par Romain DesignCode"
-                url="lumi-nice.fr"
-                priority
-                sizes="(min-width: 1024px) 600px, 92vw"
-                className="rotate-[1.2deg]"
-              />
-              <Navigateur
-                src="/realisations/maison-ribier-collection.webp"
-                alt="Catalogue de lunettes Maison Ribier réalisé par Romain DesignCode"
-                url="maisonribier.com"
-                sizes="(min-width: 1024px) 340px, 50vw"
-                className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
-              />
-              <Telephone
-                src="/realisations/bistrot-des-musees-mobile.webp"
-                alt="Site du Bistrot des Musées sur mobile"
-                className="absolute -bottom-10 -right-3 w-[26%] rotate-[3deg] lg:-right-8"
-              />
-            </div>
-          )}
+        <div className="relative mx-auto w-full max-w-[640px] pb-10 lg:pb-0">
+            <Navigateur
+              src="/realisations/lumi-nice-accueil.webp"
+              alt="Boutique en ligne LumiNice réalisée par Romain DesignCode"
+              url="lumi-nice.fr"
+              priority
+              sizes="(min-width: 1024px) 600px, 92vw"
+              className="rotate-[1.2deg]"
+            />
+            <Navigateur
+              src="/realisations/maison-ribier-collection.webp"
+              alt="Catalogue de lunettes Maison Ribier réalisé par Romain DesignCode"
+              url="maisonribier.com"
+              sizes="(min-width: 1024px) 340px, 50vw"
+              className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
+            />
+            <Telephone
+              src="/realisations/bistrot-des-musees-mobile.webp"
+              alt="Site du Bistrot des Musées sur mobile"
+              className="absolute -bottom-10 -right-3 w-[26%] rotate-[3deg] lg:-right-8"
+            />
+          </div>
         </div>
 
         {/* Preuves */}
@@ -199,7 +192,7 @@ export function Accueil({ variante = "hero" }: { variante?: "hero" | "apropos" }
       />
 
       <Methode />
-      <APropos visuel={variante === "hero" ? "photo" : "portrait"} />
+      <APropos visuel="portrait" />
       <BandeauPrimaps />
       <Faq items={QUESTIONS} />
       <CtaFinal />
