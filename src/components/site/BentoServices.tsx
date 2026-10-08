@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { LayoutTemplate, MapPin, ShoppingBag, Star, type LucideIcon } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { BlocOptions } from "./Options";
+import { GrandeIcone, SchemaEcommerce, SchemaReferencement, SchemaVitrine } from "./SchemasServices";
 import { Fleche } from "./Sections";
 
 // Services en 3 colonnes égales : visuel en haut, contenu en bas, lueur qui suit
@@ -17,7 +18,10 @@ type Tuile = {
   texte: string;
   points: string[];
   visuel: ReactNode;
+  schema: ReactNode;
 };
+
+export type StyleServices = "mockups" | "schemas" | "icones";
 
 const CLASSEMENT = [
   ["1", "Votre entreprise", "4,9", true],
@@ -33,14 +37,15 @@ const TUILES: Tuile[] = [
     titre: "Site e-commerce",
     texte: "Une boutique Shopify sur-mesure, du petit catalogue à plus de 10 000 produits synchronisés.",
     points: ["Shopify sur-mesure", "Catalogue synchronisé", "SEO produit"],
+    schema: <SchemaEcommerce />,
     visuel: (
       <Image
         src="/mockups/lumi-nice-macbook.webp"
         alt="Boutique LumiNice sur MacBook"
         width={1864}
         height={1228}
-        sizes="(min-width: 1024px) 300px, 60vw"
-        className="absolute -right-12 top-0 w-[74%] max-w-[330px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-x-2 group-hover:-translate-y-1"
+        sizes="(min-width: 1024px) 360px, 80vw"
+        className="w-[92%] max-w-[360px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-y-2 group-hover:scale-[1.03]"
       />
     ),
   },
@@ -51,6 +56,7 @@ const TUILES: Tuile[] = [
     titre: "Site vitrine",
     texte: "Un site rapide et à votre image, pensé pour obtenir des appels et des demandes de devis.",
     points: ["Design sur-mesure", "Réservation, rendez-vous", "Rapide sur mobile"],
+    schema: <SchemaVitrine />,
     visuel: (
       <Image
         src="/mockups/bistrot-fernand-iphone-face.webp"
@@ -58,7 +64,7 @@ const TUILES: Tuile[] = [
         width={888}
         height={1760}
         sizes="160px"
-        className="absolute -top-3 right-8 w-[30%] max-w-[118px] rotate-[8deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[4deg]"
+        className="w-[30%] max-w-[104px] rotate-[6deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[3deg]"
       />
     ),
   },
@@ -69,8 +75,9 @@ const TUILES: Tuile[] = [
     titre: "Référencement local",
     texte: "Fiche Google, avis et pages locales pour passer devant vos concurrents dans votre ville.",
     points: ["Fiche Google optimisée", "Avis et pages par ville", "Suivi des positions"],
+    schema: <SchemaReferencement />,
     visuel: (
-      <div className="absolute -right-6 top-1 w-[70%] max-w-[270px] space-y-2 transition-transform duration-700 group-hover:-translate-x-2" aria-hidden="true">
+      <div className="w-[86%] max-w-[300px] space-y-2.5 transition-transform duration-700 group-hover:-translate-y-1.5" aria-hidden="true">
         {CLASSEMENT.map(([n, nom, note, moi]) => (
           <div
             key={n}
@@ -91,7 +98,7 @@ const TUILES: Tuile[] = [
   },
 ];
 
-export function BentoServices() {
+export function BentoServices({ style = "mockups" }: { style?: StyleServices }) {
   return (
     <section className="section" aria-labelledby="services-titre">
       <div className="wrap">
@@ -108,14 +115,16 @@ export function BentoServices() {
             return (
               <div key={t.href} data-couleur={t.couleur} className="reveal relative rounded-[26px]">
                 <Link href={t.href} className="group tuile relative flex h-full flex-col overflow-hidden p-7">
-                  <div className="relative min-h-[190px]">
-                    <span className="icone-service relative z-10" aria-hidden="true">
+                  <div className="relative flex h-[210px] items-center justify-center">
+                    {style === "mockups" ? t.visuel : style === "schemas" ? t.schema : <GrandeIcone icone={Icone} />}
+                  </div>
+                  {style !== "icones" && (
+                    <span className="icone-service relative z-10 mt-4" aria-hidden="true">
                       <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
                     </span>
-                    {t.visuel}
-                  </div>
+                  )}
                   <div className="relative z-10 flex flex-1 flex-col">
-                    <h3 className="text-[1.6rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
+                    <h3 className="mt-5 text-[1.6rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
                     <p className="mt-2.5 text-[15.5px] leading-relaxed text-white/75">{t.texte}</p>
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {t.points.map((p) => (
