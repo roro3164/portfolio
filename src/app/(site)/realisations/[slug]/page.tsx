@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Navigateur, Telephone } from "@/components/site/Cadres";
+import { DuoAppareils } from "@/components/site/Appareils";
+import { Navigateur } from "@/components/site/Cadres";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Fil } from "@/components/site/Fil";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -74,8 +75,14 @@ export default async function EtudeDeCasPage({ params }: Props) {
             </a>
           </div>
           <div className="wrap relative mt-14 pb-10">
-            <Navigateur src={e.couverture} alt={`Page d'accueil du site ${e.nom}`} url={e.url} priority sizes="(min-width: 1200px) 1136px, 100vw" />
-            <Telephone src={e.mobile} alt={`Le site ${e.nom} sur mobile`} className="absolute -bottom-6 right-6 hidden w-[180px] md:block lg:right-14 lg:w-[220px]" />
+            <div className="mx-auto max-w-[980px]">
+              <DuoAppareils
+                ordinateur={{ ...e.ordinateur, alt: `Site ${e.nom} sur ordinateur` }}
+                telephone={{ ...e.telephone, alt: `Site ${e.nom} sur mobile` }}
+                priority
+                sizes="(min-width: 1024px) 900px, 92vw"
+              />
+            </div>
           </div>
         </header>
 

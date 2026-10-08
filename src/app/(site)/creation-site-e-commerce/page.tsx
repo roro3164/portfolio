@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DuoAppareils } from "@/components/site/Appareils";
 import { PageService, type ContenuService } from "@/components/site/PageService";
 
 export const metadata: Metadata = {
@@ -17,7 +18,13 @@ const contenu: ContenuService = {
   h1: "Création de site e-commerce sur-mesure à Montpellier",
   lead:
     "Je crée des boutiques Shopify qui vendent : un design unique, un catalogue propre et à jour, et un référencement pensé pour que vos produits remontent sur Google. De 50 à plus de 10 000 produits.",
-  visuel: { src: "/realisations/lumi-nice-catalogue.webp", alt: "Catalogue de la boutique en ligne LumiNice avec filtres", url: "lumi-nice.fr/catalogue" },
+  visuel: (
+    <DuoAppareils
+      ordinateur={{ src: "/mockups/lumi-nice-catalogue-macbook.webp", forme: "macbook-face", alt: "Catalogue LumiNice sur MacBook et boutique Maison Ribier sur iPhone" }}
+      telephone={{ src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-cote", alt: "" }}
+      priority
+    />
+  ),
   pourQui: [
     {
       titre: "Vous avez une boutique physique",

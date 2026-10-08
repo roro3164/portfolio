@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
 import { SITE } from "@/lib/site";
-import { Navigateur, Telephone } from "./Cadres";
+import { DuoAppareils } from "./Appareils";
 import { LogoPrimaps } from "./LogoPrimaps";
 import { PortraitSplit } from "./PortraitSplit";
 
@@ -50,13 +50,12 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
     <article data-couleur={couleurType(etude.type)} className="reveal grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
       <div className={`relative lg:col-span-7 ${inverse ? "lg:order-2" : ""}`}>
         <Link href={`/realisations/${etude.slug}`} aria-label={`Voir l'étude de cas ${etude.nom}`} className="block transition-transform duration-500 hover:-translate-y-1">
-          <Navigateur src={etude.couverture} alt={`Page d'accueil du site ${etude.nom}`} url={etude.url} />
+          <DuoAppareils
+            ordinateur={{ ...etude.ordinateur, alt: `Site ${etude.nom} sur ordinateur` }}
+            telephone={{ ...etude.telephone, alt: `Site ${etude.nom} sur mobile` }}
+            telephoneAGauche={inverse}
+          />
         </Link>
-        <Telephone
-          src={etude.mobile}
-          alt={`Le site ${etude.nom} sur mobile`}
-          className={`absolute -bottom-8 hidden w-[150px] sm:block md:w-[170px] ${inverse ? "-left-4 lg:-left-8" : "-right-4 lg:-right-8"}`}
-        />
       </div>
       <div className={`lg:col-span-5 ${inverse ? "lg:order-1" : ""}`}>
         <div className="flex flex-wrap gap-2">
@@ -135,17 +134,11 @@ export function BandeauPrimaps() {
               </Link>
             </div>
           </div>
-          <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block pb-6 transition-transform duration-500 hover:-translate-y-1">
-            <Navigateur
-              src="/realisations/primaps-accueil.webp"
-              alt="Page d'accueil de Primaps, l'abonnement visibilité pour les restaurants"
-              url="primaps.fr"
+          <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block transition-transform duration-500 hover:-translate-y-1">
+            <DuoAppareils
+              ordinateur={{ src: "/mockups/primaps-macbook.webp", forme: "macbook-34", alt: "Page d'accueil de Primaps sur un MacBook" }}
+              telephone={{ src: "/mockups/primaps-iphone.webp", forme: "iphone-34", alt: "Primaps sur iPhone" }}
               sizes="(min-width: 1024px) 560px, 92vw"
-            />
-            <Telephone
-              src="/realisations/primaps-mobile.webp"
-              alt="Primaps sur mobile"
-              className="absolute -bottom-2 -right-2 w-[26%] max-w-[150px] rotate-[3deg] sm:-right-4"
             />
           </a>
         </div>

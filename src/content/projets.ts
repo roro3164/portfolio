@@ -15,6 +15,8 @@ export type EtudeDeCas = {
   resume: string;
   couverture: string;
   mobile: string;
+  ordinateur: { src: string; forme: "macbook-34" | "macbook-face" };
+  telephone: { src: string; forme: "iphone-34" | "iphone-cote" };
   galerie: { src: string; alt: string }[];
   chiffres: Chiffre[];
   defi: string;
@@ -37,6 +39,8 @@ export const ETUDES: EtudeDeCas[] = [
       "Showroom de luminaires à Nice depuis 2014, LumiNice vend désormais en ligne près de 15 000 références de grandes marques européennes. Catalogue, stock, prix et avis Google se mettent à jour tout seuls.",
     couverture: "/realisations/lumi-nice-accueil.webp",
     mobile: "/realisations/lumi-nice-mobile.webp",
+    ordinateur: { src: "/mockups/lumi-nice-macbook.webp", forme: "macbook-34" },
+    telephone: { src: "/mockups/lumi-nice-iphone.webp", forme: "iphone-34" },
     galerie: [
       { src: "/realisations/lumi-nice-catalogue.webp", alt: "Catalogue LumiNice avec filtres par catégorie et par marque" },
       { src: "/realisations/lumi-nice-fiche-produit.webp", alt: "Fiche produit LumiNice : photos, prix, caractéristiques techniques" },
@@ -73,6 +77,8 @@ export const ETUDES: EtudeDeCas[] = [
       "Opticien indépendant haut de gamme, Maison Ribier présente en ligne les collections Cartier, Dior, Tom Ford, Gucci ou Saint Laurent. Le catalogue a été repris de fond en comble pour être aussi soigné que la boutique.",
     couverture: "/realisations/maison-ribier-accueil.webp",
     mobile: "/realisations/maison-ribier-mobile.webp",
+    ordinateur: { src: "/mockups/maison-ribier-macbook.webp", forme: "macbook-face" },
+    telephone: { src: "/mockups/maison-ribier-iphone.webp", forme: "iphone-cote" },
     galerie: [
       { src: "/realisations/maison-ribier-collection.webp", alt: "Collection Dior lunettes de soleil sur le site Maison Ribier" },
       { src: "/realisations/maison-ribier-fiche-produit.webp", alt: "Fiche produit Cartier avec choix du coloris sur Maison Ribier" },
@@ -108,6 +114,8 @@ export const ETUDES: EtudeDeCas[] = [
       "Bistrot au cœur de l'Écusson, à Montpellier. Le restaurant n'avait pas de site : il a désormais un site rapide, la réservation en ligne et une fiche Google suivie chaque semaine avec Primaps.",
     couverture: "/realisations/bistrot-des-musees-accueil.webp",
     mobile: "/realisations/bistrot-des-musees-mobile.webp",
+    ordinateur: { src: "/mockups/bistrot-des-musees-macbook.webp", forme: "macbook-face" },
+    telephone: { src: "/mockups/bistrot-des-musees-iphone.webp", forme: "iphone-34" },
     galerie: [],
     chiffres: [
       { valeur: "×2", libelle: "d'apparitions sur Google" },

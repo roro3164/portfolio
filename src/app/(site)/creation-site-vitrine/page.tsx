@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DuoAppareils } from "@/components/site/Appareils";
 import { PageService, type ContenuService } from "@/components/site/PageService";
 
 export const metadata: Metadata = {
@@ -17,7 +18,13 @@ const contenu: ContenuService = {
   h1: "Création de site vitrine à Montpellier",
   lead:
     "Un site internet rapide et à votre image, qui explique clairement ce que vous faites et transforme les visiteurs en appels, demandes de devis ou réservations. Conçu pour être trouvé sur Google dès le lancement.",
-  visuel: { src: "/realisations/bistrot-des-musees-accueil.webp", alt: "Site vitrine du Bistrot des Musées à Montpellier", url: "bistrotdesmusees.fr" },
+  visuel: (
+    <DuoAppareils
+      ordinateur={{ src: "/mockups/bistrot-des-musees-macbook.webp", forme: "macbook-face", alt: "Site vitrine du Bistrot des Musées sur MacBook et iPhone" }}
+      telephone={{ src: "/mockups/bistrot-des-musees-iphone.webp", forme: "iphone-34", alt: "" }}
+      priority
+    />
+  ),
   pourQui: [
     {
       titre: "Vous n'avez pas encore de site",

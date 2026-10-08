@@ -27,13 +27,3 @@ export function Navigateur({
     </div>
   );
 }
-
-export function Telephone({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
-  return (
-    <div className={`phone ${className}`}>
-      <div>
-        <Image src={src} alt={alt} width={390} height={844} sizes="200px" className="block h-auto w-full" />
-      </div>
-    </div>
-  );
-}
