@@ -66,15 +66,17 @@ export function BentoServices() {
             return (
               <div key={t.href} data-couleur={t.couleur} className="reveal relative rounded-[26px]">
                 <Link href={t.href} className="group tuile relative flex h-full flex-col overflow-hidden p-7">
-                  <div className="relative flex h-[210px] items-center justify-center">
+                  <div className="relative z-10 flex items-center gap-3.5">
+                    <span className="icone-service" aria-hidden="true">
+                      <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
+                    </span>
+                    <h3 className="text-[1.5rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
+                  </div>
+                  <div className="relative my-6 flex h-[200px] items-center justify-center">
                     {t.schema}
                   </div>
-                  <span className="icone-service relative z-10 mt-4" aria-hidden="true">
-                    <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
-                  </span>
                   <div className="relative z-10 flex flex-1 flex-col">
-                    <h3 className="mt-5 text-[1.6rem] font-bold leading-tight tracking-tight">{t.titre}</h3>
-                    <p className="mt-2.5 text-[15.5px] leading-relaxed text-white/75">{t.texte}</p>
+                    <p className="text-[15.5px] leading-relaxed text-white/75">{t.texte}</p>
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {t.points.map((p) => (
                         <li key={p} className="chip-teinte">
