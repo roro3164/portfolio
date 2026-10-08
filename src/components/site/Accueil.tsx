@@ -121,7 +121,7 @@ export function Accueil() {
               sizes="(min-width: 1024px) 340px, 50vw"
               className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
             />
-            <PastilleDemo className="-right-1 -top-16 z-10 hidden sm:grid 2xl:-right-8" />
+            <PastilleDemo className="-right-1 -top-32 z-10 hidden sm:grid 2xl:-right-8" />
             <Telephone
               src="/realisations/bistrot-des-musees-mobile.webp"
               alt="Site du Bistrot des Musées sur mobile"
