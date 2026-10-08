@@ -833,3 +833,13 @@ a.tuile:hover {
 /* la largeur suit le mot affiché : les mots inactifs ne réservent pas de place */
 .mot-tournant-mot:not([data-etat="actif"]) { position: absolute; left: 0; bottom: 0.08em; }
 .mot-tournant-mot::before { content: attr(data-mot); }
+
+/* Bande de logos clients */
+.bande-logos-masque {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.bande-logos .defile { animation-duration: 55s; }
+.bande-logos:hover .defile { animation-play-state: paused; }
+.logo-client { opacity: 0.62; transition: opacity 0.3s; }
+.logo-client:hover { opacity: 1; }

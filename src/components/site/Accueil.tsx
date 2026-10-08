@@ -2,6 +2,7 @@ import { Methode } from "./Methode";
 import { Gift } from "lucide-react";
 import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
+import { BandeLogos } from "@/components/site/BandeLogos";
 import { BentoServices } from "@/components/site/BentoServices";
 import { DemoOfferte } from "@/components/site/DemoOfferte";
 import { MotTournant } from "@/components/site/MotTournant";
@@ -115,23 +116,10 @@ export function Accueil() {
           </div>
         </div>
 
-        {/* Preuves */}
-        <div className="bande border-y">
-          <ul className="wrap grid grid-cols-2 gap-y-6 py-8 md:grid-cols-4">
-            {[
-              ["13 500+", "produits mis en ligne pour LumiNice"],
-              ["×2", "de visibilité Google pour le Bistrot des Musées"],
-              ["455", "fiches produits refaites pour Maison Ribier"],
-              ["100 %", "conçu et codé par moi, sans sous-traitance"],
-            ].map(([v, l]) => (
-              <li key={l} className="pr-4">
-                <span className="block text-[1.75rem] font-bold tracking-tight">{v}</span>
-                <span className="mt-1 block text-[13.5px] leading-snug text-[var(--muted)]">{l}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
+
+      <BandeLogos />
+
 
       <DemoOfferte />
 
