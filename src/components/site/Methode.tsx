@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 // l'avancement et chaque étape s'allume quand elle est atteinte.
 
 const ETAPES: { t: string; d: string; livrable: string; icone: LucideIcon; c: "violet" | "bleu" | "vert" }[] = [
-  { t: "On en parle", d: "Votre activité, vos clients, ce que le site doit rapporter.", livrable: "Devis détaillé", icone: MessagesSquare, c: "violet" },
-  { t: "Vous validez la maquette", d: "Design, textes et parcours, avant la moindre ligne de code.", livrable: "Maquette validée", icone: PenTool, c: "violet" },
-  { t: "Je construis", d: "Développement, contenus, catalogue et référencement.", livrable: "Site prêt à tester", icone: Code2, c: "bleu" },
+  { t: "On en parle", d: "Votre activité, vos clients, ce que le site doit rapporter.", livrable: "Brief de votre projet", icone: MessagesSquare, c: "violet" },
+  { t: "Votre maquette gratuite", d: "Vous voyez votre site avant de payer, et vous décidez.", livrable: "Maquette offerte", icone: PenTool, c: "violet" },
+  { t: "Je construis", d: "Devis validé : développement, contenus, catalogue et référencement.", livrable: "Site prêt à tester", icone: Code2, c: "bleu" },
   { t: "En ligne et suivi", d: "Mise en ligne, prise en main, puis évolutions et résultats.", livrable: "Suivi des résultats", icone: Rocket, c: "vert" },
 ];
 

@@ -43,6 +43,7 @@ export const entreprise = {
     "@type": "OfferCatalog",
     name: "Services",
     itemListElement: [
+      { "@type": "Offer", price: "0", priceCurrency: "EUR", itemOffered: { "@type": "Service", name: "Maquette gratuite de votre futur site", url: `${SITE.url}/maquette-gratuite` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site e-commerce", url: `${SITE.url}/creation-site-e-commerce` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site vitrine", url: `${SITE.url}/creation-site-vitrine` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Référencement local et fiche Google", url: `${SITE.url}/referencement-local` } },

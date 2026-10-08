@@ -96,8 +96,8 @@ export const ARTICLES: Article[] = [
         encadre: {
           titre: "Besoin d'un chiffrage précis ?",
           texte: "Décrivez votre projet en quelques lignes : je vous réponds sous 24 h avec un devis détaillé poste par poste.",
-          lien: "/devis",
-          libelle: "Demander un devis gratuit",
+          lien: "/maquette-gratuite",
+          libelle: "Recevoir ma maquette gratuite",
         },
       },
     ],
@@ -300,7 +300,7 @@ export const ARTICLES: Article[] = [
         encadre: {
           titre: "Vous préparez une refonte ?",
           texte: "Je reprends l'inventaire de votre site actuel avant de commencer, et je redirige chaque page.",
-          lien: "/devis?projet=Refonte%20d%27un%20site",
+          lien: "/maquette-gratuite?projet=Refonte%20d%27un%20site",
           libelle: "Parler de ma refonte",
         },
       },

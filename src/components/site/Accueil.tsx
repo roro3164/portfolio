@@ -1,7 +1,9 @@
 import { Methode } from "./Methode";
+import { Gift } from "lucide-react";
 import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { BentoServices } from "@/components/site/BentoServices";
+import { MaquetteOfferte } from "@/components/site/MaquetteOfferte";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -12,6 +14,10 @@ import { SITE } from "@/lib/site";
 
 
 const QUESTIONS: QR[] = [
+  {
+    q: "La maquette est-elle vraiment gratuite ?",
+    r: "Oui. Vous me présentez votre activité, je dessine la page d'accueil de votre futur site, à votre nom et avec vos couleurs. Si elle vous plaît, je vous envoie un devis détaillé pour le site complet. Sinon, vous ne payez rien et vous n'êtes engagé à rien.",
+  },
   {
     q: "Combien coûte la création d'un site ?",
     r: "Chaque projet est chiffré sur devis, car le prix dépend surtout du nombre de pages, du catalogue produits et des fonctionnalités (paiement, réservation, synchronisation fournisseurs). Le devis est gratuit, détaillé poste par poste, et vous le recevez rapidement après notre premier échange.",
@@ -57,7 +63,15 @@ export function Accueil() {
               du design jusqu&apos;au référencement Google.
             </p>
 
-            <div className="mt-9 grid gap-3 sm:grid-cols-2">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+              <Link href="/maquette-gratuite" className="btn btn-primary !min-h-[56px] !px-7 !text-[16.5px]">
+                <Gift className="h-[18px] w-[18px]" aria-hidden="true" />
+                Recevoir ma maquette gratuite
+              </Link>
+              <span className="text-[14px] text-[var(--muted)]">Gratuite · sans engagement · à votre nom</span>
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               <Link
                 href="/creation-site-e-commerce"
                 data-couleur="violet"
@@ -106,6 +120,17 @@ export function Accueil() {
               sizes="(min-width: 1024px) 340px, 50vw"
               className="absolute -bottom-2 -left-6 hidden w-[58%] -rotate-[2.5deg] sm:block lg:-left-14"
             />
+            <Link
+              href="/maquette-gratuite"
+              aria-label="Recevoir ma maquette gratuite"
+              className="pastille-offre absolute -right-2 -top-10 z-10 hidden sm:grid lg:-right-10"
+            >
+              <span className="leading-tight">
+                <span className="block text-[11px] font-bold uppercase tracking-wider">Maquette</span>
+                <span className="block text-[22px] font-extrabold">offerte</span>
+                <span className="block text-[10px] font-semibold uppercase tracking-wide text-white/90">sans engagement</span>
+              </span>
+            </Link>
             <Telephone
               src="/realisations/bistrot-des-musees-mobile.webp"
               alt="Site du Bistrot des Musées sur mobile"
@@ -131,6 +156,8 @@ export function Accueil() {
           </ul>
         </div>
       </section>
+
+      <MaquetteOfferte />
 
       <BentoServices />
 

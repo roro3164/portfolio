@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/blog", 0.7),
     ...ARTICLES.map((a) => page(`/blog/${a.slug}`, 0.6, new Date(a.maj ?? a.date))),
     page("/a-propos", 0.6),
-    page("/devis", 0.6),
+    page("/maquette-gratuite", 0.6),
     page("/mentions-legales", 0.1),
     page("/confidentialite", 0.1),
   ];

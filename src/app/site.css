@@ -663,3 +663,76 @@ a.tuile:hover {
 @media (prefers-reduced-motion: reduce) {
   .frise-carte, .frise-noeud { transition: none; }
 }
+
+/* De la maquette au site */
+@property --coupe {
+  syntax: "<percentage>";
+  initial-value: 50%;
+  inherits: true;
+}
+.maquette-split { --coupe: 50%; animation: maquette-balayage 7s ease-in-out infinite; }
+@keyframes maquette-balayage {
+  0%, 100% { --coupe: 34%; }
+  50% { --coupe: 66%; }
+}
+.maquette-filaire {
+  color: #b4b0ff;
+  background-color: #13111f;
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  clip-path: inset(0 calc(100% - var(--coupe)) 0 0);
+}
+.maquette-image {
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), currentColor 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), currentColor 50%, transparent calc(50% + 0.5px));
+  opacity: 0.55;
+}
+.maquette-cote { color: #8b5cf6; }
+.maquette-laser {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--coupe);
+  width: 2px;
+  transform: translateX(-50%);
+  background: #8b7cf6;
+  box-shadow: 0 0 10px #4b0082, 0 0 22px #1e90ff, 0 0 34px #6a5acd;
+}
+.maquette-etiquette {
+  position: absolute;
+  bottom: 12px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(14, 13, 19, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+@media (prefers-reduced-motion: reduce) { .maquette-split { animation: none; } }
+
+/* Pastille ronde « maquette offerte » (rappel du sticker de l'ancien site) */
+.pastille-offre {
+  display: grid;
+  place-items: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6 0%, #6a5acd 50%, #8b5cf6 100%);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(106, 90, 205, 0.55);
+  transform: rotate(-8deg);
+  animation: pastille-pulse 2.4s ease-in-out infinite;
+}
+@keyframes pastille-pulse {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(-8deg) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) { .pastille-offre { animation: none; } }

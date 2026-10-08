@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  async redirects() {
+    return [{ source: "/devis", destination: "/maquette-gratuite", permanent: true }];
+  },
 };
 
 export default nextConfig;

@@ -1,9 +1,10 @@
+import { Gift } from "lucide-react";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
 export function CtaFinal({
-  titre = "Parlons de votre projet.",
-  texte = "Décrivez-moi votre activité et ce que vous voulez vendre ou montrer en ligne. Je vous réponds sous 24 h avec une première proposition, sans engagement.",
+  titre = "Recevez votre maquette gratuite.",
+  texte = "Présentez-moi votre activité : je dessine la page d'accueil de votre futur site, à votre nom. Vous voyez le résultat avant de décider, sans engagement.",
 }: {
   titre?: string;
   texte?: string;
@@ -17,8 +18,9 @@ export function CtaFinal({
             <h2 className="h2 mx-auto max-w-2xl">{titre}</h2>
             <p className="lead mx-auto mt-5 max-w-xl">{texte}</p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/devis" className="btn btn-primary w-full sm:w-auto">
-                Demander un devis gratuit
+              <Link href="/maquette-gratuite" className="btn btn-primary w-full sm:w-auto">
+                <Gift className="h-4 w-4" aria-hidden="true" />
+                Recevoir ma maquette gratuite
               </Link>
               <a href={`mailto:${SITE.email}`} className="btn btn-ghost w-full sm:w-auto">
                 {SITE.email}
