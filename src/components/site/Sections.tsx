@@ -1,4 +1,4 @@
-import { Gift } from "lucide-react";
+import { CalendarCheck, Gift, Globe, MapPin, ShoppingBag, Star, Store } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
@@ -104,12 +104,20 @@ export function ProjetsPhares({ slugs, titre, intro }: { slugs: string[]; titre:
   );
 }
 
+const FONCTIONS_PRIMAPS = [
+  { icone: Globe, libelle: "Site rapide à votre image", couleur: "#4285f4" },
+  { icone: MapPin, libelle: "Fiche Google optimisée", couleur: "#34a853" },
+  { icone: Star, libelle: "Avis clients suivis", couleur: "#fbbc04" },
+  { icone: CalendarCheck, libelle: "Réservations et click & collect", couleur: "#ea4335" },
+] as const;
+
 export function BandeauPrimaps() {
   return (
     <section className="section pt-0" aria-labelledby="primaps-titre">
       <div className="wrap">
-        <div data-couleur="google" className="reveal carte-laser lent grid items-center gap-10 overflow-hidden p-7 [--radius:28px] md:p-12 lg:grid-cols-[1fr_1.1fr]">
-          <div>
+        <div data-couleur="google" className="reveal carte-laser lent relative grid items-center gap-10 overflow-hidden p-7 [--radius:28px] md:p-12 lg:grid-cols-[1fr_1.1fr]">
+          <div className="primaps-lueurs" aria-hidden="true" />
+          <div className="relative">
             <p className="eyebrow flex items-center gap-2">
               <span className="pastilles-google" aria-hidden="true">
                 <i /><i /><i /><i />
@@ -120,25 +128,56 @@ export function BandeauPrimaps() {
               Pour les restaurants, il y a <LogoPrimaps className="ml-[0.1em]" />
             </h2>
             <p className="mt-4 max-w-xl text-[16.5px] leading-relaxed text-[var(--muted)]">
-              Primaps est mon abonnement tout compris pour les restaurants : site rapide, fiche Google optimisée, avis,
-              réservations et click &amp; collect sans commission. On installe tout, vous n&apos;avez rien à gérer.
+              Mon abonnement tout compris pour les restaurants, sans commission sur vos réservations ni vos commandes. On
+              installe tout, vous n&apos;avez rien à gérer.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a href={SITE.primaps} className="btn btn-google">
-                Découvrir Primaps <Fleche />
-              </a>
-              <Link href="/realisations/bistrot-des-musees" className="text-[14.5px] text-[var(--muted)] underline-offset-4 hover:text-white hover:underline">
-                Exemple : le Bistrot des Musées
-              </Link>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+              {FONCTIONS_PRIMAPS.map(({ icone: Icone, libelle, couleur }) => (
+                <li key={libelle} className="primaps-fonction" style={{ ["--g" as string]: couleur }}>
+                  <span className="primaps-fonction-icone" aria-hidden="true">
+                    <Icone className="h-4 w-4" strokeWidth={2.2} />
+                  </span>
+                  {libelle}
+                </li>
+              ))}
+            </ul>
+            <a href={SITE.primaps} className="btn btn-primaps mt-9">
+              <span className="primaps-btn-logo" aria-hidden="true">
+                <Store className="h-[18px] w-[18px]" strokeWidth={2} />
+              </span>
+              Découvrir Primaps
+              <span className="fleche-ronde !h-8 !w-8">
+                <Fleche className="h-3.5 w-3.5" />
+              </span>
+            </a>
+          </div>
+          <div className="relative">
+            <div className="primaps-carte" aria-hidden="true">
+              <span className="primaps-repere" style={{ left: "14%", top: "22%", ["--g" as string]: "#ea4335" }} />
+              <span className="primaps-repere" style={{ left: "78%", top: "12%", ["--g" as string]: "#4285f4", animationDelay: "1.2s" }} />
+              <span className="primaps-repere" style={{ left: "88%", top: "70%", ["--g" as string]: "#34a853", animationDelay: "2.4s" }} />
+              <span className="primaps-repere" style={{ left: "6%", top: "76%", ["--g" as string]: "#fbbc04", animationDelay: "3.1s" }} />
+            </div>
+            <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block transition-transform duration-500 hover:-translate-y-1">
+              <DuoAppareils
+                ordinateur={{ src: "/mockups/primaps-macbook.webp", forme: "macbook-34", alt: "Page d'accueil de Primaps sur un MacBook" }}
+                telephone={{ src: "/mockups/primaps-iphone-face.webp", forme: "iphone-face", alt: "Primaps sur iPhone" }}
+                sizes="(min-width: 1024px) 560px, 92vw"
+              />
+            </a>
+            <div className="primaps-notif primaps-notif-1" aria-hidden="true" style={{ ["--g" as string]: "#ea4335" }}>
+              <span className="primaps-notif-icone"><CalendarCheck className="h-3.5 w-3.5" /></span>
+              <span><b>Nouvelle réservation</b><br />4 pers. · ce soir 20 h</span>
+            </div>
+            <div className="primaps-notif primaps-notif-2" aria-hidden="true" style={{ ["--g" as string]: "#fbbc04" }}>
+              <span className="primaps-notif-icone"><Star className="h-3.5 w-3.5" /></span>
+              <span><b>Nouvel avis</b><br /><span className="text-[#fbbc04]">★★★★★</span></span>
+            </div>
+            <div className="primaps-notif primaps-notif-3" aria-hidden="true" style={{ ["--g" as string]: "#34a853" }}>
+              <span className="primaps-notif-icone"><ShoppingBag className="h-3.5 w-3.5" /></span>
+              <span><b>Commande à emporter</b><br />0 % de commission</span>
             </div>
           </div>
-          <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block transition-transform duration-500 hover:-translate-y-1">
-            <DuoAppareils
-              ordinateur={{ src: "/mockups/primaps-macbook.webp", forme: "macbook-34", alt: "Page d'accueil de Primaps sur un MacBook" }}
-              telephone={{ src: "/mockups/primaps-iphone-face.webp", forme: "iphone-face", alt: "Primaps sur iPhone" }}
-              sizes="(min-width: 1024px) 560px, 92vw"
-            />
-          </a>
         </div>
       </div>
     </section>
