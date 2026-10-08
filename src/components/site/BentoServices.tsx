@@ -41,11 +41,11 @@ export function BentoServices() {
         <div className="mt-14 grid gap-4 lg:grid-cols-12">
           {/* E-commerce : grande tuile */}
           <Link href="/creation-site-e-commerce" data-couleur="violet" className="reveal group tuile relative overflow-hidden lg:col-span-7 lg:row-span-2 lg:min-h-[460px]">
-            <div className="relative z-10 max-w-[420px] p-8 md:p-10">
+            <div className="relative z-10 max-w-[400px] p-8 md:p-10">
               <span className="icone-service" aria-hidden="true">
                 <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={2} />
               </span>
-              <h3 className="mt-6 text-[clamp(1.9rem,3vw,2.5rem)] font-bold leading-[1.05] tracking-tight">Site e-commerce</h3>
+              <h3 className="mt-6 whitespace-nowrap text-[clamp(1.9rem,3vw,2.5rem)] font-bold leading-[1.05] tracking-tight">Site e-commerce</h3>
               <p className="mt-3 text-[16.5px] leading-relaxed text-white/75">
                 Une boutique Shopify sur-mesure, du petit catalogue à plus de 10&nbsp;000 produits synchronisés.
               </p>
@@ -64,7 +64,7 @@ export function BentoServices() {
               width={1864}
               height={1228}
               sizes="(min-width: 1024px) 560px, 90vw"
-              className="pointer-events-none relative -mb-4 ml-auto -mr-6 w-[92%] max-w-[600px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-x-1 group-hover:-translate-y-2 sm:w-[70%] lg:absolute lg:-bottom-6 lg:-right-10 lg:m-0 lg:w-[74%]"
+              className="pointer-events-none relative -mb-4 ml-auto -mr-6 w-[92%] max-w-[600px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-x-1 group-hover:-translate-y-2 sm:w-[70%] lg:absolute lg:-bottom-6 lg:-right-8 lg:m-0 lg:w-[58%]"
             />
           </Link>
 
