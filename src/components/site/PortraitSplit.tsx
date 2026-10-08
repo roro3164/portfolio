@@ -3,126 +3,181 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-// Le portrait signature de Romain DesignCode : côté gauche le designer
-// (illustration + éclaboussure), côté droit le développeur (photo N&B + code),
-// séparés par un trait laser. Au survol (ou via les deux pastilles), un côté
-// prend toute la place. À la première apparition, le trait balaie une fois.
+// Le portrait signature de Romain DesignCode : à gauche le designer (illustration
+// + éclaboussure), à droite le développeur (photo N&B + code qui défile).
+// La frontière est un fondu doux qui suit la souris (ou le doigt) avec un amorti,
+// et respire toute seule au repos. Un léger parallaxe donne de la profondeur.
+// Tout passe par des variables CSS (--p, --mx, --my) : aucun rendu React par image.
 
-const MOTS = [
-  ["<html>", "<div>", "React", "</div>"],
-  ["<script>", "Node.js", "<footer>", "SQL"],
-  ["Shopify", "<header>", "Next.js", "HTML5"],
-  ["<h1>", "API", "Git", "TypeScript"],
+const COLONNES = [
+  ["<html>", "React", "Next.js", "<div>", "API", "</div>"],
+  ["Shopify", "<script>", "SQL", "Liquid", "Git", "<footer>"],
+  ["TypeScript", "<h1>", "Node.js", "SEO", "<header>", "HTML5"],
+  ["CSS", "Vercel", "<section>", "JSON", "Figma", "<main>"],
 ];
 
-type Zone = "gauche" | "droite" | null;
+type Force = "designer" | "developpeur" | null;
 
 export function PortraitSplit({ priority = false, className = "" }: { priority?: boolean; className?: string }) {
-  const [zone, setZone] = useState<Zone>(null);
-  const coupe = zone === "gauche" ? 100 : zone === "droite" ? 0 : 50;
-  const ref = useRef<HTMLDivElement>(null);
+  const racine = useRef<HTMLDivElement>(null);
+  const scene = useRef<HTMLDivElement>(null);
+  const force = useRef<Force>(null);
+  const survol = useRef<{ x: number; y: number } | null>(null);
+  const [cote, setCote] = useState<Force>(null);
+  const rafraichir = useRef<() => void>(() => {});
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = ref.current;
-    if (!el) return;
+    const el = racine.current;
+    const sc = scene.current;
+    if (!el || !sc) return;
+    const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let p = 0.5, mx = 0, my = 0;
+    let raf = 0, visible = false, dernierCote: Force = null;
+    const t0 = performance.now();
+
+    const image = (t: number) => {
+      raf = 0;
+      const s = (t - t0) / 1000;
+      // cible de la frontière
+      let cible = 0.5 + 0.1 * Math.sin(s * 0.9) + 0.03 * Math.sin(s * 2.3);
+      let cmx = 0.35 * Math.sin(s * 0.6), cmy = 0.25 * Math.cos(s * 0.5);
+      if (survol.current) {
+        cible = survol.current.x;
+        cmx = survol.current.x * 2 - 1;
+        cmy = survol.current.y * 2 - 1;
+      }
+      if (force.current === "designer") cible = 1;
+      if (force.current === "developpeur") cible = 0;
+      const k = reduit ? 1 : 0.085;
+      p += (cible - p) * k;
+      mx += (cmx - mx) * (reduit ? 1 : 0.06);
+      my += (cmy - my) * (reduit ? 1 : 0.06);
+      el.style.setProperty("--p", p.toFixed(4));
+      el.style.setProperty("--mx", mx.toFixed(4));
+      el.style.setProperty("--my", my.toFixed(4));
+      el.style.setProperty("--bord", String(Math.min(1, Math.min(p, 1 - p) * 12)));
+      const c: Force = p > 0.85 ? "designer" : p < 0.15 ? "developpeur" : null;
+      if (c !== dernierCote) {
+        dernierCote = c;
+        setCote(c);
+      }
+      if (visible && !reduit) raf = requestAnimationFrame(image);
+    };
+    const relancer = () => {
+      if (!raf) raf = requestAnimationFrame(image);
+    };
+
+    // première apparition : un balayage complet, puis retour au repos
     const minuteurs: ReturnType<typeof setTimeout>[] = [];
+    let premiere = true;
     const obs = new IntersectionObserver(
       ([e]) => {
-        if (!e.isIntersecting) return;
-        obs.disconnect();
-        minuteurs.push(setTimeout(() => setZone("gauche"), 500));
-        minuteurs.push(setTimeout(() => setZone("droite"), 2000));
-        minuteurs.push(setTimeout(() => setZone(null), 3500));
+        visible = e.isIntersecting;
+        if (visible) relancer();
+        if (visible && premiere && !reduit && e.intersectionRatio >= 0.4) {
+          premiere = false;
+          minuteurs.push(setTimeout(() => (force.current = "designer"), 400));
+          minuteurs.push(setTimeout(() => (force.current = "developpeur"), 1700));
+          minuteurs.push(setTimeout(() => (force.current = null), 3000));
+        }
       },
-      { threshold: 0.5 },
+      { threshold: [0, 0.4] },
     );
     obs.observe(el);
+    rafraichir.current = () => (reduit ? image(performance.now()) : relancer());
+
+    const position = (ev: PointerEvent) => {
+      const r = sc.getBoundingClientRect();
+      survol.current = {
+        x: Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width)),
+        y: Math.min(1, Math.max(0, (ev.clientY - r.top) / r.height)),
+      };
+      force.current = null;
+      if (reduit) image(performance.now());
+    };
+    const quitter = () => {
+      survol.current = null;
+      if (reduit) image(performance.now());
+    };
+    sc.addEventListener("pointermove", position);
+    sc.addEventListener("pointerdown", position);
+    sc.addEventListener("pointerleave", quitter);
+    sc.addEventListener("pointercancel", quitter);
+    image(performance.now());
+
     return () => {
       obs.disconnect();
       minuteurs.forEach(clearTimeout);
+      cancelAnimationFrame(raf);
+      sc.removeEventListener("pointermove", position);
+      sc.removeEventListener("pointerdown", position);
+      sc.removeEventListener("pointerleave", quitter);
+      sc.removeEventListener("pointercancel", quitter);
     };
   }, []);
 
+  const choisir = (c: Exclude<Force, null>) => {
+    survol.current = null;
+    force.current = force.current === c ? null : c;
+    setCote(force.current);
+    rafraichir.current();
+  };
+
   return (
-    <div ref={ref} className={className}>
-    <div
-      className="portrait-split relative aspect-[6/5] w-full select-none"
-      style={{ maskImage: "linear-gradient(to bottom, #000 72%, transparent 98%)", WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent 98%)" }}
-      onMouseLeave={() => setZone(null)}
-      role="img"
-      aria-label="Romain Mornet, moitié designer en illustration, moitié développeur en photo noir et blanc"
-    >
-      {/* Côté designer, découpé à gauche du trait */}
+    <div ref={racine} className={`portrait-fluide ${className}`} style={{ ["--p" as string]: 0.5 }}>
       <div
-        className="absolute inset-0 transition-[clip-path] duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-        style={{ clipPath: `inset(0 ${100 - coupe}% 0 0)` }}
-        aria-hidden="true"
+        ref={scene}
+        className="portrait-scene relative aspect-[6/5] w-full select-none"
+        role="img"
+        aria-label="Romain Mornet, moitié designer en illustration, moitié développeur en photo noir et blanc"
       >
-        <Image
-          src="/img/eclaboussure.webp"
-          alt=""
-          fill
-          sizes="(min-width: 1024px) 620px, 92vw"
-          className="object-contain object-[30%_20%] opacity-90"
-          priority={priority}
-        />
-        <Image src="/img/romain-illustration.webp" alt="" fill sizes="(min-width: 1024px) 620px, 92vw" className="object-contain object-bottom" priority={priority} />
-      </div>
-
-      {/* Côté développeur, découpé */}
-      <div
-        className="absolute inset-0 transition-[clip-path] duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-        style={{ clipPath: `inset(0 0 0 ${coupe}%)` }}
-        aria-hidden="true"
-      >
-        <div className="absolute inset-x-[4%] top-[14%] bottom-[18%] grid grid-rows-4 font-mono text-[clamp(10px,1.15vw,14px)]">
-          {MOTS.map((ligne, i) => (
-            <div key={i} className="grid grid-cols-4 items-center justify-items-center">
-              {ligne.map((m, j) => (
-                <span key={m} className="mot-neon" style={{ animationDelay: `${(i * 4 + j) * 0.37}s` }}>
-                  {m}
-                </span>
-              ))}
-            </div>
-          ))}
+        {/* Côté développeur (dessous) : code qui défile + photo N&B */}
+        <div className="portrait-calque portrait-dev" aria-hidden="true">
+          <div className="portrait-code">
+            {COLONNES.map((col, i) => (
+              <div key={i} className="portrait-code-col" style={{ animationDuration: `${22 + i * 5}s`, animationDirection: i % 2 ? "reverse" : "normal" }}>
+                {[...col, ...col].map((m, j) => (
+                  <span key={j} className={j % 4 === 1 ? "is-vif" : undefined}>
+                    {m}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="portrait-photo">
+            <Image src="/img/romain-nb.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-bottom" priority={priority} />
+          </div>
         </div>
-        <Image src="/img/romain-nb.webp" alt="" fill sizes="(min-width: 1024px) 620px, 92vw" className="object-contain object-bottom" priority={priority} />
-      </div>
 
-      {/* Trait laser */}
-      <div
-        className="laser absolute bottom-[6%] top-[4%] w-[2px] -translate-x-1/2 transition-[left] duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-        style={{ left: `${coupe}%` }}
-        aria-hidden="true"
-      >
-        <span className="laser-eclat" />
-      </div>
+        {/* Côté designer (dessus), révélé par un fondu qui suit --p */}
+        <div className="portrait-calque portrait-designer" aria-hidden="true">
+          <div className="portrait-eclaboussure">
+            <Image src="/img/eclaboussure.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-[30%_20%]" priority={priority} />
+          </div>
+          <div className="portrait-photo">
+            <Image src="/img/romain-illustration.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-bottom" priority={priority} />
+          </div>
+        </div>
 
-      {/* Zones de survol (souris uniquement) */}
-      <div className="absolute inset-y-0 left-0 w-1/2" onMouseEnter={() => setZone("gauche")} aria-hidden="true" />
-      <div className="absolute inset-y-0 right-0 w-1/2" onMouseEnter={() => setZone("droite")} aria-hidden="true" />
-    </div>
+        {/* Frontière lumineuse */}
+        <div className="portrait-ligne" aria-hidden="true">
+          <span className="portrait-poignee">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m9 7-5 5 5 5M15 7l5 5-5 5" />
+            </svg>
+          </span>
+        </div>
+      </div>
 
       {/* Pastilles : montrer un côté (souris, clavier et tactile) */}
-      <div className="relative -mt-2 flex justify-center gap-2" onMouseLeave={() => setZone(null)}>
+      <div className="relative -mt-2 flex justify-center gap-2">
         {(
           [
-            ["gauche", "Designer", "rose"],
-            ["droite", "Développeur", "bleu"],
+            ["designer", "Designer", "rose"],
+            ["developpeur", "Développeur", "bleu"],
           ] as const
-        ).map(([z, libelle, couleur]) => (
-          <button
-            key={z}
-            type="button"
-            data-couleur={couleur}
-            aria-pressed={zone === z}
-            className="cote-portrait"
-            onMouseEnter={() => setZone(z)}
-            onFocus={() => setZone(z)}
-            onBlur={() => setZone(null)}
-            onClick={() => setZone(zone === z ? null : z)}
-          >
+        ).map(([c, libelle, couleur]) => (
+          <button key={c} type="button" data-couleur={couleur} aria-pressed={cote === c} className="cote-portrait" onClick={() => choisir(c)}>
             {libelle}
           </button>
         ))}

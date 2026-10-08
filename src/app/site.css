@@ -302,39 +302,101 @@ details.faq[open] .faq-plus { transform: rotate(45deg); }
   background: linear-gradient(180deg, rgba(var(--l1), 0.55), rgba(var(--l1), 0.25));
   box-shadow: 0 0 22px -4px rgba(var(--l1), 0.8);
 }
-.portrait-split .laser {
-  background: #8b7cf6;
-  box-shadow: 0 0 10px #4b0082, 0 0 22px #1e90ff, 0 0 34px #6a5acd, 0 0 60px #6a5acd;
+.portrait-fluide { --p: 0.5; --mx: 0; --my: 0; --bord: 1; }
+.portrait-scene {
+  touch-action: pan-y;
+  cursor: ew-resize;
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 98%);
+  mask-image: linear-gradient(to bottom, #000 74%, transparent 98%);
 }
-.portrait-split .laser-eclat {
+.portrait-calque { position: absolute; inset: 0; }
+.portrait-photo {
   position: absolute;
-  left: 0;
-  width: 100%;
-  height: 25%;
-  background: linear-gradient(180deg, transparent, #8b7cf6, #fff, #8b7cf6, transparent);
-  box-shadow: 0 0 18px #bc13fe;
-  animation: laser-va-vient 4s ease-in-out infinite;
+  inset: 0;
+  transform: translate3d(calc(var(--mx) * 5px), calc(var(--my) * 3px), 0);
 }
-@keyframes laser-va-vient {
-  0%, 100% { top: 0; }
-  50% { top: 75%; }
+/* Fondu doux de la frontière, légèrement incliné */
+.portrait-designer, .portrait-dev { --coupe: calc(var(--p) * 112% - 6%); }
+.portrait-dev {
+  -webkit-mask-image: linear-gradient(98deg, transparent calc(var(--coupe) - 3%), #000 calc(var(--coupe) + 3%));
+  mask-image: linear-gradient(98deg, transparent calc(var(--coupe) - 3%), #000 calc(var(--coupe) + 3%));
 }
-.portrait-split .mot-neon {
-  color: #b4b0ff;
-  text-shadow: 0 0 6px rgba(143, 137, 236, 0.9), 0 0 16px rgba(93, 88, 163, 0.8);
-  opacity: 0.7;
-  animation: neon-scintille 3.7s steps(1) infinite;
+.portrait-designer {
+  -webkit-mask-image: linear-gradient(98deg, #000 calc(var(--coupe) - 3%), transparent calc(var(--coupe) + 3%));
+  mask-image: linear-gradient(98deg, #000 calc(var(--coupe) - 3%), transparent calc(var(--coupe) + 3%));
 }
-@keyframes neon-scintille {
-  0%, 100% { opacity: 0.7; }
-  12% { opacity: 0.25; }
-  14% { opacity: 0.75; }
-  57% { opacity: 0.3; }
-  60% { opacity: 0.7; }
+.portrait-eclaboussure {
+  position: absolute;
+  inset: -4%;
+  opacity: 0.92;
+  transform: translate3d(calc(var(--mx) * -16px), calc(var(--my) * -10px), 0) scale(calc(1 + var(--p) * 0.04));
+  animation: eclaboussure-respire 9s ease-in-out infinite;
+  -webkit-mask-image: linear-gradient(to bottom, #000 42%, transparent 72%), linear-gradient(to right, transparent 3%, #000 15%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, #000 42%, transparent 72%), linear-gradient(to right, transparent 3%, #000 15%);
+  mask-composite: intersect;
+}
+@keyframes eclaboussure-respire {
+  0%, 100% { filter: saturate(1) brightness(1); }
+  50% { filter: saturate(1.25) brightness(1.08); }
+}
+/* Code qui défile derrière le développeur */
+.portrait-code {
+  position: absolute;
+  inset: 4% 2% 14%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 1.05vw, 13.5px);
+  transform: translate3d(calc(var(--mx) * 12px), calc(var(--my) * 8px), 0);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
+  overflow: hidden;
+}
+.portrait-code-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4em;
+  animation: code-monte linear infinite;
+}
+.portrait-code-col span { color: rgba(180, 176, 255, 0.38); white-space: nowrap; }
+.portrait-code-col span.is-vif { color: #b4b0ff; text-shadow: 0 0 6px rgba(143, 137, 236, 0.9), 0 0 16px rgba(93, 88, 163, 0.7); }
+@keyframes code-monte { to { transform: translateY(-50%); } }
+/* Ligne lumineuse + poignée */
+.portrait-ligne {
+  position: absolute;
+  top: 3%;
+  bottom: 8%;
+  left: calc(50% + (var(--p) * 1.12 - 0.56) * 111.7%);
+  width: 2px;
+  transform: translateX(-50%) rotate(8deg);
+  transform-origin: 50% 50%;
+  border-radius: 2px;
+  opacity: var(--bord);
+  background: linear-gradient(180deg, transparent, #ec4899 18%, #a78bfa 50%, #3b82f6 82%, transparent);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.9), 0 0 32px rgba(139, 92, 246, 0.6);
+  pointer-events: none;
+}
+.portrait-poignee {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  background: rgba(22, 20, 32, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.18), 0 0 24px rgba(139, 92, 246, 0.7);
 }
 @media (prefers-reduced-motion: reduce) {
-  .portrait-split .laser-eclat, .portrait-split .mot-neon { animation: none; }
-  .portrait-split * { transition: none !important; }
+  .portrait-code-col, .portrait-eclaboussure { animation: none; }
 }
 
 /* Carte à bord laser : un trait violet qui fait le tour de la carte
