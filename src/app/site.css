@@ -761,6 +761,53 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
 .btn-primaps .fleche-ronde { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.35); }
 @media (prefers-reduced-motion: reduce) { .btn-primaps::before, .btn-primaps::after { animation: none; } }
 
+/* Pages services : notifications du hero (alternent toutes les 4,5 s) */
+.hero-notif {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px 9px 9px;
+  border-radius: 14px;
+  white-space: nowrap;
+  background: rgba(24, 22, 34, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.85), 0 0 24px -10px rgba(var(--l1), 0.9);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  animation: hero-notif 9s ease-in-out infinite;
+}
+.hero-notif-icone { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; color: #fff; background: linear-gradient(145deg, rgb(var(--l1)), rgb(var(--l2))); }
+.hero-notif-1 { left: -4%; top: 8%; }
+.hero-notif-2 { right: -2%; bottom: 14%; animation-delay: 4.5s; }
+@keyframes hero-notif {
+  0% { opacity: 0; transform: translateY(10px) scale(0.96); }
+  5%, 42% { opacity: 1; transform: none; }
+  48%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+@media (max-width: 639px) { .hero-notif-1 { left: 0; } .hero-notif-2 { right: 0; } }
+@media (prefers-reduced-motion: reduce) { .hero-notif { animation: none; opacity: 1; } .hero-notif-2 { display: none; } }
+
+/* Pages services : tuiles « ce qui est inclus » (la coche se dessine à l'apparition) */
+.inclus-tuile {
+  padding: 22px 22px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(160deg, rgba(var(--l1), 0.08), rgba(var(--l1), 0) 60%), rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s, background 0.3s, transform 0.3s, opacity 0.7s;
+}
+.inclus-tuile:hover { border-color: rgba(var(--l1), 0.45); transform: translateY(-3px); }
+.inclus-coche { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; background: rgba(var(--l1), 0.18); border: 1px solid rgba(var(--l1), 0.5); }
+.inclus-coche path { stroke-dasharray: 1; stroke-dashoffset: 0; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .inclus-coche path { animation: coche-trace linear both; animation-timeline: view(); animation-range: entry 40% cover 35%; }
+  }
+}
+@keyframes coche-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
 /* Icône et flèche des services */
 .icone-service {
   display: grid;

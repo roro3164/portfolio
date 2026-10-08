@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Fil } from "@/components/site/Fil";
 import { JsonLd } from "@/components/site/JsonLd";
 import { ProjetPhare } from "@/components/site/Sections";
-import { AUTRES, ETUDES } from "@/content/projets";
+import { ETUDES } from "@/content/projets";
 import { fil, graphe, ID_ENTREPRISE } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
@@ -45,8 +44,8 @@ export default function Realisations() {
         <p className="eyebrow mt-10">Réalisations</p>
         <h1 className="h1 mt-5 max-w-4xl !text-[clamp(2.3rem,4.8vw,4rem)]">Des sites livrés, des résultats mesurés.</h1>
         <p className="lead mt-6 max-w-2xl">
-          Boutiques en ligne, sites vitrine, sites de restaurants : chaque projet est conçu, développé et référencé par moi.
-          Voici les plus marquants, avec leurs chiffres.
+          Boutiques en ligne et sites vitrine : chaque projet est conçu, développé et référencé par moi. Voici les plus
+          marquants, avec leurs chiffres.
         </p>
       </section>
 
@@ -55,46 +54,6 @@ export default function Realisations() {
           {ETUDES.map((e, i) => (
             <ProjetPhare key={e.slug} etude={e} inverse={i % 2 === 1} titreNiveau="h2" />
           ))}
-        </div>
-      </section>
-
-      <section className="section border-t border-[var(--line)]" aria-labelledby="autres-titre">
-        <div className="wrap">
-          <p className="eyebrow">Et aussi</p>
-          <h2 id="autres-titre" className="h2 mt-4">
-            Autres sites livrés
-          </h2>
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {AUTRES.map((p) => {
-              const carte = (
-                <>
-                  <div className="overflow-hidden rounded-xl border border-[var(--line)]">
-                    <Image
-                      src={p.image}
-                      alt={`Site ${p.nom}, ${p.secteur.toLowerCase()}`}
-                      width={516}
-                      height={308}
-                      sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 92vw"
-                      className="aspect-[16/10] h-auto w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <p className="mt-4 font-semibold">{p.nom}</p>
-                  <p className="text-[14px] text-[var(--muted)]">{p.secteur}</p>
-                </>
-              );
-              return (
-                <li key={p.nom} className="reveal">
-                  {p.url ? (
-                    <a href={p.url} className="group block" rel="noopener" target="_blank">
-                      {carte}
-                    </a>
-                  ) : (
-                    <div className="group">{carte}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </section>
 

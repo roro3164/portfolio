@@ -1,5 +1,4 @@
-// Réalisations. Les études de cas (avec page dédiée) sont les projets phares ;
-// les autres apparaissent dans la grille « Autres sites livrés ».
+// Réalisations : les études de cas, chacune avec sa page dédiée.
 
 export type Chiffre = { valeur: string; libelle: string };
 
@@ -134,19 +133,6 @@ export const ETUDES: EtudeDeCas[] = [
     resultat:
       "En trois mois, la fiche a été vue 17 916 fois, deux fois plus que l'année précédente, et le restaurant ressort 2e sur Google Maps pour « bistrot Montpellier ».",
   },
-];
-
-export type AutreProjet = { nom: string; secteur: string; image: string; url?: string };
-
-export const AUTRES: AutreProjet[] = [
-  { nom: "Salon Beauté", secteur: "Institut de beauté", image: "/realisations/salon-beaute.webp", url: "https://client-salon-beaute-backup-8vldcj6zj-romains-projects-72d8cf83.vercel.app/" },
-  { nom: "Éclat Gourmand", secteur: "Pâtisserie", image: "/realisations/eclat-gourmand.webp", url: "https://client-adolfina-aguero-patisserie-b.vercel.app/" },
-  { nom: "Bistrot Fernand", secteur: "Restaurant", image: "/realisations/bistrot-fernand.webp" },
-  { nom: "Snack Menu", secteur: "Restauration rapide", image: "/realisations/snack-menu.webp" },
-  { nom: "Instant Coiffure", secteur: "Salon de coiffure", image: "/realisations/instant-coiffure.webp" },
-  { nom: "Barbershop", secteur: "Barbier", image: "/realisations/barbershop.webp" },
-  { nom: "Fuji Sushis", secteur: "Restaurant japonais", image: "/realisations/fuji-sushis.webp" },
-  { nom: "BioPropreté", secteur: "Nettoyage écologique", image: "/realisations/bio-proprete.webp" },
 ];
 
 export const etude = (slug: string) => ETUDES.find((e) => e.slug === slug);
