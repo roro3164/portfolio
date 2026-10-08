@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, CreditCard, FileText, Globe, LayoutTemplate, MapPin, PenLine, ShoppingBag, Star } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Fleche } from "./Sections";
 
 // Services en grille « bento » : une grande tuile e-commerce, deux tuiles
@@ -40,7 +41,8 @@ export function BentoServices() {
 
         <div className="mt-14 grid gap-4 lg:grid-cols-12">
           {/* E-commerce : grande tuile */}
-          <Link href="/creation-site-e-commerce" data-couleur="violet" className="reveal group tuile relative overflow-hidden lg:col-span-7 lg:row-span-2 lg:min-h-[460px]">
+          <div data-couleur="violet" className="reveal relative rounded-[26px] lg:col-span-7 lg:row-span-2">
+          <Link href="/creation-site-e-commerce" className="group tuile relative block h-full overflow-hidden lg:min-h-[460px]">
             <div className="relative z-10 max-w-[400px] p-8 md:p-10">
               <span className="icone-service" aria-hidden="true">
                 <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={2} />
@@ -67,9 +69,13 @@ export function BentoServices() {
               className="pointer-events-none relative -mb-4 ml-auto -mr-6 w-[92%] max-w-[600px] transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:-translate-x-1 group-hover:-translate-y-2 sm:w-[70%] lg:absolute lg:-bottom-6 lg:-right-8 lg:m-0 lg:w-[58%]"
             />
           </Link>
+            <GlowingEffect spread={44} proximity={90} borderWidth={10} blur={16} className="z-10" />
+            <GlowingEffect spread={44} proximity={90} borderWidth={2} className="z-10" />
+          </div>
 
           {/* Site vitrine */}
-          <Link href="/creation-site-vitrine" data-couleur="vert" className="reveal group tuile relative min-h-[220px] overflow-hidden lg:col-span-5">
+          <div data-couleur="vert" className="reveal relative rounded-[26px] lg:col-span-5">
+          <Link href="/creation-site-vitrine" className="group tuile relative block h-full min-h-[220px] overflow-hidden ">
             <div className="relative z-10 max-w-[64%] p-8">
               <span className="icone-service" aria-hidden="true">
                 <LayoutTemplate className="h-[18px] w-[18px]" strokeWidth={2} />
@@ -87,9 +93,13 @@ export function BentoServices() {
               className="pointer-events-none absolute -bottom-16 right-6 w-[30%] max-w-[150px] rotate-[6deg] transition-transform duration-700 group-hover:-translate-y-2 group-hover:rotate-[3deg]"
             />
           </Link>
+            <GlowingEffect spread={44} proximity={90} borderWidth={10} blur={16} className="z-10" />
+            <GlowingEffect spread={44} proximity={90} borderWidth={2} className="z-10" />
+          </div>
 
           {/* Référencement local */}
-          <Link href="/referencement-local" data-couleur="bleu" className="reveal group tuile relative min-h-[220px] overflow-hidden lg:col-span-5">
+          <div data-couleur="bleu" className="reveal relative rounded-[26px] lg:col-span-5">
+          <Link href="/referencement-local" className="group tuile relative block h-full min-h-[220px] overflow-hidden ">
             <div className="relative z-10 p-8 pb-4 sm:max-w-[62%] sm:pb-8">
               <span className="icone-service" aria-hidden="true">
                 <MapPin className="h-[18px] w-[18px]" strokeWidth={2} />
@@ -120,6 +130,9 @@ export function BentoServices() {
               ))}
             </div>
           </Link>
+            <GlowingEffect spread={44} proximity={90} borderWidth={10} blur={16} className="z-10" />
+            <GlowingEffect spread={44} proximity={90} borderWidth={2} className="z-10" />
+          </div>
 
           {/* Options + suivi mensuel */}
           <div className="reveal tuile tuile-neutre grid gap-8 p-8 lg:col-span-12 lg:grid-cols-[1.5fr_1fr] lg:items-center">

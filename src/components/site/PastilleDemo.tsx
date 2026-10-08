@@ -18,9 +18,13 @@ export function PastilleDemo({ className = "" }: { className?: string }) {
         </text>
       </svg>
       <span className="pastille-coeur">
-        <Gift className="h-7 w-7 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" strokeWidth={2} aria-hidden="true" />
-        <span className="mt-1.5 block text-[23px] font-extrabold uppercase leading-[1.05] tracking-[0.04em]">Démo</span>
-        <span className="block text-[23px] font-extrabold uppercase leading-[1.05] tracking-[0.04em]">offerte</span>
+        <span className="flex flex-col items-center justify-center gap-1.5 leading-none">
+          <Gift className="h-7 w-7 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" strokeWidth={2} aria-hidden="true" />
+          <span className="flex flex-col items-center gap-[3px] text-[23px] font-extrabold uppercase leading-none tracking-[0.04em]">
+            <span className="block">Démo</span>
+            <span className="block">offerte</span>
+          </span>
+        </span>
       </span>
     </Link>
   );
