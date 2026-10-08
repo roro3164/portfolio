@@ -692,7 +692,6 @@ a.tuile:hover {
 /* Pastille « Démo offerte » (hero) */
 .pastille-demo {
   position: absolute;
-  display: grid;
   place-items: center;
   width: 190px;
   height: 190px;
@@ -764,4 +763,26 @@ a.tuile:hover {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Liens de service du hero */
+.lien-service {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #e9e7f5;
+  transition: color 0.2s;
+}
+.lien-service:hover { color: #fff; }
+.lien-service-point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(var(--l1));
+  box-shadow: 0 0 10px rgba(var(--l1), 0.8);
+}
+.lien-service[data-couleur="google"] .lien-service-point {
+  background: conic-gradient(#4285f4 0 25%, #34a853 0 50%, #fbbc04 0 75%, #ea4335 0);
+  box-shadow: 0 0 10px rgba(66, 133, 244, 0.6);
 }

@@ -72,37 +72,20 @@ export function Accueil() {
               <span className="text-[14px] text-[var(--muted)]">Gratuite · sans engagement · à votre nom</span>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <Link
-                href="/creation-site-e-commerce"
-                data-couleur="violet"
-                className="group card flex items-center justify-between gap-4 p-5 transition-colors hover:border-[var(--line-2)] hover:bg-[var(--surface-2)]"
-              >
-                <span>
-                  <span className="block text-[13px] text-[var(--muted)]">Je veux vendre en ligne</span>
-                  <span className="mt-1 block text-[17px] font-semibold">Site e-commerce</span>
-                </span>
-                <Fleche className="text-[var(--accent)] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/creation-site-vitrine"
-                data-couleur="vert"
-                className="group card flex items-center justify-between gap-4 p-5 transition-colors hover:border-[var(--line-2)] hover:bg-[var(--surface-2)]"
-              >
-                <span>
-                  <span className="block text-[13px] text-[var(--muted)]">Je veux plus de contacts</span>
-                  <span className="mt-1 block text-[17px] font-semibold">Site vitrine</span>
-                </span>
-                <Fleche className="text-[var(--accent)] transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-            <p className="mt-5 text-[14.5px] text-[var(--muted)]">
-              Vous êtes un restaurant ?{" "}
-              <a href={SITE.primaps} className="link">
-                Découvrez Primaps
-              </a>
-              , l&apos;abonnement tout compris.
-            </p>
+            <nav aria-label="Services" className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[15px]">
+              <span className="text-[var(--faint)]">Ou découvrez :</span>
+              {[
+                { href: "/creation-site-e-commerce", label: "Site e-commerce", couleur: "violet" },
+                { href: "/creation-site-vitrine", label: "Site vitrine", couleur: "vert" },
+                { href: SITE.primaps, label: "Restaurant ? Primaps", couleur: "google" },
+              ].map((l) => (
+                <Link key={l.href} href={l.href} data-couleur={l.couleur} className="lien-service group">
+                  <span className="lien-service-point" aria-hidden="true" />
+                  {l.label}
+                  <Fleche className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100" />
+                </Link>
+              ))}
+            </nav>
           </div>
 
           <div className="relative mx-auto w-full max-w-[640px] pb-10 lg:pb-0">
