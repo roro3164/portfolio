@@ -51,7 +51,7 @@ export default function Blog() {
 
       <section className="wrap pb-28">
         <Link href={`/blog/${une.slug}`} data-couleur={COULEUR[une.categorie]} className="group carte-laser lent block p-8 transition-colors hover:bg-[var(--surface-2)] md:p-12">
-          <span className="chip !border-[rgba(var(--l1),0.5)] !text-[var(--accent)]">{une.categorie}</span>
+          <span className="pack-etiquette">{une.categorie}</span>
           <h2 className="mt-6 max-w-3xl text-[clamp(1.7rem,3vw,2.5rem)] font-bold leading-tight tracking-tight">{une.titre}</h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-[var(--muted)]">{une.resume}</p>
           <p className="mt-6 flex items-center gap-2 text-[14px] text-[var(--faint)]">

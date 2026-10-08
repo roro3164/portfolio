@@ -11,8 +11,8 @@ export const SITE = {
   region: "Occitanie",
   codePostal: "34000",
   pays: "FR",
-  siren: "988 682 415",
-  siret: "988 682 415 00019",
+  siren: "988 682 415",
+  siret: "988 682 415 00019",
   zones: ["Montpellier", "Hérault", "Occitanie", "Nice", "Côte d'Azur", "France"],
   primaps: "https://www.primaps.fr",
   reseaux: {

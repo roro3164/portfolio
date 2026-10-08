@@ -27,7 +27,7 @@ export const entreprise = {
   },
   areaServed: SITE.zones.map((z) => ({ "@type": "Place", name: z })),
   priceRange: "Sur devis",
-  identifier: { "@type": "PropertyValue", propertyID: "SIRET", value: SITE.siret.replace(/ /g, "") },
+  identifier: { "@type": "PropertyValue", propertyID: "SIRET", value: SITE.siret.replace(/\s/g, "") },
   sameAs: Object.values(SITE.reseaux),
   knowsAbout: [
     "Création de site e-commerce",

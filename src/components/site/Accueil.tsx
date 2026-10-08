@@ -1,38 +1,51 @@
 import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
+import { CartePack, type Pack } from "@/components/site/CartePack";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Options } from "@/components/site/Options";
-import { APropos, BandeauPrimaps, Coche, Fleche, Methode, ProjetsPhares } from "@/components/site/Sections";
+import { APropos, BandeauPrimaps, Fleche, Methode, ProjetsPhares } from "@/components/site/Sections";
 import { faq, graphe } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
 
-const SERVICES = [
+const PACKS: Pack[] = [
   {
     href: "/creation-site-e-commerce",
     couleur: "violet",
-    eyebrow: "Vendre en ligne",
     titre: "Site e-commerce",
-    texte: "Une boutique Shopify sur-mesure, du petit catalogue à plus de 10 000 produits, avec paiement, livraison et stock à jour.",
-    points: ["Thème Shopify sur-mesure", "Import et synchronisation du catalogue", "SEO produit et catégories"],
+    intro: "Vendez en ligne avec une boutique Shopify sur-mesure, du petit catalogue à plus de 10 000 produits.",
+    idealPour: "Boutiques, showrooms, marques, distributeurs",
+    promesse: "Boutique et nom de domaine à votre nom",
+    blocs: [
+      { etiquette: "Boutique Shopify", detail: "sur-mesure", points: ["Design unique à votre marque", "Paiement, livraison, retrait", "Gestion depuis votre téléphone"] },
+      { etiquette: "Catalogue & SEO", points: ["Import et synchronisation fournisseurs", "Filtres et recherche", "Fiches et catégories optimisées"] },
+    ],
   },
   {
     href: "/creation-site-vitrine",
     couleur: "vert",
-    eyebrow: "Être trouvé et contacté",
     titre: "Site vitrine",
-    texte: "Un site rapide, à votre image, qui présente votre activité et transforme les visiteurs en appels et en demandes de devis.",
-    points: ["Design unique, pas de modèle générique", "Formulaires, réservation, prise de rendez-vous", "Rapide sur mobile"],
+    intro: "Un site rapide et à votre image, qui transforme les visiteurs en appels et en demandes de devis.",
+    idealPour: "Artisans, commerces, indépendants, PME",
+    promesse: "Site et nom de domaine à votre nom",
+    blocs: [
+      { etiquette: "Site professionnel", detail: "sur-mesure", points: ["Design et expérience moderne", "Pages pensées pour convertir", "Prise de contact optimisée"] },
+      { etiquette: "Visibilité Google", points: ["Ciblage service + ville", "Rapide sur mobile", "Lié à votre fiche Google"] },
+    ],
   },
   {
     href: "/referencement-local",
     couleur: "bleu",
-    eyebrow: "Monter sur Google",
     titre: "Référencement local",
-    texte: "Fiche Google, avis, pages locales et SEO technique pour apparaître devant vos concurrents dans votre ville.",
-    points: ["Fiche Google optimisée", "Pages par ville et par service", "Suivi des positions"],
+    intro: "Apparaissez devant vos concurrents quand vos clients cherchent votre métier près de chez eux.",
+    idealPour: "Toute entreprise avec une adresse ou une zone",
+    promesse: "Des résultats mesurés chaque mois",
+    blocs: [
+      { etiquette: "Google & Google Maps", points: ["Fiche Google optimisée", "Avis : collecte et réponses", "Pages par ville et par service"] },
+      { etiquette: "Suivi", points: ["Positions sur la carte", "Rapport clair chaque mois"] },
+    ],
   },
 ];
 
@@ -143,7 +156,7 @@ export function Accueil() {
         <div className="bande border-y">
           <ul className="wrap grid grid-cols-2 gap-y-6 py-8 md:grid-cols-4">
             {[
-              ["13 500+", "produits mis en ligne pour LumiNice"],
+              ["13 500+", "produits mis en ligne pour LumiNice"],
               ["×2", "de visibilité Google pour le Bistrot des Musées"],
               ["455", "fiches produits refaites pour Maison Ribier"],
               ["100 %", "conçu et codé par moi, sans sous-traitance"],
@@ -164,29 +177,9 @@ export function Accueil() {
           <h2 id="services-titre" className="h2 mt-4 max-w-3xl">
             Un site pensé pour rapporter des clients, pas seulement pour être joli.
           </h2>
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
-            {SERVICES.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                data-couleur={s.couleur}
-                className="reveal group carte-laser flex flex-col p-7"
-              >
-                <span className="eyebrow !text-[11.5px]">{s.eyebrow}</span>
-                <h3 className="mt-4 text-[1.6rem] font-bold tracking-tight">{s.titre}</h3>
-                <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">{s.texte}</p>
-                <ul className="mt-6 space-y-2.5 border-t border-[var(--line)] pt-6">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex gap-3 text-[15px]">
-                      <Coche />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-auto inline-flex items-center gap-2 pt-8 font-semibold text-[var(--accent)]">
-                  En savoir plus <Fleche className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {PACKS.map((p) => (
+              <CartePack key={p.href} pack={p} />
             ))}
           </div>
         </div>
@@ -197,7 +190,7 @@ export function Accueil() {
       <ProjetsPhares
         slugs={["lumi-nice", "maison-ribier", "bistrot-des-musees"]}
         titre="Des projets concrets, avec des chiffres."
-        intro="Une boutique de 13 500 luminaires, un catalogue de lunettes de luxe, un bistrot qui double sa visibilité : voici ce que je construis."
+        intro="Une boutique de 13 500 luminaires, un catalogue de lunettes de luxe, un bistrot qui double sa visibilité : voici ce que je construis."
       />
 
       <Methode />

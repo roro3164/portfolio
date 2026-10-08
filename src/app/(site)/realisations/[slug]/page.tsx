@@ -5,7 +5,7 @@ import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Fil } from "@/components/site/Fil";
 import { JsonLd } from "@/components/site/JsonLd";
-import { Chiffres, Coche, Fleche } from "@/components/site/Sections";
+import { Chiffres, Coche, couleurType, Fleche } from "@/components/site/Sections";
 import { ETUDES, etude } from "@/content/projets";
 import { fil, graphe, ID_ENTREPRISE, ID_PERSONNE } from "@/lib/schema";
 import { SITE } from "@/lib/site";
@@ -53,14 +53,14 @@ export default async function EtudeDeCasPage({ params }: Props) {
   return (
     <>
       <JsonLd data={graphe(oeuvre, fil(ariane))} />
-      <article>
+      <article data-couleur={couleurType(e.type)}>
         <header className="relative overflow-hidden">
           <div className="halo -left-40 -top-40 h-[480px] w-[480px]" aria-hidden="true" />
           <div className="wrap relative pt-10 lg:pt-14">
             <Fil items={ariane} />
             <div className="mt-10 flex flex-wrap gap-2">
-              <span className="chip">{e.type}</span>
-              <span className="chip">
+              <span className="pack-etiquette">{e.type}</span>
+              <span className="chip-teinte">
                 {e.secteur} · {e.ville}
               </span>
             </div>
@@ -91,7 +91,7 @@ export default async function EtudeDeCasPage({ params }: Props) {
               <p className="eyebrow mt-12">Technologies</p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {e.stack.map((s) => (
-                  <li key={s} className="chip">
+                  <li key={s} className="chip-teinte">
                     {s}
                   </li>
                 ))}

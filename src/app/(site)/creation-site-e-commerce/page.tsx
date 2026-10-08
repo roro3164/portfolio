@@ -16,7 +16,7 @@ const contenu: ContenuService = {
   eyebrow: "Site e-commerce · Shopify",
   h1: "Création de site e-commerce sur-mesure à Montpellier",
   lead:
-    "Je crée des boutiques Shopify qui vendent : un design unique, un catalogue propre et à jour, et un référencement pensé pour que vos produits remontent sur Google. De 50 à plus de 10 000 produits.",
+    "Je crée des boutiques Shopify qui vendent : un design unique, un catalogue propre et à jour, et un référencement pensé pour que vos produits remontent sur Google. De 50 à plus de 10 000 produits.",
   visuel: { src: "/realisations/lumi-nice-catalogue.webp", alt: "Catalogue de la boutique en ligne LumiNice avec filtres", url: "lumi-nice.fr/catalogue" },
   pourQui: [
     {
@@ -96,7 +96,7 @@ const contenu: ContenuService = {
     },
     {
       q: "Pouvez-vous gérer un catalogue de plusieurs milliers de produits ?",
-      r: "Oui. Pour LumiNice, j'ai mis en ligne plus de 13 500 luminaires de 7 marques, avec le stock et les prix d'un fournisseur relus chaque heure par son API. Les gros catalogues se gèrent par import et synchronisation, pas à la main.",
+      r: "Oui. Pour LumiNice, j'ai mis en ligne plus de 13 500 luminaires de 7 marques, avec le stock et les prix d'un fournisseur relus chaque heure par son API. Les gros catalogues se gèrent par import et synchronisation, pas à la main.",
     },
     {
       q: "Je suis sur WooCommerce, Wix ou PrestaShop : peut-on migrer ?",

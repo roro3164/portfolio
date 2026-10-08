@@ -27,14 +27,14 @@ export const ETUDES: EtudeDeCas[] = [
   {
     slug: "lumi-nice",
     nom: "LumiNice",
-    titreSeo: "LumiNice : boutique Shopify de 13 500 luminaires",
+    titreSeo: "LumiNice : boutique Shopify de 13 500 luminaires",
     type: "E-commerce",
     secteur: "Luminaires et éclairage",
     ville: "Nice",
     url: "https://www.lumi-nice.fr",
-    accroche: "Une boutique en ligne de plus de 13 000 luminaires, synchronisée avec les fournisseurs.",
+    accroche: "Une boutique en ligne de plus de 13 000 luminaires, synchronisée avec les fournisseurs.",
     resume:
-      "Showroom de luminaires à Nice depuis 2014, LumiNice vend désormais en ligne près de 15 000 références de grandes marques européennes. Catalogue, stock, prix et avis Google se mettent à jour tout seuls.",
+      "Showroom de luminaires à Nice depuis 2014, LumiNice vend désormais en ligne près de 15 000 références de grandes marques européennes. Catalogue, stock, prix et avis Google se mettent à jour tout seuls.",
     couverture: "/realisations/lumi-nice-accueil.webp",
     mobile: "/realisations/lumi-nice-mobile.webp",
     galerie: [
@@ -42,19 +42,19 @@ export const ETUDES: EtudeDeCas[] = [
       { src: "/realisations/lumi-nice-fiche-produit.webp", alt: "Fiche produit LumiNice : photos, prix, caractéristiques techniques" },
     ],
     chiffres: [
-      { valeur: "13 500+", libelle: "produits en ligne" },
+      { valeur: "13 500+", libelle: "produits en ligne" },
       { valeur: "7", libelle: "marques synchronisées" },
       { valeur: "1 h", libelle: "pour mettre le stock à jour" },
-      { valeur: "14 900", libelle: "redirections pour garder le référencement" },
+      { valeur: "14 900", libelle: "redirections pour garder le référencement" },
     ],
     defi:
-      "Le client avait un catalogue énorme, réparti entre plusieurs fournisseurs aux formats différents, et une bonne position sur Google à ne surtout pas perdre. Il fallait passer d'une vitrine à une vraie boutique, sans ressaisir 15 000 fiches à la main.",
+      "Le client avait un catalogue énorme, réparti entre plusieurs fournisseurs aux formats différents, et une bonne position sur Google à ne surtout pas perdre. Il fallait passer d'une vitrine à une vraie boutique, sans ressaisir 15 000 fiches à la main.",
     solution: [
       "Boutique Shopify avec un thème entièrement sur-mesure, pensé pour un très gros catalogue : filtres par univers, couleur, matériau et température de lumière.",
       "Import automatique des fiches fournisseurs : textes, caractéristiques, fiches techniques et jusqu'à plusieurs dizaines de milliers de photos.",
       "Stock et prix Nova Luce relus chaque heure par l'API du fournisseur ; les nouveautés arrivent seules chaque nuit.",
       "Avis Google du showroom affichés sur le site et mis à jour chaque nuit.",
-      "Pages par marque, par famille de produits et par ville (Nice, Cannes, Antibes, Monaco), données structurées produit et 14 900 redirections pour conserver les positions Google de l'ancien site.",
+      "Pages par marque, par famille de produits et par ville (Nice, Cannes, Antibes, Monaco), données structurées produit et 14 900 redirections pour conserver les positions Google de l'ancien site.",
     ],
     stack: ["Shopify", "Liquid", "API fournisseurs", "GitHub Actions", "SEO technique"],
     resultat:
@@ -80,7 +80,7 @@ export const ETUDES: EtudeDeCas[] = [
     chiffres: [
       { valeur: "455", libelle: "produits en ligne" },
       { valeur: "300", libelle: "nouvelles fiches créées" },
-      { valeur: "4 400+", libelle: "photos posées" },
+      { valeur: "4 400+", libelle: "photos posées" },
       { valeur: "96 %", libelle: "des coloris avec leurs vues" },
     ],
     defi:
@@ -124,7 +124,7 @@ export const ETUDES: EtudeDeCas[] = [
     ],
     stack: ["Next.js", "Primaps", "SEO local", "Fiche Google"],
     resultat:
-      "En trois mois, la fiche a été vue 17 916 fois, deux fois plus que l'année précédente, et le restaurant ressort 2e sur Google Maps pour « bistrot Montpellier ».",
+      "En trois mois, la fiche a été vue 17 916 fois, deux fois plus que l'année précédente, et le restaurant ressort 2e sur Google Maps pour « bistrot Montpellier ».",
   },
 ];
 

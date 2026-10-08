@@ -59,8 +59,8 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
       </div>
       <div className={`lg:col-span-5 ${inverse ? "lg:order-1" : ""}`}>
         <div className="flex flex-wrap gap-2">
-          <span className="chip !border-[rgba(var(--l1),0.5)] !text-[var(--accent)]">{etude.type}</span>
-          <span className="chip">
+          <span className="pack-etiquette">{etude.type}</span>
+          <span className="chip-teinte">
             {etude.secteur} · {etude.ville}
           </span>
         </div>

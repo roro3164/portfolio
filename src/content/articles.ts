@@ -36,7 +36,7 @@ export const ARTICLES: Article[] = [
       "Deux devis pour « un site internet » peuvent aller du simple au décuple. Voici les postes qui font réellement le prix, et les coûts récurrents à ne pas oublier.",
     corps: [
       {
-        p: "« Combien coûte un site ? » C'est la première question de presque tous les entrepreneurs, et la réponse honnête est : ça dépend de ce que le site doit faire. Un site de cinq pages pour un artisan et une boutique de 10 000 produits synchronisée avec des fournisseurs n'ont rien à voir. Voici les postes qui font réellement varier un devis, pour que vous puissiez comparer des propositions qui ne se ressemblent pas.",
+        p: "« Combien coûte un site ? » C'est la première question de presque tous les entrepreneurs, et la réponse honnête est : ça dépend de ce que le site doit faire. Un site de cinq pages pour un artisan et une boutique de 10 000 produits synchronisée avec des fournisseurs n'ont rien à voir. Voici les postes qui font réellement varier un devis, pour que vous puissiez comparer des propositions qui ne se ressemblent pas.",
       },
       { h2: "1. Le type de site" },
       {
@@ -143,7 +143,7 @@ export const ARTICLES: Article[] = [
         ],
       },
       {
-        p: "C'est la solution que je recommande dans la plupart des cas pour les commerçants. Pour [LumiNice](/realisations/lumi-nice), plus de 13 500 luminaires tournent sur Shopify, avec un thème sur-mesure et le stock d'un fournisseur relu chaque heure.",
+        p: "C'est la solution que je recommande dans la plupart des cas pour les commerçants. Pour [LumiNice](/realisations/lumi-nice), plus de 13 500 luminaires tournent sur Shopify, avec un thème sur-mesure et le stock d'un fournisseur relu chaque heure.",
       },
       { h2: "Quand choisir WooCommerce" },
       {
@@ -276,7 +276,7 @@ export const ARTICLES: Article[] = [
         p: "Chaque ancienne adresse doit pointer, par une **redirection 301** (permanente), vers la page nouvelle la plus proche. Pas vers l'accueil par défaut : une fiche produit vers la même fiche produit, une catégorie vers la même catégorie. Google indique que les redirections permanentes transmettent la valeur des anciennes pages.",
       },
       {
-        p: "Pour la refonte de [LumiNice](/realisations/lumi-nice), près de **14 900 redirections** ont été créées, une par ancienne page produit, catégorie et marque, pour que le passage à la nouvelle boutique ne coûte aucune position.",
+        p: "Pour la refonte de [LumiNice](/realisations/lumi-nice), près de **14 900 redirections** ont été créées, une par ancienne page produit, catégorie et marque, pour que le passage à la nouvelle boutique ne coûte aucune position.",
       },
       { h2: "Étape 3 : garder ce qui fonctionne dans les contenus" },
       {
@@ -308,17 +308,17 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "gros-catalogue-e-commerce",
-    titre: "Mettre en ligne 13 500 produits : retour d'expérience sur un gros catalogue e-commerce",
+    titre: "Mettre en ligne 13 500 produits : retour d'expérience sur un gros catalogue e-commerce",
     titreSeo: "Gros catalogue e-commerce : retour d'expérience",
     description:
-      "Mettre 13 500 produits en ligne sur Shopify : imports fournisseurs, stock synchronisé par API, filtres et SEO. Retour d'expérience LumiNice.",
+      "Mettre 13 500 produits en ligne sur Shopify : imports fournisseurs, stock synchronisé par API, filtres et SEO. Retour d'expérience LumiNice.",
     date: "2026-10-08",
     categorie: "E-commerce",
     resume:
       "Avec des milliers de références, on ne crée plus des fiches : on construit des tuyaux. Retour d'expérience sur la boutique LumiNice.",
     corps: [
       {
-        p: "LumiNice est un showroom de luminaires à Nice. Son catalogue : près de 15 000 références de sept grandes marques européennes. Le défi n'était pas de faire une belle boutique, mais de faire en sorte qu'elle reste juste, jour après jour, sans que le client passe ses journées à ressaisir des fiches.",
+        p: "LumiNice est un showroom de luminaires à Nice. Son catalogue : près de 15 000 références de sept grandes marques européennes. Le défi n'était pas de faire une belle boutique, mais de faire en sorte qu'elle reste juste, jour après jour, sans que le client passe ses journées à ressaisir des fiches.",
       },
       { h2: "Le principe : une seule source de vérité" },
       {
@@ -334,7 +334,7 @@ export const ARTICLES: Article[] = [
       },
       { h2: "Des filtres qui servent vraiment" },
       {
-        p: "Sur 13 500 produits, la navigation est décisive. Les filtres ont été construits autour de la façon dont les clients cherchent un luminaire : univers (intérieur, extérieur), type, marque, couleur, matériau, température de lumière. Chaque produit reçoit aussi des mots-clés de recherche, pour être trouvé même avec un synonyme.",
+        p: "Sur 13 500 produits, la navigation est décisive. Les filtres ont été construits autour de la façon dont les clients cherchent un luminaire : univers (intérieur, extérieur), type, marque, couleur, matériau, température de lumière. Chaque produit reçoit aussi des mots-clés de recherche, pour être trouvé même avec un synonyme.",
       },
       { h2: "Le référencement à grande échelle" },
       {
@@ -343,7 +343,7 @@ export const ARTICLES: Article[] = [
           "Des titres de fiches construits sur un même modèle : marque, modèle, référence, type.",
           "Des données structurées produit avec disponibilité et livraison réelles.",
           "Des pages par ville de la Côte d'Azur pour la recherche locale.",
-          "Près de 14 900 redirections depuis l'ancien site pour conserver les positions.",
+          "Près de 14 900 redirections depuis l'ancien site pour conserver les positions.",
         ],
       },
       { h2: "Ce qu'il faut retenir" },
