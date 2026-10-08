@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Navigateur, Telephone } from "@/components/site/Cadres";
 import { BentoServices } from "@/components/site/BentoServices";
 import { DemoOfferte } from "@/components/site/DemoOfferte";
+import { MotTournant } from "@/components/site/MotTournant";
 import { PastilleDemo } from "@/components/site/PastilleDemo";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Faq, type QR } from "@/components/site/Faq";
@@ -56,8 +57,11 @@ export function Accueil() {
         <div className="wrap relative grid items-center gap-14 pb-20 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-28 lg:pt-20">
           <div>
             <p className="eyebrow">Développeur &amp; designer web · {SITE.ville}</p>
-            <h1 className="h1 mt-6">
-              Des sites qui <span className="grad">vendent</span>, conçus sur-mesure.
+            <h1 className="h1 mt-6 !text-[clamp(2.25rem,4.9vw,4.3rem)]">
+              Des sites qui <br />
+              <MotTournant mots={["vendent", "attirent", "rapportent", "convertissent", "se démarquent"]} />,{" "}
+              <br />
+              <span className="whitespace-nowrap">conçus sur-mesure.</span>
             </h1>
             <p className="lead mt-6 max-w-xl">
               Je crée des boutiques en ligne Shopify et des sites vitrine pour les entreprises qui veulent plus de clients,
