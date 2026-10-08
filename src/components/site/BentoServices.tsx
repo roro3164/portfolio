@@ -76,7 +76,7 @@ const SERVICES: Service[] = [
       { titre: "IA (GEO)", texte: "Cité par ChatGPT et Gemini" },
     ],
     schema: <SchemaReferencement />,
-    badge: { icone: MapPin, texte: "Objectif : le top 3 sur Google Maps" },
+    badge: { icone: MapPin, texte: "Objectif : le top 3 Google et cité par ChatGPT" },
   },
 ];
 

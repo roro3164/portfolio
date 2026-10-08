@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CreditCard, Mail, MapPin, MousePointer2, Navigation, Phone, Search, ShoppingBag, Star } from "lucide-react";
+import { CreditCard, Mail, MapPin, MousePointer2, Navigation, Phone, Search, ShoppingBag, Sparkles, Star } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 // Mini-interfaces animées des 3 services, avec de vrais éléments (marques
@@ -225,9 +225,9 @@ export function SchemaVitrine() {
   );
 }
 
-/* ---------- Référencement : recherche, carte, optimisation, montée en 1re place ---------- */
+/* ---------- Référencement : recherche, carte, optimisation, 1re place, puis cité par l'IA ---------- */
 
-const SEO = [300, 1100, 350, 300, 250, 250, 450, 350, 350, 700, 700];
+const SEO = [300, 1100, 350, 300, 250, 250, 450, 350, 350, 700, 700, 900, 700];
 
 export function SchemaReferencement() {
   const { ref, etape, a } = useSequence(SEO);
@@ -292,6 +292,18 @@ export function SchemaReferencement() {
 
       <div className="schema-toast sx-toast sx" {...a(11)} style={{ left: -6, bottom: -12 }}>
         <Navigation className="h-3.5 w-3.5" /> Itinéraire demandé
+      </div>
+
+      <div className="sx-ia sx" {...a(12)}>
+        <p className="flex items-center gap-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-[#8b5cf6]">
+          <Sparkles className="h-2.5 w-2.5" /> Demandé à ChatGPT
+        </p>
+        <p className="ml-auto mt-1.5 w-fit max-w-[92%] rounded-xl rounded-br-sm bg-[#ececf1] px-2 py-1 text-[8px] text-[#202123]">
+          Un bon menuisier à Montpellier ?
+        </p>
+        <p className="sx mt-1.5 text-[8px] leading-snug text-[#202123]" {...a(13)}>
+          Je vous recommande <b>Atelier Morel</b>, noté 4,9 sur Google pour ses cuisines en bois massif.
+        </p>
       </div>
     </div>
   );
