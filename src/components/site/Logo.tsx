@@ -12,6 +12,17 @@ export function Logo({ className = "", hauteur = 30 }: { className?: string; hau
         height={hauteur}
         priority
         unoptimized
+        className="logo-sombre"
+        style={{ height: hauteur, width: "auto" }}
+      />
+      {/* version texte foncé pour le thème clair */}
+      <Image
+        src="/img/logo-romain-designcode-clair.svg"
+        alt=""
+        width={Math.round(hauteur * 3.714)}
+        height={hauteur}
+        unoptimized
+        className="logo-clair"
         style={{ height: hauteur, width: "auto" }}
       />
     </Link>

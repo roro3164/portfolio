@@ -9,7 +9,7 @@ export function Fil({ items }: { items: { nom: string; url: string }[] }) {
           <li key={it.url} className="flex items-center gap-2">
             {i > 0 && <span aria-hidden="true">/</span>}
             {i < items.length - 1 ? (
-              <Link href={it.url} className="hover:text-white">
+              <Link href={it.url} className="hover:text-[var(--fort)]">
                 {it.nom}
               </Link>
             ) : (

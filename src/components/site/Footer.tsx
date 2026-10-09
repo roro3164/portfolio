@@ -55,11 +55,11 @@ export function Footer() {
               {c.liens.map((l) => (
                 <li key={l.href}>
                   {l.href.startsWith("/") ? (
-                    <Link href={l.href} className="text-[15px] text-[var(--muted)] transition-colors hover:text-white">
+                    <Link href={l.href} className="text-[15px] text-[var(--muted)] transition-colors hover:text-[var(--fort)]">
                       {l.label}
                     </Link>
                   ) : (
-                    <a href={l.href} className="break-all text-[15px] text-[var(--muted)] transition-colors hover:text-white">
+                    <a href={l.href} className="break-all text-[15px] text-[var(--muted)] transition-colors hover:text-[var(--fort)]">
                       {l.label}
                     </a>
                   )}
@@ -75,10 +75,10 @@ export function Footer() {
             © {new Date().getFullYear()} {SITE.nom} · {SITE.fondateur} · SIRET {SITE.siret}
           </p>
           <div className="flex gap-5">
-            <Link href="/mentions-legales" className="hover:text-white">
+            <Link href="/mentions-legales" className="hover:text-[var(--fort)]">
               Mentions légales
             </Link>
-            <Link href="/confidentialite" className="hover:text-white">
+            <Link href="/confidentialite" className="hover:text-[var(--fort)]">
               Confidentialité
             </Link>
           </div>

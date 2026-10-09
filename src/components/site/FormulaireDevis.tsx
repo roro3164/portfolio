@@ -6,7 +6,7 @@ const PROJETS = ["Site e-commerce", "Site vitrine", "Refonte d'un site", "Réfé
 
 const champ =
   "mt-2 block w-full rounded-xl border border-[var(--line-2)] bg-[var(--bg)] px-4 py-3 text-[16px] text-white placeholder:text-[var(--faint)] transition-colors focus:border-[var(--violet)] focus:outline-none focus:ring-2 focus:ring-[rgba(143,137,236,0.3)]";
-const etiquette = "text-[14.5px] font-medium text-[#dcdae6]";
+const etiquette = "text-[14.5px] font-medium text-[var(--nav)]";
 
 export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
   const [etat, setEtat] = useState<"repos" | "envoi" | "ok" | "erreur">("repos");
@@ -71,7 +71,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
           {PROJETS.map((p) => (
             <label key={p} className="cursor-pointer">
               <input type="radio" name="projet" value={p} defaultChecked={p === (projetInitial ?? "Site e-commerce")} className="peer sr-only" required />
-              <span className="inline-flex min-h-[42px] items-center rounded-full border border-[var(--line-2)] px-4 text-[14.5px] text-[var(--muted)] transition-colors peer-checked:border-[var(--violet)] peer-checked:bg-[rgba(143,137,236,0.14)] peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--violet-2)]">
+              <span className="inline-flex min-h-[42px] items-center rounded-full border border-[var(--line-2)] px-4 text-[14.5px] text-[var(--muted)] transition-colors peer-checked:border-[var(--violet)] peer-checked:bg-[rgba(143,137,236,0.14)] peer-checked:text-[var(--fort)] peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--violet-2)]">
                 {p}
               </span>
             </label>
@@ -105,7 +105,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
       </div>
 
       {etat === "erreur" && (
-        <p role="alert" className="rounded-xl border border-[#ff8a8a40] bg-[#ff8a8a14] px-4 py-3 text-[15px] text-[#ffc2c2]">
+        <p role="alert" className="rounded-xl border border-[#ff8a8a40] bg-[#ff8a8a14] px-4 py-3 text-[15px] text-[var(--erreur)]">
           {erreur}
         </p>
       )}
@@ -113,7 +113,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[13.5px] text-[var(--faint)]">
           Vos informations servent uniquement à vous répondre.{" "}
-          <a href="/confidentialite" className="underline underline-offset-2 hover:text-white">
+          <a href="/confidentialite" className="underline underline-offset-2 hover:text-[var(--fort)]">
             Confidentialité
           </a>
         </p>

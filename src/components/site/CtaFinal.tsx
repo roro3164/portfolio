@@ -26,7 +26,7 @@ export function CtaFinal({
                 <Gift className="h-[18px] w-[18px]" aria-hidden="true" />
                 Recevoir ma démo gratuite
               </Link>
-              <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 text-[14.5px] text-[var(--muted)] underline-offset-4 hover:text-white hover:underline">
+              <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 text-[14.5px] text-[var(--muted)] underline-offset-4 hover:text-[var(--fort)] hover:underline">
                 <Mail className="h-4 w-4" aria-hidden="true" />
                 {SITE.email}
               </a>

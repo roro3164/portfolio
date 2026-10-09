@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV } from "@/lib/site";
 import { Logo } from "./Logo";
+import { BasculeTheme } from "./BasculeTheme";
 
 export function Header() {
   const [ouvert, setOuvert] = useState(false);
@@ -48,7 +49,7 @@ export function Header() {
                   href={l.href}
                   aria-current={actif(l.href) ? "page" : undefined}
                   className={`lien-neon whitespace-nowrap rounded-full px-2.5 py-2 text-[14.5px] xl:px-3.5 ${
-                    actif(l.href) ? "text-white" : "text-[#cfcde0]"
+                    actif(l.href) ? "text-[var(--fort)]" : "text-[var(--nav)]"
                   }`}
                 >
                   {l.label}
@@ -59,6 +60,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <BasculeTheme />
           <Link href="/demo-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
             <Gift className="h-4 w-4" aria-hidden="true" />
             Ma démo gratuite
@@ -72,8 +74,8 @@ export function Header() {
             onClick={() => setOuvert((o) => !o)}
           >
             <span className="relative block h-3 w-[18px]">
-              <span className={`absolute left-0 h-[1.5px] w-full bg-white transition-transform ${ouvert ? "top-[5px] rotate-45" : "top-0"}`} />
-              <span className={`absolute left-0 h-[1.5px] w-full bg-white transition-transform ${ouvert ? "top-[5px] -rotate-45" : "top-[10px]"}`} />
+              <span className={`absolute left-0 h-[1.5px] w-full bg-[var(--fort)] transition-transform ${ouvert ? "top-[5px] rotate-45" : "top-0"}`} />
+              <span className={`absolute left-0 h-[1.5px] w-full bg-[var(--fort)] transition-transform ${ouvert ? "top-[5px] -rotate-45" : "top-[10px]"}`} />
             </span>
           </button>
         </div>
