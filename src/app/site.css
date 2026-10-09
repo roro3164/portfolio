@@ -463,7 +463,8 @@ details.faq[open] .faq-plus {
   transform: translate3d(calc(var(--mx) * 5px), calc(var(--my) * 3px), 0);
 }
 /* Accueil : photo plus petite, le fond (éclaboussure, pluie de code) garde sa taille */
-.portrait-reduit .portrait-photo { inset: 18% 14% 0; }
+.portrait-reduit .portrait-scene { aspect-ratio: 6 / 4.4; }
+.portrait-reduit .portrait-photo { inset: 4% 14% 0; }
 /* Fondu doux de la frontière, légèrement incliné */
 .portrait-designer, .portrait-dev { --coupe: calc(var(--p) * 112% - 6%); }
 .portrait-dev {
