@@ -187,7 +187,7 @@ export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" })
       <div className={`wrap grid items-center gap-12 ${visuel === "portrait" ? "md:grid-cols-[1.25fr_1fr] md:gap-8 lg:gap-10" : "md:grid-cols-[1fr_1fr] lg:gap-16"}`}>
         {visuel === "portrait" ? (
           <div className="relative -mx-2 w-auto sm:mx-0 md:-ml-4 lg:-ml-8">
-            <PortraitSplit />
+            <PortraitSplit className="portrait-reduit" />
           </div>
         ) : (
         <div className="reveal relative mx-auto w-full max-w-[420px]">
