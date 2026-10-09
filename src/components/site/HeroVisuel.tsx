@@ -44,7 +44,7 @@ export function HeroVisuel() {
   }, []);
 
   return (
-    <div ref={ref} className="hero-visuel relative mx-auto w-full max-w-[660px] pb-6 lg:pb-0">
+    <div ref={ref} className="hero-visuel relative mx-auto w-full max-w-[660px] pb-6 lg:-ml-[10%] lg:mr-0 lg:w-[110%] lg:max-w-none 2xl:-ml-[8%] 2xl:w-[114%] lg:pb-0">
       <div ref={construction.ref} className="hero-compo">
         {/* MacBook */}
         <div className="hero-ordi">
@@ -67,21 +67,25 @@ export function HeroVisuel() {
           </span>
         </div>
 
-        {/* Pastille ronde « Démo offerte » */}
+        {/* Pastille ronde « Démo gratuite » */}
         <Link href="/demo-gratuite" className="rond-demo group" aria-label="Recevoir ma démo gratuite">
+          <span className="rond-demo-anneau" aria-hidden="true" />
           <svg viewBox="0 0 120 120" className="rond-demo-texte" aria-hidden="true">
             <defs>
-              <path id="rond-demo-cercle" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0" />
+              <path id="rond-demo-cercle" d="M60 60 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0" />
             </defs>
-            <text textLength={289} lengthAdjust="spacing">
+            <text textLength={301} lengthAdjust="spacing">
               <textPath href="#rond-demo-cercle" startOffset="0">
-                DÉMO OFFERTE • SANS ENGAGEMENT •
+                DÉMO GRATUITE ✦ SANS ENGAGEMENT ✦
               </textPath>
             </text>
           </svg>
           <span className="rond-demo-coeur" aria-hidden="true">
-            <Gift className="rond-demo-cadeau h-6 w-6" strokeWidth={2.1} />
-            <ArrowUpRight className="rond-demo-fleche h-6 w-6" strokeWidth={2.4} />
+            <span className="rond-demo-icones">
+              <Gift className="rond-demo-cadeau h-[26px] w-[26px]" strokeWidth={2.2} />
+              <ArrowUpRight className="rond-demo-fleche h-[26px] w-[26px]" strokeWidth={2.6} />
+            </span>
+            <span className="rond-demo-mot">Offerte</span>
           </span>
         </Link>
       </div>

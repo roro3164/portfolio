@@ -1,19 +1,18 @@
 "use client";
 
-import { SiteTerreEtSel, useConstruction } from "./TerreEtSel";
+import { SiteTerreEtSel, URL_DEMO } from "./TerreEtSel";
 
-// Démo qui se construit dans une tablette en paysage : l'adresse se tape, puis
-// chaque élément du site (marque fictive « Terre & Sel ») apparaît un par un,
-// la notification « en ligne » arrive, tout se vide et la boucle recommence.
+// Tablette en paysage avec la démo « Terre & Sel » affichée en entier, fixe :
+// l'animation de construction vit dans le hero, ici rien ne bouge.
+
+const TOUT_VISIBLE = () => ({ "data-on": "" });
 
 export function DemoTablette() {
-  const { ref, lettres, v } = useConstruction();
-
   return (
-    <div ref={ref} className="tablette">
+    <div className="tablette">
       <span className="tablette-camera" />
-      <SiteTerreEtSel lettres={lettres} v={v} className="tablette-ecran" />
-      <div className="demo-toast tablette-toast ts-el" {...v(15)}>
+      <SiteTerreEtSel lettres={URL_DEMO.length} v={TOUT_VISIBLE} className="tablette-ecran" />
+      <div className="demo-toast tablette-toast tablette-toast-fixe">
         <span className="demo-toast-point" />
         <span className="text-[14px] leading-tight">
           <b className="block text-white">Votre démo est en ligne</b>
