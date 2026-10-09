@@ -465,6 +465,9 @@ details.faq[open] .faq-plus {
 /* Accueil : photo plus petite, le fond (éclaboussure, pluie de code) garde sa taille */
 .portrait-reduit .portrait-scene { aspect-ratio: 6 / 4.4; }
 .portrait-reduit .portrait-photo { inset: 4% 14% 0; }
+/* le fond descend jusqu'au bas du portrait : les deux s'effacent ensemble */
+.portrait-reduit .portrait-code { inset: 0; height: 100%; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 82%, transparent 99%); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 82%, transparent 99%); }
+.portrait-reduit .portrait-eclaboussure { -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 99%), linear-gradient(to right, transparent 3%, #000 15%); mask-image: linear-gradient(to bottom, #000 70%, transparent 99%), linear-gradient(to right, transparent 3%, #000 15%); }
 /* Fondu doux de la frontière, légèrement incliné */
 .portrait-designer, .portrait-dev { --coupe: calc(var(--p) * 112% - 6%); }
 .portrait-dev {
