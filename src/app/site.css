@@ -26,7 +26,7 @@
   --l-clair: #ddd8ff;
   --accent: #b4b0ff;
   --wrap: 1360px;
-  /* couleur d'accent de la marque (violet par défaut, rose ou bleu via data-accent) */
+  /* violet de la marque (accent) */
   --m1: 140, 130, 227;
   --m2: 122, 112, 212;
   --m-clair: 171, 164, 236;
@@ -84,17 +84,6 @@
   --nappe-4: rgba(196, 181, 253, 0.2); --nappe-4-b: rgba(196, 181, 253, 0.06);
   color-scheme: light;
 }
-/* Accent rose (le rose « designer ») et bleu (le bleu « développeur »), choisis par le visiteur */
-:root[data-accent="rose"] {
-  --m1: 236, 72, 153; --m2: 219, 39, 119; --m-clair: 244, 114, 182; --m-pale: 251, 207, 232;
-  --violet: #f472b6; --violet-2: #f9a8d4; --accent: #f9a8d4; --brand: #a3477a; --l-clair: #ffd1e8;
-}
-:root[data-accent="bleu"] {
-  --m1: 59, 130, 246; --m2: 37, 99, 235; --m-clair: 96, 165, 250; --m-pale: 191, 219, 254;
-  --violet: #60a5fa; --violet-2: #93c5fd; --accent: #93c5fd; --brand: #3b5ea8; --l-clair: #d3e3ff;
-}
-:root[data-theme="clair"][data-accent="rose"] { --violet: #db2777; --violet-2: #be185d; --accent: #be185d; --l-clair: #f9a8d4; }
-:root[data-theme="clair"][data-accent="bleu"] { --violet: #2563eb; --violet-2: #1d4ed8; --accent: #1d4ed8; --l-clair: #93c5fd; }
 :root[data-theme="clair"] [data-couleur="vert"] { --accent: #15803d; }
 :root[data-theme="clair"] [data-couleur="bleu"] { --accent: #2563eb; }
 :root[data-theme="clair"] [data-couleur="or"] { --accent: #a16207; }
@@ -1916,8 +1905,3 @@ a.tuile:hover {
 :root[data-theme="clair"] .cote-portrait:hover, :root[data-theme="clair"] .cote-portrait[aria-pressed="true"] { background: linear-gradient(180deg, rgba(var(--l1), 0.95), rgba(var(--l2), 0.85)); }
 :root[data-theme="clair"] .pack-etiquette { background: linear-gradient(180deg, rgba(var(--l1), 0.95), rgba(var(--l2), 0.85)); }
 
-/* Choix de la couleur d'accent (en-tête) */
-.choix-accent { display: flex; align-items: center; gap: 4px; height: 44px; padding: 0 7px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(var(--voile), 0.04); }
-.choix-accent-pastille { position: relative; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, color-mix(in srgb, var(--t) 55%, #fff), var(--t) 70%); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12); transition: transform 0.25s cubic-bezier(0.3, 1.5, 0.5, 1); }
-.choix-accent-pastille:hover { transform: scale(1.15); }
-.choix-accent-pastille[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--t), 0 0 12px var(--t); }

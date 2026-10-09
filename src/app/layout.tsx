@@ -45,10 +45,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
-        {/* Thème clair/sombre et couleur d'accent choisis par le visiteur, posés avant l'affichage (pas de flash). La page QR /contact n'est pas concernée. */}
+        {/* Thème clair/sombre choisi par le visiteur, posé avant l'affichage (pas de flash). La page QR /contact reste sombre. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(location.pathname.indexOf('/contact')!==0){var d=document.documentElement;if(localStorage.getItem('theme')==='clair')d.setAttribute('data-theme','clair');var a=localStorage.getItem('accent');if(a==='rose'||a==='bleu')d.setAttribute('data-accent',a)}}catch(e){}`,
+            __html: `try{if(localStorage.getItem('theme')==='clair'&&location.pathname.indexOf('/contact')!==0)document.documentElement.setAttribute('data-theme','clair')}catch(e){}`,
           }}
         />
         <script

@@ -66,7 +66,7 @@ export function PluieCode({ className = "" }: { className?: string }) {
       ctx.fillStyle = "rgba(0,0,0,0.075)";
       ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = "source-over";
-      // couleurs de l'accent choisi (violet, rose ou bleu), lues à chaque pas
+      // couleurs d'accent du site, lues à chaque pas
       const styles = getComputedStyle(document.documentElement);
       const m1 = styles.getPropertyValue("--m1").trim() || "140, 130, 227";
       const pale = styles.getPropertyValue("--m-pale").trim() || "203, 198, 244";
