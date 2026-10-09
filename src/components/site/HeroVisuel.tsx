@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Gift } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { PastilleDemo } from "./PastilleDemo";
 import { SiteTerreEtSel, SiteTerreEtSelMobile, useConstruction } from "./TerreEtSel";
 
 // Visuel du hero : le site de démonstration « Terre & Sel » se construit en
@@ -67,27 +66,10 @@ export function HeroVisuel() {
           </span>
         </div>
 
-        {/* Pastille ronde « Démo gratuite » */}
-        <Link href="/demo-gratuite" className="rond-demo group" aria-label="Recevoir ma démo gratuite">
-          <span className="rond-demo-anneau" aria-hidden="true" />
-          <svg viewBox="0 0 120 120" className="rond-demo-texte" aria-hidden="true">
-            <defs>
-              <path id="rond-demo-cercle" d="M60 60 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0" />
-            </defs>
-            <text textLength={301} lengthAdjust="spacing">
-              <textPath href="#rond-demo-cercle" startOffset="0">
-                DÉMO GRATUITE ✦ SANS ENGAGEMENT ✦
-              </textPath>
-            </text>
-          </svg>
-          <span className="rond-demo-coeur" aria-hidden="true">
-            <span className="rond-demo-icones">
-              <Gift className="rond-demo-cadeau h-[26px] w-[26px]" strokeWidth={2.2} />
-              <ArrowUpRight className="rond-demo-fleche h-[26px] w-[26px]" strokeWidth={2.6} />
-            </span>
-            <span className="rond-demo-mot">Offerte</span>
-          </span>
-        </Link>
+        {/* Pastille ronde « Démo offerte » (la même que dans l'appel final) */}
+        <div className="hero-pastille">
+          <PastilleDemo id="cercle-pastille-hero" className="!relative grid" />
+        </div>
       </div>
     </div>
   );

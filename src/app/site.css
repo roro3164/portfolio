@@ -1327,62 +1327,16 @@ a.tuile:hover {
 .tsm-menu i { display: block; width: 12px; height: 1.5px; border-radius: 2px; background: #2b2118; }
 .tsm-hero { position: relative; height: 112px; overflow: hidden; }
 .hero-toast { position: absolute; z-index: 4; left: -4%; top: 6%; }
-/* pastille ronde « Démo gratuite » : disque dégradé, anneau laser, texte qui tourne, cœur blanc */
-.rond-demo {
-  position: absolute;
-  z-index: 6;
-  right: 4%;
-  top: -58px;
-  display: grid;
-  place-items: center;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  isolation: isolate;
-  rotate: -10deg;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 45%),
-    radial-gradient(circle at 75% 85%, rgba(236, 72, 153, 0.85), transparent 55%),
-    linear-gradient(150deg, #a78bfa, #7c3aed 50%, #5b21b6);
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -10px 24px rgba(40, 10, 90, 0.45), 0 26px 50px -16px rgba(0, 0, 0, 0.85), 0 0 60px -12px rgba(168, 85, 247, 0.9);
-  transform: translate3d(calc(var(--hx) * 30px), calc(var(--hy) * 20px), 0);
-  animation: hero-entree 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both;
-  transition: scale 0.4s cubic-bezier(0.3, 1.5, 0.5, 1), rotate 0.4s cubic-bezier(0.3, 1.5, 0.5, 1), box-shadow 0.35s;
-}
-.rond-demo:hover { scale: 1.08; rotate: 0deg; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -10px 24px rgba(40, 10, 90, 0.45), 0 30px 60px -16px rgba(0, 0, 0, 0.85), 0 0 80px -6px rgba(236, 72, 153, 0.9); }
-/* bordure lumineuse qui tourne */
-.rond-demo-anneau { position: absolute; inset: -3px; z-index: -1; border-radius: 50%; padding: 3px; background: conic-gradient(from var(--laser-angle), rgba(255, 255, 255, 0.15), #f9a8d4, #fff, #c4b5fd, rgba(255, 255, 255, 0.15) 55%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: laser-tour 3.5s linear infinite; }
-.rond-demo-texte { position: absolute; inset: 0; width: 100%; height: 100%; animation: rond-tour 20s linear infinite; }
-.rond-demo:hover .rond-demo-texte { animation-duration: 8s; }
-.rond-demo-texte text { fill: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; }
-@keyframes rond-tour { to { rotate: 360deg; } }
-.rond-demo-coeur {
-  position: relative;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 2px;
-  width: 71%;
-  height: 71%;
-  border-radius: 50%;
-  color: #6d28d9;
-  background: radial-gradient(circle at 35% 25%, #fff, #f1ebfe 75%);
-  box-shadow: 0 6px 16px -6px rgba(40, 10, 90, 0.75), inset 0 -3px 6px rgba(109, 40, 217, 0.12);
-}
-.rond-demo-icones { display: grid; overflow: hidden; }
-.rond-demo-icones > svg { grid-area: 1 / 1; transition: opacity 0.3s, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.rond-demo-cadeau { color: #db2777; }
-.rond-demo-fleche { opacity: 0; transform: translate(-10px, 10px); }
-.rond-demo:hover .rond-demo-cadeau { opacity: 0; transform: translate(10px, -10px); }
-.rond-demo:hover .rond-demo-fleche { opacity: 1; transform: none; }
-.rond-demo-mot { font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; background: linear-gradient(135deg, #db2777, #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* pastille ronde « Démo offerte » (composant PastilleDemo), réduite et posée sur le coin du MacBook */
+.hero-pastille { position: absolute; z-index: 6; right: 0; top: -60px; transform: translate3d(calc(var(--hx) * 30px), calc(var(--hy) * 20px), 0); animation: hero-entree 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both; }
+.hero-pastille > .pastille-demo { scale: 0.72; transform-origin: top right; }
 @media (max-width: 639px) {
   .hero-toast { left: 0; top: -8%; }
-  .rond-demo { width: 104px; height: 104px; right: -4px; top: -44px; }
-  .rond-demo-mot { font-size: 9px; }
+  .hero-pastille { top: -50px; right: -6px; }
+  .hero-pastille > .pastille-demo { scale: 0.5; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-ordi, .rond-demo, .rond-demo-texte, .rond-demo-anneau { animation: none; }
+  .hero-ordi, .hero-pastille { animation: none; }
 }
 
 /* Section démo offerte : parcours en 3 étapes qui s'allument */

@@ -9,10 +9,10 @@ export function PastilleDemo({ className = "", id = "cercle-pastille" }: { class
       <span className="pastille-anneau" aria-hidden="true" />
       <svg className="pastille-texte" viewBox="0 0 200 200" aria-hidden="true">
         <defs>
-          <path id={id} d="M100,100 m-87,0 a87,87 0 1,1 174,0 a87,87 0 1,1 -174,0" />
+          <path id={id} d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0" />
         </defs>
         <text>
-          <textPath href={`#${id}`} startOffset="0" textLength="540" lengthAdjust="spacing">
+          <textPath href={`#${id}`} startOffset="0" textLength="508" lengthAdjust="spacing">
             {texte}
           </textPath>
         </text>
