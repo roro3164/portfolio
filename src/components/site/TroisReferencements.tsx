@@ -1,94 +1,11 @@
-import Image from "next/image";
-import { Globe, MapPin, Search, Sparkles, Star, type LucideIcon } from "lucide-react";
+import { MapPin, Search, Sparkles, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import { ApercuIA, ApercuLocal, ApercuNaturel } from "./ApercusReferencement";
 import { Coche } from "./Sections";
 
 // Les trois façons d'être trouvé : sur la carte (local), dans les résultats
 // Google (naturel) et dans les réponses des IA (GEO). Chaque carte montre un vrai
-// résultat, avec la marque fictive « Atelier Morel ».
-
-function Etoiles() {
-  return (
-    <span className="inline-flex">
-      {[0, 1, 2, 3, 4].map((i) => (
-        <Star key={i} className="h-[9px] w-[9px] fill-[#fbbc04] text-[#fbbc04]" />
-      ))}
-    </span>
-  );
-}
-
-const ApercuLocal = () => (
-  <div className="ref-apercu">
-    <div className="ref-carte-plan">
-      <span className="ref-pin" style={{ left: "22%", top: "40%" }} />
-      <span className="ref-pin" style={{ left: "70%", top: "30%" }} />
-      <span className="ref-pin ref-pin-moi" style={{ left: "48%", top: "58%" }}>
-        <MapPin className="h-3 w-3" />
-      </span>
-    </div>
-    {[
-      ["Atelier Morel", "4,9", "87", true],
-      ["Autre menuisier", "4,3", "21", false],
-    ].map(([nom, note, avis, moi]) => (
-      <div key={nom as string} className={`ref-ligne ${moi ? "ref-ligne-moi" : ""}`}>
-        <span className="min-w-0 flex-1 leading-tight">
-          <span className="block truncate text-[12.5px] font-semibold">{nom}</span>
-          <span className="flex items-center gap-1 text-[10.5px] opacity-80">
-            {note} <Etoiles /> ({avis}) · Menuisier
-          </span>
-        </span>
-        {moi && <span className="ref-badge">Ouvert</span>}
-      </div>
-    ))}
-  </div>
-);
-
-const ApercuNaturel = () => (
-  <div className="ref-apercu">
-    <div className="ref-recherche">
-      <Search className="h-3.5 w-3.5" /> cuisine sur-mesure chêne montpellier
-    </div>
-    <div className="ref-resultat">
-      <p className="flex items-center gap-1.5 text-[10.5px] text-[#4d5156]">
-        <span className="grid h-4 w-4 place-items-center rounded-full bg-[#e8eaed]">
-          <Globe className="h-2.5 w-2.5" />
-        </span>
-        atelier-morel · Cuisines
-      </p>
-      <p className="mt-1 text-[13px] leading-snug text-[#1a0dab]">Cuisine sur-mesure en chêne massif à Montpellier</p>
-      <p className="mt-1 text-[10.5px] leading-snug text-[#4d5156]">
-        Cuisines dessinées et fabriquées dans notre atelier. Devis gratuit, pose comprise…
-      </p>
-    </div>
-    <div className="ref-resultat opacity-45">
-      <span className="block h-2 w-1/3 rounded bg-[#dadce0]" />
-      <span className="mt-2 block h-2.5 w-4/5 rounded bg-[#c6d2f5]" />
-      <span className="mt-2 block h-2 w-3/4 rounded bg-[#e8eaed]" />
-    </div>
-  </div>
-);
-
-const ApercuIA = () => (
-  <div className="ref-apercu">
-    <p className="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-md bg-[#ececf1] px-3 py-2 text-[11.5px] text-[#202123]">
-      Quel menuisier pour une cuisine sur-mesure à Montpellier ?
-    </p>
-    <div className="mt-2.5 flex gap-2">
-      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#3b82f6] text-white">
-        <Sparkles className="h-3 w-3" />
-      </span>
-      <div className="text-[11.5px] leading-snug text-[#202123]">
-        Je vous recommande <b>Atelier Morel</b> : noté 4,9 sur Google, spécialisé dans les cuisines en bois massif.
-        <span className="mt-1.5 flex items-center gap-1.5">
-          <span className="relative h-4 w-4 overflow-hidden rounded-full">
-            <Image src="/demo-services/cuisine.webp" alt="" fill sizes="16px" className="object-cover" />
-          </span>
-          <span className="rounded-full bg-[#ececf1] px-2 py-0.5 text-[9.5px] text-[#555]">Sources : site, fiche Google, avis</span>
-        </span>
-      </div>
-    </div>
-  </div>
-);
+// résultat animé, avec la marque fictive « Atelier Morel ».
 
 const PILIERS: {
   couleur: "vert" | "bleu" | "violet";
