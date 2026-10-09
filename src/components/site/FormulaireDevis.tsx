@@ -5,7 +5,7 @@ import { useState } from "react";
 const PROJETS = ["Site e-commerce", "Site vitrine", "Refonte d'un site", "Référencement local", "Restaurant (Primaps)", "Autre"];
 
 const champ =
-  "mt-2 block w-full rounded-xl border border-[var(--line-2)] bg-[var(--bg)] px-4 py-3 text-[16px] text-white placeholder:text-[var(--faint)] transition-colors focus:border-[var(--violet)] focus:outline-none focus:ring-2 focus:ring-[rgba(143,137,236,0.3)]";
+  "mt-2 block w-full rounded-xl border border-[var(--line-2)] bg-[var(--bg)] px-4 py-3 text-[16px] text-white placeholder:text-[var(--faint)] transition-colors focus:border-[var(--violet)] focus:outline-none focus:ring-2 focus:ring-[rgba(var(--m1),0.3)]";
 const etiquette = "text-[14.5px] font-medium text-[var(--nav)]";
 
 export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
@@ -71,7 +71,7 @@ export function FormulaireDevis({ projetInitial }: { projetInitial?: string }) {
           {PROJETS.map((p) => (
             <label key={p} className="cursor-pointer">
               <input type="radio" name="projet" value={p} defaultChecked={p === (projetInitial ?? "Site e-commerce")} className="peer sr-only" required />
-              <span className="inline-flex min-h-[42px] items-center rounded-full border border-[var(--line-2)] px-4 text-[14.5px] text-[var(--muted)] transition-colors peer-checked:border-[var(--violet)] peer-checked:bg-[rgba(143,137,236,0.14)] peer-checked:text-[var(--fort)] peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--violet-2)]">
+              <span className="inline-flex min-h-[42px] items-center rounded-full border border-[var(--line-2)] px-4 text-[14.5px] text-[var(--muted)] transition-colors peer-checked:border-[var(--violet)] peer-checked:bg-[rgba(var(--m1),0.14)] peer-checked:text-[var(--fort)] peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--violet-2)]">
                 {p}
               </span>
             </label>

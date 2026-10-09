@@ -54,7 +54,7 @@ export function DemoOfferte() {
           <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_1.15fr]">
             <div>
               <p className="eyebrow">
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-[#8c82e3] text-white">
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-[rgb(var(--m1))] text-white">
                   <Gift className="h-3.5 w-3.5" aria-hidden="true" />
                 </span>
                 Offert, sans engagement
@@ -116,7 +116,7 @@ export function DemoOfferte() {
 
               {/* lien de partage de la démo */}
               <div className="demo-lien" data-copie={etape === 2 || undefined} aria-hidden="true">
-                <Link2 className="h-3.5 w-3.5 shrink-0 text-[#cbc6f4]" />
+                <Link2 className="h-3.5 w-3.5 shrink-0 text-[rgb(var(--m-pale))]" />
                 <span className="truncate text-[12px] text-white/80">Lien privé de votre démo</span>
                 <span className="demo-lien-bouton">{etape === 2 ? "Envoyé ✓" : "Partager"}</span>
               </div>
@@ -124,7 +124,7 @@ export function DemoOfferte() {
               {/* notification synchronisée avec l'étape */}
               <div key={etape} className="demo-toast demo-toast-etape absolute -left-2 bottom-[22%] sm:-left-6" aria-hidden="true">
                 {IconeToast ? (
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[linear-gradient(145deg,#8c82e3,#6f66c8)] text-white">
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[linear-gradient(145deg,rgb(var(--m1)),rgb(var(--m2)))] text-white">
                     <IconeToast className="h-3.5 w-3.5" />
                   </span>
                 ) : (

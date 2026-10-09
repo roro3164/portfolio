@@ -66,6 +66,10 @@ export function PluieCode({ className = "" }: { className?: string }) {
       ctx.fillStyle = "rgba(0,0,0,0.075)";
       ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = "source-over";
+      // couleurs de l'accent choisi (violet, rose ou bleu), lues à chaque pas
+      const styles = getComputedStyle(document.documentElement);
+      const m1 = styles.getPropertyValue("--m1").trim() || "140, 130, 227";
+      const pale = styles.getPropertyValue("--m-pale").trim() || "203, 198, 244";
       const pasX = w / colonnes.length;
       colonnes.forEach((c, k) => {
         c.attente += c.vitesse;
@@ -73,15 +77,15 @@ export function PluieCode({ className = "" }: { className?: string }) {
         c.attente -= 1;
         const x = pasX * (k + 0.5);
         const y = c.y * taille;
-        // le caractère précédent repasse en violet
+        // le caractère précédent repasse à la couleur d'accent
         if (c.dernier) {
           ctx.shadowBlur = 0;
-          ctx.fillStyle = c.source ? "rgba(196, 181, 253, 0.95)" : "rgba(140, 130, 227, 0.85)";
+          ctx.fillStyle = c.source ? `rgba(${pale}, 0.95)` : `rgba(${m1}, 0.85)`;
           ctx.fillText(c.dernier, x, y - taille);
         }
         // tête lumineuse
         const ch = caractere(c);
-        ctx.shadowColor = "rgba(167, 139, 250, 0.95)";
+        ctx.shadowColor = `rgba(${m1}, 0.95)`;
         ctx.shadowBlur = 10;
         ctx.fillStyle = "#f3efff";
         ctx.fillText(ch, x, y);

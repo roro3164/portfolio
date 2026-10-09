@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { NAV } from "@/lib/site";
 import { Logo } from "./Logo";
 import { BasculeTheme } from "./BasculeTheme";
+import { ChoixAccent } from "./ChoixAccent";
 
 export function Header() {
   const [ouvert, setOuvert] = useState(false);
@@ -60,6 +61,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ChoixAccent className="hidden sm:flex" />
           <BasculeTheme />
           <Link href="/demo-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
             <Gift className="h-4 w-4" aria-hidden="true" />
@@ -101,6 +103,10 @@ export function Header() {
             <Gift className="h-4 w-4" aria-hidden="true" />
             Ma démo gratuite
           </Link>
+          <div className="mt-6 flex items-center justify-between">
+            <span className="text-[15px] text-[var(--muted)]">Couleur du site</span>
+            <ChoixAccent />
+          </div>
           <a href="https://www.primaps.fr" className="btn btn-ghost mt-3 w-full">
             Vous êtes un restaurant ? Primaps
           </a>

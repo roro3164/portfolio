@@ -30,7 +30,7 @@ export function CarteLocale() {
           <span
             key={p.n}
             className={`absolute grid -translate-x-1/2 -translate-y-full place-items-center rounded-full rounded-bl-none text-[12px] font-bold ${
-              p.moi ? "h-10 w-10 bg-[var(--violet)] text-white shadow-[0_0_0_8px_rgba(143,137,236,0.25)]" : "h-8 w-8 bg-[#3a3f4b] text-[#cfd3dc]"
+              p.moi ? "h-10 w-10 bg-[var(--violet)] text-white shadow-[0_0_0_8px_rgba(var(--m1),0.25)]" : "h-8 w-8 bg-[#3a3f4b] text-[#cfd3dc]"
             }`}
             style={{ left: p.x, top: p.y, transform: "translate(-50%,-100%) rotate(-45deg)" }}
           >
@@ -40,7 +40,7 @@ export function CarteLocale() {
       </div>
       <ul className="divide-y divide-[var(--line)]" aria-hidden="true">
         {resultats.map((r, i) => (
-          <li key={r.nom} className={`flex items-center gap-4 px-5 py-4 ${r.moi ? "bg-[rgba(143,137,236,0.08)]" : ""}`}>
+          <li key={r.nom} className={`flex items-center gap-4 px-5 py-4 ${r.moi ? "bg-[rgba(var(--m1),0.08)]" : ""}`}>
             <span className={`font-mono text-[13px] ${r.moi ? "text-[var(--violet-2)]" : "text-[var(--faint)]"}`}>{i + 1}</span>
             <span className="flex-1">
               <span className={`block text-[15px] font-semibold ${r.moi ? "text-white" : "text-[var(--muted)]"}`}>{r.nom}</span>
