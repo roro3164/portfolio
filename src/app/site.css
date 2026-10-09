@@ -1304,68 +1304,33 @@ a.tuile:hover {
   .ts-el { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none; }
 }
 
-/* Hero : LumiNice se construit devant les mockups Maison Ribier (HeroVisuel) */
+/* Hero : la démo Terre & Sel se construit dans un MacBook et un iPhone (HeroVisuel) */
 @keyframes flotte { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
 @keyframes hero-entree { from { opacity: 0; scale: 0.94; } to { opacity: 1; scale: 1; } }
 .hero-visuel { --hx: 0; --hy: 0; }
-.hero-compo { position: relative; padding: 0 0 6% 0; }
-.hero-ribier-ordi { position: relative; width: 64%; margin-left: auto; transform: translate3d(calc(var(--hx) * -6px), calc(var(--hy) * -4px), 0); animation: hero-entree 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.hero-ribier-tel { position: absolute; z-index: 3; right: -2%; bottom: 0; width: 15%; rotate: 3deg; transform: translate3d(calc(var(--hx) * 20px), calc(var(--hy) * 14px), 0); animation: hero-entree 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both, flotte 7s ease-in-out 1.2s infinite; }
-.hero-lumi { position: absolute; z-index: 2; left: -6%; top: 32%; width: 77%; transform: translate3d(calc(var(--hx) * 12px), calc(var(--hy) * 9px), 0); animation: hero-entree 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s both; }
-.hero-lumi .lb-navigateur { box-shadow: 0 50px 90px -30px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(0, 0, 0, 0.4), 0 0 70px -30px rgba(212, 175, 55, 0.5); }
-/* construction du site LumiNice */
-.lb { position: relative; }
-.lb-avancement {
-  position: absolute;
-  z-index: 4;
-  left: 4%;
-  top: -80px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 236px;
-  padding: 9px 13px 9px 9px;
-  border-radius: 16px;
-  background: rgba(24, 22, 34, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 22px 44px -18px rgba(0, 0, 0, 0.9);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-}
-.lb-avancement-icone { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 10px; color: #fff; background: linear-gradient(145deg, #8b5cf6, #6d3fe0); transition: background 0.4s; }
-.lb-avancement-icone[data-fini] { background: linear-gradient(145deg, #22c55e, #16a34a); }
-.lb-rouage { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; animation: lb-tour 0.9s linear infinite; }
-@keyframes lb-tour { to { rotate: 360deg; } }
-.lb-barre { position: relative; display: block; height: 4px; margin-top: 5px; overflow: hidden; border-radius: 999px; background: rgba(255, 255, 255, 0.1); }
-.lb-barre > span { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: linear-gradient(90deg, #8b5cf6, #ec4899); transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.lb-ecran { position: relative; aspect-ratio: 16 / 10; overflow: hidden; container-type: inline-size; background: #f7f2ea; color: #2b2118; }
-.lb-squelette { position: absolute; border: 1px dashed rgba(184, 147, 63, 0.55); border-radius: 1cqw; background: repeating-linear-gradient(135deg, rgba(184, 147, 63, 0.06) 0 6px, transparent 6px 12px); }
-.lb-entete { position: absolute; z-index: 2; inset: 0 0 auto 0; height: 8cqw; display: flex; align-items: center; justify-content: space-between; padding: 0 2.4cqw; background: #fbf8f2; border-bottom: 1px solid #eadfcd; }
-.lb-logo { display: flex; flex-direction: column; font-family: Georgia, "Times New Roman", serif; font-size: 2.3cqw; line-height: 1; color: #2b2118; }
-.lb-logo small { margin-top: 0.4cqw; font-family: system-ui, sans-serif; font-size: 0.95cqw; letter-spacing: 0.18em; color: #8a7a64; }
-.lb-nav { display: flex; gap: 2.2cqw; font-size: 1.55cqw; color: #3a2f22; }
-.lb-contact { padding: 0.8cqw 1.8cqw; border-radius: 999px; font-size: 1.5cqw; font-weight: 600; color: #fff; background: linear-gradient(135deg, #d9b768, #b8933f); box-shadow: 0 0.6cqw 1.6cqw -0.6cqw rgba(184, 147, 63, 0.9); }
-.lb-photo { position: absolute; inset: 8cqw 0 auto 0; height: 35cqw; overflow: hidden; }
-.lb-photo-voile { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 14, 6, 0.15), rgba(20, 14, 6, 0.5)); }
-.lb-texte { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 6cqw; }
-.lb-puce { display: inline-flex; align-items: center; gap: 0.8cqw; padding: 0.6cqw 1.6cqw; border-radius: 999px; font-size: 1.15cqw; letter-spacing: 0.18em; background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.25); }
-.lb-puce i { width: 0.8cqw; height: 0.8cqw; border-radius: 50%; background: #d9b768; }
-.lb-titre { margin-top: 1.6cqw; font-family: Georgia, "Times New Roman", serif; font-size: 5.4cqw; line-height: 1.05; letter-spacing: -0.01em; text-shadow: 0 0.4cqw 2cqw rgba(0, 0, 0, 0.45); }
-.lb-titre em { font-style: italic; background: linear-gradient(135deg, #f3d98f, #c9a24a); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.lb-sous-titre { margin-top: 1.2cqw; font-size: 1.6cqw; color: rgba(255, 255, 255, 0.9); }
-.lb-bouton { display: inline-flex; align-items: center; gap: 0.8cqw; padding: 1.1cqw 2.2cqw; border-radius: 999px; font-size: 1.55cqw; font-weight: 600; white-space: nowrap; }
-.lb-bouton-or { color: #fff; background: linear-gradient(135deg, #e0c074, #b8933f); box-shadow: 0 0.8cqw 2cqw -0.8cqw rgba(184, 147, 63, 0.95); }
-.lb-bouton-or[data-clic] { scale: 0.93; box-shadow: 0 0 0 0.6cqw rgba(217, 183, 104, 0.45), 0 0 3cqw rgba(217, 183, 104, 0.9); }
-.lb-bouton-verre { color: #fff; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.4); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.lb-produits { position: absolute; left: 2cqw; right: 2cqw; top: 45cqw; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3cqw; }
-.lb-produit { display: flex; align-items: center; gap: 1.6cqw; height: 15cqw; padding: 1.2cqw; border-radius: 1.4cqw; background: #fff; box-shadow: 0 1.2cqw 3cqw -1.6cqw rgba(60, 40, 10, 0.35); }
-.lb-toast { position: absolute; z-index: 6; left: 50%; top: 2cqw; translate: -50% 0; display: flex; align-items: center; gap: 1.2cqw; padding: 1cqw 2.2cqw 1cqw 1cqw; border-radius: 999px; white-space: nowrap; font-size: 1.8cqw; font-weight: 600; color: #fff; background: rgba(20, 18, 28, 0.92); box-shadow: 0 1.6cqw 4cqw -1.6cqw rgba(0, 0, 0, 0.8); }
+.hero-compo { position: relative; padding-top: 4%; padding-bottom: 4%; }
+.hero-ordi { position: relative; width: 92%; transform: translate3d(calc(var(--hx) * -6px), calc(var(--hy) * -4px), 0); animation: hero-entree 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+/* écran du MacBook mesuré sur l'image (1446 × 1228) */
+.hero-ordi-ecran { position: absolute; left: 9.75%; top: 4.72%; width: 78.9%; height: 58.14%; overflow: hidden; border-radius: 0.5% 0.5% 0 0; background: #f6f1e9; }
+.hero-tel { position: absolute; z-index: 3; right: 0; bottom: 0; width: 23%; rotate: 2deg; }
+/* écran de l'iPhone mesuré sur l'image (888 × 1760) */
+.hero-tel-ecran { position: absolute; left: 5.52%; top: 1.99%; width: 88.96%; height: 95.97%; overflow: hidden; border-radius: 12% / 5.6%; background: #f6f1e9; }
+.tsm-zoom { position: absolute; top: 0; left: 0; width: 200px; transform: scale(var(--k, 1)); transform-origin: top left; }
+.tsm-statut { position: relative; display: flex; align-items: center; justify-content: space-between; height: 22px; padding: 0 14px 0 18px; font-size: 7.5px; font-weight: 700; color: #2b2118; }
+.tsm-ile { position: absolute; left: 50%; top: 5px; width: 54px; height: 15px; margin-left: -27px; border-radius: 999px; background: #0a0a0c; }
+.tsm-reseau { display: block; width: 9px; height: 6px; background: linear-gradient(90deg, #2b2118 0 2px, transparent 2px 3.5px, #2b2118 3.5px 5.5px, transparent 5.5px 7px, #2b2118 7px); clip-path: polygon(0 100%, 100% 0, 100% 100%); }
+.tsm-pile { display: block; width: 13px; height: 6px; border-radius: 2px; border: 1px solid #2b2118; background: linear-gradient(90deg, #2b2118 70%, transparent 70%) content-box; padding: 1px; }
+.tsm-entete { display: flex; align-items: center; justify-content: space-between; padding: 4px 10px 6px; border-bottom: 1px solid #ebe1d1; }
+.tsm-menu { display: flex; flex-direction: column; gap: 3px; }
+.tsm-menu i { display: block; width: 12px; height: 1.5px; border-radius: 2px; background: #2b2118; }
+.tsm-hero { position: relative; height: 112px; overflow: hidden; }
+.hero-toast { position: absolute; z-index: 4; left: -4%; top: 6%; }
 /* pastille ronde « Démo offerte » */
 .rond-demo {
   position: absolute;
   z-index: 6;
-  right: -30px;
-  top: -62px;
+  right: 6%;
+  top: -48px;
   display: grid;
   place-items: center;
   width: 124px;
@@ -1402,15 +1367,12 @@ a.tuile:hover {
 .rond-demo:hover .rond-demo-cadeau { opacity: 0; transform: translate(10px, -10px); }
 .rond-demo:hover .rond-demo-fleche { opacity: 1; transform: none; }
 @media (max-width: 639px) {
-  .hero-compo { padding-bottom: 30%; }
-  .hero-lumi { left: 0; width: 84%; top: 30%; }
-  .hero-ribier-ordi { width: 70%; }
-  .lb-avancement { left: auto; right: -10%; top: auto; bottom: -78px; width: 210px; }
+  .hero-toast { left: 0; top: -8%; }
   .rond-demo { width: 96px; height: 96px; right: -4px; top: -40px; }
   .rond-demo-coeur { width: 46px; height: 46px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-ribier-ordi, .hero-ribier-tel, .hero-lumi, .rond-demo, .rond-demo-texte, .lb-rouage { animation: none; }
+  .hero-ordi, .rond-demo, .rond-demo-texte { animation: none; }
 }
 
 /* Section démo offerte : parcours en 3 étapes qui s'allument */
