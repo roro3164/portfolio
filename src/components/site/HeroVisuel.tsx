@@ -62,7 +62,7 @@ export function HeroVisuel() {
         <div className="demo-toast hero-toast ts-el" aria-hidden="true" {...construction.v(15)}>
           <span className="demo-toast-point" />
           <span className="text-[14px] leading-tight">
-            <b className="block text-white">Votre démo est en ligne</b>
+            <b className="block text-white">Votre site en ligne en 72 h</b>
             <span className="text-[13px] text-[var(--muted)]">Sur ordinateur et sur mobile</span>
           </span>
         </div>
