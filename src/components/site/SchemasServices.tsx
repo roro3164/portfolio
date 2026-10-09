@@ -10,7 +10,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 // dans Google). La séquence ne tourne que lorsque le schéma est visible.
 
 /** Avance d'une étape après chaque durée ; à la fin, pause, tout s'efface, et on recommence. */
-function useSequence(durees: number[], pause = 2800) {
+export function useSequence(durees: number[], pause = 2800) {
   const ref = useRef<HTMLDivElement>(null);
   const n = durees.length;
   const [etape, setEtape] = useState(n);
