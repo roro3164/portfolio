@@ -1908,3 +1908,46 @@ a.tuile:hover {
 :root[data-theme="clair"] .cote-portrait:hover, :root[data-theme="clair"] .cote-portrait[aria-pressed="true"] { background: linear-gradient(180deg, rgba(var(--l1), 0.95), rgba(var(--l2), 0.85)); }
 :root[data-theme="clair"] .pack-etiquette { background: linear-gradient(180deg, rgba(var(--l1), 0.95), rgba(var(--l2), 0.85)); }
 
+
+/* Hero référencement local : Google Maps animé (VisibiliteLocale) */
+.vl { position: relative; padding: 34px 0 54px; transform: perspective(1500px) rotateY(-11deg) rotateX(4deg) rotateZ(1deg); transform-style: preserve-3d; }
+.vl .vl-flottant { transform: translateZ(60px); }
+.vl .vl-flottant.ts-el:not([data-on]) { transform: translateZ(60px) translateY(8px); }
+.vl-app { position: relative; z-index: 1; width: 86%; margin: 0 auto 0 0; overflow: hidden; border-radius: 22px; color: #202124; background: #fff; box-shadow: 0 50px 90px -34px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(0, 0, 0, 0.06), 0 0 80px -30px rgba(var(--l1), 0.55); }
+.vl-recherche { position: absolute; z-index: 3; left: 12px; right: 12px; top: 12px; display: flex; align-items: center; gap: 9px; height: 42px; padding: 0 14px; border-radius: 999px; font-size: 13.5px; color: #202124; background: #fff; box-shadow: 0 2px 8px rgba(32, 33, 36, 0.22); }
+.vl-carte { position: relative; height: 190px; }
+.vl-epingle { position: absolute; display: grid; place-items: center; width: 26px; height: 26px; margin: -26px 0 0 -13px; border-radius: 50% 50% 50% 0; rotate: -45deg; font-size: 11px; font-weight: 800; color: #fff; background: #70757a; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); }
+.vl-epingle > span { rotate: 45deg; }
+.vl-epingle-moi { width: 32px; height: 32px; margin: -32px 0 0 -16px; background: #ea4335; transition: scale 0.4s cubic-bezier(0.3, 1.6, 0.5, 1), opacity 0.3s, translate 0.5s cubic-bezier(0.3, 1.6, 0.5, 1); }
+.vl-epingle-premier { scale: 1.25; }
+.vl-epingle-premier::after { content: ""; position: absolute; inset: -4px; border-radius: inherit; border: 2px solid #ea4335; animation: noeud-onde 1.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; }
+.vl-liste { position: relative; height: 160px; padding: 6px 10px 0; border-top: 1px solid #e8eaed; }
+.vl-fiche { position: absolute; left: 10px; right: 10px; display: flex; align-items: center; gap: 10px; height: 46px; margin-top: 6px; padding: 0 10px; border-radius: 12px; transition: top 0.8s cubic-bezier(0.6, 0, 0.2, 1), opacity 0.5s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.4s; }
+.vl-fiche-moi { z-index: 2; background: #e8f0fe; box-shadow: inset 0 0 0 1px #c6dafc; }
+.vl-rang { display: grid; place-items: center; width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; font-size: 11px; font-weight: 800; color: #5f6368; background: #f1f3f4; transition: background 0.3s, color 0.3s, scale 0.3s; }
+.vl-rang-premier { color: #fff; background: #1a73e8; scale: 1.12; }
+.vl-action { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #1a73e8; background: #fff; box-shadow: inset 0 0 0 1px #dadce0; }
+.vl-flottant { position: absolute; z-index: 4; color: #202124; background: rgba(255, 255, 255, 0.96); border-radius: 16px; box-shadow: 0 22px 44px -18px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(0, 0, 0, 0.05); }
+.vl-flottant-icone { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 10px; color: #fff; }
+.vl-appel { left: -7%; top: 176px; display: flex; align-items: center; gap: 10px; padding: 9px 14px 9px 9px; white-space: nowrap; }
+.vl-stats { right: -2%; top: 292px; width: 190px; padding: 12px 14px; }
+.vl-jauge { position: relative; display: block; height: 6px; margin-top: 3px; overflow: hidden; border-radius: 999px; background: #f1f3f4; }
+.vl-jauge > span { position: absolute; inset: 0 auto 0 0; border-radius: inherit; transition: width 1.1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.vl-ia { left: 6%; bottom: -6px; display: flex; gap: 10px; width: 310px; padding: 11px 14px 11px 11px; }
+@media (max-width: 639px) {
+  .vl { transform: none; }
+  .vl .vl-flottant { transform: none; }
+  .vl-app { width: 100%; }
+  .vl-stats { display: none; }
+  .vl-appel { left: 0; top: 150px; }
+  .vl-ia { left: auto; right: 0; width: 260px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vl-fiche { transition: none; }
+}
+
+/* Preuve chiffrée sous les boutons d'un hero de service */
+.hero-preuve { display: inline-flex; flex-direction: column; gap: 10px; margin-top: 28px; padding: 14px 18px; border-radius: 18px; border: 1px solid var(--line); background: rgba(var(--voile), 0.03); transition: border-color 0.3s, background 0.3s; }
+.hero-preuve:hover { border-color: rgba(var(--l1), 0.45); background: rgba(var(--l1), 0.06); }
+.hero-preuve-valeur { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--fort) 20%, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-preuve-texte { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent); }

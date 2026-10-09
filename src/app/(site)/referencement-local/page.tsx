@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CarteLocale } from "@/components/site/CarteLocale";
+import { VisibiliteLocale } from "@/components/site/VisibiliteLocale";
 import { PageService, type ContenuService } from "@/components/site/PageService";
 import { TroisReferencements } from "@/components/site/TroisReferencements";
 
@@ -19,7 +19,16 @@ const contenu: ContenuService = {
   h1: "Référencement local, Google et IA à Montpellier",
   lead:
     "Quand un client cherche votre métier près de chez lui, Google affiche trois entreprises sur la carte. Et de plus en plus, il demande directement à ChatGPT « qui me conseilles-tu ? ». Je travaille les trois : la carte, les résultats Google et les réponses des IA.",
-  visuel: <CarteLocale />,
+  visuel: <VisibiliteLocale />,
+  visuelAvecNotifs: true,
+  preuve: {
+    chiffres: [
+      { valeur: "×2", libelle: "d'apparitions sur Google" },
+      { valeur: "+56 %", libelle: "d'appels reçus" },
+    ],
+    texte: "Bistrot des Musées, Montpellier : voir l'étude de cas",
+    url: "/realisations/bistrot-des-musees",
+  },
   sectionPlus: <TroisReferencements />,
   pourQui: [
     {

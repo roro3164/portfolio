@@ -35,12 +35,12 @@ function FrappeInterne({ texte, etat, pas, mots }: { texte: string; etat: Etat; 
   return <>{unites.slice(0, k).join(mots ? " " : "")}</>;
 }
 
-function Frappe(props: { texte: string; etat: Etat; pas?: number; mots?: boolean }) {
+export function Frappe(props: { texte: string; etat: Etat; pas?: number; mots?: boolean }) {
   // remonté à chaque nouvelle frappe pour repartir de zéro
   return <FrappeInterne key={props.etat === "frappe" ? "f" : "x"} pas={40} mots={false} {...props} />;
 }
 
-const etatDe = (etape: number, debut: number): Etat => (etape < debut ? "vide" : etape === debut ? "frappe" : "plein");
+export const etatDe = (etape: number, debut: number): Etat => (etape < debut ? "vide" : etape === debut ? "frappe" : "plein");
 
 export function ApercuLocal() {
   const { ref, etape, a } = useSequence([500, 450, 500, 1000, 600, 700], 2800);

@@ -37,6 +37,10 @@ export type ContenuService = {
   h1: string;
   lead: string;
   visuel: { src: string; alt: string; url: string } | ReactNode;
+  /** le visuel porte ses propres notifications : on n'ajoute pas celles du service */
+  visuelAvecNotifs?: boolean;
+  /** preuve chiffrée sous les boutons du hero (vrai projet) */
+  preuve?: { chiffres: { valeur: string; libelle: string }[]; texte: string; url: string };
   pourQui: { titre: string; texte: string }[];
   inclus: { titre: string; texte: string }[];
   argument: { titre: string; paragraphes: string[]; points?: string[] };
@@ -127,6 +131,22 @@ export function PageService({ c }: { c: ContenuService }) {
                 Voir des exemples
               </Link>
             </div>
+            {c.preuve && (
+              <Link href={c.preuve.url} className="hero-preuve group">
+                <span className="flex gap-5">
+                  {c.preuve.chiffres.map((ch) => (
+                    <span key={ch.libelle} className="leading-tight">
+                      <b className="hero-preuve-valeur">{ch.valeur}</b>
+                      <span className="block text-[12.5px] text-[var(--muted)]">{ch.libelle}</span>
+                    </span>
+                  ))}
+                </span>
+                <span className="hero-preuve-texte">
+                  {c.preuve.texte}
+                  <Fleche className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            )}
           </div>
           <div className="relative">
             {estCapture(c.visuel) ? (
@@ -134,7 +154,7 @@ export function PageService({ c }: { c: ContenuService }) {
             ) : (
               c.visuel
             )}
-            {h.notifs.map((n, k) => {
+            {!c.visuelAvecNotifs && h.notifs.map((n, k) => {
               const Icone = n.icone;
               return (
                 <div key={n.titre} className={`hero-notif hero-notif-${k + 1}`} aria-hidden="true">
