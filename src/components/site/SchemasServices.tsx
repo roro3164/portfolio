@@ -295,7 +295,7 @@ export function SchemaReferencement() {
       </div>
 
       <div className="sx-ia sx" {...a(12)}>
-        <p className="flex items-center gap-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-[#8b5cf6]">
+        <p className="flex items-center gap-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-[#8c82e3]">
           <Sparkles className="h-2.5 w-2.5" /> Demandé à ChatGPT
         </p>
         <p className="ml-auto mt-1.5 w-fit max-w-[92%] rounded-xl rounded-br-sm bg-[#ececf1] px-2 py-1 text-[8px] text-[#202123]">

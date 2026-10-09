@@ -88,7 +88,7 @@ export default function APropos() {
                       <div className="flex items-center gap-3">
                         <span className="font-serif text-[40px] leading-none text-white">Aa</span>
                         <span className="flex gap-1.5">
-                          {["#ec4899", "#8b5cf6", "#f6f1e9", "#2b2118", "#b35a33"].map((t) => (
+                          {["#ec4899", "#8c82e3", "#f6f1e9", "#2b2118", "#b35a33"].map((t) => (
                             <i key={t} className="block h-7 w-7 rounded-full ring-2 ring-white/10" style={{ background: t }} />
                           ))}
                         </span>
@@ -96,7 +96,7 @@ export default function APropos() {
                     )}
                     {c.titre === "Développement" && (
                       <pre className="competence-code">
-                        <span className="text-[#c4b5fd]">export</span> <span className="text-[#93c5fd]">function</span>{" "}
+                        <span className="text-[#cbc6f4]">export</span> <span className="text-[#93c5fd]">function</span>{" "}
                         <span className="text-[#f9a8d4]">Boutique</span>() {"{"}
                         {"\n  "}
                         <span className="text-[#93c5fd]">return</span> &lt;<span className="text-[#86efac]">Catalogue</span>{" "}

@@ -76,7 +76,7 @@ export function PluieCode({ className = "" }: { className?: string }) {
         // le caractère précédent repasse en violet
         if (c.dernier) {
           ctx.shadowBlur = 0;
-          ctx.fillStyle = c.source ? "rgba(196, 181, 253, 0.95)" : "rgba(139, 92, 246, 0.85)";
+          ctx.fillStyle = c.source ? "rgba(196, 181, 253, 0.95)" : "rgba(140, 130, 227, 0.85)";
           ctx.fillText(c.dernier, x, y - taille);
         }
         // tête lumineuse

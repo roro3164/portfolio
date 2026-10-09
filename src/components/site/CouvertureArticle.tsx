@@ -96,7 +96,7 @@ const SCENES: Record<string, () => ReactNode> = {
   ),
   "gros-catalogue-e-commerce": () => (
     <>
-      <span className="cv-puce absolute left-[26px] top-[26px] !bg-[#8b5cf6]">13 500+ produits en ligne</span>
+      <span className="cv-puce absolute left-[26px] top-[26px] !bg-[#8c82e3]">13 500+ produits en ligne</span>
       <span className="cv-puce absolute bottom-[26px] right-[26px] flex items-center gap-1.5">
         <RefreshCw className="h-3 w-3" /> Stock synchronisé il y a 1 h
       </span>
@@ -125,7 +125,7 @@ const SCENES: Record<string, () => ReactNode> = {
         Quel menuisier sur-mesure à Montpellier ?
       </p>
       <div className="flex gap-2">
-        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#3b82f6] text-white">
+        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#8c82e3] to-[#3b82f6] text-white">
           <Sparkles className="h-3.5 w-3.5" />
         </span>
         <p className="rounded-2xl rounded-tl-md bg-white px-3 py-2 text-[11px] leading-snug text-[#2b2118]">
