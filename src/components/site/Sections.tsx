@@ -49,7 +49,7 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
       <div className={`relative lg:col-span-7 ${inverse ? "lg:order-2" : ""}`}>
         <Link href={`/realisations/${etude.slug}`} aria-label={`Voir l'étude de cas ${etude.nom}`} className="block transition-transform duration-500 hover:-translate-y-1">
           <DuoAppareils
-            ordinateur={{ ...etude.ordinateur, alt: `Site ${etude.nom} sur ${etude.ordinateur.forme === "ipad-paysage" ? "tablette" : "ordinateur"}` }}
+            ordinateur={{ ...etude.ordinateur, alt: `Site ${etude.nom} sur ${etude.ordinateur.forme === "ipad" ? "tablette" : "ordinateur"}` }}
             telephone={{ ...etude.telephone, alt: `Site ${etude.nom} sur mobile` }}
             telephoneAGauche={inverse}
           />
@@ -158,7 +158,7 @@ export function BandeauPrimaps() {
             <a href={SITE.primaps} aria-label="Voir le site Primaps" className="relative block transition-transform duration-500 hover:-translate-y-1">
               <DuoAppareils
                 ordinateur={{ src: "/mockups/primaps-macbook.webp", forme: "macbook-34", alt: "Page d'accueil de Primaps sur un MacBook" }}
-                telephone={{ src: "/mockups/primaps-iphone-face.webp", forme: "iphone-face", alt: "Primaps sur iPhone" }}
+                telephone={{ src: "/realisations/primaps-mobile.webp", forme: "iphone", alt: "Primaps sur iPhone" }}
                 sizes="(min-width: 1024px) 560px, 92vw"
               />
             </a>

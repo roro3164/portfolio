@@ -1363,15 +1363,8 @@ a.tuile:hover {
 /* Appel final : tablette en paysage où la démo se construit (DemoTablette) */
 .tablette {
   position: relative;
-  padding: 14px;
-  border-radius: 30px;
-  background: #08080b;
-  border: 3px solid #8d8d95;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 40px 80px -36px rgba(0, 0, 0, 0.9), 0 0 70px -30px rgba(var(--m1), 0.8);
   transform: perspective(1400px) rotateY(-9deg) rotateX(3deg);
 }
-.tablette::before { content: ""; position: absolute; inset: -3px; border-radius: 30px; pointer-events: none; background: linear-gradient(160deg, rgba(255, 255, 255, 0.35), transparent 30%, transparent 70%, rgba(255, 255, 255, 0.2)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 3px; }
-.tablette-camera { position: absolute; top: 5px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: #1c2233; box-shadow: inset 0 0 1px #5a6a9a; }
 .tablette-ecran { position: relative; overflow: hidden; border-radius: 14px; aspect-ratio: 1.36; background: #f6f1e9; }
 .tablette-zoom { position: absolute; top: 0; left: 0; width: 470px; transform: scale(var(--k, 1)); transform-origin: top left; }
 .tablette-url { display: flex; justify-content: center; padding: 5px 0 4px; background: #efe8dc; border-bottom: 1px solid #e3d9c8; }
@@ -1402,7 +1395,7 @@ a.tuile:hover {
 .tablette-toast-fixe, .tablette-toast-fixe .demo-toast-point, .tablette-toast-fixe .demo-toast-point::after { animation: none; }
 .tablette .tablette-curseur { display: none; }
 @media (max-width: 639px) {
-  .tablette { transform: none; padding: 10px; border-radius: 24px; }
+  .tablette { transform: none; }
   .tablette-toast { left: 8px; right: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1419,7 +1412,7 @@ a.tuile:hover {
 .hero-ordi-ecran { position: absolute; left: 9.75%; top: 4.72%; width: 78.9%; height: 58.14%; overflow: hidden; border-radius: 0.5% 0.5% 0 0; background: #f6f1e9; }
 .hero-tel { position: absolute; z-index: 3; right: 0; bottom: 0; width: 23%; rotate: 2deg; }
 /* écran de l'iPhone mesuré sur l'image (888 × 1760) */
-.hero-tel-ecran { position: absolute; left: 5.52%; top: 1.99%; width: 88.96%; height: 95.97%; overflow: hidden; border-radius: 12% / 5.6%; background: #f6f1e9; }
+.hero-tel-ecran { position: relative; aspect-ratio: 390 / 844; overflow: hidden; background: #f6f1e9; }
 .tsm-zoom { position: absolute; top: 0; left: 0; width: 200px; transform: scale(var(--k, 1)); transform-origin: top left; }
 .tsm-statut { position: relative; display: flex; align-items: center; justify-content: space-between; height: 22px; padding: 0 14px 0 18px; font-size: 7.5px; font-weight: 700; color: #2b2118; }
 .tsm-ile { position: absolute; left: 50%; top: 5px; width: 54px; height: 15px; margin-left: -27px; border-radius: 999px; background: #0a0a0c; }
@@ -1958,3 +1951,30 @@ a.tuile:hover {
 .hero-preuve:hover { border-color: rgba(var(--l1), 0.45); background: rgba(var(--l1), 0.06); }
 .hero-preuve-valeur { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(120deg, var(--fort) 20%, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-preuve-texte { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent); }
+
+/* iPhone et iPad de l'aperçu du constructeur Primaps (Appareils.tsx : Iphone, Ipad).
+   Tailles en cqw : les vraies proportions à toutes les largeurs. */
+.ap-iphone, .ap-ipad { position: relative; container-type: inline-size; }
+.ap-iphone-titane, .ap-ipad-alu { background: linear-gradient(145deg, #e6e6ea 0%, #9a9aa2 22%, #d9d9df 45%, #7f7f88 70%, #c9c9d0 100%); box-shadow: 0 40px 70px -24px rgba(0, 0, 0, 0.7), 0 16px 30px -18px rgba(0, 0, 0, 0.6); }
+.ap-iphone-titane { padding: max(1.5px, 0.75cqw); border-radius: 12cqw; }
+.ap-iphone-bezel { padding: 2.3cqw; border-radius: 11.3cqw; background: #060608; }
+.ap-iphone-ecran { position: relative; overflow: hidden; border-radius: 9cqw; background: #000; }
+.ap-iphone-ecran > :first-child { border-radius: inherit; }
+.ap-ile { position: absolute; z-index: 4; left: 50%; top: 2.6cqw; width: 22cqw; height: 6cqw; translate: -50% 0; border-radius: 999px; background: #000; box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.08); }
+.ap-ile i { position: absolute; right: 3.6cqw; top: 50%; width: 1.9cqw; height: 1.9cqw; translate: 0 -50%; border-radius: 50%; background: #101014; box-shadow: inset 0 0 2px rgba(80, 90, 120, 0.6); }
+.ap-reflet { position: absolute; z-index: 5; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(115deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 18%, transparent 38%); }
+.ap-bouton { position: absolute; width: max(2px, 0.8cqw); border-radius: 2px; background: linear-gradient(180deg, #b7b8bd, #82838a, #b0b1b6); }
+.ap-bouton-action { left: max(-2px, -0.8cqw); top: 11%; height: 6cqw; }
+.ap-bouton-vol1 { left: max(-2px, -0.8cqw); top: 20%; height: 12cqw; }
+.ap-bouton-vol2 { left: max(-2px, -0.8cqw); top: 32%; height: 12cqw; }
+.ap-bouton-power { right: max(-2px, -0.8cqw); top: 24%; height: 16cqw; }
+.ap-ipad-alu { padding: max(1.5px, 0.3cqw); border-radius: 3.3cqw; }
+.ap-ipad-bezel { position: relative; padding: 1.6cqw; border-radius: 3.1cqw; background: #060608; }
+.ap-ipad-ecran { position: relative; overflow: hidden; aspect-ratio: 1024 / 768; border-radius: 1.4cqw; background: #000; }
+.ap-ipad-ecran > .tablette-ecran { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 0; }
+.ap-camera { position: absolute; left: 50%; top: 0.55cqw; width: max(4px, 0.6cqw); height: max(4px, 0.6cqw); translate: -50% 0; border-radius: 50%; background: #15151a; box-shadow: inset 0 0 2px rgba(90, 100, 140, 0.7); }
+.ap-bouton-haut { position: absolute; top: max(-2px, -0.3cqw); height: max(2px, 0.3cqw); border-radius: 2px 2px 0 0; background: linear-gradient(90deg, #b7b8bd, #82838a, #b0b1b6); }
+.ap-bouton-haut-1 { left: 8%; width: 4cqw; }
+.ap-bouton-haut-2 { right: 6%; width: 2.5cqw; }
+/* le site mobile de démo a sa propre île : celle du cadre suffit */
+.ap-iphone .tsm-ile { visibility: hidden; }

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { Iphone } from "./Appareils";
 import { PastilleDemo } from "./PastilleDemo";
 import { SiteTerreEtSel, SiteTerreEtSelMobile, useConstruction } from "./TerreEtSel";
 
@@ -53,8 +54,9 @@ export function HeroVisuel() {
 
         {/* iPhone */}
         <div className="hero-tel">
-          <Image src="/mockups/iphone-cadre.webp" alt="" width={888} height={1760} sizes="(min-width: 1024px) 150px, 26vw" className="h-auto w-full drop-shadow-[0_24px_30px_rgba(0,0,0,0.6)]" />
-          <SiteTerreEtSelMobile v={TOUT_VISIBLE} className="hero-tel-ecran" />
+          <Iphone>
+            <SiteTerreEtSelMobile v={TOUT_VISIBLE} className="hero-tel-ecran" />
+          </Iphone>
         </div>
 
         {/* notification de mise en ligne */}

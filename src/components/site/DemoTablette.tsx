@@ -1,8 +1,9 @@
 "use client";
 
+import { Ipad } from "./Appareils";
 import { SiteTerreEtSel, URL_DEMO } from "./TerreEtSel";
 
-// Tablette en paysage avec la démo « Terre & Sel » affichée en entier, fixe :
+// iPad en paysage (le même que l'aperçu du constructeur Primaps) avec la démo « Terre & Sel » affichée en entier, fixe :
 // l'animation de construction vit dans le hero, ici rien ne bouge.
 
 const TOUT_VISIBLE = () => ({ "data-on": "" });
@@ -10,8 +11,9 @@ const TOUT_VISIBLE = () => ({ "data-on": "" });
 export function DemoTablette() {
   return (
     <div className="tablette">
-      <span className="tablette-camera" />
-      <SiteTerreEtSel lettres={URL_DEMO.length} v={TOUT_VISIBLE} className="tablette-ecran" />
+      <Ipad>
+        <SiteTerreEtSel lettres={URL_DEMO.length} v={TOUT_VISIBLE} className="tablette-ecran" />
+      </Ipad>
       <div className="demo-toast tablette-toast tablette-toast-fixe">
         <span className="demo-toast-point" />
         <span className="text-[14px] leading-tight">
