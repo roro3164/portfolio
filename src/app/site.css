@@ -123,17 +123,13 @@ html {
   width: 70vmax;
   height: 70vmax;
   border-radius: 50%;
-  will-change: transform;
 }
-.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, var(--nappe-1), var(--nappe-1-b) 55%, transparent); animation: nappe-1 46s ease-in-out infinite alternate; }
-.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, var(--nappe-2), var(--nappe-2-b) 55%, transparent); animation: nappe-2 52s ease-in-out infinite alternate; }
-.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, var(--nappe-3), var(--nappe-3-b) 55%, transparent); animation: nappe-3 58s ease-in-out infinite alternate; }
-.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, var(--nappe-4), var(--nappe-4-b) 55%, transparent); animation: nappe-4 50s ease-in-out infinite alternate; }
-@keyframes nappe-1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
-@keyframes nappe-2 { to { transform: translate(-12vmax, 14vmax) scale(0.9); } }
-@keyframes nappe-3 { to { transform: translate(16vmax, -10vmax) scale(1.2); } }
-@keyframes nappe-4 { to { transform: translate(-14vmax, -12vmax) scale(1.1); } }
-@media (prefers-reduced-motion: reduce) { .fond-nappe { animation: none; } }
+/* Nappes fixes : animées, elles obligeaient tous les flous de verre posés dessus
+   à se recalculer à chaque image (page qui rame au défilement). */
+.fond-nappe-1 { left: -24vmax; top: -30vmax; background: radial-gradient(closest-side, var(--nappe-1), var(--nappe-1-b) 55%, transparent); }
+.fond-nappe-2 { right: -26vmax; top: -18vmax; background: radial-gradient(closest-side, var(--nappe-2), var(--nappe-2-b) 55%, transparent); }
+.fond-nappe-3 { left: -22vmax; bottom: -34vmax; background: radial-gradient(closest-side, var(--nappe-3), var(--nappe-3-b) 55%, transparent); }
+.fond-nappe-4 { right: -28vmax; bottom: -30vmax; background: radial-gradient(closest-side, var(--nappe-4), var(--nappe-4-b) 55%, transparent); }
 
 body {
   background-color: var(--bg);
