@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Iphone } from "./Appareils";
-import { PastilleDemo } from "./PastilleDemo";
+import { PastilleOffre } from "./PastilleOffre";
 import { SiteTerreEtSel, SiteTerreEtSelMobile, useConstruction } from "./TerreEtSel";
 
 // Visuel du hero : le site de démonstration « Terre & Sel » se construit en
 // direct dans le MacBook (même animation que la tablette de l'appel final),
 // à côté du même site, fixe, sur iPhone ; puis la notification « en ligne »
-// arrive. La pastille ronde « Démo offerte » mène au formulaire.
+// arrive. Le sceau « 1 démo offerte » mène au formulaire.
 
 // le téléphone reste fixe : tout son site est affiché d'emblée
 const TOUT_VISIBLE = () => ({ "data-on": "" });
@@ -68,9 +68,9 @@ export function HeroVisuel() {
           </span>
         </div>
 
-        {/* Pastille ronde « Démo offerte » (la même que dans l'appel final) */}
+        {/* Sceau « 1 démo offerte », sur le modèle de la pastille de primaps.fr */}
         <div className="hero-pastille">
-          <PastilleDemo id="cercle-pastille-hero" className="!relative grid" />
+          <PastilleOffre id="cercle-offre-hero" />
         </div>
       </div>
     </div>
