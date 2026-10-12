@@ -2,7 +2,7 @@ import { Gift, Mail } from "lucide-react";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { DemoTablette } from "./DemoTablette";
-import { PastilleDemo } from "./PastilleDemo";
+import { PastilleOffre } from "./PastilleOffre";
 
 // Appel final : texte + bouton à gauche, à droite une tablette où une démo de
 // site se construit élément par élément, en boucle.
@@ -35,7 +35,9 @@ export function CtaFinal({
 
           <div className="relative mx-auto w-full max-w-[500px]" aria-hidden="true">
             <DemoTablette />
-            <PastilleDemo id="cercle-pastille-cta" className="-right-6 -top-16 hidden scale-[0.78] sm:grid xl:-right-10" />
+            <div className="cta-pastille hidden sm:block">
+              <PastilleOffre id="cercle-offre-cta" decorative />
+            </div>
           </div>
         </div>
       </div>

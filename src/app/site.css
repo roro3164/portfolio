@@ -1425,11 +1425,9 @@ a.tuile:hover {
 .hero-toast { position: absolute; z-index: 4; left: -4%; top: 6%; }
 /* pastille ronde « Démo offerte » (composant PastilleDemo), réduite et posée sur le coin du MacBook */
 .hero-pastille { position: absolute; z-index: 6; right: 0; top: -60px; transform: translate3d(calc(var(--hx) * 30px), calc(var(--hy) * 20px), 0); animation: hero-entree 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both; }
-.hero-pastille > .pastille-demo { scale: 0.72; transform-origin: top right; }
 @media (max-width: 639px) {
   .hero-toast { left: 0; top: -8%; }
   .hero-pastille { top: -50px; right: -6px; }
-  .hero-pastille > .pastille-demo { scale: 0.5; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-ordi, .hero-pastille { animation: none; }
@@ -1465,83 +1463,6 @@ a.tuile:hover {
 @keyframes toast-entree { from { opacity: 0; transform: translateY(12px) scale(0.96); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .demo-parcours-etape .demo-parcours-barre span { animation: none; width: 100%; } .demo-toast-etape { animation: none; } }
 
-/* Pastille « Démo offerte » (hero) */
-.pastille-demo {
-  position: absolute;
-  place-items: center;
-  width: 212px;
-  height: 212px;
-  border-radius: 50%;
-  isolation: isolate;
-  transition: transform 0.45s cubic-bezier(0.3, 1.4, 0.5, 1);
-}
-.pastille-demo:hover { transform: scale(1.06) rotate(-4deg); }
-/* onde qui s'échappe régulièrement */
-.pastille-onde { position: absolute; inset: 0; z-index: -2; border-radius: 50%; border: 1.5px solid rgba(167, 139, 250, 0.7); animation: pastille-onde 3.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; }
-@keyframes pastille-onde { 0% { scale: 1; opacity: 0.8; } 70%, 100% { scale: 1.28; opacity: 0; } }
-/* bord laser + fond sombre du sceau */
-.pastille-anneau {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  z-index: -1;
-  background: conic-gradient(from var(--laser-angle), rgb(var(--m1)), #ec4899, #fff, rgb(var(--m1)) 40%, #3b82f6 70%, rgb(var(--m1)));
-  box-shadow: 0 0 40px rgba(var(--m1), 0.55), 0 22px 44px -14px rgba(0, 0, 0, 0.8);
-  animation: laser-tour 5s linear infinite;
-}
-.pastille-anneau::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.1), transparent 45%),
-    radial-gradient(circle at 50% 50%, #221c3b, #110f1c 72%);
-}
-.pastille-filets { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: rgba(216, 212, 255, 0.18); stroke-width: 0.8; pointer-events: none; }
-.pastille-texte {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  fill: #d8d4ff;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  animation: pastille-rotation 24s linear infinite;
-}
-.pastille-texte-fort { fill: #fff; font-weight: 800; }
-.pastille-texte-etoile { fill: #f472b6; }
-.pastille-demo:hover .pastille-texte { animation-duration: 9s; }
-@keyframes pastille-rotation { to { transform: rotate(360deg); } }
-.pastille-coeur {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 146px;
-  height: 146px;
-  overflow: hidden;
-  border-radius: 50%;
-  text-align: center;
-  color: #fff;
-  background:
-    radial-gradient(120% 80% at 30% 0%, rgba(255, 255, 255, 0.35), transparent 50%),
-    radial-gradient(90% 90% at 85% 90%, rgba(236, 72, 153, 0.55), transparent 60%),
-    linear-gradient(145deg, rgb(var(--m-clair)) 0%, rgb(var(--m2)) 45%, rgb(var(--m2)) 100%);
-  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.55), inset 0 -10px 22px rgba(30, 10, 80, 0.45), 0 10px 28px -8px rgba(var(--m2), 0.9);
-}
-/* reflet qui traverse le disque de temps en temps */
-.pastille-reflet { position: absolute; inset: -20%; background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.32) 50%, transparent 60%); translate: -100% 0; animation: pastille-reflet 5s ease-in-out infinite; }
-@keyframes pastille-reflet { 0%, 60% { translate: -100% 0; } 85%, 100% { translate: 100% 0; } }
-.pastille-icone { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.35); overflow: hidden; }
-.pastille-icone > svg { grid-area: 1 / 1; transition: opacity 0.3s, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.pastille-fleche { opacity: 0; transform: translate(-10px, 10px); }
-.pastille-demo:hover .pastille-cadeau { opacity: 0; transform: translate(10px, -10px); }
-.pastille-demo:hover .pastille-fleche { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  .pastille-anneau, .pastille-texte, .pastille-onde, .pastille-reflet { animation: none; }
-  .pastille-onde { opacity: 0; }
-}
 
 /* Chiffres clés des projets : sans cases, trait et dégradé à la couleur du projet */
 .chiffre {
@@ -1897,8 +1818,8 @@ a.tuile:hover {
 /* Thème clair : le texte blanc des composants passe en encre, sauf sur un fond coloré */
 :root[data-theme="clair"] .text-white:not([class*="bg-"]) { color: var(--fort); }
 :root[data-theme="clair"] [class*="text-white/"]:not([class*="bg-"]) { color: var(--muted); }
-:root[data-theme="clair"] :is(.btn-primary, .btn-primaps, .pastille-coeur, .tablette, [class*="bg-gradient"], [class*="bg-violet"], [class*="bg-green"], [class*="bg-[linear-gradient"]) .text-white { color: #fff; }
-:root[data-theme="clair"] :is(.btn-primary, .btn-primaps, .pastille-coeur, .tablette) [class*="text-white/"] { color: rgba(255, 255, 255, 0.85); }
+:root[data-theme="clair"] :is(.btn-primary, .btn-primaps, .tablette, [class*="bg-gradient"], [class*="bg-violet"], [class*="bg-green"], [class*="bg-[linear-gradient"]) .text-white { color: #fff; }
+:root[data-theme="clair"] :is(.btn-primary, .btn-primaps, .tablette) [class*="text-white/"] { color: rgba(255, 255, 255, 0.85); }
 :root[data-theme="clair"] .lien-neon:hover, :root[data-theme="clair"] .lien-neon[aria-current="page"] { color: var(--violet-2); text-shadow: 0 0 18px rgba(var(--m1), 0.35); }
 :root[data-theme="clair"] .fond-site::after { opacity: 0.025; }
 
@@ -1993,4 +1914,7 @@ a.tuile:hover {
 .pastille-offre-prix { position: absolute; bottom: 48px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; color: #5d58a3; background: #ece9ff; }
 .hero-pastille > .pastille-offre { transform-origin: top right; }
 @media (max-width: 639px) { .hero-pastille > .pastille-offre { scale: 0.68; } }
+.cta-pastille { position: absolute; z-index: 6; right: -24px; top: -64px; }
+.cta-pastille > .pastille-offre { scale: 0.82; transform-origin: top right; }
+@media (min-width: 1280px) { .cta-pastille { right: -40px; } }
 @media (prefers-reduced-motion: reduce) { .pastille-offre-anneau { animation: none; } .pastille-offre:hover { transform: none; } }
