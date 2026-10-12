@@ -68,7 +68,7 @@ export function HeroVisuel() {
           </span>
         </div>
 
-        {/* Sceau « 1 démo offerte », sur le modèle de la pastille de primaps.fr */}
+        {/* Sceau « Démo offerte », sur le modèle de la pastille de primaps.fr */}
         <div className="hero-pastille">
           <PastilleOffre id="cercle-offre-hero" />
         </div>

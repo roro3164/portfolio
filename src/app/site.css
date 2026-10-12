@@ -1979,18 +1979,18 @@ a.tuile:hover {
 /* le site mobile de démo a sa propre île : celle du cadre suffit */
 .ap-iphone .tsm-ile { visibility: hidden; }
 
-/* Sceau « 1 démo offerte » du héros, sur le modèle de la pastille « 1 mois offert » de primaps.fr */
-.pastille-offre { position: relative; isolation: isolate; display: grid; place-items: center; width: 164px; height: 164px; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #ffffff 0%, #f7f6ff 70%, #efedfd 100%); box-shadow: 0 0 42px -6px rgba(140, 130, 227, 0.75), 0 24px 50px -20px rgba(0, 0, 0, 0.7); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+/* Sceau « Démo offerte » du héros, sur le modèle de la pastille « 1 mois offert » de primaps.fr */
+.pastille-offre { position: relative; isolation: isolate; display: grid; place-items: center; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #ffffff 0%, #f7f6ff 70%, #efedfd 100%); box-shadow: 0 0 42px -6px rgba(140, 130, 227, 0.75), 0 24px 50px -20px rgba(0, 0, 0, 0.7); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .pastille-offre:hover { transform: scale(1.05) rotate(-4deg); }
 .pastille-offre::before { content: ""; position: absolute; z-index: -1; inset: -26px; border-radius: 50%; background: conic-gradient(from 0deg, #8c82e3, #ec4899, #3b82f6, #a78bfa, #8c82e3); -webkit-mask: radial-gradient(closest-side, transparent 64%, #000 71%, rgba(0, 0, 0, 0.35) 84%, transparent 100%); mask: radial-gradient(closest-side, transparent 64%, #000 71%, rgba(0, 0, 0, 0.35) 84%, transparent 100%); opacity: 0.9; }
 .pastille-offre::after { content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: linear-gradient(155deg, rgba(255, 255, 255, 0.9) 0%, transparent 38%); mix-blend-mode: soft-light; }
 .pastille-offre-anneau { position: absolute; inset: 0; width: 100%; height: 100%; will-change: transform; animation: pastille-offre-tourne 22s linear infinite; }
 .pastille-offre-anneau text { font-size: 9.5px; font-weight: 700; fill: #6b6880; }
 @keyframes pastille-offre-tourne { to { transform: rotate(360deg); } }
-.pastille-offre-centre { position: relative; display: flex; align-items: center; gap: 5px; margin-top: -12px; }
-.pastille-offre-un { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 56px; font-weight: 700; line-height: 0.85; letter-spacing: -1px; color: #6d63d6; }
-.pastille-offre-libelle { text-align: left; font-size: 13px; font-weight: 800; line-height: 1.02; text-transform: uppercase; color: #1e1c27; }
-.pastille-offre-prix { position: absolute; bottom: 44px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; color: #5d58a3; background: #ece9ff; }
-.hero-pastille > .pastille-offre { scale: 0.86; transform-origin: top right; }
-@media (max-width: 639px) { .hero-pastille > .pastille-offre { scale: 0.6; } }
+.pastille-offre-centre { position: relative; display: flex; flex-direction: column; align-items: center; margin-top: -14px; line-height: 1; }
+.pastille-offre-petit { font-size: 13px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: #1e1c27; margin-right: -0.32em; }
+.pastille-offre-grand { margin-top: 5px; font-size: 27px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; color: #6d63d6; }
+.pastille-offre-prix { position: absolute; bottom: 48px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; color: #5d58a3; background: #ece9ff; }
+.hero-pastille > .pastille-offre { transform-origin: top right; }
+@media (max-width: 639px) { .hero-pastille > .pastille-offre { scale: 0.68; } }
 @media (prefers-reduced-motion: reduce) { .pastille-offre-anneau { animation: none; } .pastille-offre:hover { transform: none; } }
