@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  async redirects() {
+    return [
+      { source: "/devis", destination: "/demo-gratuite", permanent: true },
+      { source: "/maquette-gratuite", destination: "/demo-gratuite", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

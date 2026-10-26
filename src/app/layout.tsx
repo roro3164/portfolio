@@ -1,32 +1,56 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./styles/globals.css";
+import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { SITE } from "@/lib/site";
+import "./site.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sans = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const mono = Geist_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Romain DesignCode – Création de sites web modernes & performants",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: "Création de site e-commerce et vitrine à Montpellier | Romain DesignCode",
+    template: "%s | Romain DesignCode",
+  },
   description:
-    "Développeur freelance. Création de sites web sur mesure, rapides et bien référencés, pour les entrepreneurs et indépendants. Démo gratuite disponible.",
+    "Romain DesignCode crée des sites e-commerce Shopify et des sites vitrine sur-mesure à Montpellier : design, développement et référencement Google. Devis gratuit.",
+  applicationName: SITE.nom,
+  authors: [{ name: SITE.fondateur, url: `${SITE.url}/a-propos` }],
+  creator: SITE.fondateur,
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: SITE.url,
+    siteName: SITE.nom,
+  },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true, "max-image-preview": "large" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#0e0d13",
+  colorScheme: "dark",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="fr" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
+        {/* Thème clair/sombre choisi par le visiteur, posé avant l'affichage (pas de flash). La page QR /contact reste sombre. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('theme')==='clair'&&location.pathname.indexOf('/contact')!==0)document.documentElement.setAttribute('data-theme','clair')}catch(e){}`,
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -36,31 +60,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5CPH4SSX');`,
           }}
         />
-        {/* End Google Tag Manager */}
-        {/* Tracking QR code diagnostic : establishment_name pour GA4 (dimension personnalisée) */}
+        {/* Suivi des scans QR de prospection : establishment_name → GA4 */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-(function(){
-  if (typeof window === 'undefined') return;
-  var params = new URLSearchParams(window.location.search);
-  var establishmentName = params.get('establishment_name');
-  if (establishmentName) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'qr_scan_landing',
-      establishment_name: establishmentName
-    });
-  }
-})();
-            `.trim(),
+            __html: `(function(){var p=new URLSearchParams(location.search);var n=p.get('establishment_name');if(n){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'qr_scan_landing',establishment_name:n});}})();`,
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Google Tag Manager (noscript) */}
+      <body className={`${sans.variable} ${mono.variable} antialiased`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5CPH4SSX"
@@ -69,7 +76,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
         {children}
       </body>
     </html>
