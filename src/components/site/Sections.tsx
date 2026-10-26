@@ -68,10 +68,15 @@ export function ProjetPhare({ etude, inverse = false, titreNiveau = "h3" }: { et
         <div className="mt-7">
           <Chiffres etude={etude} compact />
         </div>
-        <Link href={`/realisations/${etude.slug}`} className="group mt-7 inline-flex items-center gap-2 font-semibold text-[var(--accent)]">
-          Lire l&apos;étude de cas
-          <Fleche className="transition-transform group-hover:translate-x-1" />
-        </Link>
+        <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
+          <Link href={`/realisations/${etude.slug}`} className="group inline-flex items-center gap-2 font-semibold text-[var(--accent)]">
+            Lire l&apos;étude de cas
+            <Fleche className="transition-transform group-hover:translate-x-1" />
+          </Link>
+          <a href={etude.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white">
+            Voir le site en ligne ↗
+          </a>
+        </div>
       </div>
     </article>
   );
