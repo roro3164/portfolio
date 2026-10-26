@@ -109,7 +109,7 @@ export function Accueil() {
       <ProjetsPhares
         slugs={["lumi-nice", "maison-ribier", "bistrot-des-musees"]}
         titre="Des projets concrets, avec des chiffres."
-        intro="Une boutique de 13 500 luminaires, un catalogue de lunettes de luxe, un bistrot qui double sa visibilité : voici ce que je construis."
+        intro="Une boutique de 15 000 luminaires, un catalogue de lunettes de luxe, un bistrot qui double sa visibilité : voici ce que je construis."
       />
 
       <Methode />
