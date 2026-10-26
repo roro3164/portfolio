@@ -96,7 +96,7 @@ const SCENES: Record<string, () => ReactNode> = {
   ),
   "gros-catalogue-e-commerce": () => (
     <>
-      <span className="cv-puce absolute left-[26px] top-[26px] !bg-[#8c82e3]">13 500+ produits en ligne</span>
+      <span className="cv-puce absolute left-[26px] top-[26px] !bg-[#8c82e3]">15 000+ produits en ligne</span>
       <span className="cv-puce absolute bottom-[26px] right-[26px] flex items-center gap-1.5">
         <RefreshCw className="h-3 w-3" /> Stock synchronisé il y a 1 h
       </span>

@@ -45,9 +45,9 @@ export const ETUDES: EtudeDeCas[] = [
       { src: "/realisations/lumi-nice-fiche-produit.webp", alt: "Fiche produit LumiNice : photos, prix, caractéristiques techniques" },
     ],
     chiffres: [
-      { valeur: "13 500+", libelle: "produits en ligne" },
-      { valeur: "7", libelle: "marques synchronisées" },
-      { valeur: "1 h", libelle: "pour mettre le stock à jour" },
+      { valeur: "15 000+", libelle: "produits en ligne" },
+      { valeur: "40 000+", libelle: "photos intégrées" },
+      { valeur: "< 10 min", libelle: "entre une modification et sa mise en ligne" },
       { valeur: "14 900", libelle: "redirections pour garder le référencement" },
     ],
     defi:
@@ -84,7 +84,7 @@ export const ETUDES: EtudeDeCas[] = [
     ],
     chiffres: [
       { valeur: "455", libelle: "produits en ligne" },
-      { valeur: "300", libelle: "nouvelles fiches créées" },
+      { valeur: "454", libelle: "fiches produit créées" },
       { valeur: "4 400+", libelle: "photos posées" },
       { valeur: "96 %", libelle: "des coloris avec leurs vues" },
     ],
