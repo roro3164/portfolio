@@ -35,8 +35,8 @@ export function Header() {
     <header className="sticky top-0 z-50 pt-3">
       <div className="wrap">
       <div
-        className={`entete flex h-[62px] items-center justify-between gap-6 rounded-full pl-6 pr-2 ${
-          resserre || ouvert ? "entete-verre mx-auto xl:w-[88%]" : "mx-auto w-full"
+        className={`entete flex h-[62px] items-center justify-between gap-6 rounded-full pr-2 ${
+          resserre || ouvert ? "entete-verre mx-auto pl-6 xl:w-[88%]" : "mx-auto w-full pl-0"
         }`}
       >
         <Logo hauteur={28} />
