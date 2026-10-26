@@ -84,9 +84,8 @@ export const ETUDES: EtudeDeCas[] = [
     ],
     chiffres: [
       { valeur: "455", libelle: "produits en ligne" },
-      { valeur: "454", libelle: "fiches produit créées" },
-      { valeur: "4 400+", libelle: "photos posées" },
-      { valeur: "96 %", libelle: "des coloris avec leurs vues" },
+      { valeur: "4 400+", libelle: "photos de lunettes posées" },
+      { valeur: "96 %", libelle: "des lunettes montrées sous plusieurs angles" },
     ],
     defi:
       "Des fiches incomplètes, des photos de tailles différentes, des coloris sans image : pour une clientèle qui achète des montures à plusieurs centaines d'euros, le site ne reflétait pas le niveau de la boutique.",
