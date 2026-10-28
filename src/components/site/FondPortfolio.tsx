@@ -12,21 +12,35 @@ import { useEffect } from "react";
 export function FondPortfolio() {
   useEffect(() => {
     if (!matchMedia("(hover: hover)").matches) return;
+    // La lumière glisse vers la souris au lieu de sauter : elle suit avec un léger retard.
     let cible: HTMLElement | null = null;
+    let vise = { x: 0, y: 0 };
+    let pos = { x: 0, y: 0 };
+    let raf = 0;
+    const glisse = () => {
+      pos = { x: pos.x + (vise.x - pos.x) * 0.16, y: pos.y + (vise.y - pos.y) * 0.16 };
+      cible?.style.setProperty("--mx", `${pos.x}px`);
+      cible?.style.setProperty("--my", `${pos.y}px`);
+      raf = Math.abs(vise.x - pos.x) + Math.abs(vise.y - pos.y) > 0.5 ? requestAnimationFrame(glisse) : 0;
+    };
     const bouge = (e: PointerEvent) => {
       const el =
         (e.target as Element | null)?.closest?.<HTMLElement>(".pf-lueur") ??
         null;
       if (cible && cible !== el) cible.removeAttribute("data-lueur");
+      const r = el?.getBoundingClientRect();
+      if (el && r && el !== cible) pos = { x: e.clientX - r.left, y: e.clientY - r.top };
       cible = el;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
+      if (!el || !r) return;
+      vise = { x: e.clientX - r.left, y: e.clientY - r.top };
       el.setAttribute("data-lueur", "");
+      if (!raf) raf = requestAnimationFrame(glisse);
     };
     document.addEventListener("pointermove", bouge, { passive: true });
-    return () => document.removeEventListener("pointermove", bouge);
+    return () => {
+      document.removeEventListener("pointermove", bouge);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
