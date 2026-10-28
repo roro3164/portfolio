@@ -257,12 +257,22 @@ export default function Portfolio() {
               </Iphone>
             </div>
             <div>
-              <h3 className="h3">Roulette et carte de fidélité</h3>
-              <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-[var(--muted)]">
-                Le client scanne le QR du comptoir, tourne la roue et ajoute sa
-                carte dans le portefeuille de son téléphone. Chaque carte est générée aux
-                couleurs et au logo du restaurant, à tampons ou à points.
+              <p className="vp-numero">06 · Roulette et fidélité</p>
+              <h3 className="h3 mt-3">Faire revenir les clients</h3>
+              <p className="mt-3 max-w-xl text-[16.5px] leading-relaxed text-[var(--muted)]">
+                Le client scanne le QR du comptoir, tourne la roue et gagne un
+                lot, puis ajoute sa carte de fidélité dans le portefeuille de son
+                téléphone. Chaque carte, à tampons ou à points, est générée aux
+                couleurs et au logo du restaurant. Promos, relances par e-mail et
+                parrainage s&apos;y ajoutent.
               </p>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {["Roulette au comptoir", "Tampons ou points", "Portefeuille du téléphone", "Promos et relances par e-mail"].map((p) => (
+                  <li key={p} className="vp-puce">
+                    {p}
+                  </li>
+                ))}
+              </ul>
               <ul className="mt-8 grid max-w-[760px] grid-cols-2 gap-4 sm:grid-cols-4">
                 {CARTES_FIDELITE.map((c) => (
                   <li key={c.src}>

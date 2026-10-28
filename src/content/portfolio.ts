@@ -76,23 +76,23 @@ export const VISITE_PRIMAPS = [
   {
     id: "site",
     numero: "03 · Site et constructeur",
-    titre: "Un vrai site, modifiable au clic",
+    titre: "Un site qui donne faim, modifiable en un clic",
     texte:
-      "Le restaurateur choisit un template, puis change chaque texte et chaque photo directement sur la page. On peut passer à un autre template en gardant tous ses contenus. Le site existe en plusieurs langues, avec le menu en QR code.",
-    points: ["Éditeur visuel par blocs", "Changement de template en direct", "Plusieurs langues"],
+      "Plus de 30 templates dessinés pour les restaurants, snacks, pizzerias, boulangeries et fleuristes, chacun avec sa direction artistique et ses animations. Le restaurateur clique sur un texte ou une photo et le change directement sur la page, sans rien connaître au web. Il passe d'un template à l'autre quand il veut : tout son contenu suit. Le site parle plusieurs langues et ses boutons Réserver et Commander mènent droit aux modules Primaps.",
+    points: ["Plus de 30 templates", "Tout se modifie au clic", "Changer de template sans rien perdre", "Plusieurs langues"],
     src: "/portfolio/clips/editeur.jpg",
     clip: "/portfolio/clips/editeur.mp4",
-    alt: "Primaps, constructeur de site : clic sur un titre puis changement de template",
+    alt: "Primaps, constructeur de site : clic sur un titre, défilé de templates, puis le template du Bistrot Fernand",
   },
   {
     id: "reservations",
     numero: "04 · Réservations",
     titre: "Le service du soir, table par table",
     texte:
-      "Les réservations du site et de la fiche Google tombent directement sur le plan de salle : tables libres, réservées, à table ou en retard, sur la frise du service. Aucune commission par couvert.",
+      "Chaque restaurant a son plan de salle dessiné à l'échelle : salle, bar, terrasse, étage. Les réservations du site et de la fiche Google s'y placent table par table, sur la frise du service : libres, réservées, à table ou en retard. Aucune commission par couvert.",
     points: ["Plan de salle à l'échelle", "Frise du service", "Sans commission"],
     src: "/portfolio/primaps/m-reservations.webp",
-    alt: "Primaps, plan de salle des réservations pendant le service",
+    alt: "Primaps, module Réservations avec le plan de salle du Bistrot Fernand, terrasse comprise",
   },
   {
     id: "commandes",
@@ -103,16 +103,6 @@ export const VISITE_PRIMAPS = [
     points: ["Paiement en ligne", "Suivi en cuisine", "Créneaux de retrait"],
     src: "/portfolio/primaps/m-commandes.webp",
     alt: "Primaps, suivi des commandes click & collect en cuisine",
-  },
-  {
-    id: "fidelite",
-    numero: "06 · Roulette et fidélité",
-    titre: "Faire revenir les clients",
-    texte:
-      "La carte de fidélité, à tampons ou à points, s'habille aux couleurs du métier et du restaurant, avec un aperçu en direct sur téléphone. Promos, relances par e-mail et parrainage s'y ajoutent.",
-    points: ["Tampons ou points", "Habillage par métier", "Aperçu en direct"],
-    src: "/portfolio/primaps/m-fidelite.webp",
-    alt: "Primaps, réglages de la carte de fidélité avec aperçu sur téléphone",
   },
 ];
 
