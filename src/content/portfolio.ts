@@ -7,7 +7,15 @@ export const CANDIDATURE = {
   demoPrimaps: "https://www.primaps.fr/invite/portfolio",
 };
 
-export type Ecran = { src: string; titre: string; texte: string };
+export type Ecran = {
+  src: string;
+  titre: string;
+  texte: string;
+  /** Clip vidéo joué à la place de l'image (src = affiche). */
+  clip?: string;
+  /** Prend toute la largeur de la grille. */
+  large?: boolean;
+};
 
 export const ECRANS_PRIMAPS: Ecran[] = [
   {
@@ -17,26 +25,54 @@ export const ECRANS_PRIMAPS: Ecran[] = [
       "Fiche Google, site, réservations et commandes réunis sur un seul écran.",
   },
   {
-    src: "/portfolio/primaps/reservations.webp",
-    titre: "Réservations",
-    texte:
-      "Agenda du service et plan de salle à l'échelle, tables fusionnables.",
-  },
-  {
     src: "/portfolio/primaps/commandes.webp",
     titre: "Click & collect",
     texte: "Commandes payées en ligne, créneaux de retrait, suivi en cuisine.",
   },
   {
-    src: "/portfolio/primaps/fidelite.webp",
-    titre: "Roulette et carte de fidélité",
-    texte: "Jeu au comptoir par QR code, carte à tampons ou à points, habillée aux couleurs du restaurant.",
+    src: "/portfolio/primaps/plan-salle.webp",
+    titre: "Réservations et plan de salle",
+    texte:
+      "Le plan du Bistrot Fernand à l'échelle : tables fusionnables, placement en direct pendant le service.",
+    large: true,
   },
   {
-    src: "/portfolio/primaps/constructeur.webp",
+    src: "/portfolio/clips/editeur.jpg",
+    clip: "/portfolio/clips/editeur.mp4",
     titre: "Constructeur de site",
     texte:
-      "Éditeur visuel par blocs : chaque texte et chaque photo se modifie au clic.",
+      "Un clic sur un texte ouvre son champ ; on change de template en direct, contenus conservés.",
+    large: true,
+  },
+];
+
+/** Cartes de fidélité (style Apple / Google Wallet) générées aux couleurs de chaque restaurant. */
+export const CARTES_FIDELITE = [
+  { src: "/portfolio/primaps/carte-fernand.webp", nom: "Bistrot Fernand" },
+  { src: "/portfolio/primaps/carte-forno.webp", nom: "Forno Rosso" },
+  { src: "/portfolio/primaps/carte-petrin.webp", nom: "Maison Pétrin" },
+  { src: "/portfolio/primaps/carte-spot.webp", nom: "Le Spot" },
+];
+
+/** Clips des templates, en tête de la grille. */
+export const CLIPS_TEMPLATES = [
+  {
+    clip: "/portfolio/clips/tpl-nina.mp4",
+    src: "/portfolio/clips/tpl-nina.jpg",
+    libelle: "Restaurant 1",
+    lien: "https://www.primaps.fr/preview-templates?s=bistro&v=nina-bonita&panel=1",
+  },
+  {
+    clip: "/portfolio/clips/tpl-fleuriste.mp4",
+    src: "/portfolio/clips/tpl-fleuriste.jpg",
+    libelle: "Fleuriste 1",
+    lien: "https://www.primaps.fr/preview-templates?s=fleuriste&v=fleuriste-jardin-clair&panel=1",
+  },
+  {
+    clip: "/portfolio/clips/tpl-burger.mp4",
+    src: "/portfolio/clips/tpl-burger.jpg",
+    libelle: "Burger 7",
+    lien: "https://www.primaps.fr/preview-templates?s=snack&v=crousti-turquoise&panel=1",
   },
 ];
 

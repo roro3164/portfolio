@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { Clip } from "./Clip";
 
 export function Navigateur({
   src,
   alt,
   url,
+  clip,
   priority = false,
   sizes = "(min-width: 1024px) 720px, 100vw",
   className = "",
@@ -11,6 +13,8 @@ export function Navigateur({
   src: string;
   alt: string;
   url: string;
+  /** Clip vidéo joué à la place de l'image (src sert alors d'affiche). */
+  clip?: string;
   priority?: boolean;
   sizes?: string;
   className?: string;
@@ -23,7 +27,11 @@ export function Navigateur({
         <i />
         <span className="browser-url">{url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
       </div>
-      <Image src={src} alt={alt} width={1440} height={900} sizes={sizes} priority={priority} className="block h-auto w-full" />
+      {clip ? (
+        <Clip src={clip} poster={src} label={alt} />
+      ) : (
+        <Image src={src} alt={alt} width={1440} height={900} sizes={sizes} priority={priority} className="block h-auto w-full" />
+      )}
     </div>
   );
 }

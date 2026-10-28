@@ -14,12 +14,15 @@ import {
 import Link from "next/link";
 import { DuoAppareils, Iphone } from "@/components/site/Appareils";
 import { Navigateur } from "@/components/site/Cadres";
+import { Clip } from "@/components/site/Clip";
 import { LogoPrimaps } from "@/components/site/LogoPrimaps";
 import { PortraitSplit } from "@/components/site/PortraitSplit";
 import { Coche, Fleche } from "@/components/site/Sections";
 import {
   AGENCE,
   CANDIDATURE,
+  CARTES_FIDELITE,
+  CLIPS_TEMPLATES,
   COMPETENCES,
   ECRANS_PRIMAPS,
   STACK_PRIMAPS,
@@ -192,14 +195,19 @@ export default function Portfolio() {
             {ECRANS_PRIMAPS.filter((e) => existe(e.src)).map((e, i) => (
               <figure
                 key={e.src}
-                className="reveal md:[&:last-child:nth-child(odd)]:col-span-2"
+                className={`reveal ${e.large ? "md:col-span-2" : ""} ${e.clip ? "md:mx-auto md:w-full md:max-w-[1000px]" : ""}`}
               >
                 <Navigateur
                   src={e.src}
+                  clip={e.clip}
                   alt={`Primaps, ${e.titre.toLowerCase()}`}
                   url="primaps.fr/dashboard"
                   priority={i < 2}
-                  sizes="(min-width: 768px) 600px, 92vw"
+                  sizes={
+                    e.large
+                      ? "(min-width: 1024px) 1200px, 92vw"
+                      : "(min-width: 768px) 600px, 92vw"
+                  }
                 />
                 <figcaption className="mt-4">
                   <span className="font-semibold text-white">{e.titre}</span>
@@ -209,7 +217,45 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="reveal mt-16 grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
+            <div className="mx-auto w-[230px] lg:mx-0">
+              <Iphone>
+                <Clip
+                  src="/portfolio/clips/roulette.mp4"
+                  poster="/portfolio/clips/roulette.jpg"
+                  label="La roulette Primaps sur téléphone : la roue tourne et le client gagne un café"
+                  className="aspect-[520/1126]"
+                />
+              </Iphone>
+            </div>
+            <div>
+              <h3 className="h3">Roulette et carte de fidélité</h3>
+              <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-[var(--muted)]">
+                Le client scanne le QR du comptoir, tourne la roue et ajoute sa
+                carte dans Apple ou Google Wallet. Chaque carte est générée aux
+                couleurs et au logo du restaurant, à tampons ou à points.
+              </p>
+              <ul className="mt-8 grid max-w-[760px] grid-cols-2 gap-4 sm:grid-cols-4">
+                {CARTES_FIDELITE.map((c) => (
+                  <li key={c.src}>
+                    <Image
+                      src={c.src}
+                      alt={`Carte de fidélité ${c.nom}`}
+                      width={642}
+                      height={1322}
+                      sizes="(min-width: 1024px) 180px, (min-width: 640px) 22vw, 44vw"
+                      className="h-auto w-full rounded-2xl shadow-[0_18px_40px_-18px_rgba(0,0,0,0.7)]"
+                    />
+                    <p className="mt-2 text-center text-[13.5px] text-[var(--muted)]">
+                      {c.nom}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h3 className="h3">Stack technique</h3>
               <div className="mt-4">
@@ -298,6 +344,28 @@ export default function Portfolio() {
               communs : chaque texte et chaque photo se modifie au clic. Chaque
               aperçu s&apos;ouvre en vrai, avec ses animations.
             </p>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {CLIPS_TEMPLATES.map((c) => (
+                <a
+                  key={c.clip}
+                  href={c.lien}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group reveal block"
+                >
+                  <div className="overflow-hidden rounded-2xl border border-white/10">
+                    <Clip src={c.clip} poster={c.src} label={`Template ${c.libelle} qui défile avec ses animations`} className="aspect-[1080/676]" />
+                  </div>
+                  <p className="mt-3 flex items-center justify-between gap-3">
+                    <span className="font-semibold text-white">{c.libelle}</span>
+                    <span className="inline-flex items-center gap-1 text-[14px] text-[var(--accent)]">
+                      Voir en vrai{" "}
+                      <Fleche className="transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </p>
+                </a>
+              ))}
+            </div>
             <div className="mt-12 grid gap-x-5 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {TEMPLATES.map((t) => (
                 <a
