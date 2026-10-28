@@ -7,42 +7,112 @@ export const CANDIDATURE = {
   demoPrimaps: "https://www.primaps.fr/invite/portfolio",
 };
 
-export type Ecran = {
-  src: string;
-  titre: string;
-  texte: string;
-  /** Clip vidéo joué à la place de l'image (src = affiche). */
-  clip?: string;
-  /** Prend toute la largeur de la grille. */
-  large?: boolean;
-};
+/** Le concept de Primaps en 4 temps, avec les fonctions de l'offre (lib/marketing/formules.ts de Primaps). */
+export const CONCEPT_PRIMAPS = [
+  {
+    titre: "Être trouvé",
+    icone: "trouve",
+    points: [
+      "Fiche Google optimisée",
+      "À jour sur Bing, Apple Plans, TripAdvisor et PagesJaunes",
+      "Recommandé quand on demande à ChatGPT où manger",
+      "Carte des positions sur Google Maps et suivi de la visibilité",
+    ],
+  },
+  {
+    titre: "Donner envie",
+    icone: "envie",
+    points: [
+      "Réponses aux avis Google en moins de 48 h, aidées par l'IA",
+      "Site en plusieurs langues, choisi parmi les templates",
+      "Menu QR multilangue",
+      "1 post par semaine sur Instagram, Facebook et la fiche Google",
+    ],
+  },
+  {
+    titre: "Remplir la salle",
+    icone: "salle",
+    points: [
+      "Réservations sans commission",
+      "Plan de salle en direct pendant le service",
+      "Click & collect payé en ligne, sans commission",
+      "Boutons « Réserver » et « Commander » sur la fiche Google",
+    ],
+  },
+  {
+    titre: "Faire revenir",
+    icone: "revenir",
+    points: [
+      "Roulette au comptoir pour récolter plus d'avis",
+      "Carte de fidélité dans le portefeuille du téléphone",
+      "Promos, relances par e-mail et parrainage",
+      "Bilan mensuel",
+    ],
+  },
+] as const;
 
-export const ECRANS_PRIMAPS: Ecran[] = [
+/** Visite du produit : un écran réel de la démo (restaurant fictif « Le Petit Kreuzberg ») par fonction. */
+export const VISITE_PRIMAPS = [
   {
-    src: "/portfolio/primaps/dashboard.webp",
-    titre: "Tableau de bord",
+    id: "visibilite",
+    numero: "01 · Visibilité locale",
+    titre: "Où le restaurant apparaît sur Google Maps, rue par rue",
     texte:
-      "Fiche Google, site, réservations et commandes réunis sur un seul écran.",
+      "Primaps interroge Google sur une grille de 49 points autour du restaurant et affiche sa position à chaque endroit, face à ses concurrents. Le restaurateur voit d'un coup d'œil où il perd des clients, avec les priorités pour remonter.",
+    points: ["Grille de positions", "Classement des concurrents", "Priorités d'action"],
+    src: "/portfolio/primaps/m-visibilite.webp",
+    alt: "Primaps, carte des positions Google Maps autour du restaurant",
   },
   {
-    src: "/portfolio/primaps/commandes.webp",
-    titre: "Click & collect",
-    texte: "Commandes payées en ligne, créneaux de retrait, suivi en cuisine.",
-  },
-  {
-    src: "/portfolio/primaps/plan-salle.webp",
-    titre: "Réservations et plan de salle",
+    id: "avis",
+    numero: "02 · Fiche et avis Google",
+    titre: "Répondre à chaque avis, avec l'aide de l'IA",
     texte:
-      "Le plan du Bistrot Fernand à l'échelle : tables fusionnables, placement en direct pendant le service.",
-    large: true,
+      "Tous les avis Google arrivent au même endroit, ceux sans réponse en premier. L'IA propose une réponse ; le restaurateur la relit, la modifie s'il veut, et l'envoie.",
+    points: ["Réponses proposées par l'IA", "Note et volume d'avis", "Fiche Google à jour"],
+    src: "/portfolio/primaps/m-avis.webp",
+    alt: "Primaps, réponses aux avis Google avec l'aide de l'IA",
   },
   {
+    id: "site",
+    numero: "03 · Site et constructeur",
+    titre: "Un vrai site, modifiable au clic",
+    texte:
+      "Le restaurateur choisit un template, puis change chaque texte et chaque photo directement sur la page. On peut passer à un autre template en gardant tous ses contenus. Le site existe en plusieurs langues, avec le menu en QR code.",
+    points: ["Éditeur visuel par blocs", "Changement de template en direct", "Plusieurs langues"],
     src: "/portfolio/clips/editeur.jpg",
     clip: "/portfolio/clips/editeur.mp4",
-    titre: "Constructeur de site",
+    alt: "Primaps, constructeur de site : clic sur un titre puis changement de template",
+  },
+  {
+    id: "reservations",
+    numero: "04 · Réservations",
+    titre: "Le service du soir, table par table",
     texte:
-      "Un clic sur un texte ouvre son champ ; on change de template en direct, contenus conservés.",
-    large: true,
+      "Les réservations du site et de la fiche Google tombent directement sur le plan de salle : tables libres, réservées, à table ou en retard, sur la frise du service. Aucune commission par couvert.",
+    points: ["Plan de salle à l'échelle", "Frise du service", "Sans commission"],
+    src: "/portfolio/primaps/m-reservations.webp",
+    alt: "Primaps, plan de salle des réservations pendant le service",
+  },
+  {
+    id: "commandes",
+    numero: "05 · Click & collect",
+    titre: "Les commandes à emporter, payées d'avance",
+    texte:
+      "Le client commande et paie sur le site. En cuisine, chaque commande avance de colonne en colonne : reçue, en préparation, prête, récupérée. Là encore, sans commission.",
+    points: ["Paiement en ligne", "Suivi en cuisine", "Créneaux de retrait"],
+    src: "/portfolio/primaps/m-commandes.webp",
+    alt: "Primaps, suivi des commandes click & collect en cuisine",
+  },
+  {
+    id: "fidelite",
+    numero: "06 · Roulette et fidélité",
+    titre: "Faire revenir les clients",
+    texte:
+      "La carte de fidélité, à tampons ou à points, s'habille aux couleurs du métier et du restaurant, avec un aperçu en direct sur téléphone. Promos, relances par e-mail et parrainage s'y ajoutent.",
+    points: ["Tampons ou points", "Habillage par métier", "Aperçu en direct"],
+    src: "/portfolio/primaps/m-fidelite.webp",
+    alt: "Primaps, réglages de la carte de fidélité avec aperçu sur téléphone",
   },
 ];
 

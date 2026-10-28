@@ -7,7 +7,7 @@ export function Clip({
   src,
   poster,
   label,
-  className = "",
+  className = "h-auto",
 }: {
   src: string;
   poster: string;
@@ -37,7 +37,7 @@ export function Clip({
       playsInline
       preload="none"
       aria-label={label}
-      className={`block h-auto w-full ${className}`}
+      className={`block w-full ${className}`}
     />
   );
 }

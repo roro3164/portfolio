@@ -4,6 +4,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Bot,
+  CalendarCheck,
+  Gift,
+  Search,
+  Sparkles,
   FileText,
   Github,
   Linkedin,
@@ -15,6 +19,8 @@ import Link from "next/link";
 import { DuoAppareils, Iphone } from "@/components/site/Appareils";
 import { Navigateur } from "@/components/site/Cadres";
 import { Clip } from "@/components/site/Clip";
+import { MurTemplates } from "@/components/site/MurTemplates";
+import { VisitePrimaps } from "@/components/site/VisitePrimaps";
 import { LogoPrimaps } from "@/components/site/LogoPrimaps";
 import { PortraitSplit } from "@/components/site/PortraitSplit";
 import { Coche, Fleche } from "@/components/site/Sections";
@@ -24,7 +30,8 @@ import {
   CARTES_FIDELITE,
   CLIPS_TEMPLATES,
   COMPETENCES,
-  ECRANS_PRIMAPS,
+  CONCEPT_PRIMAPS,
+  VISITE_PRIMAPS,
   STACK_PRIMAPS,
   TEMPLATES,
 } from "@/content/portfolio";
@@ -35,6 +42,13 @@ import { SITE } from "@/lib/site";
 /** Une capture pas encore livrée est masquée plutôt qu'affichée cassée. */
 const existe = (src: string) =>
   fs.existsSync(path.join(process.cwd(), "public", src));
+
+const ICONES_CONCEPT = {
+  trouve: Search,
+  envie: Sparkles,
+  salle: CalendarCheck,
+  revenir: Gift,
+};
 
 export const metadata: Metadata = {
   title: "Portfolio de Romain Mornet, développeur full-stack et designer",
@@ -170,10 +184,16 @@ export default function Portfolio() {
                 <LogoPrimaps /> : le logiciel tout-en-un des restaurants
               </h2>
               <p className="lead mt-5 max-w-2xl">
-                Conçu, designé et développé seul. Un restaurateur y gère sa
-                fiche Google, son site, ses réservations, ses commandes à
-                emporter, sa roulette et sa carte de fidélité, depuis un seul
-                tableau de bord.
+                Un restaurant jongle d&apos;habitude entre une fiche Google, un
+                site, un outil de réservation, une plateforme de commande et une
+                carte de fidélité en papier, qui ne se parlent pas. Primaps
+                réunit tout dans un seul tableau de bord et relie chaque étape :
+                le client qui le trouve sur Google réserve sur son site, puis
+                revient grâce à sa carte de fidélité.
+              </p>
+              <p className="mt-4 text-[15px] text-[var(--faint)]">
+                Conçu, designé et développé seul, de la base de données à
+                l&apos;interface.
               </p>
             </div>
             <div className="lg:justify-self-end">
@@ -191,30 +211,38 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2">
-            {ECRANS_PRIMAPS.filter((e) => existe(e.src)).map((e, i) => (
-              <figure
-                key={e.src}
-                className={`reveal ${e.large ? "md:col-span-2" : ""} ${e.clip ? "md:mx-auto md:w-full md:max-w-[1000px]" : ""}`}
-              >
-                <Navigateur
-                  src={e.src}
-                  clip={e.clip}
-                  alt={`Primaps, ${e.titre.toLowerCase()}`}
-                  url="primaps.fr/dashboard"
-                  priority={i < 2}
-                  sizes={
-                    e.large
-                      ? "(min-width: 1024px) 1200px, 92vw"
-                      : "(min-width: 768px) 600px, 92vw"
-                  }
-                />
-                <figcaption className="mt-4">
-                  <span className="font-semibold text-white">{e.titre}</span>
-                  <span className="text-[var(--muted)]"> · {e.texte}</span>
-                </figcaption>
-              </figure>
-            ))}
+          <ol className="boucle mt-14">
+            {CONCEPT_PRIMAPS.map((c, i) => {
+              const Icone = ICONES_CONCEPT[c.icone];
+              return (
+                <li key={c.titre} className="boucle-carte reveal">
+                  <span className="boucle-num">0{i + 1}</span>
+                  <span className="boucle-icone">
+                    <Icone className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 text-[19px] font-semibold text-[var(--fort)]">
+                    {c.titre}
+                  </h3>
+                  <ul className="mt-4">
+                    {c.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="mt-24 max-w-2xl">
+            <p className="eyebrow">Le produit en vrai</p>
+            <h3 className="h2 mt-4">Une visite, fonction par fonction</h3>
+            <p className="lead mt-5">
+              Les écrans de la démo, sur un restaurant fictif : Le Petit
+              Kreuzberg.
+            </p>
+          </div>
+          <div className="mt-6 lg:mt-0">
+            <VisitePrimaps etapes={VISITE_PRIMAPS} />
           </div>
 
           <div className="reveal mt-16 grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
@@ -232,7 +260,7 @@ export default function Portfolio() {
               <h3 className="h3">Roulette et carte de fidélité</h3>
               <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-[var(--muted)]">
                 Le client scanne le QR du comptoir, tourne la roue et ajoute sa
-                carte dans Apple ou Google Wallet. Chaque carte est générée aux
+                carte dans le portefeuille de son téléphone. Chaque carte est générée aux
                 couleurs et au logo du restaurant, à tampons ou à points.
               </p>
               <ul className="mt-8 grid max-w-[760px] grid-cols-2 gap-4 sm:grid-cols-4">
@@ -255,28 +283,11 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <h3 className="h3">Stack technique</h3>
-              <div className="mt-4">
-                <Pastilles items={STACK_PRIMAPS} />
-              </div>
+          <div className="mt-16">
+            <h3 className="h3">Stack technique</h3>
+            <div className="mt-4">
+              <Pastilles items={STACK_PRIMAPS} />
             </div>
-            {existe("/portfolio/primaps/dashboard-mobile.webp") && (
-              <div className="mx-auto w-[200px] lg:mx-0">
-                <Iphone>
-                  <div className="relative aspect-[390/844]">
-                    <Image
-                      src="/portfolio/primaps/dashboard-mobile.webp"
-                      alt="Primaps sur téléphone"
-                      fill
-                      sizes="200px"
-                      className="object-cover object-top"
-                    />
-                  </div>
-                </Iphone>
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -344,7 +355,12 @@ export default function Portfolio() {
               communs : chaque texte et chaque photo se modifie au clic. Chaque
               aperçu s&apos;ouvre en vrai, avec ses animations.
             </p>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+          </div>
+          <div className="mt-12">
+            <MurTemplates templates={TEMPLATES} />
+          </div>
+          <div className="wrap">
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
               {CLIPS_TEMPLATES.map((c) => (
                 <a
                   key={c.clip}
@@ -363,38 +379,6 @@ export default function Portfolio() {
                       <Fleche className="transition-transform group-hover:translate-x-1" />
                     </span>
                   </p>
-                </a>
-              ))}
-            </div>
-            <div className="mt-12 grid gap-x-5 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {TEMPLATES.map((t) => (
-                <a
-                  key={t.src}
-                  href={t.lien}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group reveal block"
-                >
-                  <div className="overflow-hidden rounded-2xl border border-white/10">
-                    <Image
-                      src={t.src}
-                      alt={`Template ${t.libelle}`}
-                      width={1200}
-                      height={750}
-                      sizes="(min-width: 1280px) 300px, (min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw"
-                      className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <p className="mt-4 flex items-center justify-between gap-3">
-                    <span className="font-semibold text-white">
-                      {t.libelle}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-[14px] text-[var(--accent)]">
-                      Voir l&apos;aperçu{" "}
-                      <Fleche className="transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </p>
-                  <p className="text-[14.5px] text-[var(--muted)]">{t.style}</p>
                 </a>
               ))}
             </div>

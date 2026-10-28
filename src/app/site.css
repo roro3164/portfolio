@@ -1918,3 +1918,66 @@ a.tuile:hover {
 .cta-pastille > .pastille-offre { scale: 0.82; transform-origin: top right; }
 @media (min-width: 1280px) { .cta-pastille { right: -40px; } }
 @media (prefers-reduced-motion: reduce) { .pastille-offre-anneau { animation: none; } .pastille-offre:hover { transform: none; } }
+
+/* ── Portfolio : concept Primaps en 4 temps ─────────────────────────── */
+.boucle { position: relative; display: grid; gap: 16px; }
+@media (min-width: 768px) { .boucle { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .boucle { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.boucle-carte { position: relative; padding: 26px 24px 24px; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(180deg, var(--carte-a), var(--carte-b)); overflow: hidden; }
+.boucle-carte::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, transparent, rgba(var(--m1), 1), transparent); transform: translateX(-100%); animation: boucle-trace 4.8s ease-in-out infinite; }
+.boucle-carte:nth-child(2)::before { animation-delay: 1.2s; }
+.boucle-carte:nth-child(3)::before { animation-delay: 2.4s; }
+.boucle-carte:nth-child(4)::before { animation-delay: 3.6s; }
+@keyframes boucle-trace { 0% { transform: translateX(-100%); } 25%, 100% { transform: translateX(100%); } }
+.boucle-icone { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: rgba(var(--m1), 0.14); color: var(--accent); box-shadow: inset 0 0 0 1px rgba(var(--m1), 0.28); }
+.boucle-num { position: absolute; top: 18px; right: 22px; font-size: 13px; font-weight: 600; letter-spacing: .08em; color: var(--faint); font-variant-numeric: tabular-nums; }
+.boucle-carte li { position: relative; padding-left: 16px; font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.boucle-carte li + li { margin-top: 7px; }
+.boucle-carte li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: rgba(var(--m1), 0.75); }
+
+/* ── Portfolio : visite du produit (MacBook épinglé) ───────────────── */
+.vp-etape { padding: 8px 0 56px; transition: opacity .45s ease; }
+@media (min-width: 1024px) {
+  .vp-etape { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding: 0; opacity: .32; }
+  .vp-etape[data-actif] { opacity: 1; }
+  .vp-etape:first-child { min-height: 60vh; }
+}
+.vp-numero { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.vp-numero::after { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .5; }
+.vp-puce { padding: 6px 12px; border-radius: 999px; font-size: 13.5px; color: var(--prose); background: rgba(var(--voile), 0.05); border: 1px solid var(--line); }
+.vp-epingle { position: sticky; top: max(96px, calc(50vh - 300px)); padding-bottom: 40px; }
+.vp-ordi { position: relative; filter: drop-shadow(0 34px 40px rgba(0, 0, 0, 0.5)); }
+/* écran mesuré sur le cadre (1446 × 1228) */
+.vp-ordi-ecran { position: absolute; left: 9.75%; top: 4.72%; width: 78.9%; height: 58.14%; overflow: hidden; background: #f5f6f8; }
+.vp-ecran { position: absolute; inset: 0; opacity: 0; transform: scale(1.015); transition: opacity .6s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+.vp-ecran[data-actif] { opacity: 1; transform: none; }
+.vp-halo { position: absolute; inset: 6% 4% 20%; z-index: -1; background: radial-gradient(closest-side, rgba(var(--m1), 0.35), transparent); filter: blur(10px); }
+.vp-tel { position: absolute; right: -4%; bottom: -5%; width: 21%; rotate: 4deg; }
+.vp-tel-ecran { position: relative; aspect-ratio: 390 / 844; overflow: hidden; container-type: inline-size; }
+.vp-defile { animation: vp-defile 26s ease-in-out infinite alternate; }
+@keyframes vp-defile { 0%, 6% { transform: translateY(0); } 94%, 100% { transform: translateY(calc(-100% + 844 / 390 * 100cqw)); } }
+.vp-progression { display: flex; justify-content: center; gap: 8px; margin-top: 56px; }
+.vp-progression span { width: 8px; height: 8px; border-radius: 99px; background: var(--line-2); transition: width .4s ease, background .4s ease; }
+.vp-progression span[data-actif] { width: 28px; background: var(--accent); }
+
+/* ── Portfolio : mur de templates en perspective ───────────────────── */
+.mur { position: relative; height: clamp(460px, 62vw, 760px); overflow: hidden; border-radius: 28px; border: 1px solid var(--line); background: var(--bg-2);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); }
+.mur-plan { --mur-gap: 22px; position: absolute; left: 50%; top: 50%; width: max(1500px, 120%); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: var(--mur-gap); transform: translate(-50%, -22%) rotateX(52deg) rotateZ(-38deg); transform-origin: 50% 22%; }
+/* -22 % : la fenêtre vise le haut des colonnes, la seule zone toujours pleine pendant la boucle (sinon une bande vide passe au milieu) */
+.mur-col { display: flex; flex-direction: column; gap: var(--mur-gap); animation: mur-haut 50s linear infinite; will-change: transform; }
+.mur-col[data-sens="bas"] { animation-name: mur-bas; }
+/* une copie = la moitié de la colonne + un demi-écart */
+@keyframes mur-haut { from { transform: translateY(0); } to { transform: translateY(calc(-50% - var(--mur-gap) / 2)); } }
+@keyframes mur-bas { from { transform: translateY(calc(-50% - var(--mur-gap) / 2)); } to { transform: translateY(0); } }
+.mur:hover .mur-col, .mur:focus-within .mur-col { animation-play-state: paused; }
+.mur-tuile { position: relative; display: block; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 30px 40px -24px rgba(0, 0, 0, 0.8); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.mur-tuile:hover, .mur-tuile:focus-visible { transform: translateY(-10px); box-shadow: 0 40px 50px -20px rgba(var(--m1), 0.55); }
+.mur-legende { position: absolute; inset: auto 0 0; padding: 26px 14px 11px; font-size: 14px; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.82)); opacity: 0; transition: opacity .3s ease; }
+.mur-tuile:hover .mur-legende, .mur-tuile:focus-visible .mur-legende { opacity: 1; }
+@media (max-width: 767px) { .mur-plan { --mur-gap: 14px; width: 1100px; } }
+@media (prefers-reduced-motion: reduce) {
+  .mur-col, .vp-defile { animation: none; }
+  .vp-ecran, .vp-etape { transition: none; }
+  .boucle-carte::before { animation: none; transform: none; opacity: .5; }
+}
