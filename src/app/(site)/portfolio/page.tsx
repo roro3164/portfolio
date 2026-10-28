@@ -184,15 +184,16 @@ export default function Portfolio() {
                   <PlayCircle className="h-5 w-5" aria-hidden="true" />
                   Tester la démo
                 </a>
-              ) : (
-                <span className="chip-teinte">Accès démo à venir</span>
-              )}
+              ) : null}
             </div>
           </div>
 
           <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2">
             {ECRANS_PRIMAPS.filter((e) => existe(e.src)).map((e, i) => (
-              <figure key={e.src} className="reveal">
+              <figure
+                key={e.src}
+                className="reveal md:[&:last-child:nth-child(odd)]:col-span-2"
+              >
                 <Navigateur
                   src={e.src}
                   alt={`Primaps, ${e.titre.toLowerCase()}`}
@@ -268,8 +269,8 @@ export default function Portfolio() {
             {existe(AGENCE.src) && (
               <Navigateur
                 src={AGENCE.src}
-                alt="Bureau de l'agence d'agents IA"
-                url="primaps.fr/operator/agence"
+                alt="Trombinoscope de l'agence : Hugo, les chefs de secteur et leurs rôles"
+                url="primaps.fr/operator/agence/equipe"
                 sizes="(min-width: 1024px) 640px, 92vw"
               />
             )}

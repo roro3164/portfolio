@@ -4,7 +4,7 @@
 /** Liens de candidature : un champ vide masque son bouton (rien d'inventé). */
 export const CANDIDATURE = {
   cv: "",
-  demoPrimaps: "",
+  demoPrimaps: "https://www.primaps.fr/invite/portfolio",
 };
 
 export type Ecran = { src: string; titre: string; texte: string };
@@ -28,15 +28,9 @@ export const ECRANS_PRIMAPS: Ecran[] = [
     texte: "Commandes payées en ligne, créneaux de retrait, suivi en cuisine.",
   },
   {
-    src: "/portfolio/primaps/roulette.webp",
-    titre: "Roulette",
-    texte:
-      "Jeu au comptoir par QR code : lots et probabilités réglés par le restaurateur.",
-  },
-  {
     src: "/portfolio/primaps/fidelite.webp",
-    titre: "Carte de fidélité",
-    texte: "Tampons ou points, carte dans Apple Wallet et Google Wallet.",
+    titre: "Roulette et carte de fidélité",
+    texte: "Jeu au comptoir par QR code, carte à tampons ou à points, habillée aux couleurs du restaurant.",
   },
   {
     src: "/portfolio/primaps/constructeur.webp",
