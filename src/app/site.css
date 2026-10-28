@@ -1998,29 +1998,30 @@ a.tuile:hover {
 }
 
 /* ───────── Portfolio : fond à motifs et effets (limité à .pf) ───────── */
-/* Fond : grille fine de plan avec repères en croix, grain et halos de lumière. Fixe : le verre posé dessus ne se recalcule pas. */
-.pf { --pf-ligne: rgba(var(--voile), 0.055); --pf-grain: 0.07; }
-:root[data-theme="clair"] .pf { --pf-ligne: rgba(30, 20, 60, 0.06); --pf-grain: 0.05; }
+/* Fond : motifs dans les coins, grain et halos de lumière. Fixe : le verre posé dessus ne se recalcule pas. */
+.pf { --pf-motif: rgb(var(--m-pale)); --pf-motif-op: 0.16; --pf-grain: 0.07; }
+:root[data-theme="clair"] .pf { --pf-motif: rgb(var(--m2)); --pf-motif-op: 0.16; --pf-grain: 0.05; }
 .pf-fond { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.pf-fond > * { position: absolute; inset: 0; }
-/* Grille de 72 px, nette en haut et dans les coins, effacée au centre */
-.pf-grille, .pf-croix { --pf-masque: radial-gradient(ellipse 70% 55% at 50% 52%, transparent 35%, #000 95%), radial-gradient(ellipse 90% 45% at 50% 0%, #000 10%, transparent 80%); -webkit-mask-image: var(--pf-masque); mask-image: var(--pf-masque); }
-.pf-grille { background-image: linear-gradient(to right, var(--pf-ligne) 1px, transparent 1px), linear-gradient(to bottom, var(--pf-ligne) 1px, transparent 1px); background-size: 72px 72px; background-position: center top; }
-/* Repères en croix toutes les 4 cases, comme sur une planche de design */
-.pf-croix { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='288' height='288'%3E%3Cpath d='M108 137v14M101 144h14' stroke='%23cbc6f4' stroke-width='1'/%3E%3C/svg%3E"); background-position: center top; opacity: .4; }
-:root[data-theme="clair"] .pf-croix { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='288' height='288'%3E%3Cpath d='M108 137v14M101 144h14' stroke='%237a70d4' stroke-width='1'/%3E%3C/svg%3E"); opacity: .4; }
-@media (max-width: 767px) { .pf-croix { display: none; } }
+.pf-fond > :not(svg, .pf-lumiere) { position: absolute; inset: 0; }
+/* Motifs dans les coins seulement (repris du principe du template Asia Sushi : vagues, cercle, trame), centre dégagé */
+.pf-fond > svg { position: absolute; color: var(--pf-motif); }
+.pf-vagues { left: -60px; top: 90px; width: min(44vw, 560px); height: min(44vw, 560px); opacity: var(--pf-motif-op); }
+.pf-anneau { right: -90px; top: -110px; width: min(24vw, 300px); height: min(24vw, 300px); opacity: calc(var(--pf-motif-op) * 2.6); }
+.pf-anneau stop:first-child { stop-color: rgb(var(--m1)); } .pf-anneau stop:last-child { stop-color: #7dd3fc; }
+.pf-ondes { right: -120px; bottom: -120px; width: min(46vw, 600px); height: min(46vw, 600px); opacity: var(--pf-motif-op); }
+.pf-trame { left: 24px; bottom: 9%; width: 140px; height: 112px; opacity: calc(var(--pf-motif-op) * 1.8); }
+@media (max-width: 767px) { .pf-vagues { width: 80vw; height: 80vw; } .pf-anneau, .pf-trame { display: none; } .pf-ondes { width: 90vw; height: 90vw; } }
 /* Halos de couleur aux bords */
 .pf-halos { background: radial-gradient(42vw 36vw at 0% 0%, rgba(var(--m1), 0.20), transparent 70%), radial-gradient(38vw 32vw at 100% 8%, rgba(56, 189, 248, 0.10), transparent 70%), radial-gradient(44vw 34vw at 100% 100%, rgba(244, 114, 182, 0.10), transparent 70%), radial-gradient(36vw 30vw at 0% 100%, rgba(var(--m1), 0.10), transparent 70%); }
 :root[data-theme="clair"] .pf-halos { opacity: .7; }
 /* Grain très léger : enlève l'aspect lisse des aplats */
 .pf-grain { opacity: var(--pf-grain); mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }
 /* Deux faisceaux de lumière qui tombent du haut */
-.pf-fond > .pf-lumiere { inset: auto; top: -20vh; width: 46vw; height: 90vh; filter: blur(40px); opacity: .55; }
+.pf-fond > .pf-lumiere { position: absolute; top: -20vh; width: 46vw; height: 90vh; filter: blur(40px); opacity: .55; }
 .pf-lumiere-1 { left: 8vw; background: conic-gradient(from 168deg at 50% 0%, transparent 0deg, rgba(var(--m1), 0.22) 12deg, transparent 26deg); }
 .pf-lumiere-2 { right: 4vw; background: conic-gradient(from 178deg at 50% 0%, transparent 0deg, rgba(56, 189, 248, 0.14) 10deg, transparent 22deg); }
 :root[data-theme="clair"] .pf-fond > .pf-lumiere { opacity: .35; }
-@media (max-width: 767px) { .pf-grille { background-size: 48px 48px; } .pf-fond > .pf-lumiere { width: 90vw; } }
+@media (max-width: 767px) { .pf-fond > .pf-lumiere { width: 90vw; } }
 
 /* Barre de progression de lecture */
 .pf-progression { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 70; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, rgb(var(--m1)), #38bdf8, #f472b6); box-shadow: 0 0 14px rgba(var(--m1), .8); }
