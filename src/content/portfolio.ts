@@ -78,7 +78,7 @@ export const VISITE_PRIMAPS = [
     numero: "03 · Site et constructeur",
     titre: "Un vrai site, modifiable en un clic",
     texte:
-      "Plus de 30 templates dessinés pour les restaurants, snacks, pizzerias, boulangeries et fleuristes, chacun avec sa direction artistique et ses animations. Le restaurateur clique sur un texte ou une photo et le change directement sur la page, sans rien connaître au web. Il passe d'un template à l'autre quand il veut : tout son contenu suit. Le site parle plusieurs langues et ses boutons (réserver, commander) mènent droit aux modules Primaps.",
+      "Plus de 30 templates dessinés pour les restaurants, snacks, pizzerias, boulangeries et fleuristes, chacun avec sa direction artistique et ses animations. Le commerçant clique sur un texte ou une photo et le change directement sur la page, sans rien connaître au web. Il passe d'un template à l'autre quand il veut : tout son contenu suit. Le site parle plusieurs langues et ses boutons (réserver, commander) mènent droit aux modules Primaps.",
     points: ["Plus de 30 templates", "Tout se modifie au clic", "Changer de template sans rien perdre", "Plusieurs langues"],
     src: "/portfolio/clips/editeur.jpg",
     clip: "/portfolio/clips/editeur.mp4",
