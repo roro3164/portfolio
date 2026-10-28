@@ -2005,8 +2005,8 @@ a.tuile:hover {
 .pf-fond > :not(svg, .pf-lumiere) { position: absolute; inset: 0; }
 /* Motifs dans les coins seulement (repris du principe du template Asia Sushi : vagues, cercle, trame), centre dégagé */
 .pf-fond > svg { position: absolute; color: var(--pf-motif); }
-.pf-alveoles { left: -60px; top: 90px; width: min(44vw, 560px); height: min(44vw, 560px); opacity: var(--pf-motif-op); }
-@media (max-width: 767px) { .pf-alveoles { width: 80vw; height: 80vw; } }
+.pf-alveoles { left: -60px; top: 70px; width: min(66vw, 940px); height: min(66vw, 940px); opacity: var(--pf-motif-op); }
+@media (max-width: 767px) { .pf-alveoles { width: 115vw; height: 115vw; } }
 /* Halos de couleur aux bords */
 .pf-halos { background: radial-gradient(55vw 48vw at 0% 0%, rgba(var(--m1), 0.18) 0%, color-mix(in srgb, rgba(var(--m1), 0.18) 55%, transparent) 25%, color-mix(in srgb, rgba(var(--m1), 0.18) 20%, transparent) 50%, transparent 75%), radial-gradient(48vw 40vw at 100% 8%, rgba(56, 189, 248, 0.09) 0%, color-mix(in srgb, rgba(56, 189, 248, 0.09) 55%, transparent) 25%, color-mix(in srgb, rgba(56, 189, 248, 0.09) 20%, transparent) 50%, transparent 75%), radial-gradient(55vw 44vw at 100% 100%, rgba(244, 114, 182, 0.09) 0%, color-mix(in srgb, rgba(244, 114, 182, 0.09) 55%, transparent) 25%, color-mix(in srgb, rgba(244, 114, 182, 0.09) 20%, transparent) 50%, transparent 75%), radial-gradient(46vw 38vw at 0% 100%, rgba(var(--m1), 0.09) 0%, color-mix(in srgb, rgba(var(--m1), 0.09) 55%, transparent) 25%, color-mix(in srgb, rgba(var(--m1), 0.09) 20%, transparent) 50%, transparent 75%); }
 :root[data-theme="clair"] .pf-halos { opacity: .7; }
