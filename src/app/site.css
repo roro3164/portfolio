@@ -671,6 +671,10 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   border: 1px solid rgba(var(--l1), 0.35);
 }
 
+/* Pastilles multicolores (liste de technos) : chaque pastille prend la teinte de son data-couleur */
+.chip-teinte[data-couleur="cyan"] { --l1: 34, 211, 238; }
+.chip-teinte i { width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: rgb(var(--l1)); box-shadow: 0 0 10px rgba(var(--l1), 0.9); }
+
 /* Primaps : laser et accents aux 4 couleurs Google (bleu, vert, jaune, rouge) */
 [data-couleur="google"] { --l1: 66, 133, 244; --l2: 52, 168, 83; --l-clair: #ffffff; --accent: #8ab4f8; }
 .carte-laser[data-couleur="google"]::before {
@@ -1897,6 +1901,16 @@ a.tuile:hover {
 .ap-bouton-haut { position: absolute; top: max(-2px, -0.3cqw); height: max(2px, 0.3cqw); border-radius: 2px 2px 0 0; background: linear-gradient(90deg, #b7b8bd, #82838a, #b0b1b6); }
 .ap-bouton-haut-1 { left: 8%; width: 4cqw; }
 .ap-bouton-haut-2 { right: 6%; width: 2.5cqw; }
+/* MacBook CSS : capot noir à fin liseré alu, encoche, socle alu plus large avec l'entaille d'ouverture */
+.ap-mac { position: relative; container-type: inline-size; padding: 0 4cqw; }
+.ap-mac::before { content: ""; position: absolute; z-index: -1; inset: 8% 4% -6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(143, 137, 236, 0.45), rgba(66, 133, 244, 0.18) 55%, transparent); filter: blur(30px); pointer-events: none; }
+.ap-mac-capot { position: relative; padding: 1.7cqw 1.7cqw 2.6cqw; border-radius: 3.2cqw 3.2cqw 0.8cqw 0.8cqw; background: #060608; box-shadow: 0 0 0 max(1px, 0.25cqw) #8a8a92, 0 40px 70px -26px rgba(0, 0, 0, 0.75); }
+.ap-mac-ecran { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: 0.6cqw; background: #000; }
+.ap-mac-encoche { position: absolute; left: 50%; top: 0; width: 13cqw; height: 2.3cqw; translate: -50% 0; border-radius: 0 0 1cqw 1cqw; background: #060608; }
+.ap-mac-encoche::after { content: ""; position: absolute; left: 50%; top: 45%; width: max(3px, 0.6cqw); height: max(3px, 0.6cqw); translate: -50% -50%; border-radius: 50%; background: #15151a; box-shadow: inset 0 0 2px rgba(90, 100, 140, 0.7); }
+.ap-mac-socle { position: relative; margin: 0 -4cqw; height: 2.6cqw; border-radius: 0 0 4cqw 4cqw / 0 0 2.4cqw 2.4cqw; background: linear-gradient(180deg, #e2e2e7 0%, #b9b9c0 35%, #8d8d95 80%, #6d6d75 100%); box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.7); }
+.ap-mac-socle span { position: absolute; left: 50%; top: 0; width: 16cqw; height: 1.1cqw; translate: -50% 0; border-radius: 0 0 1.2cqw 1.2cqw; background: linear-gradient(180deg, #8d8d95, #b3b3ba); }
+
 /* le site mobile de démo a sa propre île : celle du cadre suffit */
 .ap-iphone .tsm-ile { visibility: hidden; }
 

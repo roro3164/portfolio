@@ -46,6 +46,24 @@ export function Ipad({ children, className = "" }: { children: ReactNode; classN
   );
 }
 
+/** MacBook en CSS (écran 16:10, encoche, socle alu) : pour un clip vidéo, que les mockups en photo ne peuvent pas porter. */
+export function Macbook({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`ap-mac ${className}`}>
+      <div className="ap-mac-capot">
+        <div className="ap-mac-ecran">
+          {children}
+          <span className="ap-reflet" aria-hidden="true" />
+        </div>
+        <span className="ap-mac-encoche" aria-hidden="true" />
+      </div>
+      <div className="ap-mac-socle" aria-hidden="true">
+        <span />
+      </div>
+    </div>
+  );
+}
+
 const TAILLES: Record<string, [number, number]> = {
   "macbook-34": [1864, 1228], // MacBook de 3/4
   "macbook-face": [1446, 1228], // MacBook de face

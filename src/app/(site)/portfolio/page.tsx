@@ -17,8 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { FondPortfolio } from "@/components/site/FondPortfolio";
-import { DuoAppareils, Iphone } from "@/components/site/Appareils";
-import { Navigateur } from "@/components/site/Cadres";
+import { DuoAppareils, Iphone, Macbook } from "@/components/site/Appareils";
 import { Clip } from "@/components/site/Clip";
 import { MurTemplates } from "@/components/site/MurTemplates";
 import { VisitePrimaps } from "@/components/site/VisitePrimaps";
@@ -59,11 +58,14 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-function Pastilles({ items }: { items: string[] }) {
+const TEINTES = ["violet", "bleu", "vert", "or", "rose", "cyan"];
+
+function Pastilles({ items, couleurs = false }: { items: string[]; couleurs?: boolean }) {
   return (
     <ul className="flex flex-wrap gap-2">
-      {items.map((s) => (
-        <li key={s} className="chip-teinte">
+      {items.map((s, i) => (
+        <li key={s} className="chip-teinte" data-couleur={couleurs ? TEINTES[i % TEINTES.length] : undefined}>
+          {couleurs && <i aria-hidden="true" />}
           {s}
         </li>
       ))}
@@ -317,18 +319,17 @@ export default function Portfolio() {
                 ))}
               </ul>
               <div className="order-4 mt-7">
-                <Pastilles items={AGENCE.stack} />
+                <Pastilles items={AGENCE.stack} couleurs />
               </div>
             </div>
             {existe(AGENCE.src) && (
-              <Navigateur
-                src={AGENCE.src}
-                clip={AGENCE.clip}
-                alt="Le bureau de l'agence en direct : la liste des conversations par chef, et une conversation où Lina, la cheffe des templates, travaille sur ce portfolio"
-                url="primaps.fr/operator/agence"
-                sizes="(min-width: 1024px) 620px, 92vw"
-                className="relative order-2 mt-8 lg:mt-0"
-              />
+              <Macbook className="relative order-2 mt-8 lg:-mr-6 lg:mt-0">
+                <Clip
+                  src={AGENCE.clip}
+                  poster={AGENCE.src}
+                  label="Le bureau de l'agence en direct : la liste des conversations par chef, et une conversation où Lina, la cheffe des templates, travaille sur ce portfolio"
+                />
+              </Macbook>
             )}
           </div>
         </div>
