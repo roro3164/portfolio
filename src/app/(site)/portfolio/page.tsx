@@ -292,17 +292,22 @@ export default function Portfolio() {
         aria-labelledby="agence-titre"
       >
         <div className="wrap">
-          <div className="carte-laser pf-lueur lent relative grid items-center gap-10 overflow-hidden p-7 [--radius:28px] md:p-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="carte-laser pf-lueur lent relative flex flex-col overflow-hidden p-7 [--radius:28px] md:p-12 lg:block">
             <span className="pf-spot" aria-hidden="true" />
-            <div className="relative">
-              <p className="eyebrow flex items-center gap-2">
-                <Bot className="h-4 w-4" aria-hidden="true" />
-                IA appliquée
-              </p>
-              <h2 id="agence-titre" className="h2 mt-4">
-                Une agence d&apos;agents IA qui travaille sur Primaps
-              </h2>
-              <ul className="mt-6 space-y-3">
+            <div className="contents lg:relative lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+              <div>
+                <p className="eyebrow flex items-center gap-2">
+                  <Bot className="h-4 w-4" aria-hidden="true" />
+                  IA appliquée
+                </p>
+                <h2 id="agence-titre" className="h2 mt-4">
+                  Une agence d&apos;agents IA qui travaille sur Primaps
+                </h2>
+                <div className="mt-7">
+                  <Pastilles items={AGENCE.stack} />
+                </div>
+              </div>
+              <ul className="order-3 mt-8 space-y-3 lg:mt-0 lg:pt-2">
                 {AGENCE.points.map((p) => (
                   <li
                     key={p}
@@ -313,16 +318,14 @@ export default function Portfolio() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-7">
-                <Pastilles items={AGENCE.stack} />
-              </div>
             </div>
             {existe(AGENCE.src) && (
               <Navigateur
                 src={AGENCE.src}
-                alt="Trombinoscope de l'agence : Hugo, les chefs de secteur et leurs rôles"
-                url="primaps.fr/operator/agence/equipe"
-                sizes="(min-width: 1024px) 640px, 92vw"
+                alt="Le bureau de l'agence en direct : la liste des conversations par chef, et une conversation où Lina, la cheffe des templates, travaille sur ce portfolio"
+                url="primaps.fr/operator/agence"
+                sizes="(min-width: 1280px) 1180px, 92vw"
+                className="relative order-2 mt-8 lg:mt-10"
               />
             )}
           </div>
