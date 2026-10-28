@@ -2006,11 +2006,9 @@ a.tuile:hover {
 /* Motifs dans les coins seulement (repris du principe du template Asia Sushi : vagues, cercle, trame), centre dégagé */
 .pf-fond > svg { position: absolute; color: var(--pf-motif); }
 .pf-vagues { left: -60px; top: 90px; width: min(44vw, 560px); height: min(44vw, 560px); opacity: var(--pf-motif-op); }
-.pf-anneau { right: -90px; top: -110px; width: min(24vw, 300px); height: min(24vw, 300px); opacity: calc(var(--pf-motif-op) * 2.6); }
-.pf-anneau stop:first-child { stop-color: rgb(var(--m1)); } .pf-anneau stop:last-child { stop-color: #7dd3fc; }
-.pf-ondes { right: -120px; bottom: -120px; width: min(46vw, 600px); height: min(46vw, 600px); opacity: var(--pf-motif-op); }
-.pf-trame { left: 24px; bottom: 9%; width: 140px; height: 112px; opacity: calc(var(--pf-motif-op) * 1.8); }
-@media (max-width: 767px) { .pf-vagues { width: 80vw; height: 80vw; } .pf-anneau, .pf-trame { display: none; } .pf-ondes { width: 90vw; height: 90vw; } }
+.pf-dessin { left: -90px; top: 92px; width: min(30vw, 420px); height: auto; aspect-ratio: 4 / 3; transform: rotate(-9deg); opacity: calc(var(--pf-motif-op) * 2.3); --pf-dessin-fond: var(--bg); -webkit-mask-image: linear-gradient(115deg, #000 45%, transparent 92%); mask-image: linear-gradient(115deg, #000 45%, transparent 92%); }
+.pf-dessin stop:first-child { stop-color: rgb(var(--m1)); } .pf-dessin stop:last-child { stop-color: #7dd3fc; }
+@media (max-width: 767px) { .pf-vagues { width: 80vw; height: 80vw; } .pf-dessin { width: 62vw; left: -70px; top: 40px; } }
 /* Halos de couleur aux bords */
 .pf-halos { background: radial-gradient(42vw 36vw at 0% 0%, rgba(var(--m1), 0.20), transparent 70%), radial-gradient(38vw 32vw at 100% 8%, rgba(56, 189, 248, 0.10), transparent 70%), radial-gradient(44vw 34vw at 100% 100%, rgba(244, 114, 182, 0.10), transparent 70%), radial-gradient(36vw 30vw at 0% 100%, rgba(var(--m1), 0.10), transparent 70%); }
 :root[data-theme="clair"] .pf-halos { opacity: .7; }
