@@ -126,14 +126,14 @@ export default function Portfolio() {
           className="halo -right-40 top-10 h-[480px] w-[480px]"
           aria-hidden="true"
         />
-        <div className="wrap relative grid items-center gap-12 pb-10 pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:pt-20">
+        <div className="wrap relative grid items-center gap-12 pb-10 pt-14 lg:grid-cols-[0.95fr_1.05fr] lg:pt-16">
           <div>
             <p className="eyebrow flex items-center gap-2">
               <MapPin className="h-4 w-4" aria-hidden="true" />
               Portfolio · {SITE.ville}
             </p>
             <h1 className="h1 mt-5 max-w-4xl !text-[clamp(2.3rem,4.8vw,4rem)]">
-              Romain Mornet, développeur full-stack{" "}
+              Romain Mornet, développeur <span className="whitespace-nowrap">full-stack</span>{" "}
               <span className="grad">&amp; designer</span>.
             </h1>
             <p className="lead mt-6 max-w-2xl">
@@ -146,7 +146,7 @@ export default function Portfolio() {
               <Liens />
             </div>
           </div>
-          <div className="pf-portrait relative -mx-2 sm:mx-0 lg:-mr-6">
+          <div className="pf-portrait relative -mx-5 sm:-mx-2 lg:-mr-16 lg:-ml-4">
             <PortraitSplit priority />
           </div>
         </div>

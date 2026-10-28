@@ -51,7 +51,7 @@ export function FondPortfolio() {
         <span className="pf-lumiere pf-lumiere-1" />
         <span className="pf-lumiere pf-lumiere-2" />
         {/* Haut gauche : alvéoles hexagonales emboîtées en trait fin, effacées vers le centre */}
-        <svg className="pf-alveoles" viewBox="0 0 670 670" fill="none">
+        <svg className="pf-alveoles" viewBox="0 0 556 556" fill="none">
           <defs>
             <pattern id="pf-alveoles" width="34.64" height="60" patternUnits="userSpaceOnUse">
               <g stroke="currentColor" strokeWidth="0.9">
@@ -79,10 +79,10 @@ export function FondPortfolio() {
               <stop offset="1" stopColor="#000" />
             </radialGradient>
             <mask id="pf-m-hg">
-              <rect width="670" height="670" fill="url(#pf-fondu-hg)" />
+              <rect width="556" height="556" fill="url(#pf-fondu-hg)" />
             </mask>
           </defs>
-          <rect width="670" height="670" fill="url(#pf-alveoles)" mask="url(#pf-m-hg)" />
+          <rect width="556" height="556" fill="url(#pf-alveoles)" mask="url(#pf-m-hg)" />
         </svg>
 
         <span className="pf-grain" />
