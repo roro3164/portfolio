@@ -16,6 +16,7 @@ import {
   PlayCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { FondPortfolio } from "@/components/site/FondPortfolio";
 import { DuoAppareils, Iphone } from "@/components/site/Appareils";
 import { Navigateur } from "@/components/site/Cadres";
 import { Clip } from "@/components/site/Clip";
@@ -117,7 +118,8 @@ function Liens({ centre = false }: { centre?: boolean }) {
 
 export default function Portfolio() {
   return (
-    <>
+    <div className="pf">
+      <FondPortfolio />
       {/* 1. Qui je suis */}
       <section className="relative overflow-hidden">
         <div
@@ -145,7 +147,7 @@ export default function Portfolio() {
             </div>
             <nav
               aria-label="Sommaire"
-              className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[14.5px] text-[var(--muted)]"
+              className="pf-sommaire mt-10 text-[14.5px] text-[var(--muted)]"
             >
               {[
                 ["#primaps", "Primaps"],
@@ -164,7 +166,7 @@ export default function Portfolio() {
               ))}
             </nav>
           </div>
-          <div className="relative -mx-2 sm:mx-0 lg:-mr-6">
+          <div className="pf-portrait relative -mx-2 sm:mx-0 lg:-mr-6">
             <PortraitSplit priority />
           </div>
         </div>
@@ -202,7 +204,7 @@ export default function Portfolio() {
                   href={CANDIDATURE.demoPrimaps}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary !min-h-[56px] !px-7"
+                  className="btn btn-primary pf-faisceau !min-h-[56px] !px-7"
                 >
                   <PlayCircle className="h-5 w-5" aria-hidden="true" />
                   Tester la démo
@@ -215,7 +217,8 @@ export default function Portfolio() {
             {CONCEPT_PRIMAPS.map((c, i) => {
               const Icone = ICONES_CONCEPT[c.icone];
               return (
-                <li key={c.titre} className="boucle-carte reveal">
+                <li key={c.titre} className="boucle-carte pf-lueur reveal">
+                  <span className="pf-spot" aria-hidden="true" />
                   <span className="boucle-num">0{i + 1}</span>
                   <span className="boucle-icone">
                     <Icone className="h-5 w-5" aria-hidden="true" />
@@ -309,7 +312,8 @@ export default function Portfolio() {
         aria-labelledby="agence-titre"
       >
         <div className="wrap">
-          <div className="carte-laser lent relative grid items-center gap-10 overflow-hidden p-7 [--radius:28px] md:p-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="carte-laser pf-lueur lent relative grid items-center gap-10 overflow-hidden p-7 [--radius:28px] md:p-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <span className="pf-spot" aria-hidden="true" />
             <div className="relative">
               <p className="eyebrow flex items-center gap-2">
                 <Bot className="h-4 w-4" aria-hidden="true" />
@@ -507,7 +511,8 @@ export default function Portfolio() {
           </h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {COMPETENCES.map((c) => (
-              <div key={c.titre} className="card p-6">
+              <div key={c.titre} className="card pf-verre pf-lueur relative p-6">
+                <span className="pf-spot" aria-hidden="true" />
                 <h3 className="text-[1.15rem] font-bold text-white">
                   {c.titre}
                 </h3>
@@ -530,7 +535,8 @@ export default function Portfolio() {
       {/* 6. Contact */}
       <section className="section pt-0" aria-labelledby="contact-titre">
         <div className="wrap">
-          <div className="carte-laser lent relative overflow-hidden px-6 py-14 text-center [--radius:28px] sm:px-12">
+          <div className="carte-laser pf-lueur lent relative overflow-hidden px-6 py-14 text-center [--radius:28px] sm:px-12">
+            <span className="pf-spot" aria-hidden="true" />
             <div
               className="halo -left-32 -top-40 h-[420px] w-[620px]"
               aria-hidden="true"
@@ -551,6 +557,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

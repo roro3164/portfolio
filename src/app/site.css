@@ -1996,3 +1996,81 @@ a.tuile:hover {
   .boucle-carte::after { animation: none; }
   .boucle-carte, .boucle-icone { transition: none; }
 }
+
+/* ───────── Portfolio : fond à motifs et effets (limité à .pf) ───────── */
+.pf { --pf-motif: rgb(var(--m-clair)); --pf-motif-op: 0.2; }
+:root[data-theme="clair"] .pf { --pf-motif: rgb(var(--m2)); --pf-motif-op: 0.14; }
+.pf-fond { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; color: var(--pf-motif); }
+.pf-motif { position: absolute; height: auto; opacity: var(--pf-motif-op); }
+/* Coins seulement : chaque motif s'efface vers le centre */
+.pf-motif-hg { top: 60px; left: -90px; width: min(46vw, 560px); -webkit-mask-image: radial-gradient(circle at 22% 22%, #000 25%, transparent 72%); mask-image: radial-gradient(circle at 22% 22%, #000 25%, transparent 72%); }
+.pf-motif-hd { top: 70px; right: -40px; width: min(32vw, 420px); -webkit-mask-image: radial-gradient(circle at 80% 30%, #000 20%, transparent 70%); mask-image: radial-gradient(circle at 80% 30%, #000 20%, transparent 70%); }
+.pf-motif-bg { bottom: -40px; left: -30px; width: min(38vw, 520px); -webkit-mask-image: radial-gradient(circle at 30% 70%, #000 30%, transparent 75%); mask-image: radial-gradient(circle at 30% 70%, #000 30%, transparent 75%); }
+.pf-motif-bd { bottom: -60px; right: -50px; width: min(40vw, 520px); -webkit-mask-image: radial-gradient(circle at 55% 50%, #000 30%, transparent 72%); mask-image: radial-gradient(circle at 55% 50%, #000 30%, transparent 72%); }
+@media (max-width: 767px) {
+  .pf { --pf-motif-op: 0.11; }
+  .pf-motif-hg { width: 78vw; } .pf-motif-hd { display: none; } .pf-motif-bg { width: 70vw; } .pf-motif-bd { width: 72vw; }
+}
+/* Deux faisceaux de lumière qui tombent du haut (fixes) */
+.pf-lumiere { position: absolute; top: -20vh; width: 46vw; height: 90vh; filter: blur(40px); opacity: .55; }
+.pf-lumiere-1 { left: 8vw; background: conic-gradient(from 168deg at 50% 0%, transparent 0deg, rgba(var(--m1), 0.22) 12deg, transparent 26deg); }
+.pf-lumiere-2 { right: 4vw; background: conic-gradient(from 178deg at 50% 0%, transparent 0deg, rgba(56, 189, 248, 0.14) 10deg, transparent 22deg); }
+:root[data-theme="clair"] .pf-lumiere { opacity: .35; }
+.pf-trait { stroke-dasharray: 620; animation: pf-dessin 9s ease-in-out infinite alternate; }
+.pf-flux { animation: pf-flux 14s linear infinite; }
+.pf-lignes { stroke-dasharray: 130; animation: pf-dessin-court 6s ease-in-out infinite alternate; }
+.pf-scintille { animation: pf-scintille 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.pf-d2 { animation-delay: -1.1s; } .pf-d3 { animation-delay: -2.2s; }
+@keyframes pf-dessin { from { stroke-dashoffset: 620; } 60%, to { stroke-dashoffset: 0; } }
+@keyframes pf-dessin-court { from { stroke-dashoffset: 130; } 50%, to { stroke-dashoffset: 0; } }
+@keyframes pf-flux { to { stroke-dashoffset: -180; } }
+@keyframes pf-scintille { 0%, 100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.35); } }
+
+/* Barre de progression de lecture */
+.pf-progression { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 70; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, rgb(var(--m1)), #38bdf8, #f472b6); box-shadow: 0 0 14px rgba(var(--m1), .8); }
+@supports (animation-timeline: scroll()) {
+  .pf-progression { animation: pf-progresse linear both; animation-timeline: scroll(root); }
+}
+@keyframes pf-progresse { to { transform: scaleX(1); } }
+
+/* Lumière qui suit la souris (reprise du « Spotlight card » d'Aceternity UI, réécrite en CSS) */
+.pf-lueur { --pf-spot: rgba(var(--m1), 0.22); --pf-bord: rgba(var(--m-pale), 0.7); }
+.boucle-carte.pf-lueur { --pf-spot: rgb(var(--c) / 0.30); --pf-bord: rgb(var(--c2)); }
+.pf-spot { position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s; background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), var(--pf-spot), transparent 60%); }
+.pf-spot::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--pf-bord), transparent 65%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+.pf-lueur[data-lueur] > .pf-spot { opacity: 1; }
+
+/* Verre */
+.pf .pf-verre { background: linear-gradient(160deg, rgba(var(--voile), 0.07), rgba(var(--voile), 0.02)); border-color: rgba(var(--voile), 0.12); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 50px -30px rgba(0, 0, 0, 0.6); transition: translate .45s cubic-bezier(.2,.8,.2,1), border-color .45s; }
+:root[data-theme="clair"] .pf .pf-verre { background: linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55)); box-shadow: 0 20px 50px -34px rgba(45, 35, 80, 0.35); }
+.pf .pf-verre:hover { translate: 0 -4px; border-color: rgba(var(--m1), 0.45); }
+.pf-sommaire { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 6px; border-radius: 999px; border: 1px solid rgba(var(--voile), 0.12); background: rgba(var(--voile), 0.05); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07); }
+.pf-sommaire a { padding: 7px 14px; border-radius: 999px; transition: background .25s, color .25s, box-shadow .25s; }
+.pf-sommaire a:hover { text-decoration: none; color: var(--fort); background: rgba(var(--m1), 0.22); box-shadow: 0 0 18px rgba(var(--m1), 0.35); }
+@media (max-width: 639px) { .pf-sommaire { border-radius: 22px; } }
+
+/* Titres en dégradé qui brillent */
+.pf .grad { background-image: linear-gradient(100deg, var(--fort) 0%, var(--violet-2) 30%, #7dd3fc 45%, var(--violet-2) 60%, var(--fort) 100%); background-size: 220% auto; animation: pf-brille 7s linear infinite; }
+@keyframes pf-brille { to { background-position: -220% center; } }
+
+/* Liseré lumineux qui tourne autour du bouton de démo (« Border Beam » de Magic UI, MIT) */
+@property --pf-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.pf-faisceau { position: relative; isolation: isolate; }
+.pf-faisceau::before { content: ""; position: absolute; inset: -3px; z-index: -1; border-radius: inherit; padding: 2px; background: conic-gradient(from var(--pf-angle), transparent 0 70%, #7dd3fc 80%, #fff 86%, #f472b6 92%, transparent 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: pf-tourne 3.2s linear infinite; }
+@keyframes pf-tourne { to { --pf-angle: 360deg; } }
+
+/* Reflet qui balaie les boutons principaux au survol */
+.pf .btn-primary:not(.btn-primaps) { position: relative; overflow: hidden; }
+.pf .btn-primary.pf-faisceau { overflow: visible; }
+.pf .btn-primary:not(.btn-primaps):not(.pf-faisceau)::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent); transform: skewX(-20deg); transition: left .7s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+.pf .btn-primary:not(.btn-primaps):not(.pf-faisceau):hover::after { left: 120%; }
+
+/* Portrait : halo de couleur qui respire derrière */
+.pf-portrait::before { content: ""; position: absolute; inset: 8% 6%; z-index: -1; border-radius: 40%; background: conic-gradient(from 0deg, rgba(var(--m1), .55), rgba(56, 189, 248, .4), rgba(244, 114, 182, .45), rgba(var(--m1), .55)); filter: blur(60px); opacity: .55; animation: pf-respire 8s ease-in-out infinite alternate; }
+@keyframes pf-respire { from { transform: scale(.92) rotate(0deg); } to { transform: scale(1.05) rotate(40deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-trait, .pf-flux, .pf-lignes, .pf-scintille, .pf .grad, .pf-faisceau::before, .pf-portrait::before { animation: none; }
+  .pf-trait, .pf-lignes { stroke-dashoffset: 0; }
+  .pf-progression { display: none; }
+}
