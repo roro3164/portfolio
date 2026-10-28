@@ -2066,3 +2066,6 @@ a.tuile:hover {
   .pf .grad, .pf-faisceau::before, .pf-portrait::before { animation: none; }
   .pf-progression { display: none; }
 }
+
+/* Portfolio : les ancres du header ne passent pas sous le header */
+.pf section[id] { scroll-margin-top: 88px; }

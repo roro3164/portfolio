@@ -1,12 +1,20 @@
 "use client";
 
-import { Gift } from "lucide-react";
+import { Gift, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV } from "@/lib/site";
+import { NAV, SITE } from "@/lib/site";
 import { Logo } from "./Logo";
 import { BasculeTheme } from "./BasculeTheme";
+
+const SOMMAIRE_PORTFOLIO = [
+  { href: "#primaps", label: "Primaps" },
+  { href: "#agence", label: "Agence d'agents IA" },
+  { href: "#templates", label: "Templates" },
+  { href: "#clients", label: "Projets clients" },
+  { href: "#competences", label: "Compétences" },
+];
 
 export function Header() {
   const [ouvert, setOuvert] = useState(false);
@@ -31,6 +39,10 @@ export function Header() {
 
   const actif = (href: string) => chemin === href || chemin.startsWith(`${href}/`);
 
+  // Portfolio (candidatures) : le header ne mène qu'aux sections de la page, jamais au reste du site.
+  const portfolio = chemin === "/portfolio";
+  const liens = portfolio ? SOMMAIRE_PORTFOLIO : NAV;
+
   return (
     <header className="sticky top-0 z-50 pt-3">
       <div className="wrap">
@@ -39,11 +51,11 @@ export function Header() {
           resserre || ouvert ? "entete-verre mx-auto pl-6 xl:w-[88%]" : "mx-auto w-full pl-0"
         }`}
       >
-        <Logo hauteur={28} />
+        <Logo hauteur={28} href={portfolio ? "#contenu" : "/"} />
 
         <nav aria-label="Navigation principale" className="hidden lg:block">
           <ul className="flex items-center gap-0.5">
-            {NAV.map((l) => (
+            {liens.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
@@ -61,10 +73,17 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <BasculeTheme />
-          <Link href="/demo-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
-            <Gift className="h-4 w-4" aria-hidden="true" />
-            Ma démo gratuite
-          </Link>
+          {portfolio ? (
+            <a href={`mailto:${SITE.email}`} className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              Me contacter
+            </a>
+          ) : (
+            <Link href="/demo-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
+              <Gift className="h-4 w-4" aria-hidden="true" />
+              Ma démo gratuite
+            </Link>
+          )}
           <button
             type="button"
             className="mr-1 grid h-11 w-11 place-items-center rounded-full border border-[var(--line-2)] lg:hidden"
@@ -88,22 +107,32 @@ export function Header() {
         className="menu-verre fixed inset-x-0 bottom-0 top-[80px] z-40 overflow-y-auto lg:hidden"
       >
         <nav aria-label="Navigation mobile" className="wrap flex flex-col py-6">
-          {NAV.map((l) => (
+          {liens.map((l) => (
             <Link
               key={l.href}
               href={l.href}
+              onClick={() => setOuvert(false)}
               className="border-b border-[var(--line)] py-4 text-2xl font-semibold tracking-tight"
             >
               {l.label}
             </Link>
           ))}
-          <Link href="/demo-gratuite" className="btn btn-primary mt-8 w-full">
-            <Gift className="h-4 w-4" aria-hidden="true" />
-            Ma démo gratuite
-          </Link>
-          <a href="https://www.primaps.fr" className="btn btn-ghost mt-3 w-full">
-            Vous êtes un restaurant ? Primaps
-          </a>
+          {portfolio ? (
+            <a href={`mailto:${SITE.email}`} className="btn btn-primary mt-8 w-full">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              Me contacter
+            </a>
+          ) : (
+            <>
+              <Link href="/demo-gratuite" className="btn btn-primary mt-8 w-full">
+                <Gift className="h-4 w-4" aria-hidden="true" />
+                Ma démo gratuite
+              </Link>
+              <a href="https://www.primaps.fr" className="btn btn-ghost mt-3 w-full">
+                Vous êtes un restaurant ? Primaps
+              </a>
+            </>
+          )}
         </nav>
       </div>
     </header>

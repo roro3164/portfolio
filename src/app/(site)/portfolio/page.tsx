@@ -145,26 +145,6 @@ export default function Portfolio() {
             <div className="mt-9">
               <Liens />
             </div>
-            <nav
-              aria-label="Sommaire"
-              className="pf-sommaire mt-10 text-[14.5px] text-[var(--muted)]"
-            >
-              {[
-                ["#primaps", "Primaps"],
-                ["#agence", "Agence d'agents IA"],
-                ["#templates", "Templates"],
-                ["#clients", "Projets clients"],
-                ["#competences", "Compétences"],
-              ].map(([href, label]) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="underline-offset-4 hover:text-[var(--fort)] hover:underline"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
           </div>
           <div className="pf-portrait relative -mx-2 sm:mx-0 lg:-mr-6">
             <PortraitSplit priority />
