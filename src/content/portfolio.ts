@@ -149,7 +149,8 @@ export const STACK_PRIMAPS = [
 ];
 
 export const AGENCE = {
-  src: "/portfolio/primaps/bureau.webp",
+  src: "/portfolio/clips/agence.jpg",
+  clip: "/portfolio/clips/agence.mp4",
   points: [
     "Un orchestrateur répartit chaque demande entre sept « chefs » spécialisés : produit, templates, sites clients, prospection, devis, marketing, support.",
     "Chaque chef charge des rôles métier (design, Shopify, SEO, tests…) et lance des sous-agents en parallèle pour les gros volumes.",
