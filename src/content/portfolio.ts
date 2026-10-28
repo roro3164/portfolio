@@ -76,13 +76,13 @@ export const VISITE_PRIMAPS = [
   {
     id: "site",
     numero: "03 · Site et constructeur",
-    titre: "Un site qui donne faim, modifiable en un clic",
+    titre: "Un vrai site, modifiable en un clic",
     texte:
-      "Plus de 30 templates dessinés pour les restaurants, snacks, pizzerias, boulangeries et fleuristes, chacun avec sa direction artistique et ses animations. Le restaurateur clique sur un texte ou une photo et le change directement sur la page, sans rien connaître au web. Il passe d'un template à l'autre quand il veut : tout son contenu suit. Le site parle plusieurs langues et ses boutons Réserver et Commander mènent droit aux modules Primaps.",
+      "Plus de 30 templates dessinés pour les restaurants, snacks, pizzerias, boulangeries et fleuristes, chacun avec sa direction artistique et ses animations. Le restaurateur clique sur un texte ou une photo et le change directement sur la page, sans rien connaître au web. Il passe d'un template à l'autre quand il veut : tout son contenu suit. Le site parle plusieurs langues et ses boutons (réserver, commander) mènent droit aux modules Primaps.",
     points: ["Plus de 30 templates", "Tout se modifie au clic", "Changer de template sans rien perdre", "Plusieurs langues"],
     src: "/portfolio/clips/editeur.jpg",
     clip: "/portfolio/clips/editeur.mp4",
-    alt: "Primaps, constructeur de site : clic sur un titre, défilé de templates, puis le template du Bistrot Fernand",
+    alt: "Primaps, constructeur de site : le site du Bistrot des Musées ouvert dans l'éditeur, clic sur le titre, choix du template, puis la carte",
   },
   {
     id: "reservations",
