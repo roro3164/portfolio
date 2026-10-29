@@ -184,7 +184,7 @@ export default function Portfolio() {
       {/* 2. Primaps, projet phare */}
       <section
         id="primaps"
-        className="section scroll-mt-24"
+        className="section scroll-mt-24 !pt-8 lg:!pt-12"
         aria-labelledby="primaps-titre"
       >
         <div className="wrap">
