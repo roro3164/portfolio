@@ -613,9 +613,9 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 .entete-verre {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: rgba(var(--voile), 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(14, 12, 22, 0.78);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
 }
@@ -626,6 +626,8 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   text-shadow: 0 0 14px rgba(var(--m1), 0.7), 0 0 30px rgba(var(--m2), 0.45);
 }
 .lien-neon[aria-current="page"] { text-shadow: 0 0 12px rgba(var(--m1), 0.6); }
+:root[data-theme="clair"] .entete-verre { background: rgba(255, 255, 255, 0.86); border-color: rgba(15, 23, 42, 0.08); box-shadow: 0 10px 34px -12px rgba(15, 23, 42, 0.22); }
+:root[data-theme="clair"] .lien-neon:hover, :root[data-theme="clair"] .lien-neon[aria-current="page"] { color: #1a73e8; text-shadow: none; }
 .menu-verre {
   background: var(--verre-entete);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
