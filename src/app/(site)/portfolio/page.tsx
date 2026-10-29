@@ -415,7 +415,7 @@ export default function Portfolio() {
                         </span>
                         <span className="flex items-center justify-between gap-2 bg-white/[0.04] px-4 py-3">
                           <span className="leading-tight">
-                            <b className="block text-[14px] text-white sm:text-[15px]">{d.libelle}</b>
+                            <b className="block text-[14px] text-white sm:text-[15px]">Visualiser les templates {d.libelle}</b>
                             <span className="text-[12px] text-[var(--muted)]">{d.nombre} templates</span>
                           </span>
                           <span aria-hidden="true" className="text-white/70 transition group-hover:translate-x-1 group-hover:text-white">→</span>
