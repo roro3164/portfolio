@@ -18,6 +18,10 @@ import {
   Mail,
   MapPin,
   PlayCircle,
+  Palette,
+  Blocks,
+  Waves,
+  MousePointerClick,
 } from "lucide-react";
 import Link from "next/link";
 import { FondPortfolio } from "@/components/site/FondPortfolio";
@@ -49,6 +53,13 @@ import { SITE } from "@/lib/site";
 /** Une capture pas encore livrée est masquée plutôt qu'affichée cassée. */
 const existe = (src: string) =>
   fs.existsSync(path.join(process.cwd(), "public", src));
+
+const ICONES_PRINCIPES = {
+  identite: Palette,
+  systeme: Blocks,
+  mouvement: Waves,
+  edition: MousePointerClick,
+};
 
 const ICONES_CONCEPT = {
   trouve: Search,
@@ -396,14 +407,27 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="wrap">
-            <ol className="mt-16 grid gap-px overflow-hidden rounded-[22px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-              {PRINCIPES_DESIGN.map((p, i) => (
-                <li key={p.titre} className="reveal bg-[var(--bg)]/80 p-6 backdrop-blur">
-                  <p className="font-mono text-[12.5px] text-[var(--accent)]">{String(i + 1).padStart(2, "0")}</p>
-                  <h3 className="mt-2 text-[1.08rem] font-bold leading-snug text-white">{p.titre}</h3>
-                  <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--muted)]">{p.texte}</p>
-                </li>
-              ))}
+            <p className="eyebrow mt-16">Ma méthode de design</p>
+            <ol className="boucle boucle-design mt-6">
+              {PRINCIPES_DESIGN.map((p, i) => {
+                const Icone = ICONES_PRINCIPES[p.icone];
+                return (
+                  <li key={p.titre} className="boucle-carte pf-lueur reveal">
+                    <span className="pf-spot" aria-hidden="true" />
+                    <span className="boucle-num">0{i + 1}</span>
+                    <span className="boucle-icone">
+                      <Icone className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-5 text-[19px] font-semibold text-[var(--fort)]">{p.titre}</h3>
+                    <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--muted)]">{p.texte}</p>
+                    <ul className="mt-4">
+                      {p.points.map((x) => (
+                        <li key={x}>{x}</li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              })}
             </ol>
           </div>
         </section>
