@@ -175,14 +175,6 @@ export const CLIPS_TEMPLATES: ClipTemplate[] = [
   },
 ];
 
-/** Le système derrière les templates : chiffres relevés dans le code Primaps (bibliothèque de variantes, effets, polices) le 29/10. */
-export const SYSTEME_TEMPLATES = [
-  { valeur: "270", libelle: "variantes de section dans la bibliothèque" },
-  { valeur: "16", libelle: "types de section : en-tête, hero, menu, galerie, avis…" },
-  { valeur: "72", libelle: "effets au choix, coupés si le visiteur réduit les animations" },
-  { valeur: "17", libelle: "polices, une couleur libre, clair ou sombre" },
-];
-
 /** Comment je dessine un template : ce que chaque template du catalogue respecte. */
 export const PRINCIPES_DESIGN = [
   {
