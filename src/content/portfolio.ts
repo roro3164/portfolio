@@ -132,7 +132,9 @@ export type ClipTemplate = {
 };
 
 /** « Tester les templates » : une démo remplie par métier, des flèches pour passer d'un template à l'autre. */
-const DEMO = "https://www.primaps.fr/preview-templates/demo?m=";
+// En local, la démo pointe vers l'aperçu Primaps du Mac (la page n'est pas encore en ligne) ;
+// le site en ligne pointe toujours vers primaps.fr.
+const DEMO = `${process.env.NODE_ENV === "development" ? "http://192.168.1.23:4112" : "https://www.primaps.fr"}/preview-templates/demo?m=`;
 export const DEMOS_METIERS = [
   { libelle: "restaurant", nombre: 10, src: "/portfolio/templates/bistro-nina-bonita.webp", lien: `${DEMO}restaurant` },
   { libelle: "asiatiques", nombre: 6, src: "/portfolio/templates/bistro-asian-izakaya.webp", lien: `${DEMO}asiatique` },
