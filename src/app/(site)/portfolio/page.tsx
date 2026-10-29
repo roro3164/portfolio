@@ -381,30 +381,32 @@ export default function Portfolio() {
             <MurTemplates templates={TEMPLATES} />
           </div>
           <div className="wrap">
-            <div className="reveal card pf-verre pf-lueur relative mt-14 overflow-hidden">
+            <div className="reveal card pf-verre pf-lueur relative mt-14 overflow-hidden !p-5 sm:!p-8 lg:!p-10">
               <span className="pf-spot" aria-hidden="true" />
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
-                <div>
+              <div className="grid gap-8">
+                <div className="grid gap-4 lg:grid-cols-2 lg:items-end">
+                  <div>
                   <p className="eyebrow">Tester les templates</p>
                   <h3 className="h2 mt-4 !text-[clamp(1.7rem,3vw,2.4rem)]">
                     Choisissez un métier, passez d&apos;un template à l&apos;autre
                   </h3>
-                  <p className="mt-4 text-[16px] leading-relaxed text-[var(--muted)]">
+                  </div>
+                  <p className="text-[16px] leading-relaxed text-[var(--muted)] lg:justify-self-end lg:max-w-md">
                     Chaque démo est un vrai site rempli avec une maison fictive :
                     on la fait défiler avec ses animations, et les flèches (ou
                     ← → au clavier) changent de template.
                   </p>
                 </div>
-                <ul className="grid grid-cols-2 gap-3 sm:gap-4">
+                <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
                   {DEMOS_METIERS.map((d) => (
-                    <li key={d.libelle}>
+                    <li key={d.libelle} className="first:col-span-2 sm:first:col-span-1">
                       <a
                         href={d.lien}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group block overflow-hidden rounded-2xl ring-1 ring-white/12 transition hover:ring-white/35"
+                        className="group flex h-full flex-col overflow-hidden rounded-2xl ring-1 ring-white/12 transition hover:ring-white/35"
                       >
-                        <span className="block aspect-[16/10] overflow-hidden">
+                        <span className="block aspect-[16/10] flex-none overflow-hidden">
                           <Image
                             src={d.src}
                             alt=""
@@ -413,7 +415,7 @@ export default function Portfolio() {
                             className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.04]"
                           />
                         </span>
-                        <span className="flex items-center justify-between gap-2 bg-white/[0.04] px-4 py-3">
+                        <span className="flex flex-1 items-center justify-between gap-2 bg-white/[0.04] px-4 py-3">
                           <span className="leading-tight">
                             <b className="block text-[14px] text-white sm:text-[15px]">Visualiser les templates {d.libelle}</b>
                             <span className="text-[12px] text-[var(--muted)]">{d.nombre} templates</span>

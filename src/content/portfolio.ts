@@ -134,10 +134,11 @@ export type ClipTemplate = {
 /** « Tester les templates » : une démo remplie par métier, des flèches pour passer d'un template à l'autre. */
 const DEMO = "https://www.primaps.fr/preview-templates/demo?m=";
 export const DEMOS_METIERS = [
-  { libelle: "restaurant", nombre: 11, src: "/portfolio/templates/bistro-nina-bonita.webp", lien: `${DEMO}restaurant` },
+  { libelle: "restaurant", nombre: 10, src: "/portfolio/templates/bistro-nina-bonita.webp", lien: `${DEMO}restaurant` },
   { libelle: "asiatiques", nombre: 6, src: "/portfolio/templates/bistro-asian-izakaya.webp", lien: `${DEMO}asiatique` },
   { libelle: "snack, burger et pizza", nombre: 10, src: "/portfolio/templates/snack-crousti-turquoise.webp", lien: `${DEMO}snack` },
-  { libelle: "fleuriste et commerces", nombre: 6, src: "/portfolio/templates/fleuriste-fleuriste-jardin-clair.webp", lien: `${DEMO}commerces` },
+  { libelle: "boulangerie, pâtisserie et café", nombre: 3, src: "/portfolio/templates/patisserie-patisserie-pop-clair.webp", lien: `${DEMO}boulangerie` },
+  { libelle: "fleuriste et décoration", nombre: 4, src: "/portfolio/templates/fleuriste-fleuriste-jardin-clair.webp", lien: `${DEMO}commerces` },
 ];
 
 export const CLIPS_TEMPLATES: ClipTemplate[] = [
