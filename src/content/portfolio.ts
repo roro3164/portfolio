@@ -235,7 +235,7 @@ export const AGENCE = {
     "Un orchestrateur répartit chaque demande entre sept « chefs » spécialisés : produit, templates, sites clients, prospection, devis, marketing, support.",
     "Chaque chef charge des rôles métier (design, Shopify, SEO, tests…) et lance des sous-agents en parallèle pour les gros volumes.",
     "Chaque agent travaille dans son propre worktree Git, sur sa branche, et livre une pull request avec un aperçu local.",
-    "Un bureau en pixel art montre en temps réel qui travaille sur quoi : chaque chef à son bureau, les sous-agents dans les salles ; rien ne part en production sans mon accord.",
+    "Un bureau en pixel art et une messagerie montrent en temps réel qui travaille sur quoi : je parle à chaque chef dans sa conversation, je vois sa réponse s'écrire et je valide ses livrables ; rien ne part en production sans mon accord.",
   ],
   stack: [
     "Claude Code",

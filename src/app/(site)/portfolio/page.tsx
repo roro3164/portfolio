@@ -347,7 +347,7 @@ export default function Portfolio() {
                 <Clip
                   src={AGENCE.clip}
                   poster={AGENCE.src}
-                  label="Le bureau de l'agence en pixel art : chaque chef à son bureau, les sous-agents dans les salles de travail, un ticket qui passe de l'orchestrateur au bon chef"
+                  label="Le bureau de l'agence en pixel art, puis la messagerie : un chef qui écrit sa réponse en direct, la file des conversations et un livrable à valider"
                 />
               </Macbook>
             )}
