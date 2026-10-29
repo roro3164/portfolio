@@ -155,7 +155,7 @@ export default function Portfolio() {
           className="halo -right-40 top-10 h-[480px] w-[480px]"
           aria-hidden="true"
         />
-        <div className="wrap relative grid items-center gap-12 pb-10 pt-14 lg:grid-cols-[0.95fr_1.05fr] lg:pt-16">
+        <div className="wrap relative grid items-center gap-12 pb-2 pt-14 lg:grid-cols-[0.95fr_1.05fr] lg:pb-0 lg:pt-16">
           <div>
             <p className="eyebrow flex items-center gap-2">
               <MapPin className="h-4 w-4" aria-hidden="true" />
@@ -184,7 +184,7 @@ export default function Portfolio() {
       {/* 2. Primaps, projet phare */}
       <section
         id="primaps"
-        className="section scroll-mt-24 !pt-8 lg:!pt-12"
+        className="section scroll-mt-24 !pt-2 lg:!pt-0"
         aria-labelledby="primaps-titre"
       >
         <div className="wrap">
