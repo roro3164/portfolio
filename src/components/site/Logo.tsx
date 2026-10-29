@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Logo officiel Romain DesignCode (vectoriel, sans dépendance de police).
-export function Logo({ className = "", hauteur = 30 }: { className?: string; hauteur?: number }) {
+export function Logo({ className = "", hauteur = 30, href = "/" }: { className?: string; hauteur?: number; href?: string }) {
   return (
-    <Link href="/" aria-label="Romain DesignCode, accueil" className={`inline-flex shrink-0 ${className}`}>
+    <Link href={href} aria-label={href === "/" ? "Romain DesignCode, accueil" : "Haut de page"} className={`inline-flex shrink-0 ${className}`}>
       <Image
         src="/img/logo-romain-designcode.svg"
         alt="Romain DesignCode"

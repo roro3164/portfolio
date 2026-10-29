@@ -671,6 +671,13 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
   border: 1px solid rgba(var(--l1), 0.35);
 }
 
+/* Pastilles multicolores (liste de technos) : chaque pastille prend la teinte de son data-couleur */
+.chip-teinte[data-couleur="cyan"] { --l1: 34, 211, 238; --l-clair: #c6f6fd; }
+.chip-teinte[data-couleur] { padding: 6px 15px; font-weight: 600; color: var(--l-clair); background: linear-gradient(135deg, rgba(var(--l1), 0.26), rgba(var(--l1), 0.1)); border-color: rgba(var(--l1), 0.6); box-shadow: 0 0 18px -6px rgba(var(--l1), 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+:root[data-theme="clair"] .chip-teinte[data-couleur] { color: var(--accent); box-shadow: none; }
+:root[data-theme="clair"] .chip-teinte[data-couleur="cyan"] { --accent: #0e7490; }
+.chip-teinte i { width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: rgb(var(--l1)); box-shadow: 0 0 10px rgba(var(--l1), 0.9); }
+
 /* Primaps : laser et accents aux 4 couleurs Google (bleu, vert, jaune, rouge) */
 [data-couleur="google"] { --l1: 66, 133, 244; --l2: 52, 168, 83; --l-clair: #ffffff; --accent: #8ab4f8; }
 .carte-laser[data-couleur="google"]::before {
@@ -1897,6 +1904,16 @@ a.tuile:hover {
 .ap-bouton-haut { position: absolute; top: max(-2px, -0.3cqw); height: max(2px, 0.3cqw); border-radius: 2px 2px 0 0; background: linear-gradient(90deg, #b7b8bd, #82838a, #b0b1b6); }
 .ap-bouton-haut-1 { left: 8%; width: 4cqw; }
 .ap-bouton-haut-2 { right: 6%; width: 2.5cqw; }
+/* MacBook CSS : capot noir à fin liseré alu, encoche, socle alu plus large avec l'entaille d'ouverture */
+.ap-mac { position: relative; container-type: inline-size; padding: 0 4cqw; }
+.ap-mac::before { content: ""; position: absolute; z-index: -1; inset: 8% 4% -6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(143, 137, 236, 0.45), rgba(66, 133, 244, 0.18) 55%, transparent); filter: blur(30px); pointer-events: none; }
+.ap-mac-capot { position: relative; padding: 1.7cqw 1.7cqw 2.6cqw; border-radius: 3.2cqw 3.2cqw 0.8cqw 0.8cqw; background: #060608; box-shadow: 0 0 0 max(1px, 0.25cqw) #8a8a92, 0 40px 70px -26px rgba(0, 0, 0, 0.75); }
+.ap-mac-ecran { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: 0.6cqw; background: #000; }
+.ap-mac-encoche { position: absolute; left: 50%; top: 0; width: 13cqw; height: 2.3cqw; translate: -50% 0; border-radius: 0 0 1cqw 1cqw; background: #060608; }
+.ap-mac-encoche::after { content: ""; position: absolute; left: 50%; top: 45%; width: max(3px, 0.6cqw); height: max(3px, 0.6cqw); translate: -50% -50%; border-radius: 50%; background: #15151a; box-shadow: inset 0 0 2px rgba(90, 100, 140, 0.7); }
+.ap-mac-socle { position: relative; margin: 0 -4cqw; height: 2.6cqw; border-radius: 0 0 4cqw 4cqw / 0 0 2.4cqw 2.4cqw; background: linear-gradient(180deg, #e2e2e7 0%, #b9b9c0 35%, #8d8d95 80%, #6d6d75 100%); box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.7); }
+.ap-mac-socle span { position: absolute; left: 50%; top: 0; width: 16cqw; height: 1.1cqw; translate: -50% 0; border-radius: 0 0 1.2cqw 1.2cqw; background: linear-gradient(180deg, #8d8d95, #b3b3ba); }
+
 /* le site mobile de démo a sa propre île : celle du cadre suffit */
 .ap-iphone .tsm-ile { visibility: hidden; }
 
@@ -1918,3 +1935,206 @@ a.tuile:hover {
 .cta-pastille > .pastille-offre { scale: 0.82; transform-origin: top right; }
 @media (min-width: 1280px) { .cta-pastille { right: -40px; } }
 @media (prefers-reduced-motion: reduce) { .pastille-offre-anneau { animation: none; } .pastille-offre:hover { transform: none; } }
+
+/* ── Portfolio : concept Primaps en 4 temps ─────────────────────────── */
+.boucle { position: relative; display: grid; gap: 16px; }
+@media (min-width: 768px) { .boucle { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .boucle { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.boucle-carte { --c: 66 133 244; --c2: 138 180 248; --ci: #fff; position: relative; isolation: isolate; padding: 28px 24px 26px; border-radius: 24px; border: 1px solid rgb(var(--c) / 0.38); background: linear-gradient(155deg, rgb(var(--c) / 0.30) 0%, rgb(var(--c) / 0.10) 45%, var(--carte-b) 100%); box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 24px 60px -30px rgb(var(--c) / 0.65); overflow: hidden; transition: translate .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s, border-color .45s; }
+/* Code couleur Primaps (les 4 couleurs du logo) : bleu, jaune, vert, rouge */
+.boucle-carte:nth-child(2) { --c: 251 188 4; --c2: 255 214 102; --ci: #2b2100; }
+.boucle-carte:nth-child(3) { --c: 52 168 83; --c2: 129 201 149; }
+.boucle-carte:nth-child(4) { --c: 234 67 53; --c2: 242 139 130; }
+.boucle-carte:hover { translate: 0 -6px; border-color: rgb(var(--c) / 0.7); box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 34px 70px -28px rgb(var(--c) / 0.85); }
+/* halo coloré qui respire dans le coin */
+.boucle-carte::after { content: ""; position: absolute; z-index: -1; top: -38%; right: -30%; width: 85%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgb(var(--c) / 0.55), transparent 65%); filter: blur(18px); animation: boucle-halo 7s ease-in-out infinite alternate; }
+.boucle-carte:nth-child(2)::after { animation-delay: -1.7s; }
+.boucle-carte:nth-child(3)::after { animation-delay: -3.4s; }
+.boucle-carte:nth-child(4)::after { animation-delay: -5.1s; }
+@keyframes boucle-halo { from { transform: translate(0, 0) scale(1); opacity: .75; } to { transform: translate(-14%, 12%) scale(1.15); opacity: 1; } }
+.boucle-carte::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, transparent, rgb(var(--c2)), rgb(var(--c)), transparent); transform: translateX(-100%); animation: boucle-trace 4.8s ease-in-out infinite; }
+.boucle-carte:nth-child(2)::before { animation-delay: 1.2s; }
+.boucle-carte:nth-child(3)::before { animation-delay: 2.4s; }
+.boucle-carte:nth-child(4)::before { animation-delay: 3.6s; }
+@keyframes boucle-trace { 0% { transform: translateX(-100%); } 25%, 100% { transform: translateX(100%); } }
+.boucle-icone { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(145deg, rgb(var(--c2)), rgb(var(--c))); color: var(--ci); box-shadow: 0 10px 26px -8px rgb(var(--c) / 0.8), inset 0 1px 0 rgba(255,255,255,.45); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.boucle-carte:hover .boucle-icone { transform: rotate(-6deg) scale(1.06); }
+.boucle-num { position: absolute; top: 10px; right: 18px; font-size: 64px; line-height: 1; font-weight: 800; letter-spacing: -.04em; font-variant-numeric: tabular-nums; color: transparent; -webkit-text-stroke: 1.5px rgb(var(--c) / 0.55); background: linear-gradient(180deg, rgb(var(--c) / 0.28), transparent 85%); -webkit-background-clip: text; background-clip: text; }
+.boucle-carte li { position: relative; padding-left: 26px; font-size: 14.5px; line-height: 1.5; color: var(--prose, var(--muted)); }
+.boucle-carte li + li { margin-top: 9px; }
+.boucle-carte li::before { content: ""; position: absolute; left: 0; top: .2em; width: 17px; height: 17px; border-radius: 6px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 11px no-repeat, linear-gradient(145deg, rgb(var(--c2)), rgb(var(--c))); box-shadow: 0 4px 10px -4px rgb(var(--c) / 0.8); }
+.boucle-carte:nth-child(2) li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232b2100' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"), linear-gradient(145deg, rgb(var(--c2)), rgb(var(--c))); }
+
+/* ── Portfolio : visite du produit (MacBook épinglé) ───────────────── */
+.vp-etape { padding: 8px 0 56px; transition: opacity .45s ease; }
+@media (min-width: 1024px) {
+  .vp-etape { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding: 0; opacity: .32; }
+  .vp-etape[data-actif] { opacity: 1; }
+  .vp-etape:first-child { min-height: 60vh; }
+}
+.vp-numero { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.vp-numero::after { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .5; }
+.vp-puce { padding: 6px 12px; border-radius: 999px; font-size: 13.5px; color: var(--prose); background: rgba(var(--voile), 0.05); border: 1px solid var(--line); }
+.vp-epingle { position: sticky; top: max(96px, calc(50vh - 300px)); padding-bottom: 40px; }
+.vp-ordi { position: relative; filter: drop-shadow(0 34px 40px rgba(0, 0, 0, 0.5)); }
+/* écran mesuré sur le cadre (1446 × 1228) */
+.vp-ordi-ecran { position: absolute; left: 9.75%; top: 4.72%; width: 78.9%; height: 58.14%; overflow: hidden; background: #f5f6f8; }
+.vp-ecran { position: absolute; inset: 0; opacity: 0; transform: scale(1.015); transition: opacity .6s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+.vp-ecran[data-actif] { opacity: 1; transform: none; }
+.vp-halo { position: absolute; inset: 6% 4% 20%; z-index: -1; background: radial-gradient(closest-side, rgba(var(--m1), 0.35), transparent); filter: blur(10px); }
+.vp-tel { position: absolute; right: -4%; bottom: -5%; width: 21%; rotate: 4deg; }
+.vp-tel-ecran { position: relative; aspect-ratio: 390 / 844; overflow: hidden; container-type: inline-size; }
+.vp-defile { animation: vp-defile 26s ease-in-out infinite alternate; }
+@keyframes vp-defile { 0%, 6% { transform: translateY(0); } 94%, 100% { transform: translateY(calc(-100% + 844 / 390 * 100cqw)); } }
+.vp-progression { display: flex; justify-content: center; gap: 8px; margin-top: 56px; }
+.vp-progression span { width: 8px; height: 8px; border-radius: 99px; background: var(--line-2); transition: width .4s ease, background .4s ease; }
+.vp-progression span[data-actif] { width: 28px; background: var(--accent); }
+
+/* ── Portfolio : mur de templates en perspective ───────────────────── */
+.mur { position: relative; height: clamp(460px, 62vw, 760px); overflow: hidden; border-radius: 28px; border: 1px solid var(--line); background: var(--bg-2);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); }
+.mur-plan { --mur-gap: 22px; position: absolute; left: 50%; top: 50%; width: max(1500px, 120%); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: var(--mur-gap); transform: translate(-50%, -22%) rotateX(52deg) rotateZ(-38deg); transform-origin: 50% 22%; }
+/* -22 % : la fenêtre vise le haut des colonnes, la seule zone toujours pleine pendant la boucle (sinon une bande vide passe au milieu) */
+.mur-col { display: flex; flex-direction: column; gap: var(--mur-gap); animation: mur-haut 50s linear infinite; will-change: transform; }
+.mur-col[data-sens="bas"] { animation-name: mur-bas; }
+/* une copie = la moitié de la colonne + un demi-écart */
+@keyframes mur-haut { from { transform: translateY(0); } to { transform: translateY(calc(-50% - var(--mur-gap) / 2)); } }
+@keyframes mur-bas { from { transform: translateY(calc(-50% - var(--mur-gap) / 2)); } to { transform: translateY(0); } }
+.mur:hover .mur-col, .mur:focus-within .mur-col { animation-play-state: paused; }
+.mur-tuile { position: relative; display: block; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 30px 40px -24px rgba(0, 0, 0, 0.8); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.mur-tuile:hover, .mur-tuile:focus-visible { transform: translateY(-10px); box-shadow: 0 40px 50px -20px rgba(var(--m1), 0.55); }
+.mur-legende { position: absolute; inset: auto 0 0; padding: 26px 14px 11px; font-size: 14px; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.82)); opacity: 0; transition: opacity .3s ease; }
+.mur-tuile:hover .mur-legende, .mur-tuile:focus-visible .mur-legende { opacity: 1; }
+@media (max-width: 767px) { .mur-plan { --mur-gap: 14px; width: 1100px; } }
+@media (prefers-reduced-motion: reduce) {
+  .mur-col, .vp-defile { animation: none; }
+  .vp-ecran, .vp-etape { transition: none; }
+  .boucle-carte::before { animation: none; transform: none; opacity: .5; }
+  .boucle-carte::after { animation: none; }
+  .boucle-carte, .boucle-icone { transition: none; }
+}
+
+/* ───────── Portfolio : fond à motifs et effets (limité à .pf) ───────── */
+/* Fond : motifs dans les coins, grain et halos de lumière. Fixe : le verre posé dessus ne se recalcule pas. */
+.pf { --pf-motif: rgb(var(--m-pale)); --pf-motif-op: 0.16; --pf-grain: 0.07; }
+:root[data-theme="clair"] .pf { --pf-motif: rgb(var(--m2)); --pf-motif-op: 0.16; --pf-grain: 0.05; }
+.pf-fond { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.pf-fond > :not(svg, .pf-lumiere) { position: absolute; inset: 0; }
+/* Motifs dans les coins seulement (repris du principe du template Asia Sushi : vagues, cercle, trame), centre dégagé */
+.pf-fond > svg { position: absolute; color: var(--pf-motif); }
+.pf-alveoles { left: -60px; top: 70px; width: min(55vw, 780px); height: min(55vw, 780px); opacity: var(--pf-motif-op); }
+@media (max-width: 767px) { .pf-alveoles { width: 96vw; height: 96vw; } }
+/* Halos de couleur aux bords */
+.pf-halos { background: radial-gradient(55vw 48vw at 0% 0%, rgba(var(--m1), 0.18) 0%, color-mix(in srgb, rgba(var(--m1), 0.18) 55%, transparent) 25%, color-mix(in srgb, rgba(var(--m1), 0.18) 20%, transparent) 50%, transparent 75%), radial-gradient(48vw 40vw at 100% 8%, rgba(56, 189, 248, 0.09) 0%, color-mix(in srgb, rgba(56, 189, 248, 0.09) 55%, transparent) 25%, color-mix(in srgb, rgba(56, 189, 248, 0.09) 20%, transparent) 50%, transparent 75%), radial-gradient(55vw 44vw at 100% 100%, rgba(244, 114, 182, 0.09) 0%, color-mix(in srgb, rgba(244, 114, 182, 0.09) 55%, transparent) 25%, color-mix(in srgb, rgba(244, 114, 182, 0.09) 20%, transparent) 50%, transparent 75%), radial-gradient(46vw 38vw at 0% 100%, rgba(var(--m1), 0.09) 0%, color-mix(in srgb, rgba(var(--m1), 0.09) 55%, transparent) 25%, color-mix(in srgb, rgba(var(--m1), 0.09) 20%, transparent) 50%, transparent 75%); }
+:root[data-theme="clair"] .pf-halos { opacity: .7; }
+/* Grain très léger : enlève l'aspect lisse des aplats */
+.pf-grain { opacity: var(--pf-grain); mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }
+/* Deux faisceaux de lumière qui tombent du haut */
+.pf-fond > .pf-lumiere { position: absolute; top: -20vh; width: 46vw; height: 90vh; filter: blur(40px); opacity: .55; }
+.pf-lumiere-1 { left: 8vw; background: conic-gradient(from 168deg at 50% 0%, transparent 0deg, rgba(var(--m1), 0.22) 12deg, transparent 26deg); }
+.pf-lumiere-2 { right: 4vw; background: conic-gradient(from 178deg at 50% 0%, transparent 0deg, rgba(56, 189, 248, 0.14) 10deg, transparent 22deg); }
+:root[data-theme="clair"] .pf-fond > .pf-lumiere { opacity: .35; }
+@media (max-width: 767px) { .pf-fond > .pf-lumiere { width: 90vw; } }
+
+/* Barre de progression de lecture */
+.pf-progression { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 70; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, rgb(var(--m1)), #38bdf8, #f472b6); box-shadow: 0 0 14px rgba(var(--m1), .8); }
+@supports (animation-timeline: scroll()) {
+  .pf-progression { animation: pf-progresse linear both; animation-timeline: scroll(root); }
+}
+@keyframes pf-progresse { to { transform: scaleX(1); } }
+
+/* Lumière qui suit la souris (reprise du « Spotlight card » d'Aceternity UI, réécrite en CSS) */
+.pf-lueur { --pf-spot: rgba(var(--m1), 0.22); --pf-bord: rgba(var(--m-pale), 0.7); }
+.boucle-carte.pf-lueur { --pf-spot: rgb(var(--c) / 0.30); --pf-bord: rgb(var(--c2)); }
+.pf-spot { position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .6s ease; background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--pf-spot) 70%, transparent), color-mix(in srgb, var(--pf-spot) 35%, transparent) 22%, color-mix(in srgb, var(--pf-spot) 12%, transparent) 45%, transparent 70%), radial-gradient(900px circle at calc(var(--mx, 50%) + 120px) calc(var(--my, 50%) + 80px), rgba(56, 189, 248, 0.05), transparent 60%); }
+.pf-spot::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), var(--pf-bord), color-mix(in srgb, var(--pf-bord) 30%, transparent) 40%, transparent 75%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+.pf-lueur[data-lueur] > .pf-spot { opacity: 1; }
+
+/* Verre */
+.pf .pf-verre { background: linear-gradient(160deg, rgba(var(--voile), 0.07), rgba(var(--voile), 0.02)); border-color: rgba(var(--voile), 0.12); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 50px -30px rgba(0, 0, 0, 0.6); transition: translate .45s cubic-bezier(.2,.8,.2,1), border-color .45s; }
+:root[data-theme="clair"] .pf .pf-verre { background: linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55)); box-shadow: 0 20px 50px -34px rgba(45, 35, 80, 0.35); }
+.pf .pf-verre:hover { translate: 0 -4px; border-color: rgba(var(--m1), 0.45); }
+.pf-sommaire { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 6px; border-radius: 999px; border: 1px solid rgba(var(--voile), 0.12); background: rgba(var(--voile), 0.05); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07); }
+.pf-sommaire a { padding: 7px 14px; border-radius: 999px; transition: background .25s, color .25s, box-shadow .25s; }
+.pf-sommaire a:hover { text-decoration: none; color: var(--fort); background: rgba(var(--m1), 0.22); box-shadow: 0 0 18px rgba(var(--m1), 0.35); }
+@media (max-width: 639px) { .pf-sommaire { border-radius: 22px; } }
+
+/* Titres en dégradé qui brillent */
+.pf .grad { background-image: linear-gradient(100deg, var(--fort) 0%, var(--violet-2) 30%, #7dd3fc 45%, var(--violet-2) 60%, var(--fort) 100%); background-size: 220% auto; animation: pf-brille 7s linear infinite; }
+@keyframes pf-brille { to { background-position: -220% center; } }
+
+/* Liseré lumineux qui tourne autour du bouton de démo (« Border Beam » de Magic UI, MIT) */
+@property --pf-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.pf-faisceau { position: relative; isolation: isolate; }
+.pf-faisceau::before { content: ""; position: absolute; inset: -3px; z-index: -1; border-radius: inherit; padding: 2px; background: conic-gradient(from var(--pf-angle), transparent 0 70%, #7dd3fc 80%, #fff 86%, #f472b6 92%, transparent 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: pf-tourne 3.2s linear infinite; }
+@keyframes pf-tourne { to { --pf-angle: 360deg; } }
+
+/* Reflet qui balaie les boutons principaux au survol */
+.pf .btn-primary:not(.btn-primaps) { position: relative; overflow: hidden; }
+.pf .btn-primary.pf-faisceau { overflow: visible; }
+.pf .btn-primary:not(.btn-primaps):not(.pf-faisceau)::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent); transform: skewX(-20deg); transition: left .7s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+.pf .btn-primary:not(.btn-primaps):not(.pf-faisceau):hover::after { left: 120%; }
+
+/* Portrait : halo de couleur qui respire derrière */
+.pf-portrait::before { content: ""; position: absolute; inset: 8% 6%; z-index: -1; border-radius: 40%; background: conic-gradient(from 0deg, rgba(var(--m1), .55), rgba(56, 189, 248, .4), rgba(244, 114, 182, .45), rgba(var(--m1), .55)); filter: blur(60px); opacity: .55; animation: pf-respire 8s ease-in-out infinite alternate; }
+@keyframes pf-respire { from { transform: scale(.92) rotate(0deg); } to { transform: scale(1.05) rotate(40deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf .grad, .pf-faisceau::before, .pf-portrait::before { animation: none; }
+  .pf-progression { display: none; }
+}
+
+/* Portfolio : les ancres du header ne passent pas sous le header */
+.pf section[id] { scroll-margin-top: 88px; }
+
+/* Portfolio — « Tester les templates » : la démo dans un MacBook et un iPhone */
+.vt { min-width: 0; }
+.vt-metiers { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.vt-metiers button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12); transition: color .2s, background .2s; }
+.vt-metiers button:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.vt-metiers button span { font-size: 12px; font-weight: 500; opacity: .7; }
+.vt-metiers button[aria-selected="true"] { color: #111; background: #fff; box-shadow: none; }
+/* Boutons métier colorés, une teinte par métier (mêmes teintes que les pastilles de technos) */
+.vt-metiers button[data-couleur] { color: var(--l-clair); background: linear-gradient(135deg, rgba(var(--l1), 0.24), rgba(var(--l1), 0.08)); box-shadow: inset 0 0 0 1px rgba(var(--l1), 0.55); }
+.vt-metiers button[data-couleur]:hover { background: linear-gradient(135deg, rgba(var(--l1), 0.36), rgba(var(--l1), 0.14)); }
+.vt-metiers button[data-couleur][aria-selected="true"] { color: #fff; background: rgb(var(--l1)); box-shadow: 0 0 26px -6px rgba(var(--l1), 0.9); }
+:root[data-theme="clair"] .vt-metiers button[data-couleur] { color: var(--accent); }
+:root[data-theme="clair"] .vt-metiers button[data-couleur][aria-selected="true"] { color: #fff; }
+.vt-scene { position: relative; margin-top: 48px; padding: 0 0 6%; isolation: isolate; }
+.vt-halo { position: absolute; z-index: -1; inset: -6% 4% 0; background: radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 70%), radial-gradient(40% 40% at 80% 75%, rgba(120, 140, 255, 0.22), transparent 70%); filter: blur(30px); animation: vt-respire 8s ease-in-out infinite alternate; }
+@keyframes vt-respire { to { opacity: .65; transform: scale(1.04); } }
+.vt-sol { position: absolute; z-index: -1; left: 8%; right: 8%; bottom: 2%; height: 9%; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 0, 0, 0.55), transparent); filter: blur(10px); }
+.vt-mac { width: 84%; }
+.vt-scene .vt-iphone { position: absolute; right: 2%; bottom: 0; width: 19%; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55)); }
+.vt-ecran { position: relative; overflow: hidden; background: #0b0b0e; }
+.vt-ecran iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; transition: opacity .35s ease; }
+.vt-chargement { position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%) 0 0 / 200% 100%; animation: vt-luit 1.4s linear infinite; }
+@keyframes vt-luit { to { background-position: -200% 0; } }
+.vt-pilote { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; width: max-content; max-width: 100%; margin: -28px auto 0; padding: 8px 8px 8px 8px; border-radius: 999px; background: rgba(14, 14, 18, 0.72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 20px 50px -18px rgba(0, 0, 0, 0.8); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.vt-fleche { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; font-size: 19px; color: #fff; background: rgba(255, 255, 255, 0.08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14); transition: transform .2s, background .2s, color .2s; }
+.vt-fleche:hover { transform: scale(1.06); color: #111; background: #fff; }
+.vt-fleche-suite { color: #111; background: #fff; box-shadow: none; }
+.vt-nom { display: flex; flex-direction: column; min-width: 210px; line-height: 1.25; }
+.vt-nom b { font-size: 17px; color: #fff; animation: vt-entre .45s ease both; }
+.vt-nom span { font-size: 13px; color: var(--muted); }
+.vt-compte { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; padding: 0 4px 0 18px; border-left: 1px solid rgba(255, 255, 255, 0.12); }
+.vt-compte > span { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: #fff; }
+.vt-compte i { font-style: normal; color: var(--muted); font-weight: 500; }
+.vt-points { display: flex; gap: 5px; }
+.vt-points button { width: 6px; height: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.25); transition: width .3s, background .3s; }
+.vt-points button:hover { background: rgba(255, 255, 255, 0.55); }
+.vt-points button[aria-current] { width: 18px; background: var(--accent); }
+.vt-plein { flex: none; padding: 12px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); transition: background .2s; }
+.vt-plein:hover { background: color-mix(in srgb, var(--accent) 24%, transparent); }
+.vt-aide { margin-top: 14px; text-align: center; font-size: 13px; color: var(--muted); }
+@media (max-width: 767px) {
+  .vt-scene { padding: 0; }
+  .vt-scene .vt-iphone { position: relative; right: auto; width: min(280px, 82%); margin: 0 auto; transform: none; }
+  .vt-pilote { box-sizing: border-box; gap: 10px; padding: 6px; width: 100%; margin-top: 18px; }
+  .vt-compte, .vt-plein { display: none; }
+  .vt-nom { min-width: 0; flex: 1; }
+  .vt-fleche { width: 44px; height: 44px; font-size: 18px; }
+  .vt-metiers { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin: 0 -20px; padding: 0 20px; scrollbar-width: none; }
+  .vt-metiers button { flex: none; }
+}
+@media (prefers-reduced-motion: reduce) { .vt-chargement, .vt-halo, .vt-nom b { animation: none; } .vt-ecran iframe { transition: none; } }

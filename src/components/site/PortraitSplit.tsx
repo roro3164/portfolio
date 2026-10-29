@@ -130,17 +130,17 @@ export function PortraitSplit({ priority = false, className = "" }: { priority?:
         <div className="portrait-calque portrait-dev" aria-hidden="true">
           <PluieCode className="portrait-code" />
           <div className="portrait-photo">
-            <Image src="/img/romain-nb.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-bottom" priority={priority} />
+            <Image src="/img/romain-nb.webp" alt="" fill sizes="(min-width: 1024px) 860px, 100vw" className="object-contain object-bottom" priority={priority} />
           </div>
         </div>
 
         {/* Côté designer (dessus), révélé par un fondu qui suit --p */}
         <div className="portrait-calque portrait-designer" aria-hidden="true">
           <div className="portrait-eclaboussure">
-            <Image src="/img/eclaboussure.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-[30%_20%]" priority={priority} />
+            <Image src="/img/eclaboussure.webp" alt="" fill sizes="(min-width: 1024px) 860px, 100vw" className="object-contain object-[30%_20%]" priority={priority} />
           </div>
           <div className="portrait-photo">
-            <Image src="/img/romain-illustration.webp" alt="" fill sizes="(min-width: 1024px) 720px, 92vw" className="object-contain object-bottom" priority={priority} />
+            <Image src="/img/romain-illustration.webp" alt="" fill sizes="(min-width: 1024px) 860px, 100vw" className="object-contain object-bottom" priority={priority} />
           </div>
         </div>
 
