@@ -2138,6 +2138,24 @@ a.tuile:hover {
 .vt-points button[aria-current] { width: 18px; background: var(--accent); }
 .vt-plein { flex: none; padding: 12px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); transition: background .2s; }
 .vt-plein:hover { background: color-mix(in srgb, var(--accent) 24%, transparent); }
+/* Barre du carrousel : halos aux couleurs Primaps, et une vraie version claire. */
+.vt-pilote { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 20px 50px -18px rgba(0, 0, 0, 0.8), -40px 14px 60px -34px rgba(66, 133, 244, 0.55), 40px 14px 60px -34px rgba(234, 67, 53, 0.4), 0 26px 50px -30px rgba(251, 188, 4, 0.35); }
+.vt-points button[aria-current] { background: linear-gradient(90deg, #4285f4, #34a853); }
+.vt-plein { color: #8ab4f8; background: rgba(66, 133, 244, 0.12); box-shadow: inset 0 0 0 1px rgba(66, 133, 244, 0.4); }
+.vt-plein:hover { background: rgba(66, 133, 244, 0.22); }
+:root[data-theme="clair"] .vt-pilote { background: rgba(255, 255, 255, 0.86); box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08), 0 18px 40px -20px rgba(15, 23, 42, 0.25), -56px 16px 70px -22px rgba(66, 133, 244, 0.55), 56px 16px 70px -22px rgba(234, 67, 53, 0.42), 0 30px 60px -20px rgba(251, 188, 4, 0.5), 0 -10px 50px -26px rgba(52, 168, 83, 0.4); }
+:root[data-theme="clair"] .vt-nom b { color: #0f172a; }
+:root[data-theme="clair"] .vt-nom span { color: #5b6476; }
+:root[data-theme="clair"] .vt-compte { border-left-color: rgba(15, 23, 42, 0.1); }
+:root[data-theme="clair"] .vt-compte > span { color: #0f172a; }
+:root[data-theme="clair"] .vt-compte i { color: #94a3b8; }
+:root[data-theme="clair"] .vt-points button { background: rgba(15, 23, 42, 0.16); }
+:root[data-theme="clair"] .vt-points button:hover { background: rgba(15, 23, 42, 0.35); }
+:root[data-theme="clair"] .vt-points button[aria-current] { background: linear-gradient(90deg, #4285f4, #34a853); }
+:root[data-theme="clair"] .vt-fleche-prec { color: #0f172a; background: #f1f5f9; box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.1); }
+:root[data-theme="clair"] .vt-fleche-prec:hover { background: #e2e8f0; color: #0f172a; }
+:root[data-theme="clair"] .vt-plein { color: #1a73e8; background: rgba(66, 133, 244, 0.1); box-shadow: inset 0 0 0 1px rgba(66, 133, 244, 0.35); }
+:root[data-theme="clair"] .vt-plein:hover { background: rgba(66, 133, 244, 0.18); }
 .vt-aide { margin-top: 14px; text-align: center; font-size: 13px; color: var(--muted); }
 @media (max-width: 767px) {
   .vt-scene { padding: 0; }
