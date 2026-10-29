@@ -672,7 +672,10 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
 }
 
 /* Pastilles multicolores (liste de technos) : chaque pastille prend la teinte de son data-couleur */
-.chip-teinte[data-couleur="cyan"] { --l1: 34, 211, 238; }
+.chip-teinte[data-couleur="cyan"] { --l1: 34, 211, 238; --l-clair: #c6f6fd; }
+.chip-teinte[data-couleur] { padding: 6px 15px; font-weight: 600; color: var(--l-clair); background: linear-gradient(135deg, rgba(var(--l1), 0.26), rgba(var(--l1), 0.1)); border-color: rgba(var(--l1), 0.6); box-shadow: 0 0 18px -6px rgba(var(--l1), 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+:root[data-theme="clair"] .chip-teinte[data-couleur] { color: var(--accent); box-shadow: none; }
+:root[data-theme="clair"] .chip-teinte[data-couleur="cyan"] { --accent: #0e7490; }
 .chip-teinte i { width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: rgb(var(--l1)); box-shadow: 0 0 10px rgba(var(--l1), 0.9); }
 
 /* Primaps : laser et accents aux 4 couleurs Google (bleu, vert, jaune, rouge) */

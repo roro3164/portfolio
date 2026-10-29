@@ -72,7 +72,8 @@ const ICONES_COMPETENCES = {
   "Design & e-commerce": PenTool,
 } as const;
 
-const TEINTES = ["violet", "bleu", "vert", "or", "rose", "cyan"];
+// Les 4 couleurs des cartes 01-04 (violet, vert, bleu, rose), puis or et cyan.
+const TEINTES = ["violet", "vert", "bleu", "rose", "or", "cyan"];
 
 function Pastilles({ items, couleurs = false }: { items: string[]; couleurs?: boolean }) {
   return (
