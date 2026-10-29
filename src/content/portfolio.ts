@@ -192,14 +192,18 @@ export const DEMOS_METIERS: DemoMetier[] = [
     ],
   },
   {
-    id: "commerces",
-    libelle: "Fleuriste et décoration",
+    id: "fleuriste",
+    libelle: "Fleuriste",
     templates: [
       ["Fleuriste 1", "Atelier crème et vert"],
       ["Fleuriste 2", "Serre nocturne"],
       ["Fleuriste 3", "Atelier botanique"],
-      ["Décoration 1", "Éditorial papier"],
     ],
+  },
+  {
+    id: "decoration",
+    libelle: "Décoration",
+    templates: [["Décoration 1", "Éditorial papier"]],
   },
 ];
 
