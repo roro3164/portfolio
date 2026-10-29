@@ -35,6 +35,7 @@ import {
   CARTES_FIDELITE,
   CLIPS_TEMPLATES,
   COMPETENCES,
+  DEMOS_METIERS,
   CONCEPT_PRIMAPS,
   PARCOURS,
   PRINCIPES_DESIGN,
@@ -378,6 +379,53 @@ export default function Portfolio() {
           </div>
           <div className="mt-12">
             <MurTemplates templates={TEMPLATES} />
+          </div>
+          <div className="wrap">
+            <div className="reveal card pf-verre pf-lueur relative mt-14 overflow-hidden">
+              <span className="pf-spot" aria-hidden="true" />
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
+                <div>
+                  <p className="eyebrow">Tester les templates</p>
+                  <h3 className="h2 mt-4 !text-[clamp(1.7rem,3vw,2.4rem)]">
+                    Choisissez un métier, passez d&apos;un template à l&apos;autre
+                  </h3>
+                  <p className="mt-4 text-[16px] leading-relaxed text-[var(--muted)]">
+                    Chaque démo est un vrai site rempli avec une maison fictive :
+                    on la fait défiler avec ses animations, et les flèches (ou
+                    ← → au clavier) changent de template.
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 gap-3 sm:gap-4">
+                  {DEMOS_METIERS.map((d) => (
+                    <li key={d.libelle}>
+                      <a
+                        href={d.lien}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block overflow-hidden rounded-2xl ring-1 ring-white/12 transition hover:ring-white/35"
+                      >
+                        <span className="block aspect-[16/10] overflow-hidden">
+                          <Image
+                            src={d.src}
+                            alt=""
+                            width={640}
+                            height={400}
+                            className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.04]"
+                          />
+                        </span>
+                        <span className="flex items-center justify-between gap-2 bg-white/[0.04] px-4 py-3">
+                          <span className="leading-tight">
+                            <b className="block text-[14px] text-white sm:text-[15px]">{d.libelle}</b>
+                            <span className="text-[12px] text-[var(--muted)]">{d.nombre} templates</span>
+                          </span>
+                          <span aria-hidden="true" className="text-white/70 transition group-hover:translate-x-1 group-hover:text-white">→</span>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
           <div className="wrap">
             <div className="mt-20 grid items-end gap-6 lg:grid-cols-[1fr_1fr]">
