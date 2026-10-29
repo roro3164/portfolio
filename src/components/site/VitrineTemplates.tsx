@@ -5,7 +5,8 @@ import { Iphone, Macbook } from "./Appareils";
 import { DEMO_BASE, type DemoMetier } from "@/content/portfolio";
 
 /** Une couleur par bouton métier, comme les pastilles de technos de l'agence. */
-const TEINTES = ["violet", "vert", "bleu", "rose", "or", "cyan"];
+/** Les 4 couleurs Primaps. */
+const TEINTES = ["p-bleu", "p-jaune", "p-vert", "p-rouge"];
 
 // « Tester les templates » : la vraie démo d'un template (primaps.fr, sans sa barre) tourne à la fois dans un grand
 // MacBook (1440 × 900) et dans un iPhone posé devant (390 × 844, version téléphone) ; l'iPhone seul sur téléphone.
