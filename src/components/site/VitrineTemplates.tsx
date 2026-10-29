@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Iphone, Macbook } from "./Appareils";
 import { DEMO_BASE, type DemoMetier } from "@/content/portfolio";
 
+/** Une couleur par bouton métier, comme les pastilles de technos de l'agence. */
+const TEINTES = ["violet", "vert", "bleu", "rose", "or", "cyan"];
+
 // « Tester les templates » : la vraie démo d'un template (primaps.fr, sans sa barre) tourne à la fois dans un grand
 // MacBook (1440 × 900) et dans un iPhone posé devant (390 × 844, version téléphone) ; l'iPhone seul sur téléphone.
 // Boutons métier au-dessus, flèches et points sous la scène.
@@ -63,6 +66,7 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
             key={x.id}
             type="button"
             role="tab"
+            data-couleur={TEINTES[k % TEINTES.length]}
             aria-selected={k === m}
             onClick={() => {
               setM(k);
@@ -95,8 +99,11 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
         </button>
         <div className="vt-nom" aria-live="polite">
           <b key={nom}>{nom}</b>
+          <span>{style}</span>
+        </div>
+        <div className="vt-compte">
           <span>
-            {style} · {i + 1}/{n}
+            {String(i + 1).padStart(2, "0")} <i>/ {String(n).padStart(2, "0")}</i>
           </span>
           <div className="vt-points">
             {metier.templates.map(([t], k) => (
@@ -110,16 +117,14 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
             ))}
           </div>
         </div>
-        <button type="button" onClick={() => aller(1)} aria-label="Template suivant" className="vt-fleche">
+        <button type="button" onClick={() => aller(1)} aria-label="Template suivant" className="vt-fleche vt-fleche-suite">
           →
         </button>
-      </div>
-      <p className="vt-aide">
-        Faites défiler dans les écrans pour parcourir le site.{" "}
-        <a href={`${DEMO_BASE}?m=${metier.id}&i=${i}`} target="_blank" rel="noopener noreferrer">
-          Ouvrir en plein écran ↗
+        <a className="vt-plein" href={`${DEMO_BASE}?m=${metier.id}&i=${i}`} target="_blank" rel="noopener noreferrer">
+          Plein écran ↗
         </a>
-      </p>
+      </div>
+      <p className="vt-aide">Même contenu, autre template : faites défiler dans les écrans pour parcourir le site.</p>
     </div>
   );
 }
