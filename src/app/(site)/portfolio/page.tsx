@@ -69,7 +69,7 @@ const ICONES_CONCEPT = {
 };
 
 export const metadata: Metadata = {
-  title: "Portfolio de Romain Mornet, développeur full-stack et designer",
+  title: { absolute: "Romain Mornet · Portfolio, développeur full-stack et designer" },
   description:
     "Projets de Romain Mornet : Primaps (SaaS pour restaurants), agence d'agents IA, templates de sites et boutiques e-commerce.",
   alternates: { canonical: "/portfolio" },
