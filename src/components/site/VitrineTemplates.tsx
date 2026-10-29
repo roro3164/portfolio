@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Iphone, Macbook } from "./Appareils";
 import { DEMO_BASE, type DemoMetier } from "@/content/portfolio";
 
-// « Tester les templates » : la vraie démo d'un template (primaps.fr, sans sa barre) tourne dans un grand
-// MacBook (1440 × 900 ; un iPhone 390 × 844 sur téléphone), les boutons métier au-dessus, les flèches de chaque côté.
+// « Tester les templates » : la vraie démo d'un template (primaps.fr, sans sa barre) tourne à la fois dans un grand
+// MacBook (1440 × 900) et dans un iPhone posé devant (390 × 844, version téléphone) ; l'iPhone seul sur téléphone.
+// Boutons métier au-dessus, flèches et points sous la scène.
 
 /** Iframe rendue à sa taille réelle puis réduite à la largeur de l'écran de l'appareil. */
 function Ecran({ src, largeur, hauteur, titre }: { src: string; largeur: number; hauteur: number; titre: string }) {
@@ -74,32 +75,47 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
         ))}
       </div>
 
+      {/* Le même template, ordinateur et téléphone : l'iPhone posé devant le MacBook. */}
       <div className="vt-scene">
-        <button type="button" onClick={() => aller(-1)} aria-label="Template précédent" className="vt-fleche">
-          ←
-        </button>
-        {large ? (
+        <span className="vt-halo" aria-hidden="true" />
+        {large && (
           <Macbook className="vt-mac">
             <Ecran src={src} largeur={1440} hauteur={900} titre={`${nom}, version ordinateur`} />
           </Macbook>
-        ) : (
-          <Iphone className="vt-iphone">
-            <Ecran src={src} largeur={390} hauteur={844} titre={`${nom}, version téléphone`} />
-          </Iphone>
         )}
+        <Iphone className="vt-iphone">
+          <Ecran src={src} largeur={390} hauteur={844} titre={`${nom}, version téléphone`} />
+        </Iphone>
+        <span className="vt-sol" aria-hidden="true" />
+      </div>
+
+      <div className="vt-pilote">
+        <button type="button" onClick={() => aller(-1)} aria-label="Template précédent" className="vt-fleche">
+          ←
+        </button>
+        <div className="vt-nom" aria-live="polite">
+          <b key={nom}>{nom}</b>
+          <span>
+            {style} · {i + 1}/{n}
+          </span>
+          <div className="vt-points">
+            {metier.templates.map(([t], k) => (
+              <button
+                key={t}
+                type="button"
+                aria-label={t}
+                aria-current={k === i || undefined}
+                onClick={() => setI(k)}
+              />
+            ))}
+          </div>
+        </div>
         <button type="button" onClick={() => aller(1)} aria-label="Template suivant" className="vt-fleche">
           →
         </button>
       </div>
-
-      <p className="vt-nom" aria-live="polite">
-        <b>{nom}</b>
-        <span>
-          {style} · {i + 1}/{n}
-        </span>
-      </p>
       <p className="vt-aide">
-        Faites défiler dans l&apos;écran pour parcourir le site.{" "}
+        Faites défiler dans les écrans pour parcourir le site.{" "}
         <a href={`${DEMO_BASE}?m=${metier.id}&i=${i}`} target="_blank" rel="noopener noreferrer">
           Ouvrir en plein écran ↗
         </a>
