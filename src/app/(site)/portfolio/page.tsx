@@ -213,7 +213,7 @@ export default function Portfolio() {
                   href={CANDIDATURE.demoPrimaps}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary pf-faisceau !min-h-[56px] !px-7"
+                  className="btn btn-primary pf-faisceau pf-faisceau-primaps !min-h-[56px] !px-7"
                 >
                   <PlayCircle className="h-5 w-5" aria-hidden="true" />
                   Tester la démo

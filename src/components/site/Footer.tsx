@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { Logo } from "./Logo";
@@ -35,6 +38,16 @@ const COLONNES = [
 ];
 
 export function Footer() {
+  // Portfolio de candidature : pas de marque ni de SIRET, juste mon nom.
+  if (usePathname() === "/portfolio") {
+    return (
+      <footer className="border-t border-[var(--line)] bg-[var(--bg-2)]">
+        <p className="wrap py-8 text-center text-[13.5px] text-[var(--faint)]">
+          © {new Date().getFullYear()} {SITE.fondateur}
+        </p>
+      </footer>
+    );
+  }
   return (
     <footer className="border-t border-[var(--line)] bg-[var(--bg-2)]">
       <div className="wrap grid gap-12 py-16 md:grid-cols-[1.3fr_repeat(3,1fr)]">
