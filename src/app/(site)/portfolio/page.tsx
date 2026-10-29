@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Fredoka, Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import {
   Bot,
@@ -33,7 +32,6 @@ import {
   AGENCE,
   CANDIDATURE,
   CARTES_FIDELITE,
-  CLIPS_TEMPLATES,
   COMPETENCES,
   DEMOS_METIERS,
   CONCEPT_PRIMAPS,
@@ -65,12 +63,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/portfolio" },
   robots: { index: false, follow: false },
 };
-
-// Polices de titre des 3 templates montrés en vidéo : seulement pour leur fiche « Aa ».
-const playfair = Playfair_Display({ subsets: ["latin"], weight: "400", display: "swap" });
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "500", display: "swap" });
-const fredoka = Fredoka({ subsets: ["latin"], weight: "600", display: "swap" });
-const POLICES = { playfair, cormorant, fredoka };
 
 const ICONES_COMPETENCES = {
   "Front-end": Code2,
@@ -430,58 +422,6 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="wrap">
-            <div className="mt-20 grid items-end gap-6 lg:grid-cols-[1fr_1fr]">
-              <div>
-                <p className="eyebrow">Direction artistique</p>
-                <h3 className="h2 mt-4 !text-[clamp(1.7rem,3vw,2.4rem)]">
-                  Trois templates, trois univers
-                </h3>
-              </div>
-              <p className="text-[16px] leading-relaxed text-[var(--muted)] lg:justify-self-end lg:max-w-md">
-                Pour chaque template, je pars d&apos;un métier et d&apos;une ambiance, puis je fixe une palette, un duo de polices et une signature visuelle.
-              </p>
-            </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {CLIPS_TEMPLATES.map((c) => (
-                <a
-                  key={c.clip}
-                  href={c.lien}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group reveal card pf-verre pf-lueur relative flex flex-col overflow-hidden !p-0"
-                >
-                  <span className="pf-spot" aria-hidden="true" />
-                  <div className="overflow-hidden border-b border-white/10">
-                    <Clip src={c.clip} poster={c.src} label={`Template ${c.libelle} qui défile avec ses animations`} className="aspect-[1080/676]" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-4">
-                      <span className={`${POLICES[c.police].className} text-[44px] leading-none text-white`} aria-hidden="true">
-                        Aa
-                      </span>
-                      <span className="leading-tight">
-                        <b className="block text-[16px] text-white">{c.libelle}</b>
-                        <span className="text-[13px] text-[var(--muted)]">{c.polices}</span>
-                      </span>
-                    </div>
-                    <ul className="mt-5 flex gap-2" aria-label="Palette">
-                      {c.couleurs.map((t) => (
-                        <li key={t.hex} className="flex-1">
-                          <span className="block h-10 rounded-lg ring-1 ring-white/15" style={{ background: t.hex }} />
-                          <span className="mt-1.5 block text-[11.5px] leading-tight text-[var(--muted)]">{t.nom}</span>
-                          <span className="block font-mono text-[11px] uppercase text-[var(--faint)]">{t.hex}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-5 flex-1 text-[14.5px] leading-relaxed text-[var(--muted)]">{c.signature}</p>
-                    <span className="mt-5 inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--accent)]">
-                      Voir en vrai <Fleche className="transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-
             <ol className="mt-16 grid gap-px overflow-hidden rounded-[22px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {PRINCIPES_DESIGN.map((p, i) => (
                 <li key={p.titre} className="reveal bg-[var(--bg)]/80 p-6 backdrop-blur">
