@@ -4,6 +4,7 @@
 /** Liens de candidature : un champ vide masque son bouton (rien d'inventé). */
 export const CANDIDATURE = {
   cv: "",
+  email: "mornet.romain2@gmail.com",
   demoPrimaps: "https://www.primaps.fr/invite/portfolio",
 };
 
