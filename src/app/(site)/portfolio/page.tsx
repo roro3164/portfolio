@@ -379,8 +379,8 @@ export default function Portfolio() {
               Restaurants, snacks, pizzerias, fleuristes, boulangerie… Je les
               dessine et je les intègre dans le constructeur de Primaps, à
               partir d&apos;une bibliothèque de sections et d&apos;effets
-              communs : chaque texte et chaque photo se modifie au clic. Chaque
-              aperçu s&apos;ouvre en vrai, avec ses animations.
+              communs : chaque texte et chaque photo se modifie au clic. Plus
+              bas, testez-les en vrai, métier par métier.
             </p>
           </div>
           <div className="mt-12">
