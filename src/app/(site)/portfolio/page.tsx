@@ -117,7 +117,7 @@ function Liens({ centre = false }: { centre?: boolean }) {
         </a>
       )}
       <a
-        href={`mailto:${SITE.email}`}
+        href={`mailto:${CANDIDATURE.email}`}
         className={`btn ${CANDIDATURE.cv ? "btn-ghost" : "btn-primary"}`}
       >
         <Mail className="h-[18px] w-[18px]" aria-hidden="true" />
@@ -624,7 +624,7 @@ export default function Portfolio() {
               <Liens centre />
             </div>
             <p className="relative mt-6 text-[14.5px] text-[var(--muted)]">
-              {SITE.email}
+              {CANDIDATURE.email}
             </p>
           </div>
         </div>

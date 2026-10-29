@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV, SITE } from "@/lib/site";
+import { CANDIDATURE } from "@/content/portfolio";
 import { Logo } from "./Logo";
 import { BasculeTheme } from "./BasculeTheme";
 
@@ -80,7 +81,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <BasculeTheme />
           {portfolio ? (
-            <a href={`mailto:${SITE.email}`} className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
+            <a href={`mailto:${CANDIDATURE.email}`} className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
               <Mail className="h-4 w-4" aria-hidden="true" />
               Me contacter
             </a>
@@ -124,7 +125,7 @@ export function Header() {
             </Link>
           ))}
           {portfolio ? (
-            <a href={`mailto:${SITE.email}`} className="btn btn-primary mt-8 w-full">
+            <a href={`mailto:${CANDIDATURE.email}`} className="btn btn-primary mt-8 w-full">
               <Mail className="h-4 w-4" aria-hidden="true" />
               Me contacter
             </a>
