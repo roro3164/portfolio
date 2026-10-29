@@ -131,16 +131,76 @@ export type ClipTemplate = {
   signature: string;
 };
 
-/** « Tester les templates » : une démo remplie par métier, des flèches pour passer d'un template à l'autre. */
+/** « Tester les templates » : la démo remplie de chaque template, affichée dans un MacBook et un iPhone. */
 // En local, la démo pointe vers l'aperçu Primaps du Mac (la page n'est pas encore en ligne) ;
 // le site en ligne pointe toujours vers primaps.fr.
-const DEMO = `${process.env.NODE_ENV === "development" ? "http://192.168.1.23:4112" : "https://www.primaps.fr"}/preview-templates/demo?m=`;
-export const DEMOS_METIERS = [
-  { libelle: "restaurant", nombre: 10, src: "/portfolio/templates/bistro-nina-bonita.webp", lien: `${DEMO}restaurant` },
-  { libelle: "asiatiques", nombre: 6, src: "/portfolio/templates/bistro-asian-izakaya.webp", lien: `${DEMO}asiatique` },
-  { libelle: "snack, burger et pizza", nombre: 10, src: "/portfolio/templates/snack-crousti-turquoise.webp", lien: `${DEMO}snack` },
-  { libelle: "boulangerie, pâtisserie et café", nombre: 3, src: "/portfolio/templates/patisserie-patisserie-pop-clair.webp", lien: `${DEMO}boulangerie` },
-  { libelle: "fleuriste et décoration", nombre: 4, src: "/portfolio/templates/fleuriste-fleuriste-jardin-clair.webp", lien: `${DEMO}commerces` },
+export const DEMO_BASE = `${process.env.NODE_ENV === "development" ? "http://192.168.1.23:4112" : "https://www.primaps.fr"}/preview-templates/demo`;
+export type DemoMetier = { id: string; libelle: string; templates: [nom: string, style: string][] };
+// Même ordre que METIERS dans app/preview-templates/demo/page.tsx (Primaps) : l'index i y renvoie.
+export const DEMOS_METIERS: DemoMetier[] = [
+  {
+    id: "restaurant",
+    libelle: "Restaurant",
+    templates: [
+      ["Restaurant 1", "Bodega andalouse"],
+      ["Restaurant 2", "Bistrot vitré sombre"],
+      ["Restaurant 3", "Bar à vins pierre et terracotta"],
+      ["Restaurant 4", "Bistrot parisien Didone"],
+      ["Restaurant 5", "Bistronomie laiton"],
+      ["Restaurant 6", "Méditerranéen sable et ocre"],
+      ["Restaurant 7", "Grill kraft et fumée"],
+      ["Restaurant 8", "Riad en arches"],
+      ["Restaurant 9", "Classique vert forêt et or"],
+      ["Bar 1", "Saloon whiskey"],
+    ],
+  },
+  {
+    id: "asiatique",
+    libelle: "Asiatique",
+    templates: [
+      ["Asiatique 1", "Izakaya laque et or"],
+      ["Asiatique 2", "Sushi bar en scène"],
+      ["Asiatique 3", "Izakaya de nuit, lanternes"],
+      ["Asiatique 4", "Table japonaise épurée"],
+      ["Asiatique 5", "Zen washi et vermillon"],
+      ["Asiatique 6", "Wok terracotta"],
+    ],
+  },
+  {
+    id: "snack",
+    libelle: "Snack, burger et pizza",
+    templates: [
+      ["Snack 1", "Pop solaire"],
+      ["Snack 2", "Kebab charbon et laiton"],
+      ["Snack 3", "Kebab en arche"],
+      ["Snack 4", "Affiche street"],
+      ["Burger 1", "Diner juke-box"],
+      ["Burger 2", "Béton et affiches"],
+      ["Burger 3", "Steakhouse noir"],
+      ["Burger 4", "Comptoir pastel"],
+      ["Burger 7", "Smash pop turquoise"],
+      ["Pizzeria 2", "Feu de bois nocturne"],
+    ],
+  },
+  {
+    id: "boulangerie",
+    libelle: "Boulangerie, pâtisserie et café",
+    templates: [
+      ["Boulangerie 1", "Boulangerie de quartier"],
+      ["Pâtisserie 1", "Pop gourmand"],
+      ["Coffee shop 1", "Coffee shop premium"],
+    ],
+  },
+  {
+    id: "commerces",
+    libelle: "Fleuriste et décoration",
+    templates: [
+      ["Fleuriste 1", "Atelier crème et vert"],
+      ["Fleuriste 2", "Serre nocturne"],
+      ["Fleuriste 3", "Atelier botanique"],
+      ["Décoration 1", "Éditorial papier"],
+    ],
+  },
 ];
 
 export const CLIPS_TEMPLATES: ClipTemplate[] = [

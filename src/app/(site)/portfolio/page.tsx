@@ -24,6 +24,7 @@ import { FondPortfolio } from "@/components/site/FondPortfolio";
 import { DuoAppareils, Iphone, Macbook } from "@/components/site/Appareils";
 import { Clip } from "@/components/site/Clip";
 import { MurTemplates } from "@/components/site/MurTemplates";
+import { VitrineTemplates } from "@/components/site/VitrineTemplates";
 import { VisitePrimaps } from "@/components/site/VisitePrimaps";
 import { LogoPrimaps } from "@/components/site/LogoPrimaps";
 import { PortraitSplit } from "@/components/site/PortraitSplit";
@@ -384,40 +385,12 @@ export default function Portfolio() {
                   </h3>
                   </div>
                   <p className="text-[16px] leading-relaxed text-[var(--muted)] lg:justify-self-end lg:max-w-md">
-                    Chaque démo est un vrai site rempli avec une maison fictive :
-                    on la fait défiler avec ses animations, et les flèches (ou
-                    ← → au clavier) changent de template.
+                    Chaque démo est un vrai site rempli avec une maison fictive,
+                    en version ordinateur et téléphone : on la fait défiler avec
+                    ses animations, et les flèches changent de template.
                   </p>
                 </div>
-                <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
-                  {DEMOS_METIERS.map((d) => (
-                    <li key={d.libelle} className="first:col-span-2 sm:first:col-span-1">
-                      <a
-                        href={d.lien}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex h-full flex-col overflow-hidden rounded-2xl ring-1 ring-white/12 transition hover:ring-white/35"
-                      >
-                        <span className="block aspect-[16/10] flex-none overflow-hidden">
-                          <Image
-                            src={d.src}
-                            alt=""
-                            width={640}
-                            height={400}
-                            className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.04]"
-                          />
-                        </span>
-                        <span className="flex flex-1 items-center justify-between gap-2 bg-white/[0.04] px-4 py-3">
-                          <span className="leading-tight">
-                            <b className="block text-[14px] text-white sm:text-[15px]">Visualiser les templates {d.libelle}</b>
-                            <span className="text-[12px] text-[var(--muted)]">{d.nombre} templates</span>
-                          </span>
-                          <span aria-hidden="true" className="text-white/70 transition group-hover:translate-x-1 group-hover:text-white">→</span>
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <VitrineTemplates metiers={DEMOS_METIERS} />
               </div>
             </div>
           </div>
