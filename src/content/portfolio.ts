@@ -115,26 +115,106 @@ export const CARTES_FIDELITE = [
 ];
 
 /** Clips des templates, en tête de la grille. */
-export const CLIPS_TEMPLATES = [
+/**
+ * Les 3 templates en vidéo, chacun avec sa fiche de direction artistique.
+ * Couleurs et polices relevées dans le code des templates Primaps (presets nina-bonita, fleuriste « jardin » clair, crousti).
+ */
+export type ClipTemplate = {
+  clip: string;
+  src: string;
+  libelle: string;
+  lien: string;
+  /** Clé de la police de titre chargée sur la page (next/font). */
+  police: "playfair" | "cormorant" | "fredoka";
+  polices: string;
+  couleurs: { hex: string; nom: string }[];
+  signature: string;
+};
+
+export const CLIPS_TEMPLATES: ClipTemplate[] = [
   {
     clip: "/portfolio/clips/tpl-nina.mp4",
     src: "/portfolio/clips/tpl-nina.jpg",
     libelle: "Restaurant 1",
     lien: "https://www.primaps.fr/preview-templates?s=bistro&v=nina-bonita&panel=1",
+    police: "playfair",
+    polices: "Playfair Display + Poppins",
+    couleurs: [
+      { hex: "#173d14", nom: "Vert andalou" },
+      { hex: "#fcc908", nom: "Or des titres" },
+      { hex: "#ffffff", nom: "Texte sur verre" },
+    ],
+    signature: "Bodega de nuit : vidéo en ouverture, titres or sur vert profond, cartes en verre sombre.",
   },
   {
     clip: "/portfolio/clips/tpl-fleuriste.mp4",
     src: "/portfolio/clips/tpl-fleuriste.jpg",
     libelle: "Fleuriste 1",
     lien: "https://www.primaps.fr/preview-templates?s=fleuriste&v=fleuriste-jardin-clair&panel=1",
+    police: "cormorant",
+    polices: "Cormorant Garamond + Jost",
+    couleurs: [
+      { hex: "#fdfaf4", nom: "Papier" },
+      { hex: "#3f5a2e", nom: "Feuillage" },
+      { hex: "#e8c9c4", nom: "Pétale" },
+    ],
+    signature: "Éditorial botanique : photos en arche, médaillon, serif fine et beaucoup d'air.",
   },
   {
     clip: "/portfolio/clips/tpl-burger.mp4",
     src: "/portfolio/clips/tpl-burger.jpg",
     libelle: "Burger 7",
     lien: "https://www.primaps.fr/preview-templates?s=snack&v=crousti-turquoise&panel=1",
+    police: "fredoka",
+    polices: "Fredoka + Poppins",
+    couleurs: [
+      { hex: "#2fa8ad", nom: "Turquoise" },
+      { hex: "#f4e04d", nom: "Soleil" },
+    ],
+    signature: "Street pop : aplats francs, typo ronde et grasse, carte pensée pour commander vite.",
   },
 ];
+
+/** Comment je dessine un template : ce que chaque template du catalogue respecte. */
+export const PRINCIPES_DESIGN = [
+  {
+    titre: "Une identité dès le premier écran",
+    texte: "Le hero porte toute la direction artistique (arches, motifs, vidéo, typo) : on reconnaît le template avant d'avoir défilé.",
+  },
+  {
+    titre: "Un système, pas des pages",
+    texte: "Header, hero, carte, galerie, avis… chaque section existe en variantes dans une bibliothèque commune, et les templates se composent à partir d'elles.",
+  },
+  {
+    titre: "Le mouvement au service du contenu",
+    texte: "Arche épinglée, cartes empilées, rangées qui glissent : une seule bibliothèque d'effets, coupés si le visiteur réduit les animations.",
+  },
+  {
+    titre: "Pensé pour être modifié",
+    texte: "Chaque texte et chaque photo se change au clic dans l'éditeur, et le rendu reste identique sur le site, dans l'éditeur et sur téléphone.",
+  },
+];
+
+/** Parcours, repris de la page À propos du site Romain DesignCode. */
+export const PARCOURS = [
+  {
+    titre: "Autodidacte",
+    texte: "J'ai commencé seul, le code comme le design.",
+  },
+  {
+    titre: "Diplôme en développement web",
+    texte: "Pour compléter ce parcours d'autodidacte par une formation reconnue.",
+  },
+  {
+    titre: "Certification en design UI/UX",
+    texte: "La seconde casquette : la même personne dessine l'interface, la code et la met en ligne.",
+  },
+  {
+    titre: "Romain DesignCode, puis Primaps",
+    texte: "Des boutiques Shopify et des sites vitrine pour des entreprises de toute la France. En travaillant avec des restaurants, j'ai vu qu'ils avaient tous le même besoin : j'ai créé Primaps.",
+  },
+];
+
 
 export const STACK_PRIMAPS = [
   "Next.js",
@@ -379,6 +459,7 @@ export const TEMPLATES: Template[] = [
 export const COMPETENCES = [
   {
     titre: "Front-end",
+    couleur: "violet",
     items: [
       "React, Next.js (App Router)",
       "TypeScript",
@@ -388,6 +469,7 @@ export const COMPETENCES = [
   },
   {
     titre: "Back-end & données",
+    couleur: "vert",
     items: [
       "Supabase : Postgres, RLS, Realtime, fonctions",
       "API REST, webhooks, Stripe",
@@ -397,6 +479,7 @@ export const COMPETENCES = [
   },
   {
     titre: "IA & automatisation",
+    couleur: "bleu",
     items: [
       "Agents IA avec Claude Code et MCP",
       "Orchestration multi-agents",
@@ -406,6 +489,7 @@ export const COMPETENCES = [
   },
   {
     titre: "Design & e-commerce",
+    couleur: "rose",
     items: [
       "Design UI/UX, systèmes de composants",
       "Templates de sites et maquettes",

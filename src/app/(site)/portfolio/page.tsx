@@ -1,10 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Fredoka, Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import {
   Bot,
+  BrainCircuit,
   CalendarCheck,
+  Code2,
+  Database,
+  PenTool,
   Gift,
   Search,
   Sparkles,
@@ -31,6 +36,8 @@ import {
   CLIPS_TEMPLATES,
   COMPETENCES,
   CONCEPT_PRIMAPS,
+  PARCOURS,
+  PRINCIPES_DESIGN,
   VISITE_PRIMAPS,
   STACK_PRIMAPS,
   TEMPLATES,
@@ -57,6 +64,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/portfolio" },
   robots: { index: false, follow: false },
 };
+
+// Polices de titre des 3 templates montrés en vidéo : seulement pour leur fiche « Aa ».
+const playfair = Playfair_Display({ subsets: ["latin"], weight: "400", display: "swap" });
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "500", display: "swap" });
+const fredoka = Fredoka({ subsets: ["latin"], weight: "600", display: "swap" });
+const POLICES = { playfair, cormorant, fredoka };
+
+const ICONES_COMPETENCES = {
+  "Front-end": Code2,
+  "Back-end & données": Database,
+  "IA & automatisation": BrainCircuit,
+  "Design & e-commerce": PenTool,
+} as const;
 
 const TEINTES = ["violet", "bleu", "vert", "or", "rose", "cyan"];
 
@@ -360,28 +380,67 @@ export default function Portfolio() {
             <MurTemplates templates={TEMPLATES} />
           </div>
           <div className="wrap">
-            <div className="mt-14 grid gap-6 md:grid-cols-3">
+            <div className="mt-20 grid items-end gap-6 lg:grid-cols-[1fr_1fr]">
+              <div>
+                <p className="eyebrow">Direction artistique</p>
+                <h3 className="h2 mt-4 !text-[clamp(1.7rem,3vw,2.4rem)]">
+                  Trois templates, trois univers
+                </h3>
+              </div>
+              <p className="text-[16px] leading-relaxed text-[var(--muted)] lg:justify-self-end lg:max-w-md">
+                Pour chaque template, je pars d&apos;un métier et d&apos;une ambiance, puis je fixe une palette, un duo de polices et une signature visuelle.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
               {CLIPS_TEMPLATES.map((c) => (
                 <a
                   key={c.clip}
                   href={c.lien}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group reveal block"
+                  className="group reveal card pf-verre pf-lueur relative flex flex-col overflow-hidden !p-0"
                 >
-                  <div className="overflow-hidden rounded-2xl border border-white/10">
+                  <span className="pf-spot" aria-hidden="true" />
+                  <div className="overflow-hidden border-b border-white/10">
                     <Clip src={c.clip} poster={c.src} label={`Template ${c.libelle} qui défile avec ses animations`} className="aspect-[1080/676]" />
                   </div>
-                  <p className="mt-3 flex items-center justify-between gap-3">
-                    <span className="font-semibold text-white">{c.libelle}</span>
-                    <span className="inline-flex items-center gap-1 text-[14px] text-[var(--accent)]">
-                      Voir en vrai{" "}
-                      <Fleche className="transition-transform group-hover:translate-x-1" />
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center gap-4">
+                      <span className={`${POLICES[c.police].className} text-[44px] leading-none text-white`} aria-hidden="true">
+                        Aa
+                      </span>
+                      <span className="leading-tight">
+                        <b className="block text-[16px] text-white">{c.libelle}</b>
+                        <span className="text-[13px] text-[var(--muted)]">{c.polices}</span>
+                      </span>
+                    </div>
+                    <ul className="mt-5 flex gap-2" aria-label="Palette">
+                      {c.couleurs.map((t) => (
+                        <li key={t.hex} className="flex-1">
+                          <span className="block h-10 rounded-lg ring-1 ring-white/15" style={{ background: t.hex }} />
+                          <span className="mt-1.5 block text-[11.5px] leading-tight text-[var(--muted)]">{t.nom}</span>
+                          <span className="block font-mono text-[11px] uppercase text-[var(--faint)]">{t.hex}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-5 flex-1 text-[14.5px] leading-relaxed text-[var(--muted)]">{c.signature}</p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--accent)]">
+                      Voir en vrai <Fleche className="transition-transform group-hover:translate-x-1" />
                     </span>
-                  </p>
+                  </div>
                 </a>
               ))}
             </div>
+
+            <ol className="mt-16 grid gap-px overflow-hidden rounded-[22px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+              {PRINCIPES_DESIGN.map((p, i) => (
+                <li key={p.titre} className="reveal bg-[var(--bg)]/80 p-6 backdrop-blur">
+                  <p className="font-mono text-[12.5px] text-[var(--accent)]">{String(i + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-2 text-[1.08rem] font-bold leading-snug text-white">{p.titre}</h3>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--muted)]">{p.texte}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
       )}
@@ -430,53 +489,59 @@ export default function Portfolio() {
                   </Link>
                 </div>
                 <div className={`lg:col-span-5 ${i % 2 ? "lg:order-1" : ""}`}>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="font-mono text-[13px] text-[var(--accent)]">
+                    {String(i + 1).padStart(2, "0")} / {String(ETUDES.length).padStart(2, "0")}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
                     <span className="pack-etiquette">{p.type}</span>
                     <span className="chip-teinte">
                       {p.secteur} · {p.ville}
                     </span>
                   </div>
-                  <h3 className="mt-5 text-[1.8rem] font-bold leading-tight tracking-tight">
+                  <h3 className="mt-5 text-[1.9rem] font-bold leading-tight tracking-tight">
                     {p.nom}
                   </h3>
-                  <p className="mt-4 text-[16px] leading-relaxed text-[var(--muted)]">
-                    <span className="font-semibold text-white">
-                      Le problème.{" "}
-                    </span>
-                    {p.defi}
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    {p.solution.map((r) => (
-                      <li
-                        key={r}
-                        className="flex gap-3 text-[15.5px] leading-relaxed text-[var(--muted)]"
-                      >
-                        <Coche />
-                        <span>{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-4 text-[16px] leading-relaxed text-white">
-                    {p.resultat}
-                  </p>
+                  <p className="mt-3 text-[16.5px] leading-relaxed text-white">{p.accroche}</p>
                   {p.chiffres.length > 0 && (
-                    <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
-                      {p.chiffres.map((c) => (
-                        <div key={c.libelle}>
+                    <dl className="mt-6 grid grid-cols-2 gap-3">
+                      {p.chiffres.slice(0, 4).map((c) => (
+                        <div key={c.libelle} className="card pf-verre !rounded-2xl !p-4">
                           <dt className="sr-only">{c.libelle}</dt>
-                          <dd className="text-[1.6rem] font-bold leading-none text-white">
-                            {c.valeur}
-                          </dd>
-                          <dd className="mt-1 text-[13.5px] text-[var(--muted)]">
-                            {c.libelle}
-                          </dd>
+                          <dd className="grad text-[1.45rem] font-bold leading-none">{c.valeur}</dd>
+                          <dd className="mt-1.5 text-[13px] leading-snug text-[var(--muted)]">{c.libelle}</dd>
                         </div>
                       ))}
                     </dl>
                   )}
+                  <details className="group/etude mt-6 border-t border-white/10 pt-5">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-white [&::-webkit-details-marker]:hidden">
+                      Le problème, ce que j&apos;ai fait, le résultat
+                      <span className="text-[var(--accent)] transition-transform group-open/etude:rotate-45" aria-hidden="true">+</span>
+                    </summary>
+                    <p className="mt-4 text-[15.5px] leading-relaxed text-[var(--muted)]">
+                      <span className="font-semibold text-white">Le problème. </span>
+                      {p.defi}
+                    </p>
+                    <ul className="mt-4 space-y-2">
+                      {p.solution.map((r) => (
+                        <li key={r} className="flex gap-3 text-[15px] leading-relaxed text-[var(--muted)]">
+                          <Coche />
+                          <span>{r}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-4 text-[15.5px] leading-relaxed text-[var(--muted)]">
+                      <span className="font-semibold text-white">Le résultat. </span>
+                      {p.resultat}
+                    </p>
+                  </details>
                   <div className="mt-6">
                     <Pastilles items={p.stack} />
                   </div>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex items-center gap-2 font-semibold text-[var(--accent)]">
+                    Voir le site en ligne
+                    <Fleche className="transition-transform group-hover:translate-x-1" />
+                  </a>
                 </div>
               </article>
             ))}
@@ -484,7 +549,37 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* 5. Compétences */}
+      {/* 5. Parcours */}
+      <section className="section scroll-mt-24 pt-0" aria-labelledby="parcours-titre">
+        <div className="wrap grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="eyebrow">Parcours</p>
+            <h2 id="parcours-titre" className="h2 mt-4">
+              Une double casquette, design et code
+            </h2>
+            <p className="lead mt-5 max-w-md">
+              C&apos;est ce qui fait la différence : la même personne dessine le site, le code et le met en ligne.
+            </p>
+          </div>
+          <ol className="relative grid gap-4 border-l border-white/10 pl-8">
+            {PARCOURS.map((e, i) => (
+              <li key={e.titre} className="reveal relative">
+                <span className="absolute -left-[41px] top-5 grid h-5 w-5 place-items-center rounded-full border border-[var(--violet)] bg-[var(--bg)]" aria-hidden="true">
+                  <i className="block h-2 w-2 rounded-full bg-[var(--violet-2)] shadow-[0_0_12px_var(--violet)]" />
+                </span>
+                <div className="card pf-verre pf-lueur relative p-6">
+                  <span className="pf-spot" aria-hidden="true" />
+                  <p className="font-mono text-[12.5px] text-[var(--accent)]">{String(i + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-1 text-[1.15rem] font-bold text-white">{e.titre}</h3>
+                  <p className="mt-2 text-[15.5px] leading-relaxed text-[var(--muted)]">{e.texte}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 6. Compétences */}
       <section
         id="competences"
         className="section scroll-mt-24 pt-0"
@@ -496,29 +591,31 @@ export default function Portfolio() {
             Du design à la production
           </h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {COMPETENCES.map((c) => (
-              <div key={c.titre} className="card pf-verre pf-lueur relative p-6">
-                <span className="pf-spot" aria-hidden="true" />
-                <h3 className="text-[1.15rem] font-bold text-white">
-                  {c.titre}
-                </h3>
-                <ul className="mt-4 space-y-2">
-                  {c.items.map((it) => (
-                    <li
-                      key={it}
-                      className="text-[15px] leading-relaxed text-[var(--muted)]"
-                    >
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {COMPETENCES.map((c) => {
+              const Icone = ICONES_COMPETENCES[c.titre as keyof typeof ICONES_COMPETENCES] ?? Code2;
+              return (
+                <div key={c.titre} data-couleur={c.couleur} className="reveal carte-laser lent pf-lueur relative p-6">
+                  <span className="pf-spot" aria-hidden="true" />
+                  <span className="icone-service" aria-hidden="true">
+                    <Icone className="h-[18px] w-[18px]" strokeWidth={2} />
+                  </span>
+                  <h3 className="mt-5 text-[1.15rem] font-bold text-white">{c.titre}</h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {c.items.map((it) => (
+                      <li key={it} className="flex gap-2.5 text-[15px] leading-relaxed text-[var(--muted)]">
+                        <Coche />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 6. Contact */}
+      {/* 7. Contact */}
       <section className="section pt-0" aria-labelledby="contact-titre">
         <div className="wrap">
           <div className="carte-laser pf-lueur lent relative overflow-hidden px-6 py-14 text-center [--radius:28px] sm:px-12">
