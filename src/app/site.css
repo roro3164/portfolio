@@ -2130,7 +2130,7 @@ a.tuile:hover {
 @media (max-width: 767px) {
   .vt-scene { padding: 0; }
   .vt-scene .vt-iphone { position: relative; right: auto; width: min(280px, 82%); margin: 0 auto; transform: none; }
-  .vt-pilote { gap: 10px; padding: 6px; width: 100%; margin-top: 18px; }
+  .vt-pilote { box-sizing: border-box; gap: 10px; padding: 6px; width: 100%; margin-top: 18px; }
   .vt-compte, .vt-plein { display: none; }
   .vt-nom { min-width: 0; flex: 1; }
   .vt-fleche { width: 44px; height: 44px; font-size: 18px; }
