@@ -258,22 +258,30 @@ export const CLIPS_TEMPLATES: ClipTemplate[] = [
 /** Comment je dessine un template : ce que chaque template du catalogue respecte. */
 export const PRINCIPES_DESIGN = [
   {
+    icone: "identite",
     titre: "Une identité dès le premier écran",
-    texte: "Le hero porte toute la direction artistique (arches, motifs, vidéo, typo) : on reconnaît le template avant d'avoir défilé.",
+    texte: "Le hero porte toute la direction artistique : on reconnaît le template avant même de défiler.",
+    points: ["Arches et motifs sur mesure", "Vidéo ou photo plein cadre", "Typographies choisies par métier"],
   },
   {
+    icone: "systeme",
     titre: "Un système, pas des pages",
-    texte: "Header, hero, carte, galerie, avis… chaque section existe en variantes dans une bibliothèque commune, et les templates se composent à partir d'elles.",
+    texte: "Chaque section existe en plusieurs variantes dans une bibliothèque commune. Un template, c'est un assemblage de ces briques.",
+    points: ["Header, hero, carte, galerie, avis", "Briques réutilisées partout", "Variantes combinables entre elles"],
   },
   {
+    icone: "mouvement",
     titre: "Le mouvement au service du contenu",
-    texte: "Arche épinglée, cartes empilées, rangées qui glissent : une seule bibliothèque d'effets, coupés si le visiteur réduit les animations.",
+    texte: "Les animations guident l'œil vers le plat, la carte ou le bouton réserver, jamais l'inverse.",
+    points: ["Arche épinglée, cartes empilées", "Rangées qui glissent au défilement", "Coupées si le visiteur le demande"],
   },
   {
+    icone: "edition",
     titre: "Pensé pour être modifié",
-    texte: "Chaque texte et chaque photo se change au clic dans l'éditeur, et le rendu reste identique sur le site, dans l'éditeur et sur téléphone.",
+    texte: "Le commerçant change un texte ou une photo d'un clic, et le rendu reste identique partout.",
+    points: ["Édition au clic, sans code", "Même rendu site, éditeur, mobile", "Changement de template sans perte"],
   },
-];
+] as const;
 
 /** Parcours, repris de la page À propos du site Romain DesignCode. */
 export const PARCOURS = [
