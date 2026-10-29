@@ -1993,18 +1993,15 @@ a.tuile:hover {
 /* ── Portfolio : mur de templates en perspective ───────────────────── */
 .mur { position: relative; height: clamp(460px, 62vw, 760px); overflow: hidden; border-radius: 28px; border: 1px solid var(--line); background: var(--bg-2);
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); }
-.mur-plan { --mur-gap: 22px; position: absolute; left: 50%; top: 50%; width: max(1500px, 120%); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: var(--mur-gap); transform: translate(-50%, -22%) rotateX(52deg) rotateZ(-38deg); transform-origin: 50% 22%; }
+.mur-plan { --mur-gap: 22px; position: absolute; left: 50%; top: 50%; width: max(1500px, 120%); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: var(--mur-gap); transform: translate(-50%, -22%) rotateX(30deg) rotateZ(-16deg); transform-origin: 50% 22%; }
 /* -22 % : la fenêtre vise le haut des colonnes, la seule zone toujours pleine pendant la boucle (sinon une bande vide passe au milieu) */
 .mur-col { display: flex; flex-direction: column; gap: var(--mur-gap); animation: mur-haut 50s linear infinite; will-change: transform; }
 .mur-col[data-sens="bas"] { animation-name: mur-bas; }
 /* une copie = la moitié de la colonne + un demi-écart */
 @keyframes mur-haut { from { transform: translateY(0); } to { transform: translateY(calc(-50% - var(--mur-gap) / 2)); } }
 @keyframes mur-bas { from { transform: translateY(calc(-50% - var(--mur-gap) / 2)); } to { transform: translateY(0); } }
-.mur:hover .mur-col, .mur:focus-within .mur-col { animation-play-state: paused; }
 .mur-tuile { position: relative; display: block; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 30px 40px -24px rgba(0, 0, 0, 0.8); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
-.mur-tuile:hover, .mur-tuile:focus-visible { transform: translateY(-10px); box-shadow: 0 40px 50px -20px rgba(var(--m1), 0.55); }
 .mur-legende { position: absolute; inset: auto 0 0; padding: 26px 14px 11px; font-size: 14px; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.82)); opacity: 0; transition: opacity .3s ease; }
-.mur-tuile:hover .mur-legende, .mur-tuile:focus-visible .mur-legende { opacity: 1; }
 @media (max-width: 767px) { .mur-plan { --mur-gap: 14px; width: 1100px; } }
 @media (prefers-reduced-motion: reduce) {
   .mur-col, .vp-defile { animation: none; }
@@ -2111,9 +2108,13 @@ a.tuile:hover {
 .vt-chargement { position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%) 0 0 / 200% 100%; animation: vt-luit 1.4s linear infinite; }
 @keyframes vt-luit { to { background-position: -200% 0; } }
 .vt-pilote { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; width: max-content; max-width: 100%; margin: -28px auto 0; padding: 8px 8px 8px 8px; border-radius: 999px; background: rgba(14, 14, 18, 0.72); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 20px 50px -18px rgba(0, 0, 0, 0.8); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
-.vt-fleche { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; font-size: 19px; color: #fff; background: rgba(255, 255, 255, 0.08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14); transition: transform .2s, background .2s, color .2s; }
-.vt-fleche:hover { transform: scale(1.06); color: #111; background: #fff; }
-.vt-fleche-suite { color: #111; background: #fff; box-shadow: none; }
+.vt-fleche { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; color: #fff; background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 10px 24px -12px rgba(0,0,0,.6); backdrop-filter: blur(8px); transition: transform .25s cubic-bezier(.2,.7,.2,1), background .2s, color .2s, box-shadow .25s; }
+.vt-fleche svg { transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+.vt-fleche-prec svg { transform: rotate(180deg); }
+.vt-fleche-prec:hover svg { transform: rotate(180deg) translateX(3px); }
+.vt-fleche-suite:hover svg { transform: translateX(3px); }
+.vt-fleche:hover { transform: translateY(-1px); color: #111; background: #fff; box-shadow: 0 12px 28px -10px rgba(var(--m1), 0.6); }
+.vt-fleche-suite { color: #fff; background: linear-gradient(135deg, rgb(var(--m1)), #7c5cff); box-shadow: 0 10px 26px -10px rgba(var(--m1), .7); }
 .vt-nom { display: flex; flex-direction: column; min-width: 210px; line-height: 1.25; }
 .vt-nom b { font-size: 17px; color: #fff; animation: vt-entre .45s ease both; }
 .vt-nom span { font-size: 13px; color: var(--muted); }
@@ -2133,7 +2134,7 @@ a.tuile:hover {
   .vt-pilote { box-sizing: border-box; gap: 10px; padding: 6px; width: 100%; margin-top: 18px; }
   .vt-compte, .vt-plein { display: none; }
   .vt-nom { min-width: 0; flex: 1; }
-  .vt-fleche { width: 44px; height: 44px; font-size: 18px; }
+  .vt-fleche { width: 44px; height: 44px; border-radius: 14px; }
   .vt-metiers { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin: 0 -20px; padding: 0 20px; scrollbar-width: none; }
   .vt-metiers button { flex: none; }
 }

@@ -61,6 +61,7 @@ export const VISITE_PRIMAPS = [
       "Primaps interroge Google sur une grille de 49 points autour du restaurant et affiche sa position à chaque endroit, face à ses concurrents. Le restaurateur voit d'un coup d'œil où il perd des clients, avec les priorités pour remonter.",
     points: ["Grille de positions", "Classement des concurrents", "Priorités d'action"],
     src: "/portfolio/primaps/m-visibilite.webp",
+    mobile: "/portfolio/primaps/tel-visibilite.webp",
     alt: "Primaps, carte des positions Google Maps autour du restaurant",
   },
   {
@@ -71,6 +72,7 @@ export const VISITE_PRIMAPS = [
       "Tous les avis Google arrivent au même endroit, ceux sans réponse en premier. L'IA propose une réponse ; le restaurateur la relit, la modifie s'il veut, et l'envoie.",
     points: ["Réponses proposées par l'IA", "Note et volume d'avis", "Fiche Google à jour"],
     src: "/portfolio/primaps/m-avis.webp",
+    mobile: "/portfolio/primaps/tel-avis.webp",
     alt: "Primaps, réponses aux avis Google avec l'aide de l'IA",
   },
   {
@@ -92,6 +94,7 @@ export const VISITE_PRIMAPS = [
       "Chaque restaurant a son plan de salle dessiné à l'échelle : salle, bar, terrasse, étage. Les réservations du site et de la fiche Google s'y placent table par table, sur la frise du service : libres, réservées, à table ou en retard. Aucune commission par couvert.",
     points: ["Plan de salle à l'échelle", "Frise du service", "Sans commission"],
     src: "/portfolio/primaps/m-reservations.webp",
+    mobile: "/portfolio/primaps/tel-reservations.webp",
     alt: "Primaps, module Réservations avec le plan de salle du Bistrot Fernand, terrasse comprise",
   },
   {
@@ -102,6 +105,7 @@ export const VISITE_PRIMAPS = [
       "Le client commande et paie sur le site. En cuisine, chaque commande avance de colonne en colonne : reçue, en préparation, prête, récupérée. Là encore, sans commission.",
     points: ["Paiement en ligne", "Suivi en cuisine", "Créneaux de retrait"],
     src: "/portfolio/primaps/m-commandes.webp",
+    mobile: "/portfolio/primaps/tel-commandes.webp",
     alt: "Primaps, suivi des commandes click & collect en cuisine",
   },
 ];
