@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { Iphone, Macbook } from "./Appareils";
 import { DEMO_BASE, type DemoMetier } from "@/content/portfolio";
 
-// « Tester les templates » : la vraie démo d'un template (primaps.fr, sans sa barre) tourne dans
-// un MacBook (1440 × 900) et un iPhone (390 × 844) ; on choisit le métier et on passe d'un template à l'autre.
+// « Tester les templates » : la vraie démo d'un template (primaps.fr, sans sa barre) tourne dans un grand
+// MacBook (1440 × 900 ; un iPhone 390 × 844 sur téléphone), les boutons métier au-dessus, les flèches de chaque côté.
 
 /** Iframe rendue à sa taille réelle puis réduite à la largeur de l'écran de l'appareil. */
 function Ecran({ src, largeur, hauteur, titre }: { src: string; largeur: number; hauteur: number; titre: string }) {
@@ -75,31 +75,29 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
       </div>
 
       <div className="vt-scene">
-        {/* Sur téléphone, seul l'iPhone : deux sites complets en même temps seraient trop lourds. */}
-        {large && (
-          <Macbook className="vt-mac">
-            <Ecran src={src} largeur={1440} hauteur={900} titre={`${nom}, version ordinateur`} />
-          </Macbook>
-        )}
-        <Iphone className="vt-iphone">
-          <Ecran src={src} largeur={390} hauteur={844} titre={`${nom}, version téléphone`} />
-        </Iphone>
-      </div>
-
-      <div className="vt-nav">
         <button type="button" onClick={() => aller(-1)} aria-label="Template précédent" className="vt-fleche">
           ←
         </button>
-        <p aria-live="polite">
-          <b>{nom}</b>
-          <span>
-            {style} · {i + 1}/{n}
-          </span>
-        </p>
+        {large ? (
+          <Macbook className="vt-mac">
+            <Ecran src={src} largeur={1440} hauteur={900} titre={`${nom}, version ordinateur`} />
+          </Macbook>
+        ) : (
+          <Iphone className="vt-iphone">
+            <Ecran src={src} largeur={390} hauteur={844} titre={`${nom}, version téléphone`} />
+          </Iphone>
+        )}
         <button type="button" onClick={() => aller(1)} aria-label="Template suivant" className="vt-fleche">
           →
         </button>
       </div>
+
+      <p className="vt-nom" aria-live="polite">
+        <b>{nom}</b>
+        <span>
+          {style} · {i + 1}/{n}
+        </span>
+      </p>
       <p className="vt-aide">
         Faites défiler dans l&apos;écran pour parcourir le site.{" "}
         <a href={`${DEMO_BASE}?m=${metier.id}&i=${i}`} target="_blank" rel="noopener noreferrer">

@@ -2085,29 +2085,29 @@ a.tuile:hover {
 .pf section[id] { scroll-margin-top: 88px; }
 
 /* Portfolio — « Tester les templates » : la démo dans un MacBook et un iPhone */
+.vt { min-width: 0; }
 .vt-metiers { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .vt-metiers button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12); transition: color .2s, background .2s; }
 .vt-metiers button:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
 .vt-metiers button span { font-size: 12px; font-weight: 500; opacity: .7; }
 .vt-metiers button[aria-selected="true"] { color: #111; background: #fff; box-shadow: none; }
-.vt-scene { position: relative; margin: 40px auto 0; }
-.vt-mac { width: 86%; }
-.vt-iphone { position: absolute; right: 0; bottom: -2%; width: 19%; }
+.vt-scene { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 20px; margin-top: 40px; }
+.vt-mac { width: 100%; }
+.vt-iphone { width: min(290px, 100%); margin: 0 auto; }
 .vt-ecran { position: relative; overflow: hidden; background: #0b0b0e; }
 .vt-ecran iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; transition: opacity .35s ease; }
 .vt-chargement { position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%) 0 0 / 200% 100%; animation: vt-luit 1.4s linear infinite; }
 @keyframes vt-luit { to { background-position: -200% 0; } }
-.vt-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 36px; }
-.vt-nav p { display: flex; flex-direction: column; align-items: center; min-width: 240px; text-align: center; line-height: 1.3; }
-.vt-nav b { font-size: 17px; color: #fff; }
-.vt-nav span { font-size: 13.5px; color: var(--muted); }
-.vt-fleche { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 999px; font-size: 20px; color: #fff; background: rgba(255, 255, 255, 0.08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14); transition: background .2s; }
-.vt-fleche:hover { background: rgba(255, 255, 255, 0.18); }
+.vt-fleche { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; font-size: 22px; color: #fff; background: rgba(255, 255, 255, 0.08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16); transition: background .2s, transform .2s; }
+.vt-fleche:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.06); }
+.vt-nom { display: flex; flex-direction: column; align-items: center; margin-top: 28px; text-align: center; line-height: 1.3; }
+.vt-nom b { font-size: 18px; color: #fff; }
+.vt-nom span { font-size: 13.5px; color: var(--muted); }
 .vt-aide { margin-top: 12px; text-align: center; font-size: 13px; color: var(--muted); }
 .vt-aide a { color: var(--accent); font-weight: 600; }
 @media (max-width: 767px) {
-  .vt-iphone { position: relative; right: auto; bottom: auto; width: min(290px, 78%); margin: 0 auto; }
-  .vt-nav p { min-width: 0; flex: 1; }
+  .vt-scene { gap: 8px; }
+  .vt-fleche { width: 42px; height: 42px; font-size: 18px; }
   .vt-metiers { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin: 0 -20px; padding: 0 20px; scrollbar-width: none; }
   .vt-metiers button { flex: none; }
 }
