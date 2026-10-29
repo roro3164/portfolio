@@ -51,7 +51,13 @@ export function Header() {
           resserre || ouvert ? "entete-verre mx-auto pl-6 xl:w-[88%]" : "mx-auto w-full pl-0"
         }`}
       >
-        <Logo hauteur={28} href={portfolio ? "#contenu" : "/"} />
+        {portfolio ? (
+          <a href="#contenu" className="text-[17px] font-bold tracking-tight text-[var(--fort)]">
+            {SITE.fondateur}
+          </a>
+        ) : (
+          <Logo hauteur={28} href="/" />
+        )}
 
         <nav aria-label="Navigation principale" className="hidden lg:block">
           <ul className="flex items-center gap-0.5">
