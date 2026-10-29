@@ -41,6 +41,7 @@ import {
   VISITE_PRIMAPS,
   STACK_PRIMAPS,
   TEMPLATES,
+  SYSTEME_TEMPLATES,
 } from "@/content/portfolio";
 import { ETUDES } from "@/content/projets";
 import { SITE } from "@/lib/site";
@@ -365,15 +366,34 @@ export default function Portfolio() {
           <div className="wrap">
             <p className="eyebrow">Design de templates</p>
             <h2 id="templates-titre" className="h2 mt-4 max-w-3xl">
-              {TEMPLATES.length} templates de sites, chacun avec sa direction
-              artistique
+              Pas {TEMPLATES.length} templates figés : un système de sections
+              qui se combinent
             </h2>
             <p className="lead mt-5 max-w-2xl">
-              Restaurants, snacks, pizzerias, fleuristes, boulangerie… Je les
-              dessine et je les intègre dans le constructeur de Primaps, à
-              partir d&apos;une bibliothèque de sections et d&apos;effets
-              communs : chaque texte et chaque photo se modifie au clic. Chaque
-              aperçu s&apos;ouvre en vrai, avec ses animations.
+              Chaque template est un assemblage de sections tirées d&apos;une
+              bibliothèque commune. Le commerçant n&apos;a besoin de rien
+              connaître au web : tout se fait au clic, directement sur sa page.
+              Il change la variante d&apos;une section et ses textes et ses
+              photos suivent ; il ajoute, déplace ou retire des sections,
+              choisit sa couleur, ses polices, le mode clair ou sombre et
+              l&apos;effet de chaque section. Rien n&apos;est figé : il peut
+              tout changer à tout moment, même une fois son site en ligne.
+            </p>
+            <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+              {SYSTEME_TEMPLATES.map((s) => (
+                <li key={s.libelle} className="card pf-verre reveal !p-5">
+                  <b className="block text-[clamp(1.8rem,3vw,2.4rem)] leading-none text-white">{s.valeur}</b>
+                  <span className="mt-2 block text-[14px] leading-snug text-[var(--muted)]">{s.libelle}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 max-w-3xl text-[16px] leading-relaxed text-[var(--muted)]">
+              Pour une page de restaurant à 9 sections (en-tête, hero, à propos,
+              menu, galerie, avis, bannière, contact, pied de page), cela donne
+              plus de 5 600 milliards d&apos;assemblages possibles, avant même
+              de toucher aux couleurs et aux polices. Tous ne se valent pas : les{" "}
+              {TEMPLATES.length} templates ci-dessous sont ceux que j&apos;ai
+              dessinés et vérifiés. Ce sont des points de départ, pas une limite.
             </p>
           </div>
           <div className="mt-12">
