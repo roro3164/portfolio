@@ -84,7 +84,8 @@ const ICONES_COMPETENCES = {
 } as const;
 
 // Les 4 couleurs des cartes 01-04 (violet, vert, bleu, rose), puis or et cyan.
-const TEINTES = ["violet", "vert", "bleu", "rose", "or", "cyan"];
+/** Les 4 couleurs Primaps. */
+const TEINTES = ["p-bleu", "p-jaune", "p-vert", "p-rouge"];
 
 function Pastilles({ items, couleurs = false }: { items: string[]; couleurs?: boolean }) {
   return (

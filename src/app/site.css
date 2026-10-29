@@ -679,6 +679,14 @@ a.carte-laser:hover::after { background: linear-gradient(160deg, rgba(var(--l1),
 .chip-teinte i { width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: rgb(var(--l1)); box-shadow: 0 0 10px rgba(var(--l1), 0.9); }
 
 /* Primaps : laser et accents aux 4 couleurs Google (bleu, vert, jaune, rouge) */
+[data-couleur="p-bleu"] { --l1: 66, 133, 244; --l2: 26, 115, 232; --l-clair: #d2e3fc; --accent: #8ab4f8; }
+[data-couleur="p-jaune"] { --l1: 251, 188, 4; --l2: 234, 160, 0; --l-clair: #feefc3; --accent: #fdd663; }
+[data-couleur="p-vert"] { --l1: 52, 168, 83; --l2: 30, 142, 62; --l-clair: #ceead6; --accent: #81c995; }
+[data-couleur="p-rouge"] { --l1: 234, 67, 53; --l2: 217, 48, 37; --l-clair: #fad2cf; --accent: #f28b82; }
+:root[data-theme="clair"] [data-couleur="p-bleu"] { --accent: #1a73e8; }
+:root[data-theme="clair"] [data-couleur="p-jaune"] { --accent: #b06000; }
+:root[data-theme="clair"] [data-couleur="p-vert"] { --accent: #188038; }
+:root[data-theme="clair"] [data-couleur="p-rouge"] { --accent: #c5221f; }
 [data-couleur="google"] { --l1: 66, 133, 244; --l2: 52, 168, 83; --l-clair: #ffffff; --accent: #8ab4f8; }
 .carte-laser[data-couleur="google"]::before {
   background: conic-gradient(
