@@ -15,6 +15,8 @@ export type EtapeVisite = {
   src: string;
   clip?: string;
   alt: string;
+  /** Écran téléphone 390 × 844 de la même fonction ; sans lui, le site mobile défile. */
+  mobile?: string;
 };
 
 /** Écran du MacBook : toutes les captures empilées, seule l'active est visible (fondu). */
@@ -92,14 +94,22 @@ export function VisitePrimaps({ etapes }: { etapes: EtapeVisite[] }) {
             <div className="vp-tel">
               <Iphone>
                 <div className="vp-tel-ecran">
-                  <Image
-                    src="/portfolio/primaps/m-site-mobile.webp"
-                    alt="Le site du Petit Kreuzberg sur téléphone, créé avec Primaps"
-                    width={390}
-                    height={3200}
-                    sizes="170px"
-                    className="vp-defile"
-                  />
+                  {etapes.map((e, i) => (
+                    <div key={e.id} className="vp-ecran" data-actif={i === active || undefined} aria-hidden={i !== active}>
+                      {e.mobile ? (
+                        <Image src={e.mobile} alt={`${e.alt}, sur téléphone`} width={780} height={1688} sizes="170px" className="h-auto w-full" />
+                      ) : (
+                        <Image
+                          src="/portfolio/primaps/m-site-mobile.webp"
+                          alt="Le site du Petit Kreuzberg sur téléphone, créé avec Primaps"
+                          width={390}
+                          height={3200}
+                          sizes="170px"
+                          className="vp-defile"
+                        />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </Iphone>
             </div>

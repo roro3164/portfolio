@@ -94,8 +94,8 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
       </div>
 
       <div className="vt-pilote">
-        <button type="button" onClick={() => aller(-1)} aria-label="Template précédent" className="vt-fleche">
-          ←
+        <button type="button" onClick={() => aller(-1)} aria-label="Template précédent" className="vt-fleche vt-fleche-prec">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </button>
         <div className="vt-nom" aria-live="polite">
           <b key={nom}>{nom}</b>
@@ -118,13 +118,12 @@ export function VitrineTemplates({ metiers }: { metiers: DemoMetier[] }) {
           </div>
         </div>
         <button type="button" onClick={() => aller(1)} aria-label="Template suivant" className="vt-fleche vt-fleche-suite">
-          →
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </button>
         <a className="vt-plein" href={`${DEMO_BASE}?m=${metier.id}&i=${i}`} target="_blank" rel="noopener noreferrer">
           Plein écran ↗
         </a>
       </div>
-      <p className="vt-aide">Même contenu, autre template : faites défiler dans les écrans pour parcourir le site.</p>
     </div>
   );
 }
