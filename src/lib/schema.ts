@@ -1,3 +1,4 @@
+import { DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import { SITE } from "./site";
 
 // Entités schema.org réutilisées : l'entreprise et son fondateur ont des @id
@@ -44,7 +45,7 @@ export const entreprise = {
     "@type": "OfferCatalog",
     name: "Services",
     itemListElement: [
-      { "@type": "Offer", price: "0", priceCurrency: "EUR", itemOffered: { "@type": "Service", name: "Démo gratuite de votre futur site, en ligne", url: `${SITE.url}/demo-gratuite` } },
+      ...(DEMO_GRATUITE_ACTIVE ? [{ "@type": "Offer", price: "0", priceCurrency: "EUR", itemOffered: { "@type": "Service", name: "Démo gratuite de votre futur site, en ligne", url: `${SITE.url}/demo-gratuite` } }] : []),
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site e-commerce", url: `${SITE.url}/creation-site-e-commerce` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site vitrine", url: `${SITE.url}/creation-site-vitrine` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Référencement local, fiche Google et visibilité sur ChatGPT (GEO)", url: `${SITE.url}/referencement-local` } },

@@ -1,4 +1,5 @@
 "use client";
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import Image from "next/image";
 import Link from "next/link";
 import SplitScreen from "./SplitScreen";
@@ -155,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({
           {showButtons && (
             <div className="flex flex-col gap-2 sm:gap-4 lg:gap-6 w-full items-center lg:items-start">
               <div className="text-[#9788fb] font-bold tracking-wide text-base sm:text-xl">
-                Demander sa démo gratuite
+                {DEMO_GRATUITE_ACTIVE ? "Demander sa démo gratuite" : "Parlons de votre projet"}
               </div>
 
               <div className="w-full max-w-[400px] lg:max-w-[500px] relative z-30 flex flex-col sm:flex-row gap-3">
@@ -164,7 +165,7 @@ export const Hero: React.FC<HeroProps> = ({
                   className="flex-1 cursor-pointer"
                 >
                   <ButtonNeuromorphic
-                    text="Ma démo gratuite"
+                    text={CTA.court}
                     size="md"
                     fontSize={22}
                     borderRadius={12}

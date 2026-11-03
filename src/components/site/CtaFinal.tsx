@@ -1,4 +1,6 @@
-import { Gift, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
+import { IconeCta } from "@/components/site/IconeCta";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { DemoTablette } from "./DemoTablette";
@@ -7,8 +9,10 @@ import { PastilleOffre } from "./PastilleOffre";
 // Appel final : texte + bouton à gauche, à droite une tablette où une démo de
 // site se construit élément par élément, en boucle.
 export function CtaFinal({
-  titre = "Recevez votre démo gratuite.",
-  texte = "Présentez-moi votre activité : je crée une vraie démo de votre futur site, en ligne et à votre nom. Vous la testez avant de décider, sans engagement.",
+  titre = DEMO_GRATUITE_ACTIVE ? "Recevez votre démo gratuite." : "Parlons de votre projet.",
+  texte = DEMO_GRATUITE_ACTIVE
+    ? "Présentez-moi votre activité : je crée une vraie démo de votre futur site, en ligne et à votre nom. Vous la testez avant de décider, sans engagement."
+    : "Présentez-moi votre activité et ce que votre site doit rapporter : je vous réponds avec un devis détaillé.",
 }: {
   titre?: string;
   texte?: string;
@@ -22,9 +26,9 @@ export function CtaFinal({
             <h2 className="h2 mx-auto max-w-xl lg:mx-0">{titre}</h2>
             <p className="lead mx-auto mt-5 max-w-xl lg:mx-0">{texte}</p>
             <div className="mt-9 flex flex-col items-center gap-5 sm:flex-row sm:justify-center lg:justify-start">
-              <Link href="/demo-gratuite" className="btn btn-primary !min-h-[56px] w-full !px-7 !text-[16.5px] sm:w-auto">
-                <Gift className="h-[18px] w-[18px]" aria-hidden="true" />
-                Recevoir ma démo gratuite
+              <Link href={CTA.href} className="btn btn-primary !min-h-[56px] w-full !px-7 !text-[16.5px] sm:w-auto">
+                <IconeCta className="h-[18px] w-[18px]" aria-hidden="true" />
+                {CTA.long}
               </Link>
               <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 text-[14.5px] text-[var(--muted)] underline-offset-4 hover:text-[var(--fort)] hover:underline">
                 <Mail className="h-4 w-4" aria-hidden="true" />
@@ -35,9 +39,11 @@ export function CtaFinal({
 
           <div className="relative mx-auto w-full max-w-[500px]" aria-hidden="true">
             <DemoTablette />
-            <div className="cta-pastille hidden sm:block">
-              <PastilleOffre id="cercle-offre-cta" decorative />
-            </div>
+            {DEMO_GRATUITE_ACTIVE && (
+              <div className="cta-pastille hidden sm:block">
+                <PastilleOffre id="cercle-offre-cta" decorative />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
@@ -28,7 +29,7 @@ const COLONNES = [
   {
     titre: "Contact",
     liens: [
-      { href: "/demo-gratuite", label: "Démo gratuite" },
+      { href: CTA.href, label: DEMO_GRATUITE_ACTIVE ? "Démo gratuite" : "Me contacter" },
       { href: `mailto:${SITE.email}`, label: SITE.email },
       { href: SITE.reseaux.linkedin, label: "LinkedIn" },
       { href: SITE.reseaux.instagram, label: "Instagram" },

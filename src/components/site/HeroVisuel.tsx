@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import { Iphone } from "./Appareils";
 import { PastilleOffre } from "./PastilleOffre";
 import { SiteTerreEtSel, SiteTerreEtSelMobile, useConstruction } from "./TerreEtSel";
@@ -69,9 +70,11 @@ export function HeroVisuel() {
         </div>
 
         {/* Sceau « Démo offerte », sur le modèle de la pastille de primaps.fr */}
-        <div className="hero-pastille">
-          <PastilleOffre id="cercle-offre-hero" />
-        </div>
+        {DEMO_GRATUITE_ACTIVE && (
+          <div className="hero-pastille">
+            <PastilleOffre id="cercle-offre-hero" />
+          </div>
+        )}
       </div>
     </div>
   );

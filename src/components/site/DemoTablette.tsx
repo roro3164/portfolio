@@ -1,5 +1,6 @@
 "use client";
 
+import { DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import { Ipad } from "./Appareils";
 import { SiteTerreEtSel, URL_DEMO } from "./TerreEtSel";
 
@@ -17,8 +18,8 @@ export function DemoTablette() {
       <div className="demo-toast tablette-toast tablette-toast-fixe">
         <span className="demo-toast-point" />
         <span className="text-[14px] leading-tight">
-          <b className="block text-white">Votre démo est en ligne</b>
-          <span className="text-[13px] text-[var(--muted)]">Prête à tester sur mobile et ordinateur</span>
+          <b className="block text-white">{DEMO_GRATUITE_ACTIVE ? "Votre démo est en ligne" : "Votre site est en ligne"}</b>
+          <span className="text-[13px] text-[var(--muted)]">{DEMO_GRATUITE_ACTIVE ? "Prête à tester sur mobile et ordinateur" : "Sur ordinateur et sur mobile"}</span>
         </span>
       </div>
     </div>

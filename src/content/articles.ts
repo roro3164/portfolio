@@ -1,3 +1,5 @@
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
+
 // Articles du blog. Le texte des paragraphes accepte **gras** et [lien](url).
 // Chaque article cible une recherche précise et renvoie vers une page service.
 
@@ -96,8 +98,8 @@ export const ARTICLES: Article[] = [
         encadre: {
           titre: "Besoin d'un chiffrage précis ?",
           texte: "Décrivez votre projet en quelques lignes : je vous réponds sous 24 h avec un devis détaillé poste par poste.",
-          lien: "/demo-gratuite",
-          libelle: "Recevoir ma démo gratuite",
+          lien: CTA.href,
+          libelle: CTA.long,
         },
       },
     ],
@@ -300,7 +302,7 @@ export const ARTICLES: Article[] = [
         encadre: {
           titre: "Vous préparez une refonte ?",
           texte: "Je reprends l'inventaire de votre site actuel avant de commencer, et je redirige chaque page.",
-          lien: "/demo-gratuite?projet=Refonte%20d%27un%20site",
+          lien: DEMO_GRATUITE_ACTIVE ? "/demo-gratuite?projet=Refonte%20d%27un%20site" : CTA.href,
           libelle: "Parler de ma refonte",
         },
       },

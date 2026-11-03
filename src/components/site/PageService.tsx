@@ -1,8 +1,9 @@
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
+import { IconeCta } from "@/components/site/IconeCta";
 import { Methode } from "./Methode";
 import {
   Boxes,
   Gem,
-  Gift,
   Mail,
   MapPin,
   Phone,
@@ -123,9 +124,9 @@ export function PageService({ c }: { c: ContenuService }) {
             <h1 className="h1 mt-5 !text-[clamp(2.3rem,4.8vw,4rem)]">{c.h1}</h1>
             <p className="lead mt-6 max-w-xl">{c.lead}</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/demo-gratuite" className="btn btn-primary">
-                <Gift className="h-4 w-4" aria-hidden="true" />
-                Recevoir ma démo gratuite
+              <Link href={CTA.href} className="btn btn-primary">
+                <IconeCta className="h-4 w-4" aria-hidden="true" />
+                {CTA.long}
               </Link>
               <Link href="#realisations" className="btn btn-ghost">
                 Voir des exemples
@@ -193,8 +194,8 @@ export function PageService({ c }: { c: ContenuService }) {
                   </div>
                   <h3 className="h3 mt-6">{p.titre}</h3>
                   <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--muted)]">{p.texte}</p>
-                  <Link href="/demo-gratuite" className="group mt-auto inline-flex items-center gap-2 pt-6 text-[14.5px] font-semibold text-[var(--accent)]">
-                    C&apos;est votre cas ? Recevez votre démo
+                  <Link href={CTA.href} className="group mt-auto inline-flex items-center gap-2 pt-6 text-[14.5px] font-semibold text-[var(--accent)]">
+                    C&apos;est votre cas ? {DEMO_GRATUITE_ACTIVE ? "Recevez votre démo" : "Parlons-en"}
                     <Fleche className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

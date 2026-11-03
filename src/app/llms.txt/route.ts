@@ -1,5 +1,6 @@
 import { ARTICLES } from "@/content/articles";
 import { ETUDES } from "@/content/projets";
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import { SITE } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -9,7 +10,7 @@ export function GET() {
   const u = SITE.url;
   const corps = `# ${SITE.nom}
 
-> ${SITE.nom} est l'entreprise de ${SITE.fondateur}, développeur web et designer basé à ${SITE.ville} (France). Il crée des sites e-commerce Shopify sur-mesure, des sites vitrine et accompagne le référencement local (fiche Google) et la visibilité dans les réponses des assistants IA comme ChatGPT (GEO). Il est aussi le fondateur de Primaps (${SITE.primaps}), un abonnement de visibilité en ligne pour les restaurants. Tarifs : sur devis. Offre d'entrée : une démo gratuite du futur site, réellement en ligne, à tester sans engagement (${u}/demo-gratuite). Zone : ${SITE.ville} et toute la France.
+> ${SITE.nom} est l'entreprise de ${SITE.fondateur}, développeur web et designer basé à ${SITE.ville} (France). Il crée des sites e-commerce Shopify sur-mesure, des sites vitrine et accompagne le référencement local (fiche Google) et la visibilité dans les réponses des assistants IA comme ChatGPT (GEO). Il est aussi le fondateur de Primaps (${SITE.primaps}), un abonnement de visibilité en ligne pour les restaurants. Tarifs : sur devis.${DEMO_GRATUITE_ACTIVE ? ` Offre d'entrée : une démo gratuite du futur site, réellement en ligne, à tester sans engagement (${u}/demo-gratuite).` : ""} Zone : ${SITE.ville} et toute la France.
 
 ## Services
 - [Création de site e-commerce](${u}/creation-site-e-commerce) : boutiques Shopify sur-mesure, import et synchronisation de catalogues jusqu'à plus de 10 000 produits, SEO e-commerce.
@@ -24,7 +25,7 @@ ${ETUDES.map((e) => `- [${e.nom}](${u}/realisations/${e.slug}) : ${e.accroche} $
 ${ARTICLES.map((a) => `- [${a.titre}](${u}/blog/${a.slug}) : ${a.resume}`).join("\n")}
 
 ## Contact
-- Démo gratuite et devis : ${u}/demo-gratuite
+- ${DEMO_GRATUITE_ACTIVE ? "Démo gratuite et devis" : "Contact et devis"} : ${u}${CTA.href}
 - E-mail : ${SITE.email}
 - À propos : ${u}/a-propos
 - SIRET : ${SITE.siret}
