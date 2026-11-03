@@ -1,5 +1,6 @@
 "use client";
 
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
@@ -24,7 +25,7 @@ function VignetteDemo() {
     <div className="vignette v-demo">
       <div className="v-nav">
         <span className="v-url">votre-site.fr</span>
-        <span className="v-enligne">En ligne</span>
+        <span className="v-enligne">{DEMO_GRATUITE_ACTIVE ? "En ligne" : "À valider"}</span>
       </div>
       <div className="v-page">
         <i className="w-3/5" />
@@ -66,7 +67,9 @@ function VignetteSuivi() {
 
 const ETAPES: { t: string; d: string; livrable: string; vignette: ReactNode; c: "rose" | "violet" | "bleu" | "vert"; offert?: boolean }[] = [
   { t: "On en parle", d: "Votre activité, vos clients, ce que le site doit rapporter.", livrable: "Brief de votre projet", vignette: <VignetteEchange />, c: "rose" },
-  { t: "Votre démo gratuite", d: "Un vrai site en ligne, à tester avant de payer quoi que ce soit.", livrable: "Démo en ligne", vignette: <VignetteDemo />, c: "violet", offert: true },
+  DEMO_GRATUITE_ACTIVE
+    ? { t: "Votre démo gratuite", d: "Un vrai site en ligne, à tester avant de payer quoi que ce soit.", livrable: "Démo en ligne", vignette: <VignetteDemo />, c: "violet", offert: true }
+    : { t: "Devis et design", d: "Un devis détaillé poste par poste, et le design à valider avant le développement.", livrable: "Devis détaillé", vignette: <VignetteDemo />, c: "violet" },
   { t: "Je construis", d: "Devis validé : développement, contenus, catalogue et référencement.", livrable: "Site prêt à tester", vignette: <VignetteConstruction />, c: "bleu" },
   { t: "En ligne et suivi", d: "Mise en ligne, prise en main, puis évolutions et résultats.", livrable: "Suivi des résultats", vignette: <VignetteSuivi />, c: "vert" },
 ];
@@ -152,7 +155,7 @@ export function Methode() {
                   <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-4">
                     <span className="frise-livrable">{e.livrable}</span>
                     {e.offert && (
-                      <Link href="/demo-gratuite" className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[var(--accent)]">
+                      <Link href={CTA.href} className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[var(--accent)]">
                         La demander
                         <Fleche className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>

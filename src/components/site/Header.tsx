@@ -1,6 +1,8 @@
 "use client";
 
-import { Gift, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { CTA } from "@/lib/offre";
+import { IconeCta } from "@/components/site/IconeCta";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -86,9 +88,9 @@ export function Header() {
               Me contacter
             </a>
           ) : (
-            <Link href="/demo-gratuite" className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
-              <Gift className="h-4 w-4" aria-hidden="true" />
-              Ma démo gratuite
+            <Link href={CTA.href} className="btn btn-primary hidden !min-h-[44px] !px-5 !text-[14.5px] sm:inline-flex">
+              <IconeCta className="h-4 w-4" aria-hidden="true" />
+              {CTA.court}
             </Link>
           )}
           <button
@@ -131,9 +133,9 @@ export function Header() {
             </a>
           ) : (
             <>
-              <Link href="/demo-gratuite" className="btn btn-primary mt-8 w-full">
-                <Gift className="h-4 w-4" aria-hidden="true" />
-                Ma démo gratuite
+              <Link href={CTA.href} className="btn btn-primary mt-8 w-full">
+                <IconeCta className="h-4 w-4" aria-hidden="true" />
+                {CTA.court}
               </Link>
               <a href="https://www.primaps.fr" className="btn btn-ghost mt-3 w-full">
                 Vous êtes un restaurant ? Primaps

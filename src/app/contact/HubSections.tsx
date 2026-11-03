@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MessageSquare, Mail, TrendingUp, ClipboardList, PlayCircle } from "lucide-react";
+import { DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
 import { HUB_CONTACT, whatsappNumber } from "./hubConfig";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -15,7 +16,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 const SECTIONS: { title: string; message: string; icon: React.ElementType }[] = [
   { title: "Booster ma visibilité google", message: "Bonjour Romain, je souhaite booster ma visibilité sur Google. Peux-tu m'aider à analyser mes résultats ?", icon: TrendingUp },
-  { title: "Recevoir ma démo gratuite", message: "Bonjour Romain, je souhaite recevoir la démo gratuite de mon futur site web.", icon: PlayCircle },
+  ...(DEMO_GRATUITE_ACTIVE ? [{ title: "Recevoir ma démo gratuite", message: "Bonjour Romain, je souhaite recevoir la démo gratuite de mon futur site web.", icon: PlayCircle }] : []),
   { title: "Recevoir mon test de visibilité gratuit", message: "Bonjour Romain, je souhaite recevoir mon audit de visibilité gratuit pour mon commerce.", icon: ClipboardList },
 ];
 

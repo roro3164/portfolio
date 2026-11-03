@@ -1,5 +1,6 @@
 "use client";
 
+import { CTA } from "@/lib/offre";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -362,7 +363,7 @@ const Header: React.FC<{ minimal?: boolean }> = ({ minimal = false }) => {
           headerVariant="glass-sticky"
         >
           <div onClick={handleContactClick} className="cursor-pointer">
-            <ButtonNeuromorphic text="Ma démo gratuite" size="sm" />
+            <ButtonNeuromorphic text={CTA.court} size="sm" />
           </div>
         </Navbar>
       )}

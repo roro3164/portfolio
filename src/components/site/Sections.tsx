@@ -1,4 +1,6 @@
-import { CalendarCheck, Gift, Globe, MapPin, ShoppingBag, Star } from "lucide-react";
+import { CTA } from "@/lib/offre";
+import { IconeCta } from "@/components/site/IconeCta";
+import { CalendarCheck, Globe, MapPin, ShoppingBag, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ETUDES, type EtudeDeCas } from "@/content/projets";
@@ -240,8 +242,8 @@ export function APropos({ visuel = "photo" }: { visuel?: "photo" | "portrait" })
             <li className="chip-teinte">Certifié design UI/UX</li>
           </ul>
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <Link href="/demo-gratuite" className="btn btn-primary">
-              <Gift className="h-[18px] w-[18px]" aria-hidden="true" /> Recevoir ma démo gratuite
+            <Link href={CTA.href} className="btn btn-primary">
+              <IconeCta className="h-[18px] w-[18px]" aria-hidden="true" /> {CTA.long}
             </Link>
             <Link href="/a-propos" className="btn btn-ghost">
               Mon parcours <Fleche />

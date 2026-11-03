@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { CTA, DEMO_GRATUITE_ACTIVE } from "./src/lib/offre";
 
 const nextConfig: NextConfig = {
   eslint: {
@@ -9,8 +10,9 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/devis", destination: "/demo-gratuite", permanent: true },
-      { source: "/maquette-gratuite", destination: "/demo-gratuite", permanent: true },
+      ...(DEMO_GRATUITE_ACTIVE ? [] : [{ source: "/demo-gratuite", destination: CTA.href, permanent: true }]),
+      { source: "/devis", destination: CTA.href, permanent: true },
+      { source: "/maquette-gratuite", destination: CTA.href, permanent: true },
     ];
   },
 };

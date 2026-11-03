@@ -1,5 +1,6 @@
 import { Methode } from "./Methode";
-import { Gift } from "lucide-react";
+import { CTA, DEMO_GRATUITE_ACTIVE } from "@/lib/offre";
+import { IconeCta } from "@/components/site/IconeCta";
 import Link from "next/link";
 import { BandeLogos } from "@/components/site/BandeLogos";
 import { BentoServices } from "@/components/site/BentoServices";
@@ -16,10 +17,10 @@ import { SITE } from "@/lib/site";
 
 
 const QUESTIONS: QR[] = [
-  {
+  ...(!DEMO_GRATUITE_ACTIVE ? [] : [{
     q: "La démo est-elle vraiment gratuite ?",
     r: "Oui. Vous me présentez votre activité et je crée une vraie démo de votre futur site, en ligne, à votre nom, avec vos textes, vos photos et vos couleurs. Vous la testez sur votre téléphone et votre ordinateur. Si elle vous plaît, je vous envoie un devis détaillé pour la finaliser. Sinon, vous ne payez rien et vous n'êtes engagé à rien.",
-  },
+  }]),
   {
     q: "Combien coûte la création d'un site ?",
     r: "Chaque projet est chiffré sur devis, car le prix dépend surtout du nombre de pages, du catalogue produits et des fonctionnalités (paiement, réservation, synchronisation fournisseurs). Le devis est gratuit, détaillé poste par poste, et vous le recevez rapidement après notre premier échange.",
@@ -73,9 +74,9 @@ export function Accueil() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-              <Link href="/demo-gratuite" className="btn btn-primary !min-h-[56px] !px-7 !text-[16.5px]">
-                <Gift className="h-[18px] w-[18px]" aria-hidden="true" />
-                Recevoir ma démo gratuite
+              <Link href={CTA.href} className="btn btn-primary !min-h-[56px] !px-7 !text-[16.5px]">
+                <IconeCta className="h-[18px] w-[18px]" aria-hidden="true" />
+                {CTA.long}
               </Link>
             </div>
 
@@ -102,7 +103,7 @@ export function Accueil() {
       <BandeLogos />
 
 
-      <DemoOfferte />
+      {DEMO_GRATUITE_ACTIVE && <DemoOfferte />}
 
       <BentoServices />
 
